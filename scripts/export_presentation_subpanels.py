@@ -88,10 +88,30 @@ def export_fig1_subpanels():
     ax.set_facecolor('#f5f5f7')
     scatter = ax.scatter(artemis_sites['lon'], artemis_sites['lat'], c=artemis_sites['Bmag'], cmap='plasma', s=120,
                          edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
+    
+    site_offsets = {
+        'Haworth': (-8, -4, 'right'),
+        'Malapert Mountain': (6, 6, 'left'),
+        'Connecting Ridge': (6, -6, 'left'),
+        'Connecting Ridge Extension': (6, 12, 'left'),
+        'Peak Near Shackleton': (6, -10, 'left'),
+        'Shackleton-de Gerlache Ridge': (6, 4, 'left'),
+        'de Gerlache Rim 1': (6, -6, 'left'),
+        'de Gerlache Rim 2': (6, 8, 'left'),
+        'de Gerlache-Kocher Massif': (6, -8, 'left'),
+        'Slater Plain': (6, 0, 'left'),
+        'Amundsen Rim': (6, 0, 'left'),
+        'Nobile Rim 1': (6, 4, 'left'),
+        'Nobile Rim 2': (6, -4, 'left'),
+        'Faustini Rim A': (6, 0, 'left'),
+        'Leibnitz Beta Plateau': (6, 0, 'left'),
+    }
+
     for _, row in artemis_sites.iterrows():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
+        ox, oy, ha = site_offsets.get(row['name'], (5, 0, 'left'))
         ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=6.8, ha='left', va='center', xytext=(5, 0), textcoords='offset points',
+                    fontsize=6.8, ha=ha, va='center', xytext=(ox, oy), textcoords='offset points',
                     bbox=dict(boxstyle='round,pad=0.15', facecolor='white', alpha=0.8, edgecolor='#999999', lw=0.4))
     ax.set_xlim(-20, 380)
     ax.set_ylim(-90.5, -83.5)
@@ -137,9 +157,9 @@ def export_fig1_subpanels():
             fontsize=8.5, weight='bold', ha='center', va='center', color='#01579b')
     ax.text(5.0, 8.1, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
             fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
-    cham_rect = patches.FancyBboxPatch((0.8, 1.0), 8.4, 6.2, boxstyle="round,pad=0.3", edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
+    cham_rect = patches.FancyBboxPatch((0.4, 0.4), 9.2, 7.0, boxstyle="round,pad=0.3", edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
     ax.add_patch(cham_rect)
-    ax.text(5.0, 6.7, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.2, ha='center', color='#263238')
+    ax.text(5.0, 7.0, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', color='#263238')
     contributions = [
         (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetism", "#1565c0"),
         (r"$\mathbf{B}_{\mathrm{ext}}$", "1 – 5 nT", "Solar wind IMF / magnetotail shadow", "#2e7d32"),
@@ -147,16 +167,16 @@ def export_fig1_subpanels():
         (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Fans, pumps, heaters, LEDs [Ripple]", "#e65100"),
         (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis causal rescue coils", "#6a1b9a"),
     ]
-    y_start = 5.7
+    y_start = 6.0
     for symbol, mag, desc, col in contributions:
-        ax.text(1.2, y_start, symbol, fontsize=8.8, weight='bold', color=col, va='center')
-        ax.text(2.4, y_start, f"[{mag}]", fontsize=7.6, weight='bold', color='#333333', va='center')
-        ax.text(4.2, y_start, desc, fontsize=7.2, color='#455a64', va='center')
-        y_start -= 0.92
-    warn_rect = patches.FancyBboxPatch((1.0, 0.9), 8.0, 0.8, boxstyle="round,pad=0.15", edgecolor="#d32f2f", facecolor="#ffebee", lw=0.8)
+        ax.text(0.9, y_start, symbol, fontsize=8.2, weight='bold', color=col, va='center')
+        ax.text(2.0, y_start, f"[{mag}]", fontsize=7.0, weight='bold', color='#333333', va='center')
+        ax.text(3.7, y_start, desc, fontsize=6.8, color='#455a64', va='center')
+        y_start -= 0.88
+    warn_rect = patches.FancyBboxPatch((0.7, 0.6), 8.6, 1.15, boxstyle="round,pad=0.15", edgecolor="#d32f2f", facecolor="#ffebee", lw=0.8)
     ax.add_patch(warn_rect)
-    ax.text(5.0, 1.3, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-            fontsize=6.8, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.0, 1.18, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
+            fontsize=6.5, weight='bold', ha='center', va='center', color='#b71c1c')
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig1d_superposition_box.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
@@ -247,11 +267,11 @@ def export_fig2_subpanels():
     for i in range(len(categories)):
         drop = (nnmf_vals[i] - gmf_vals[i]) / gmf_vals[i] * 100
         y_max = max(gmf_vals[i], nnmf_vals[i])
-        ax.text(x[i], y_max * 1.05, f"{drop:.1f}%", ha='center', fontsize=7.2, color='#b71c1c', weight='bold')
+        ax.text(x[i], y_max + 3.0, f"{drop:.1f}%", ha='center', fontsize=7.2, color='#b71c1c', weight='bold')
     ax.set_xticks(x)
     ax.set_xticklabels(categories, fontsize=7.2)
     ax.set_ylabel('Seedling Metric Value')
-    ax.set_ylim(0, 118)
+    ax.set_ylim(0, 130)
     ax.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
     ax.grid(axis='y', linestyle=':', alpha=0.6)
     ax.text(0.04, 0.70, 'Day 5 Vegetative Penalty:\n• Radicle length: -33.0%\n• Hypocotyl height: -31.0%\n• Fresh weight: -29.1%\n• Harvestable yield: -28.5%',

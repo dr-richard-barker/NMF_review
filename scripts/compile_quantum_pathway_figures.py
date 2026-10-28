@@ -140,12 +140,12 @@ def main():
     ax_qbm.text(87, 41, "0–72 h Phenotype:\n• Germination Rate\n• Emergence Speed\n• Seedling Vigor",
                 fontsize=6.2, ha='center', color="#d84315")
 
-    # Connective arrows
-    ax_qbm.annotate('', xy=(14, 38), xytext=(14, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#e65100'))
-    ax_qbm.annotate('', xy=(14, 14), xytext=(14, 38), arrowprops=dict(arrowstyle='->', lw=1.2, color='#e65100'))
+    # Connective arrows (strictly box-edge to box-edge, zero text collision)
+    ax_qbm.annotate('', xy=(14, 54), xytext=(14, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#e65100'))
+    ax_qbm.annotate('', xy=(14, 30), xytext=(14, 38), arrowprops=dict(arrowstyle='->', lw=1.2, color='#e65100'))
     ax_qbm.annotate('', xy=(30, 70), xytext=(23, 70), arrowprops=dict(arrowstyle='->', lw=1.2, color='#3f51b5'))
-    ax_qbm.annotate('', xy=(38, 38), xytext=(38, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#3f51b5'))
-    ax_qbm.annotate('', xy=(38, 14), xytext=(38, 38), arrowprops=dict(arrowstyle='->', lw=1.2, color='#3f51b5'))
+    ax_qbm.annotate('', xy=(38, 54), xytext=(38, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#3f51b5'))
+    ax_qbm.annotate('', xy=(38, 30), xytext=(38, 38), arrowprops=dict(arrowstyle='->', lw=1.2, color='#3f51b5'))
     ax_qbm.annotate('', xy=(53, 70), xytext=(46, 22), arrowprops=dict(arrowstyle='->', lw=1.2, color='#00897b', linestyle='--'))
     ax_qbm.annotate('', xy=(53, 46), xytext=(46, 22), arrowprops=dict(arrowstyle='->', lw=1.2, color='#d32f2f'))
     ax_qbm.annotate('', xy=(79, 46), xytext=(72, 70), arrowprops=dict(arrowstyle='->', lw=1.4, color='#2e7d32'))
@@ -160,30 +160,37 @@ def main():
     ax_tier.set_ylim(0, 100)
     ax_tier.set_title('(b) Evidentiary Tiers & Biophysical Timescale Constraints', weight='bold')
 
-    # Draw 4 Tier Legend Cards
+    # Draw 4 Tier Legend Cards (Cleanly distributed from y=48 to y=96)
     tier_defs = [
-        ("T1: Demonstrated Field Effect", "Solid black border (2.0 pt); applied field directly measured on biomolecule (e.g. CRY1/2 radical pair)", OKABE['T1'], '-'),
-        ("T2: Inferred from Complex", "Solid blue border (1.5 pt); demonstrated for containing pathway (e.g. AOX buffering, Fv/Fm, Ferritin)", OKABE['T2'], '-'),
-        ("T3: Plausible Physical Route", "Dashed vermillion border (1.5 pt); spin/quantum mechanism plausible but unmeasured in vivo (e.g. Complex III Qo)", OKABE['T3'], '--'),
-        ("T4: Contextual Scaffold", "Hairline grey border (0.8 pt); structural/metabolic scaffold lacking magnetic claim", OKABE['T4'], '-')
+        ("T1: Demonstrated Field Effect", "Solid black border (2.0 pt); applied field directly measured on biomolecule (e.g. CRY1/2 radical pair)", OKABE['T1'], '-', 85),
+        ("T2: Inferred from Complex", "Solid blue border (1.5 pt); demonstrated for containing pathway (e.g. AOX buffering, Fv/Fm, Ferritin)", OKABE['T2'], '-', 72),
+        ("T3: Plausible Physical Route", "Dashed vermillion border (1.5 pt); spin/quantum mechanism plausible but unmeasured in vivo (e.g. Complex III Qo)", OKABE['T3'], '--', 59),
+        ("T4: Contextual Scaffold", "Hairline grey border (0.8 pt); structural/metabolic scaffold lacking magnetic claim", OKABE['T4'], '-', 46)
     ]
     
-    y_c = 82
-    for t_name, t_desc, col, ls in tier_defs:
-        b = patches.FancyBboxPatch((2, y_c - 11), 96, 14, boxstyle="round,pad=0.2",
+    for t_name, t_desc, col, ls, y_pos in tier_defs:
+        b = patches.FancyBboxPatch((2, y_pos), 96, 11, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor=col, facecolor='#fafafa', lw=1.3 if col != OKABE['T4'] else 0.8, linestyle=ls)
         ax_tier.add_patch(b)
-        ax_tier.text(5, y_c - 2, t_name, fontsize=7.0, weight='bold', color=col)
-        ax_tier.text(5, y_c - 8, t_desc, fontsize=6.2, color='#424242')
-        y_c -= 17
+        ax_tier.text(5, y_pos + 7.5, t_name, fontsize=6.8, weight='bold', color=col, va='center')
+        ax_tier.text(5, y_pos + 3.0, t_desc, fontsize=5.9, color='#424242', va='center')
 
-    # Timescale comparison box (Bottom)
-    t_box = patches.FancyBboxPatch((2, 2), 96, 26, boxstyle="round,pad=0.2",
-                                  edgecolor="#5e35b1", facecolor="#ede7f6", lw=1.0)
+    # Timescale comparison box (Bottom: y=3 to 41, height 38)
+    t_box = patches.FancyBboxPatch((2, 3), 96, 38, boxstyle="round,pad=0,rounding_size=2",
+                                   edgecolor="#5e35b1", facecolor="#ede7f6", lw=1.0)
     ax_tier.add_patch(t_box)
-    ax_tier.text(50, 22, "PHYSICAL TIMESCALE CRITERION FOR MAGNETIC RECEPTION", fontsize=7.2, weight='bold', color="#4527a0", ha='center')
-    ax_tier.text(50, 12, "• Zeeman Precession (50 µT GMF): vL ≈ 1.4 MHz (τL ≈ 714 ns) — Attenuated to <8 kHz in Lunar HMF\n• Radical-Pair Spin Coherence: τcoh ~ 1 µs [MATCHES GMF / Attenuated in HMF]\n• PSII Primary Charge Separation: ~200 ps [10^6× TOO FAST FOR DIRECT MF EFFECT]\n• Complex III Qo Semiquinone-Rieske: Exchange coupling J ~ GHz >> GMF [Refutes runaway ROS leak]",
-                 fontsize=6.0, color="#212121", ha='center')
+    ax_tier.text(50, 36.5, "PHYSICAL TIMESCALE CRITERION FOR MAGNETIC RECEPTION", fontsize=7.2, weight='bold', color="#4527a0", ha='center', va='center')
+    
+    timescale_bullets = [
+        "• Zeeman Precession (50 µT GMF): vL ≈ 1.4 MHz (τL ≈ 714 ns) — Attenuated to <8 kHz in Lunar HMF",
+        "• Radical-Pair Spin Coherence: τcoh ~ 1 µs [MATCHES GMF / Attenuated in HMF]",
+        "• PSII Primary Charge Separation: ~200 ps [10^6× TOO FAST FOR DIRECT MF EFFECT]",
+        "• Complex III Qo Semiquinone-Rieske: Exchange coupling J ~ GHz >> GMF [Refutes runaway ROS leak]"
+    ]
+    y_bullet = 28.5
+    for bullet in timescale_bullets:
+        ax_tier.text(50, y_bullet, bullet, fontsize=5.8, color="#212121", ha='center', va='center')
+        y_bullet -= 6.8
 
     # -------------------------------------------------------------
     # Panel (c): Organellar Bioenergetics (Chloroplast & Mitochondria)
@@ -249,7 +256,7 @@ def main():
     ax_org.text(82.5, 28, "Complex IV (COX)", fontsize=6.8, weight='bold', ha='center')
     ax_org.text(82.5, 16, "Heme a3 / CuB\nHigh O2 affinity\n[T4 Context]", fontsize=5.8, color='#666666', ha='center')
 
-    plt.tight_layout()
+    fig.subplots_adjust(top=0.95, bottom=0.06, left=0.06, right=0.96, hspace=0.28, wspace=0.22)
     out_pdf = OUT_DIR / 'Fig3_quantum_biology_0to5day_pathways.pdf'
     out_png = OUT_DIR / 'Fig3_quantum_biology_0to5day_pathways.png'
     fig.savefig(out_pdf, bbox_inches='tight')

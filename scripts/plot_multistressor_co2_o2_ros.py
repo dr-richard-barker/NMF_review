@@ -68,22 +68,24 @@ def main():
     ]
 
     for idx, (title, bg, border, rows) in enumerate(envs):
-        x_left = 3 if idx == 0 else 52
-        b = patches.FancyBboxPatch((x_left, 15), 45, 78, boxstyle="round,pad=0.3",
+        x_left = 3 if idx == 0 else 51
+        b = patches.FancyBboxPatch((x_left, 16), 46, 78, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor=border, facecolor=bg, lw=1.2)
         ax_env.add_patch(b)
-        ax_env.text(x_left + 22.5, 87, title, fontsize=7.2, weight='bold', color=border, ha='center')
+        ax_env.text(x_left + 23, 90, title, fontsize=7.2, weight='bold', color=border, ha='center', va='center')
         
-        y_r = 75
+        y_r = 81
         for param, val in rows:
-            ax_env.text(x_left + 2, y_r, param + ":", fontsize=6.2, weight='bold', color='#37474f')
-            ax_env.text(x_left + 2, y_r - 4.5, val, fontsize=6.2, color='#212121')
-            y_r -= 12
+            ax_env.text(x_left + 3, y_r, param + ":", fontsize=6.2, weight='bold', color='#37474f')
+            ax_env.text(x_left + 3, y_r - 4.5, val, fontsize=6.2, color='#212121')
+            y_r -= 12.5
 
-    # Bottom summary arrow
-    ax_env.text(50, 6, "STRESSOR CONVERGENCE: Combined physical stressors converge on\nmitochondrial terminal oxidases and reactive oxygen species generation",
-                fontsize=6.8, weight='bold', color='#b71c1c', ha='center', va='center',
-                bbox=dict(boxstyle='round,pad=0.2', facecolor='#fffde7', edgecolor='#fbc02d', lw=0.8))
+    # Bottom summary arrow banner
+    bot_b = patches.FancyBboxPatch((3, 3), 94, 10.5, boxstyle="round,pad=0,rounding_size=2",
+                                   edgecolor="#fbc02d", facecolor="#fffde7", lw=0.9)
+    ax_env.add_patch(bot_b)
+    ax_env.text(50, 8.25, "STRESSOR CONVERGENCE: Combined physical stressors converge on\nmitochondrial terminal oxidases and reactive oxygen species generation",
+                fontsize=6.6, weight='bold', color='#b71c1c', ha='center', va='center', linespacing=1.25)
 
     # -------------------------------------------------------------
     # Panel (b): The CO2 <-> O2 <-> ROS Nexus & Mitochondrial Engine
@@ -95,29 +97,29 @@ def main():
     ax_nexus.set_title('(b) The Organellar CO2 <-> O2 <-> ROS Nexus', weight='bold')
 
     # Big container box
-    box_nex = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0.3",
+    box_nex = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
                                     edgecolor="#00838f", facecolor="#e0f7fa", lw=1.2)
     ax_nexus.add_patch(box_nex)
 
     # Gas balance inputs (Top)
-    ax_nexus.text(50, 91, "Exploration Atmosphere Gas Balance (CO2 <-> O2)", fontsize=7.5, weight='bold', color='#006064', ha='center')
+    ax_nexus.text(50, 91.5, "Exploration Atmosphere Gas Balance (CO2 <-> O2)", fontsize=7.5, weight='bold', color='#006064', ha='center', va='center')
     
     # Left: High CO2 suppression of photorespiration
-    c_box = patches.FancyBboxPatch((5, 62), 42, 24, boxstyle="round,pad=0.2",
+    c_box = patches.FancyBboxPatch((5, 62), 42, 24, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#2e7d32", facecolor="#ffffff", lw=1.0)
     ax_nexus.add_patch(c_box)
     ax_nexus.text(26, 79, "Peroxisomal Shunt", fontsize=6.8, weight='bold', color='#1b5e20', ha='center')
     ax_nexus.text(26, 70, "Elevated CO2 (1000–3000 ppm)\nsuppresses RuBisCO oxygenation\n──► Lowers glycolate H2O2", fontsize=5.8, ha='center')
 
     # Right: Mitochondrial O2 terminal oxidases
-    o_box = patches.FancyBboxPatch((53, 62), 42, 24, boxstyle="round,pad=0.2",
+    o_box = patches.FancyBboxPatch((53, 62), 42, 24, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#c2185b", facecolor="#ffffff", lw=1.0)
     ax_nexus.add_patch(o_box)
     ax_nexus.text(74, 79, "Mitochondrial Terminal Balance", fontsize=6.8, weight='bold', color='#880e4f', ha='center')
     ax_nexus.text(74, 70, "Altered pO2 & hypobaric diffusion:\n• COX (Complex IV): High affinity\n• AOX (Alt. Oxidase): Low affinity", fontsize=5.8, ha='center')
 
     # Center: The Radical & ROS Hub
-    ros_box = patches.FancyBboxPatch((15, 22), 70, 32, boxstyle="round,pad=0.3",
+    ros_box = patches.FancyBboxPatch((15, 22), 70, 32, boxstyle="round,pad=0,rounding_size=2",
                                      edgecolor="#d32f2f", facecolor="#ffebee", lw=1.4)
     ax_nexus.add_patch(ros_box)
     ax_nexus.text(50, 48, "CENTRAL ROS & RADICAL CONVERGENCE", fontsize=7.2, weight='bold', color='#b71c1c', ha='center')
@@ -128,9 +130,12 @@ def main():
     ax_nexus.annotate('', xy=(35, 54), xytext=(26, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#1b5e20'))
     ax_nexus.annotate('', xy=(65, 54), xytext=(74, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#880e4f'))
 
-    # Bottom takeaway
-    ax_nexus.text(50, 9, "Core Concept 5: Hypomagnetic fields, ionizing radiation, and exploration atmospheres\nconverge on the exact same mitochondrial bioenergetic and antioxidant loci",
-                  fontsize=6.2, weight='bold', color='#004d40', ha='center')
+    # Bottom takeaway banner
+    bot_nex = patches.FancyBboxPatch((5, 4.5), 90, 11.5, boxstyle="round,pad=0,rounding_size=2",
+                                     edgecolor="#00838f", facecolor="#ffffff", lw=0.9)
+    ax_nexus.add_patch(bot_nex)
+    ax_nexus.text(50, 10.25, "Core Concept 5: Hypomagnetic fields, ionizing radiation, and exploration atmospheres\nconverge on the exact same mitochondrial bioenergetic and antioxidant loci",
+                  fontsize=6.1, weight='bold', color='#004d40', ha='center', va='center', linespacing=1.25)
 
     # -------------------------------------------------------------
     # Panel (c): Empirical Multi-Omics Overlap (OSD-782 vs. NNMF)
@@ -155,13 +160,16 @@ def main():
     ax_de.set_xlabel('Log2 Fold Change (Perturbation vs. Control)')
     ax_de.set_title('(c) Multi-Omics Empirical Overlap (OSDR OSD-782 vs. NNMF)', weight='bold')
     ax_de.legend(loc='lower right', frameon=True, facecolor='white', framealpha=0.9, fontsize=6.8)
-    ax_de.set_xlim(-3.2, 4.6)
+    ax_de.set_xlim(-3.4, 4.6)
     ax_de.grid(axis='x', linestyle=':', alpha=0.6)
 
-    # Annotate concordant shared loci
-    ax_de.text(2.6, 0 - height/2, 'Shared UP (+)', color='#e65100', weight='bold', fontsize=6.5, va='center')
-    ax_de.text(1.2, 1 + height/2, 'Shared UP (+)', color='#1565c0', weight='bold', fontsize=6.5, va='center')
-    ax_de.text(-3.0, 3, 'Divergent\nRegulation', color='#d32f2f', weight='bold', fontsize=6.2, va='center')
+    # Annotate concordant shared loci (Clean callouts, zero collision)
+    ax_de.text(2.6, 0 - height/2, 'Shared UP (+)', color='#e65100', weight='bold', fontsize=6.3, va='center',
+               bbox=dict(boxstyle='round,pad=0.2', facecolor='#ffffff', edgecolor='#f57c00', lw=0.6))
+    ax_de.text(1.2, 1 + height/2, 'Shared UP (+)', color='#1565c0', weight='bold', fontsize=6.3, va='center',
+               bbox=dict(boxstyle='round,pad=0.2', facecolor='#ffffff', edgecolor='#1976d2', lw=0.6))
+    ax_de.text(-1.3, 3.42, 'Divergent Regulation', color='#b71c1c', weight='bold', fontsize=6.2, ha='center', va='center',
+               bbox=dict(boxstyle='round,pad=0.2', facecolor='#ffffff', edgecolor='#d32f2f', lw=0.6))
 
     # -------------------------------------------------------------
     # Panel (d): Cross-Kingdom Spaceflight Convergence (Plants vs Humans)
@@ -173,13 +181,13 @@ def main():
     ax_ck.set_title('(d) Cross-Kingdom Convergence: Plant BLSS & Human Health', weight='bold')
 
     # Card
-    ck_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0.3",
+    ck_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
                                     edgecolor="#6a1b9a", facecolor="#f3e5f5", lw=1.2)
     ax_ck.add_patch(ck_box)
-    ax_ck.text(50, 92, "Conserved Spaceflight Mitochondrial Vulnerability", fontsize=7.5, weight='bold', color='#4a148c', ha='center')
+    ax_ck.text(50, 92, "Conserved Spaceflight Mitochondrial Vulnerability", fontsize=7.5, weight='bold', color='#4a148c', ha='center', va='center')
 
     # Plant side
-    p_box = patches.FancyBboxPatch((5, 42), 42, 44, boxstyle="round,pad=0.2",
+    p_box = patches.FancyBboxPatch((5, 42), 42, 44, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#2e7d32", facecolor="#ffffff", lw=1.0)
     ax_ck.add_patch(p_box)
     ax_ck.text(26, 80, "Plant Space Biology (BLSS)", fontsize=6.8, weight='bold', color='#1b5e20', ha='center')
@@ -187,7 +195,7 @@ def main():
                 fontsize=6.0, color='#212121', ha='center')
 
     # Human side
-    h_box = patches.FancyBboxPatch((53, 42), 42, 44, boxstyle="round,pad=0.2",
+    h_box = patches.FancyBboxPatch((53, 42), 42, 44, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#c2185b", facecolor="#ffffff", lw=1.0)
     ax_ck.add_patch(h_box)
     ax_ck.text(74, 80, "Human Astronaut Health", fontsize=6.8, weight='bold', color='#880e4f', ha='center')
@@ -195,14 +203,14 @@ def main():
                 fontsize=6.0, color='#212121', ha='center')
 
     # Common Bridge Banner (Bottom)
-    b_bridge = patches.FancyBboxPatch((5, 6), 90, 30, boxstyle="round,pad=0.2",
-                                     edgecolor="#4a148c", facecolor="#ede7f6", lw=1.0)
+    b_bridge = patches.FancyBboxPatch((5, 5), 90, 31, boxstyle="round,pad=0,rounding_size=2",
+                                      edgecolor="#4a148c", facecolor="#ede7f6", lw=1.0)
     ax_ck.add_patch(b_bridge)
-    ax_ck.text(50, 30, "THE SHARED MITOCHONDRIAL PARADIGM", fontsize=7.0, weight='bold', color='#311b92', ha='center')
-    ax_ck.text(50, 18, "In both plants and humans, removal of the geomagnetic field coupled with ionizing radiation\nand altered atmospheres impairs respiratory electron coupling and triggers ROS overflow.\nPlant bioenergetic resilience directly protects astronaut life support and fresh food supply.",
-                fontsize=6.0, color='#1a237e', ha='center')
+    ax_ck.text(50, 29, "THE SHARED MITOCHONDRIAL PARADIGM", fontsize=7.0, weight='bold', color='#311b92', ha='center', va='center')
+    ax_ck.text(50, 16.5, "In both plants and humans, removal of the geomagnetic field coupled with ionizing radiation\nand altered atmospheres impairs respiratory electron coupling and triggers ROS overflow.\nPlant bioenergetic resilience directly protects astronaut life support and fresh food supply.",
+                fontsize=5.9, color='#1a237e', ha='center', va='center', linespacing=1.3)
 
-    plt.tight_layout()
+    fig.subplots_adjust(top=0.95, bottom=0.07, left=0.08, right=0.96, hspace=0.28, wspace=0.22)
     out_pdf = OUT_DIR / 'Fig4_multistressor_co2_o2_ros_nexus.pdf'
     out_png = OUT_DIR / 'Fig4_multistressor_co2_o2_ros_nexus.png'
     fig.savefig(out_pdf, bbox_inches='tight')

@@ -11,13 +11,17 @@ Panels:
 (d) South Polar Artemis Exploration Footprint Magnetic Detail
 """
 
+import os
 import sys
+from pathlib import Path
+
+os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib_cache'
+
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-from pathlib import Path
 
 # Matplotlib configuration for LSSR / Elsevier publication standard
 mpl.rcParams.update({
@@ -33,10 +37,11 @@ mpl.rcParams.update({
     'mathtext.fontset': 'dejavusans'
 })
 
-LUNAR_DATA_DIR = Path('/Users/drb_laptop/Documents/lunar-magnetic-biology/data/processed')
+REPO_ROOT = Path(__file__).resolve().parent.parent
+LUNAR_DATA_DIR = REPO_ROOT / 'data'
 GRID_FILE = LUNAR_DATA_DIR / 'lunar_mag_field_grid.csv'
 SITES_FILE = LUNAR_DATA_DIR / 'landing_sites_magnetic.csv'
-OUT_DIR = Path('/Users/drb_laptop/Documents/NMF_review/figures')
+OUT_DIR = REPO_ROOT / 'figures'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def main():
@@ -106,15 +111,32 @@ def main():
                                c=artemis_sites['Bmag'], cmap='plasma', s=110,
                                edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
     
+    # Custom non-overlapping offsets for each Artemis South Pole site: (dx, dy, ha, va)
+    site_offsets = {
+        'Haworth': (-8, -4, 'right', 'top'),
+        'Connecting Ridge': (8, 7, 'left', 'bottom'),
+        'Connecting Ridge Extension': (8, -9, 'left', 'top'),
+        'de Gerlache Rim 1': (8, 6, 'left', 'bottom'),
+        'de Gerlache Rim 2': (8, -8, 'left', 'top'),
+        'de Gerlache-Kocher Massif': (8, 0, 'left', 'center'),
+        'Peak Near Shackleton': (8, 0, 'left', 'center'),
+        'Faustini Rim A': (8, 8, 'left', 'bottom'),
+        'Nobile Rim 1': (-8, 8, 'right', 'bottom'),
+        'Nobile Rim 2': (8, -8, 'left', 'top'),
+        'Leibnitz Beta Plateau': (-8, -6, 'right', 'top'),
+        'Amundsen Rim': (8, 10, 'left', 'bottom'),
+        'Malapert Massif': (-8, 0, 'right', 'center'),
+    }
+
     for _, row in artemis_sites.iterrows():
-        # Short label
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
+        dx, dy, ha_align, va_align = site_offsets.get(row['name'], (6, 0, 'left', 'center'))
         ax_polar.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                          fontsize=6.5, ha='left', va='center', xytext=(4, 0), textcoords='offset points',
-                          bbox=dict(boxstyle='round,pad=0.15', facecolor='white', alpha=0.75, edgecolor='#999999', lw=0.4))
+                          fontsize=6.2, ha=ha_align, va=va_align, xytext=(dx, dy), textcoords='offset points',
+                          bbox=dict(boxstyle='round,pad=0.18', facecolor='white', alpha=0.85, edgecolor='#888888', lw=0.4))
         
-    ax_polar.set_xlim(-20, 380)
-    ax_polar.set_ylim(-90.5, -83.5)
+    ax_polar.set_xlim(-35, 395)
+    ax_polar.set_ylim(-90.8, -83.2)
     ax_polar.set_xlabel('Longitude (°E)')
     ax_polar.set_ylabel('Latitude (°N)')
     ax_polar.set_title('(b) Artemis South Polar Candidate Sites (Near-Null Field)', weight='bold')
@@ -173,34 +195,34 @@ def main():
                 fontsize=7.5, ha='center', va='center', color='#0277bd', style='italic')
 
     # Chamber box
-    cham_rect = patches.FancyBboxPatch((1.0, 1.0), 8.0, 6.2, boxstyle="round,pad=0.3",
+    cham_rect = patches.FancyBboxPatch((0.4, 0.4), 9.2, 7.0, boxstyle="round,pad=0.25",
                                        edgecolor="#37474f", facecolor="#eceff1", lw=1.5)
     ax_sch.add_patch(cham_rect)
-    ax_sch.text(5.0, 6.8, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", 
+    ax_sch.text(5.0, 6.9, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", 
                 weight='bold', fontsize=8.2, ha='center', color='#263238')
 
     # Vector contributions table / callouts
     contributions = [
-        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole remanent paleomagnetism", "#1565c0"),
+        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetic void", "#1565c0"),
         (r"$\mathbf{B}_{\mathrm{ext}}$", "1 – 5 nT", "Solar wind IMF / magnetotail shadow", "#2e7d32"),
         (r"$\mathbf{B}_{\mathrm{lander}}$", "50 – 500 µT", "Lander avionics, DC power buses & batteries [Confounder]", "#c62828"),
-        (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Internal fans, fluidic pumps, heaters, LEDs [Ripple]", "#e65100"),
+        (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Payload fans, fluidic pumps, heaters, LEDs [Ripple]", "#e65100"),
         (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis compensation / causal rescue coils", "#6a1b9a"),
     ]
     
-    y_start = 5.8
+    y_start = 5.9
     for symbol, mag, desc, col in contributions:
-        ax_sch.text(1.4, y_start, symbol, fontsize=8.8, weight='bold', color=col, va='center')
-        ax_sch.text(2.6, y_start, f"[{mag}]", fontsize=7.6, weight='bold', color='#333333', va='center')
-        ax_sch.text(4.4, y_start, desc, fontsize=7.2, color='#455a64', va='center')
+        ax_sch.text(0.8, y_start, symbol, fontsize=8.6, weight='bold', color=col, va='center')
+        ax_sch.text(2.0, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
+        ax_sch.text(3.7, y_start, desc, fontsize=6.6, color='#455a64', va='center')
         y_start -= 0.95
 
-    # Bottom notice
-    warn_rect = patches.FancyBboxPatch((1.2, 0.9), 7.6, 0.8, boxstyle="round,pad=0.15",
-                                      edgecolor="#d32f2f", facecolor="#ffebee", lw=0.8)
+    # Bottom notice - strictly padded inside warning box and chamber box
+    warn_rect = patches.FancyBboxPatch((0.7, 0.6), 8.6, 1.15, boxstyle="round,pad=0.15",
+                                       edgecolor="#d32f2f", facecolor="#ffebee", lw=0.9)
     ax_sch.add_patch(warn_rect)
-    ax_sch.text(5.0, 1.3, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-                fontsize=6.8, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax_sch.text(5.0, 1.18, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
+                fontsize=6.6, weight='bold', ha='center', va='center', color='#b71c1c')
 
     plt.tight_layout()
     out_pdf = OUT_DIR / 'Fig1_lunar_magnetic_environment_montage.pdf'
