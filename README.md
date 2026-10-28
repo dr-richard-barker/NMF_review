@@ -11,9 +11,9 @@
 
 ## Executive Summary & Central Thesis
 
-As space exploration transitions from short-duration low Earth orbit (LEO) expeditions to sustained surface exploration under NASA's **Artemis program**, Bioregenerative Life Support Systems (BLSS) and autonomous plant growth chambers represent indispensable operational infrastructure. While biological architectures routinely monitor microgravity, partial gravity ($0.166\ g$), ionizing radiation, hypobaric pressure, and LED spectra, **the ambient magnetic field has historically been treated as an uncontrolled, unmonitored background variable**.
+As space exploration transitions from short-duration low Earth orbit (LEO) expeditions to sustained surface exploration under NASA's **Artemis program**, Bioregenerative Life Support Systems (BLSS) and autonomous plant growth chambers represent indispensable operational infrastructure. While biological architectures routinely monitor microgravity, partial gravity (0.166 g), ionizing radiation, hypobaric pressure, and LED spectra, **the ambient magnetic field has historically been treated as an uncontrolled, unmonitored background variable**.
 
-On Earth, plants evolved exclusively under the protective geodynamo of the dipolar geomagnetic field ($25\text{--}65\ \mu\text{T}$). On the lunar surface and across Artemis South Polar exploration candidate sites, **this magnetic environment collapses into an extreme near-null magnetic field (NNMF; $<0.8\text{ nT}$)**.
+On Earth, plants evolved exclusively under the protective geodynamo of the dipolar geomagnetic field (25–65 µT). On the lunar surface and across Artemis South Polar exploration candidate sites, **this magnetic environment collapses into an extreme near-null magnetic field (NNMF; <0.8 nT)**.
 
 This repository hosts the complete review manuscript, processed datasets, high-resolution figures, and reproduction pipeline for our submission to ***Life Sciences in Space Research* (Elsevier / COSPAR)**. We refocus the literature specifically on the **first five days of seedling growth (0–120 hours)**—the mission-critical bottleneck that determines whether a space crop successfully germinates, de-etiolates, and establishes autotrophic competence.
 
@@ -146,7 +146,7 @@ This repository includes a publication-grade, 16:9 widescreen presentation deck 
 👉 **[`Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx`](Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx)**
 
 ### Key Features of the Deck:
-- **15 Structured Slides:** Full narrative arc from the lunar $<0.8\text{ nT}$ void to Day 0–5 seedling kinetics, quantum cryptochrome mechanisms, the $\text{CO}_2 \leftrightarrow \text{O}_2 \leftrightarrow \text{ROS}$ nexus, and Artemis LEAF risk-retirement.
+- **15 Structured Slides:** Full narrative arc from the lunar <0.8 nT void to Day 0–5 seedling kinetics, quantum cryptochrome mechanisms, the CO₂ ↔ O₂ ↔ ROS nexus, and Artemis LEAF risk-retirement.
 - **Deconstructed, Editable Montages:** Figure montages (Figures 1–5 and Graphical Abstract) are not flattened raster images. Each subpanel is an **independent, repositionable graphic component** accompanied by **native editable PowerPoint text boxes** for panel letters `(a)`, `(b)`, `(c)`, `(d)`, headers, and metric callouts.
 - **Deep-Dive Mechanism Slides:** Large-format views of critical subpanels paired with analytical takeaways and biological pathways.
 - **Native Styled Table:** Table 3 (Artemis LEAF Flight Decision Matrix) is built as a native PowerPoint table with colored indicator cells (Green / Amber / Red gates).
@@ -184,29 +184,29 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 
 ## Authors & Affiliations
 
-- **D. Marshall Porterfield** $^{1,*}$ (`porterf@purdue.edu`)
-- **Richard J. Barker** $^{1,*}$ (`dr.richard.barker@gmail.com`, [ORCID: 0000-0001-5681-9857](https://orcid.org/0000-0001-5681-9857))
-- **Caue Borlina** $^{2}$
-- **Aubrey O’Rourke** $^{2}$
-- **Adriana Sanchez** $^{1}$
-- **Manisha Dagar** $^{1}$
-- **Sofia Leiva Aldana** $^{1}$
-- **Ray Wheeler** $^{3}$
-- **Gioia Massa** $^{4}$
-- **Barbara Demmig-Adams** $^{5}$
-- **Marta Peirats-Llobet** $^{1}$
-- **Pamela Flores** $^{1}$
-- **Anirudha Dixit** $^{1}$
-- **Christine Chamberlain** $^{6}$
+- **D. Marshall Porterfield** <sup>1,*</sup> (`porterf@purdue.edu`)
+- **Richard J. Barker** <sup>1,*</sup> (`dr.richard.barker@gmail.com`, [ORCID: 0000-0001-5681-9857](https://orcid.org/0000-0001-5681-9857))
+- **Caue Borlina** <sup>2</sup>
+- **Aubrey O’Rourke** <sup>2</sup>
+- **Adriana Sanchez** <sup>1</sup>
+- **Manisha Dagar** <sup>1</sup>
+- **Sofia Leiva Aldana** <sup>1</sup>
+- **Ray Wheeler** <sup>3</sup>
+- **Gioia Massa** <sup>4</sup>
+- **Barbara Demmig-Adams** <sup>5</sup>
+- **Marta Peirats-Llobet** <sup>1</sup>
+- **Pamela Flores** <sup>1</sup>
+- **Anirudha Dixit** <sup>1</sup>
+- **Christine Chamberlain** <sup>6</sup>
 
-$^{1}$ Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA  
-$^{2}$ Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA  
-$^{3}$ NASA John F. Kennedy Space Center, Exploration Research and Technology Programs, FL 32899, USA  
-$^{4}$ NASA John F. Kennedy Space Center, Space Crop Production, FL 32899, USA  
-$^{5}$ Department of Ecology and Evolutionary Biology, University of Colorado Boulder, Boulder, CO 80309, USA  
-$^{6}$ Space Lab Technologies, LLC, Boulder, CO 80301, USA  
+<sup>1</sup> Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA  
+<sup>2</sup> Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA  
+<sup>3</sup> NASA John F. Kennedy Space Center, Exploration Research and Technology Programs, FL 32899, USA  
+<sup>4</sup> NASA John F. Kennedy Space Center, Space Crop Production, FL 32899, USA  
+<sup>5</sup> Department of Ecology and Evolutionary Biology, University of Colorado Boulder, Boulder, CO 80309, USA  
+<sup>6</sup> Space Lab Technologies, LLC, Boulder, CO 80301, USA  
 
-$^*$ Corresponding Authors.
+* Corresponding Authors.
 
 ---
 
