@@ -18,9 +18,6 @@ keywords:
   - "alternative oxidase"
   - "cryptochrome"
 authors:
-  - family-names: Porterfield
-    given-names: "D. Marshall"
-    affiliation: "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
   - family-names: Barker
     given-names: "Richard J."
     orcid: "https://orcid.org/0000-0001-5681-9857"
@@ -61,6 +58,9 @@ authors:
   - family-names: Chamberlain
     given-names: Christine
     affiliation: "Space Lab Technologies, LLC, Boulder, CO 80301, USA"
+  - family-names: Porterfield
+    given-names: "D. Marshall"
+    affiliation: "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
 preferred-citation:
   type: article
   status: preprint
@@ -68,8 +68,6 @@ preferred-citation:
   journal: "Life Sciences in Space Research"
   year: 2026
   authors:
-    - family-names: Porterfield
-      given-names: "D. Marshall"
     - family-names: Barker
       given-names: "Richard J."
       orcid: "https://orcid.org/0000-0001-5681-9857"
@@ -97,3 +95,5 @@ preferred-citation:
       given-names: Anirudha
     - family-names: Chamberlain
       given-names: Christine
+    - family-names: Porterfield
+      given-names: "D. Marshall"

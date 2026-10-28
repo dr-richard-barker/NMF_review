@@ -21,10 +21,6 @@
   ],
   "creators": [
     {
-      "name": "Porterfield, D. Marshall",
-      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
-    },
-    {
       "name": "Barker, Richard J.",
       "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA",
       "orcid": "0000-0001-5681-9857"
@@ -76,6 +72,10 @@
     {
       "name": "Chamberlain, Christine",
       "affiliation": "Space Lab Technologies, LLC, Boulder, CO 80301, USA"
+    },
+    {
+      "name": "Porterfield, D. Marshall",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
     }
   ],
   "related_identifiers": [

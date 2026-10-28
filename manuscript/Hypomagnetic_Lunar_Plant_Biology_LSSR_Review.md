@@ -1,6 +1,6 @@
 # Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture
 
-**D. Marshall Porterfield$^{1,*}$, Richard J. Barker$^{1,*}$, Caue Borlina$^{2}$, Aubrey O’Rourke$^{2}$, Adriana Sanchez$^{1}$, Manisha Dagar$^{1}$, Sofia Leiva Aldana$^{1}$, Ray Wheeler$^{3}$, Gioia Massa$^{4}$, Barbara Demmig-Adams$^{5}$, Marta Peirats-Llobet$^{7}$, Pamela Flores$^{6}$, Anirudha Dixit$^{4}$, Christine Chamberlain$^{6}$**
+**Richard J. Barker$^{1,*}$, Caue Borlina$^{2}$, Aubrey O’Rourke$^{2}$, Adriana Sanchez$^{1}$, Manisha Dagar$^{1}$, Sofia Leiva Aldana$^{1}$, Ray Wheeler$^{3}$, Gioia Massa$^{4}$, Barbara Demmig-Adams$^{5}$, Marta Peirats-Llobet$^{7}$, Pamela Flores$^{6}$, Anirudha Dixit$^{4}$, Christine Chamberlain$^{6}$, D. Marshall Porterfield$^{1,*}$**
 
 $^{1}$ Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA  
 $^{2}$ Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA  
@@ -10,7 +10,7 @@ $^{5}$ Department of Ecology and Evolutionary Biology, University of Colorado Bo
 $^{6}$ Space Lab Technologies, LLC, Boulder, CO 80301, USA  
 $^{7}$ La Trobe Institute for Sustainable Agriculture and Food, School of Agriculture, Biomedicine and Environment, La Trobe University, Bundoora, VIC 3086, Australia  
 
-$^*$ Corresponding Authors: `porterf@purdue.edu`, `dr.richard.barker@gmail.com`
+$^*$ Corresponding Authors: `dr.richard.barker@gmail.com`, `porterf@purdue.edu`
 
 ---
 
