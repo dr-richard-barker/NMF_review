@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth</title>
+<meta name="description" content="A comprehensive review for Life Sciences in Space Research: Evaluating how lunar near-null magnetic fields alter seed germination, emergence speed, and pigment biosynthesis during the first 5 days of growth, converging on the mitochondrial CO2-O2-ROS nexus.">
+<script>
+  (function() {
+    let theme = localStorage.getItem('cose_theme');
+    if (!theme) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+<link rel="stylesheet" href="cose/theme.css">
+<link rel="stylesheet" href="cose/cose-theme.css">
+<style>
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .badge { display: inline-flex; align-items: center; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; border-radius: 4px; background: rgba(0,0,0,0.06); color: inherit; text-decoration: none; border: 1px solid rgba(0,0,0,0.12); }
+  [data-theme="dark"] .badge { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+  .badge.green { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+  .badge.blue { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+  .badge.amber { background: #fff8e1; color: #e65100; border-color: #ffe082; }
+  [data-theme="dark"] .badge.green { background: #1b5e20; color: #c8e6c9; border-color: #2e7d32; }
+  [data-theme="dark"] .badge.blue { background: #0d47a1; color: #bbdefb; border-color: #1565c0; }
+  [data-theme="dark"] .badge.amber { background: #e65100; color: #ffe082; border-color: #f57c00; }
+  .core-concepts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 24px 0; }
+  .concept-card { padding: 20px; border-radius: 8px; border: 1px solid var(--border, #e0e0e0); background: var(--card-bg, #ffffff); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  [data-theme="dark"] .concept-card { background: #1e1e1e; border-color: #333333; }
+  .concept-num { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary, #1565c0); }
+  .concept-title { font-size: 1.1rem; font-weight: 700; margin: 8px 0; color: var(--text, #111111); }
+  .fig-actions { margin-top: 10px; display: flex; gap: 10px; }
+  .fig-actions a { font-size: 0.8rem; font-weight: 600; text-decoration: none; padding: 4px 10px; border-radius: 4px; background: var(--btn-bg, #f0f0f0); color: inherit; }
+  .manuscript-body { line-height: 1.7; font-size: 1.05rem; }
+  .manuscript-body h3 { margin-top: 30px; font-size: 1.35rem; }
+  .manuscript-body p { margin-bottom: 16px; }
+  table.data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.85rem; }
+  table.data-table th, table.data-table td { padding: 10px 12px; border: 1px solid var(--border, #ddd); text-align: left; }
+  table.data-table th { background: var(--table-th, #f5f5f7); font-weight: 700; }
+</style>
+</head>
+<body data-site-id="NMF_review">
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Life Sciences in Space Research · Artemis III LEAF Payload · Astrobotany</p>
+    <h1>Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth</h1>
+    <p class="lede">Evaluating how the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis South Pole candidate sites) alters seed germination capacity, emergence velocity, and pigment biosynthesis during the critical 0–120 hour window—and converges with exploration atmosphere and ionizing radiation on the mitochondrial CO2 ↔ O2 ↔ ROS bioenergetic nexus.</p>
+    
+    <div class="badge-row">
+      <span class="badge blue">Target: Life Sciences in Space Research</span>
+      <span class="badge green">ABAI QC: Verified (0 blocklist hits, CrossRef DOIs)</span>
+      <span class="badge amber">NASA Artemis III LEAF Payload</span>
+      <span class="badge">COSPAR Bioregenerative Life Support</span>
+      <span class="badge">Open Access &amp; FAIR Data</span>
+    </div>
+
+    <p class="meta">
+      <strong>D. Marshall Porterfield</strong><sup>1,*</sup>, <strong>Richard J. Barker</strong><sup>1,*</sup>, <strong>Caue Borlina</strong><sup>2</sup>, <strong>Aubrey O'Rourke</strong><sup>2</sup>, 
+      Adriana Sanchez<sup>1</sup>, Manisha Dagar<sup>1</sup>, Sofia Leiva Aldana<sup>1</sup>, Ray Wheeler<sup>3</sup>, Gioia Massa<sup>4</sup>, 
+      Barbara Demmig-Adams<sup>5</sup>, Marta Peirats-Llobet<sup>1</sup>, Pamela Flores<sup>1</sup>, Anirudha Dixit<sup>1</sup>, Christine Chamberlain<sup>6</sup><br>
+      <em><sup>1</sup>Purdue Univ. ABE · <sup>2</sup>Purdue Univ. EAPS · <sup>3</sup>NASA Kennedy Space Center Exploration · <sup>4</sup>NASA Kennedy Space Center Space Crop Production · <sup>5</sup>Univ. Colorado Boulder · <sup>6</sup>Space Lab Technologies</em>
+    </p>
+
+    <div class="btns">
+      <a class="btn primary" href="#manuscript">Read Full Manuscript</a>
+      <a class="btn" href="../Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx">Download Manuscript (.docx)</a>
+      <a class="btn" href="../manuscript/references_LSSR.bib">BibTeX (.bib)</a>
+      <a class="btn" href="#figures">Figures Gallery</a>
+      <a class="btn" href="https://github.com/dr-richard-barker/quantum-biology-atlas">Quantum Biology Atlas</a>
+    </div>
+  </div>
+</header>
+
+<section id="thesis">
+  <div class="wrap">
+    <h2>The Central Thesis</h2>
+    <p class="sub">The Moon is a magnetic void, and early seedling establishment is the operational bottleneck for space agriculture.</p>
+    <p>Plant life-support architectures have historically treated microgravity and ionizing radiation as the primary planetary challenges. However, the planetary geodynamo ($25\text{--}65\ \mu\text{T}$) is absent on the Moon. Candidate Artemis South Pole landing sites reside in an extreme near-null magnetic field ($&lt;0.8\text{ nT}$), more than $30,000\times$ lower than Earth's field. When seeds imbibe on the lunar surface, geomagnetic field removal perturbs the heterotrophic-to-autotrophic transition during the **first five days of growth (0–120 hours)**, reducing stand establishment, slowing emergence, repressing photosynthetic pigments, and challenging organellar bioenergetics.</p>
+
+    <div class="core-concepts-grid">
+      <div class="concept-card">
+        <div class="concept-num">Core Concept 1</div>
+        <div class="concept-title">Planetary Magnetic Reality</div>
+        <p>The Moon lacks a global core dynamo. Artemis South Pole candidate sites reside in an extreme near-null field (&lt;0.8 nT). Spacecraft avionics (50–500 µT) can inadvertently mask this exposure unless sample-level 3-axis fluxgate sensing is deployed.</p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-num">Core Concept 2</div>
+        <div class="concept-title">Germination Capacity (#)</div>
+        <p>Geomagnetic field removal suppresses seed water uptake kinetics and alters the ABA/GA hormonal balance, causing a 10–30% decline in final germination percentage across crop species.</p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-num">Core Concept 3</div>
+        <div class="concept-title">Emergence Velocity &amp; Yield</div>
+        <p>Near-null fields introduce an emergence lag (Δt50 = 12–36 h), dampening root cell proliferation and causing a 25–30% penalty in early seedling biomass accumulation by Day 5.</p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-num">Core Concept 4</div>
+        <div class="concept-title">Pigment Biosynthesis</div>
+        <p>Cryptochrome radical-pair alterations attenuate HY5 stabilization, repressing rate-limiting chlorophyll (HEMA1, CHLH, POR) and anthocyanin (CHS, CHI) genes during de-etiolation, exacerbated by iron-deficiency chlorosis.</p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-num">Core Concept 5</div>
+        <div class="concept-title">The CO2 ↔ O2 ↔ ROS Nexus</div>
+        <p>Near-null fields, exploration atmospheres (8.2 psia, 34% O2, elevated CO2), and GCR radiation converge on mitochondrial electron leakage and Alternative Oxidase (AOX1D) buffering, mirroring human astronaut mitochondrial stress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="figures">
+  <div class="wrap">
+    <h2>Publication Figures Gallery</h2>
+    <p class="sub">High-resolution vector assets produced for Life Sciences in Space Research.</p>
+
+    <!-- Figure 1 -->
+    <figure id="fig1">
+      <h3>Figure 1 | Lunar Surface Magnetic Environment &amp; Landing Sites</h3>
+      <img src="assets/Fig1_lunar_magnetic_environment_montage.png" alt="Figure 1: Lunar surface magnetic field distribution and landing site overlays">
+      <figcaption>
+        <strong>(a)</strong> Global lunar crustal magnetic field map at 30 km altitude with landing site overlays (Apollo, Chang'e, Chandrayaan, Artemis).
+        <strong>(b)</strong> South Polar Artemis candidate landing sites residing in the extreme low-field void (&lt;0.8 nT).
+        <strong>(c)</strong> Magnitude comparison across 23 exploration sites.
+        <strong>(d)</strong> Superposition vector equation at the plant canopy: Btotal = Bcrust + Bext + Blander + Bpayload + Bcontrol.
+      </figcaption>
+      <div class="fig-actions">
+        <a href="assets/Fig1_lunar_magnetic_environment_montage.png" download>Download PNG (300 DPI)</a>
+        <a href="assets/Fig1_lunar_magnetic_environment_montage.pdf" download>Download Vector PDF</a>
+        <a href="../scripts/assemble_lunar_field_montage.py">Producing Script</a>
+      </div>
+    </figure>
+
+    <!-- Figure 2 -->
+    <figure id="fig2" style="margin-top:40px;">
+      <h3>Figure 2 | The First Five Days of Seedling Growth Kinetics &amp; Pigment Networks</h3>
+      <img src="assets/Fig2_first_5_days_germination_pigments.png" alt="Figure 2: 5-day developmental timeline, germination kinetics, and pigment biosynthesis">
+      <figcaption>
+        <strong>(a)</strong> 5-day developmental timeline: Phase I (0–24 h: imbibition), Phase II (24–48 h: reserve mobilization), Phase III (48–72 h: radicle elongation), and Phase IV (72–120 h: de-etiolation &amp; greening).
+        <strong>(b)</strong> Cumulative germination curves showing a 20% decline in capacity and a 16-hour emergence lag (Δt50) under near-null fields.
+        <strong>(c)</strong> Quantitative reductions in radicle length (-33.0%), hypocotyl height (-31.0%), fresh weight (-29.1%), and dry biomass (-28.5%).
+        <strong>(d)</strong> Cryptochrome-HY5 downregulation of chlorophyll (HEMA1, CHLH, POR) and anthocyanin (CHS, CHI) transcripts coupled to secondary iron chlorosis.
+      </figcaption>
+      <div class="fig-actions">
+        <a href="assets/Fig2_first_5_days_germination_pigments.png" download>Download PNG (300 DPI)</a>
+        <a href="assets/Fig2_first_5_days_germination_pigments.pdf" download>Download Vector PDF</a>
+        <a href="../scripts/plot_first_5_days_kinetics_pigments.py">Producing Script</a>
+      </div>
+    </figure>
+
+    <!-- Figure 3 -->
+    <figure id="fig3" style="margin-top:40px;">
+      <h3>Figure 3 | Quantum Molecular Biology of the 0–5 Day Window (QBM-06)</h3>
+      <img src="assets/Fig3_quantum_biology_0to5day_pathways.png" alt="Figure 3: Quantum Biology Atlas pathway map and evidentiary tiers">
+      <figcaption>
+        <strong>(a)</strong> QBM-06 seed germination route: peroxisomal β-oxidation generating H2O2, glyoxylate cycle, mitochondrial respiration, and radicle emergence.
+        <strong>(b)</strong> Evidentiary tier hierarchy (T1 Demonstrated to T4 Context) and biophysical timescale constraints.
+        <strong>(c)</strong> Chloroplast photosynthetic electron transport (QBM-02) and mitochondrial Alternative Oxidase (AOX) uncoupled respiratory bypass (QBM-01).
+      </figcaption>
+      <div class="fig-actions">
+        <a href="assets/Fig3_quantum_biology_0to5day_pathways.png" download>Download PNG (300 DPI)</a>
+        <a href="assets/Fig3_quantum_biology_0to5day_pathways.pdf" download>Download Vector PDF</a>
+        <a href="../scripts/compile_quantum_pathway_figures.py">Producing Script</a>
+      </div>
+    </figure>
+
+    <!-- Figure 4 -->
+    <figure id="fig4" style="margin-top:40px;">
+      <h3>Figure 4 | Multi-Stressor Convergence on the CO2 ↔ O2 ↔ ROS Nexus</h3>
+      <img src="assets/Fig4_multistressor_co2_o2_ros_nexus.png" alt="Figure 4: Multi-stressor space, empirical multi-omics overlap, and astronaut mitochondrial parallels">
+      <figcaption>
+        <strong>(a)</strong> Physical parameter contrast between Earth baseline and NASA Exploration Atmosphere (8.2 psia, 34% O2, elevated CO2).
+        <strong>(b)</strong> The organellar CO2 ↔ O2 ↔ ROS bioenergetic engine.
+        <strong>(c)</strong> Concordant induction of Alternative Oxidase 1D (AOX1D, +3.96 log2FC radiation, +0.73 NNMF) and Catalase 3 (CAT3, +0.91 radiation, +0.94 NNMF) across NASA OSDR OSD-782 and Parmagnani et al. (2022).
+        <strong>(d)</strong> Cross-kingdom mitochondrial convergence: plant life-support resilience directly mirrors human astronaut spaceflight mitochondrial dysregulation.
+      </figcaption>
+      <div class="fig-actions">
+        <a href="assets/Fig4_multistressor_co2_o2_ros_nexus.png" download>Download PNG (300 DPI)</a>
+        <a href="assets/Fig4_multistressor_co2_o2_ros_nexus.pdf" download>Download Vector PDF</a>
+        <a href="../scripts/plot_multistressor_co2_o2_ros.py">Producing Script</a>
+      </div>
+    </figure>
+
+    <!-- Figure 5 -->
+    <figure id="fig5" style="margin-top:40px;">
+      <h3>Figure 5 | Ground Standards, Causal Rescue &amp; Artemis Flight Decision Gates</h3>
+      <img src="assets/Fig5_flight_validation_risk_pipeline.png" alt="Figure 5: 3-chamber simulation standards, causal rescue, and flight decision gates">
+      <figcaption>
+        <strong>(a)</strong> Parallel 3-chamber ground simulation standards (GMF, NNMF, matched-current bifilar sham control).
+        <strong>(b)</strong> Active causal rescue protocol (re-applying 45 µT inside magnetic shielding to formally prove causality).
+        <strong>(c)</strong> Predeclared flight decision gates for Artemis payloads: Green Gate (Nominal / Retire Risk), Amber Gate (Operational Shift / Extend Growth), and Red Gate (Hazard Mitigation / Active Helmholtz Coils).
+      </figcaption>
+      <div class="fig-actions">
+        <a href="assets/Fig5_flight_validation_risk_pipeline.png" download>Download PNG (300 DPI)</a>
+        <a href="assets/Fig5_flight_validation_risk_pipeline.pdf" download>Download Vector PDF</a>
+        <a href="../scripts/plot_flight_pipeline_and_ga.py">Producing Script</a>
+      </div>
+    </figure>
+
+    <!-- Graphical Abstract -->
+    <figure id="ga" style="margin-top:40px;">
+      <h3>Graphical Abstract</h3>
+      <img src="assets/Graphical_Abstract_LSSR.png" alt="Graphical Abstract for Life Sciences in Space Research">
+      <figcaption>Integrated 3-panel visual synthesis summarizing the lunar magnetic environment, the 5-day developmental trajectory, and the multi-stressor bioenergetic nexus.</figcaption>
+      <div class="fig-actions">
+        <a href="assets/Graphical_Abstract_LSSR.png" download>Download PNG</a>
+        <a href="assets/Graphical_Abstract_LSSR.pdf" download>Download PDF</a>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section id="tables">
+  <div class="wrap">
+    <h2>Data Tables &amp; Mission Classifications</h2>
+    <p class="sub">Empirical datasets curated for lunar agricultural flight operations.</p>
+    
+    <h3>Table 1 | Artemis Candidate Landing Site Magnetic Field Environment</h3>
+    <p>Field magnitude derived from orbital magnetometer observations at 30 km altitude (Hood et al., 2022).</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Landing Site Feature</th>
+          <th>Latitude (°N)</th>
+          <th>Longitude (°E)</th>
+          <th>|B| at 30 km (nT)</th>
+          <th>Field Classification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Haworth Crater Rim</td><td>-87.40</td><td>358.00</td><td>0.40</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>Faustini Rim A</td><td>-85.30</td><td>77.00</td><td>0.45</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>de Gerlache Rim 2</td><td>-88.70</td><td>294.00</td><td>0.48</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>de Gerlache Rim 1</td><td>-88.50</td><td>290.00</td><td>0.50</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>Malapert Massif</td><td>-86.00</td><td>0.00</td><td>0.55</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>Connecting Ridge</td><td>-88.00</td><td>137.00</td><td>0.60</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>Peak Near Shackleton</td><td>-89.70</td><td>166.00</td><td>0.82</td><td><strong>Extreme Near-Null</strong></td></tr>
+        <tr><td>Apollo 11 Baseline</td><td>0.67</td><td>23.47</td><td>0.93</td><td>Near-Null Boundary</td></tr>
+        <tr><td>Apollo 16 (Descartes Swirl)</td><td>-8.97</td><td>15.50</td><td>4.94</td><td>Moderate Crustal Swirl</td></tr>
+        <tr><td>Earth Geomagnetic Control</td><td>—</td><td>—</td><td>25,000–65,000</td><td>Terrestrial Dipole</td></tr>
+      </tbody>
+    </table>
+    <div class="fig-actions">
+      <a href="../tables/Table1_site_magnetic_values.csv" download>Download Table 1 CSV</a>
+      <a href="../tables/Table2_biology_literature.csv" download>Download Table 2 (Biology Matrix) CSV</a>
+      <a href="../tables/Table3_flight_decision_matrix.csv" download>Download Table 3 (Decision Gates) CSV</a>
+    </div>
+  </div>
+</section>
+
+<section id="manuscript">
+  <div class="wrap">
+    <h2>Full Review Manuscript</h2>
+    <p class="sub">Formatted for Life Sciences in Space Research (COSPAR / Elsevier).</p>
+    <div class="manuscript-body">
+      <p>The full manuscript text with 80 peer-reviewed references, complete biophysical derivations, and operational protocols is embedded in the repository archive and can be read in Markdown or downloaded as a pre-compiled Word document.</p>
+      <div class="btns" style="margin:20px 0;">
+        <a class="btn primary" href="../Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx">Download Word Document (.docx, 2.96 MB)</a>
+        <a class="btn" href="../manuscript/Hypomagnetic_Lunar_Plant_Biology_LSSR_Review.md">View Raw Manuscript Markdown</a>
+        <a class="btn" href="../manuscript/references_LSSR.bib">View BibTeX Database</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <p style="font-weight:700; margin-bottom:4px;">Collaborative Science Environment (CoSE) · Astrobotany Hub</p>
+        <p style="font-size:0.85rem; color:#777;">Purdue University Agricultural &amp; Biological Engineering · NASA LEAF Science Team</p>
+      </div>
+      <div>
+        <img src="cose/cose-logo.png" alt="CoSE Logo" style="height:36px; vertical-align:middle;">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CoSE Theme Scripts -->
+<script defer src="cose/theme.js"></script>
+<!-- Visitor Analytics -->
+<script defer src="https://visitor-analytics.astrobotany.workers.dev/a.js"></script>
+</body>
+</html>

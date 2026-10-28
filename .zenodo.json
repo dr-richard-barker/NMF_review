@@ -1,0 +1,109 @@
+{
+  "title": "Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture",
+  "description": "<p>Review manuscript, data synthesis, and reproducible figure generation pipeline for <em>Life Sciences in Space Research</em> (LSSR). This work evaluates the biological consequences of the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis candidate landing sites) during the critical first 5 days of plant growth (0–120 hours). It synthesizes empirical literature across five core concepts: germination capacity, emergence velocity kinetics, cryptochrome-mediated pigment biosynthesis, convergence on the mitochondrial CO2-O2-ROS nexus with spaceflight radiation and exploration atmospheres, and human-plant conserved Alternative Oxidase (AOX) / mitochondrial stress parallels. Includes an operational flight risk-retirement framework for the NASA Artemis III Lunar Effects on Agricultural Flora (LEAF) payload.</p>",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "lunar plant biology",
+    "near-null magnetic field",
+    "hypomagnetic field",
+    "Artemis III LEAF",
+    "seed germination",
+    "mitochondrial bioenergetics",
+    "reactive oxygen species",
+    "exploration atmosphere",
+    "alternative oxidase",
+    "cryptochrome",
+    "space agriculture",
+    "FAIR data"
+  ],
+  "creators": [
+    {
+      "name": "Porterfield, D. Marshall",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Barker, Richard J.",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA",
+      "orcid": "0000-0001-5681-9857"
+    },
+    {
+      "name": "Borlina, Caue",
+      "affiliation": "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "O'Rourke, Aubrey",
+      "affiliation": "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Sanchez, Adriana",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Dagar, Manisha",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Leiva Aldana, Sofia",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Wheeler, Ray",
+      "affiliation": "NASA John F. Kennedy Space Center, Exploration Research and Technology Programs, FL 32899, USA"
+    },
+    {
+      "name": "Massa, Gioia",
+      "affiliation": "NASA John F. Kennedy Space Center, Space Crop Production, FL 32899, USA"
+    },
+    {
+      "name": "Demmig-Adams, Barbara",
+      "affiliation": "Department of Ecology and Evolutionary Biology, University of Colorado Boulder, Boulder, CO 80309, USA"
+    },
+    {
+      "name": "Peirats-Llobet, Marta",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Flores, Pamela",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Dixit, Anirudha",
+      "affiliation": "Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Chamberlain, Christine",
+      "affiliation": "Space Lab Technologies, LLC, Boulder, CO 80301, USA"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/dr-richard-barker/NMF_review",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://dr-richard-barker.github.io/NMF_review/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-782",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-8",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-27",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Prepared in accordance with AstroBotany AI (ABAI) reproducible science standards. Checksums, data tables, and script sources included."
+}

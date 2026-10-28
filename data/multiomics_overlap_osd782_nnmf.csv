@@ -1,0 +1,9 @@
+locus,gene_symbol,description,radiation_log2fc,radiation_condition,nnmf_log2fc,nnmf_condition,concordant
+AT1G32350,AOX1D,Alternative Oxidase 1D,3.9572,OSD-782 1 Gy 72h,0.7312,Parmagnani2022 shoots 48h,TRUE
+AT1G20630,CAT3,Catalase 3,0.9061,OSD-782 1 Gy 72h,0.9411,Parmagnani2022 shoots 4h,TRUE
+AT3G22370,AOX1A,Alternative Oxidase 1A,0.7022,OSD-782 1 Gy 72h,0.3448,Parmagnani2022 shoots 24h,TRUE
+AT5G64210,AOX2,Alternative Oxidase 2,-2.4339,OSD-782 1 Gy 24h,1.4060,Parmagnani2022 shoots 48h,FALSE
+AT3G09640,GSTU25,Glutathione S-transferase TAU 25,1.8973,OSD-782 1 Gy 72h,-1.0893,Parmagnani2022 roots 24h,FALSE
+AT1G07890,PRX34,Peroxidase 34,-0.2710,OSD-782 0.1 Gy 24h,0.2750,Parmagnani2022 shoots 24h,FALSE
+AT1G15550,FSD1,Fe Superoxide Dismutase 1,1.5074,OSD-782 0.1 Gy 1h,0.4222,Parmagnani2022 shoots 10min,TRUE
+AT4G25100,FRO2,Ferric Chelate Reductase 2,0.4263,OSD-782 0.1 Gy 1h,-0.4344,Parmagnani2022 shoots 24h,FALSE

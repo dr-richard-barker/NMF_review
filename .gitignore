@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Office / Pandoc temporary files
+~$*.docx
+_temp_for_docx.md
+*.tmp
+
+# ABAI local attestation workspace (DO NOT commit internal verification caches)
+.abai/
+
+# Local logs
+*.log
