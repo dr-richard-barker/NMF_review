@@ -980,7 +980,7 @@ def build_slide_15_appendix_links(prs):
         ("Manuscript & Documents",
          "• Master Markdown: manuscript/Hypomagnetic_Lunar_Plant_Biology_LSSR_Review.md\n"
          "• Compiled Word Doc: Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx (2.96 MB)\n"
-         "• BibTeX Library: references_LSSR.bib (80 audited references; CrossRef-verified)\n"
+         "• BibTeX Library: references_LSSR.bib (79 audited references; CrossRef-verified)\n"
          "• Target Journal: Life Sciences in Space Research (COSPAR / Elsevier)",
          BLUE_BG_LIGHT, BLUE_PRIMARY),
         ("Processed Empirical Data Tables",

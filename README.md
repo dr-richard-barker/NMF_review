@@ -53,7 +53,7 @@ This repository hosts the complete review manuscript, processed datasets, high-r
 NMF_review/
 ├── manuscript/
 │   ├── Hypomagnetic_Lunar_Plant_Biology_LSSR_Review.md  # Complete review manuscript
-│   └── references_LSSR.bib                              # Audited BibTeX library (80 references)
+│   └── references_LSSR.bib                              # Audited BibTeX library (79 references)
 ├── figures/
 │   ├── Fig1_lunar_magnetic_environment_montage.png/.pdf # Lunar field maps & landing sites
 │   ├── Fig2_first_5_days_germination_pigments.png/.pdf  # Day 0–5 kinetics & pigments
