@@ -579,21 +579,21 @@ def export_fig5_subpanels():
     plt.close(fig)
 
     # Fig 5d: Decision Matrix Logic
-    fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=300)
+    fig, ax = plt.subplots(figsize=(5.8, 4.5), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
     gates = [
         ("GREEN GATE (Nominal Flight)", "Ambient B < 5 nT | Germination ≥ 85%\nAction: Continue baseline autonomous imaging & telemetry", "#e8f5e9", "#2e7d32"),
-        ("AMBER GATE (Investigation)", "Field 5–50 nT ripple | 15–30% emergence delay\nAction: Log telemetry; initiate secondary optical chlorophyll assay", "#fff8e1", "#f57f17"),
+        ("AMBER GATE (Operational Shift)", "Field 5–50 nT ripple | 15–30% emergence delay\nAction: Log telemetry; initiate secondary optical chlorophyll assay", "#fff8e1", "#f57f17"),
         ("RED GATE (Causal Intervention)", "Germination capacity drop > 30% | Severe chlorosis\nAction: Energize active 45 µT coils to rescue crop viability", "#ffebee", "#c62828")
     ]
     y_g = 7.5
     for title, desc, bg, edge in gates:
-        g_rect = patches.FancyBboxPatch((0.6, y_g - 2.0), 8.8, 2.2, boxstyle="round,pad=0.2", edgecolor=edge, facecolor=bg, lw=1.2)
+        g_rect = patches.FancyBboxPatch((0.5, y_g - 2.05), 9.0, 2.25, boxstyle="round,pad=0.2", edgecolor=edge, facecolor=bg, lw=1.2)
         ax.add_patch(g_rect)
-        ax.text(1.0, y_g - 0.5, title, weight='bold', fontsize=7.5, color=edge)
-        ax.text(1.0, y_g - 1.4, desc, fontsize=6.5, color="#333333")
+        ax.text(0.9, y_g - 0.45, title, weight='bold', fontsize=8.2, color=edge)
+        ax.text(0.9, y_g - 1.4, desc, fontsize=7.2, color="#333333", linespacing=1.3)
         y_g -= 2.6
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig5d_decision_matrix.png', dpi=300, bbox_inches='tight')
@@ -605,31 +605,31 @@ def export_fig5_subpanels():
 def export_ga_subpanels():
     print("Exporting Graphical Abstract subpanels...")
     # GA Panel 1: Problem
-    fig, ax = plt.subplots(figsize=(4.0, 5.5), dpi=300)
+    fig, ax = plt.subplots(figsize=(4.2, 5.8), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
     card = patches.FancyBboxPatch((0.5, 0.5), 9.0, 9.0, boxstyle="round,pad=0.2", edgecolor="#1565c0", facecolor="#e3f2fd", lw=1.4)
     ax.add_patch(card)
-    ax.text(5.0, 8.8, "1. THE LUNAR REALITY", ha='center', weight='bold', fontsize=8.5, color="#0d47a1")
-    ax.text(5.0, 7.8, "Earth Dipolar GMF:\n25,000 – 65,000 nT\n(Evolutionary Baseline)", ha='center', fontsize=7.2, color="#1565c0")
-    ax.annotate('', xy=(5.0, 5.4), xytext=(5.0, 6.6), arrowprops=dict(arrowstyle="->", color="#c62828", lw=1.8))
-    ax.text(5.0, 6.0, "BLEO Transition", ha='center', fontsize=6.8, color="#c62828", weight='bold', backgroundcolor='#e3f2fd')
-    ax.text(5.0, 4.4, "Lunar Surface Void:\n< 0.8 nT at Artemis Sites\n(>30,000× Drop)", ha='center', weight='bold', fontsize=7.5, color="#c62828")
+    ax.text(5.0, 8.8, "1. THE LUNAR REALITY", ha='center', weight='bold', fontsize=9.2, color="#0d47a1")
+    ax.text(5.0, 7.8, "Earth Dipolar GMF:\n25,000 – 65,000 nT\n(Evolutionary Baseline)", ha='center', fontsize=7.8, color="#1565c0", linespacing=1.25)
+    ax.annotate('', xy=(5.0, 5.3), xytext=(5.0, 6.7), arrowprops=dict(arrowstyle="->", color="#c62828", lw=1.8))
+    ax.text(5.0, 6.0, "BLEO Transition", ha='center', fontsize=7.2, color="#c62828", weight='bold', backgroundcolor='#e3f2fd')
+    ax.text(5.0, 4.4, "Lunar Surface Void:\n< 0.8 nT at Artemis Sites\n(>30,000× Drop)", ha='center', weight='bold', fontsize=8.0, color="#c62828", linespacing=1.25)
     ax.text(5.0, 2.2, "CRITICAL GAP:\nMagnetic field vector is\nunmonitored in biological payloads\nmasked by lander avionics (50–500 µT)!",
-            ha='center', fontsize=6.8, color="#333333")
+            ha='center', fontsize=7.2, color="#333333", linespacing=1.25)
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'GA_panel1_problem.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
     # GA Panel 2: Mechanism
-    fig, ax = plt.subplots(figsize=(4.0, 5.5), dpi=300)
+    fig, ax = plt.subplots(figsize=(4.2, 5.8), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
     card = patches.FancyBboxPatch((0.5, 0.5), 9.0, 9.0, boxstyle="round,pad=0.2", edgecolor="#f57c00", facecolor="#fff3e0", lw=1.4)
     ax.add_patch(card)
-    ax.text(5.0, 8.8, "2. THE 0–5 DAY BOTTLENECK", ha='center', weight='bold', fontsize=8.5, color="#e65100")
+    ax.text(5.0, 8.8, "2. THE 0–5 DAY BOTTLENECK", ha='center', weight='bold', fontsize=9.2, color="#e65100")
     points = [
         ("Germination Delay", "t50 lag +12–36 h; -10 to -30% count"),
         ("Yield Penalty", "-20 to -30% Day 5 biomass deficit"),
@@ -638,21 +638,21 @@ def export_ga_subpanels():
     ]
     y_p = 7.6
     for t, d in points:
-        ax.text(5.0, y_p, t, ha='center', weight='bold', fontsize=7.2, color="#c62828")
-        ax.text(5.0, y_p - 0.55, d, ha='center', fontsize=6.5, color="#333333")
+        ax.text(5.0, y_p, t, ha='center', weight='bold', fontsize=7.8, color="#c62828")
+        ax.text(5.0, y_p - 0.55, d, ha='center', fontsize=7.0, color="#333333")
         y_p -= 1.6
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'GA_panel2_mechanism.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
     # GA Panel 3: Solution
-    fig, ax = plt.subplots(figsize=(4.0, 5.5), dpi=300)
+    fig, ax = plt.subplots(figsize=(4.2, 5.8), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
     card = patches.FancyBboxPatch((0.5, 0.5), 9.0, 9.0, boxstyle="round,pad=0.2", edgecolor="#2e7d32", facecolor="#e8f5e9", lw=1.4)
     ax.add_patch(card)
-    ax.text(5.0, 8.8, "3. FLIGHT RISK RETIREMENT", ha='center', weight='bold', fontsize=8.5, color="#1b5e20")
+    ax.text(5.0, 8.8, "3. FLIGHT RISK RETIREMENT", ha='center', weight='bold', fontsize=9.2, color="#1b5e20")
     sols = [
         ("In-Situ Magnetometry", "In-chamber 3-axis fluxgate telemetry to measure true exposure"),
         ("3-Chamber Ground Controls", "GMF, NNMF, and matched-current bifilar sham to decouple heat/EMI"),
@@ -661,8 +661,8 @@ def export_ga_subpanels():
     ]
     y_s = 7.6
     for t, d in sols:
-        ax.text(5.0, y_s, t, ha='center', weight='bold', fontsize=7.2, color="#1b5e20")
-        ax.text(5.0, y_s - 0.55, d, ha='center', fontsize=6.5, color="#333333")
+        ax.text(5.0, y_s, t, ha='center', weight='bold', fontsize=7.8, color="#1b5e20")
+        ax.text(5.0, y_s - 0.55, d, ha='center', fontsize=7.0, color="#333333")
         y_s -= 1.6
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'GA_panel3_solution.png', dpi=300, bbox_inches='tight')
