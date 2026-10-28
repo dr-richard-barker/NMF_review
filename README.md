@@ -76,14 +76,19 @@ NMF_review/
 │   ├── compile_quantum_pathway_figures.py               # Produces Fig 3
 │   ├── plot_multistressor_co2_o2_ros.py                 # Produces Fig 4
 │   ├── plot_flight_pipeline_and_ga.py                   # Produces Fig 5 & Graphical Abstract
+│   ├── export_presentation_subpanels.py                 # Exports standalone subpanel graphics
+│   ├── build_presentation_deck.py                       # Generates editable 16:9 PPTX deck
 │   ├── build_lssr_docx.py                               # Word manuscript builder with figures
 │   ├── run_abai_qc_audit.py                             # Automated 5-check ABAI quality audit
 │   └── prepare_zenodo.py                                # Generates MANIFEST.tsv & CHECKSUMS
+├── presentation/                                        # Presentation assets
+│   └── assets/subpanels/                                # 22 standalone 300 DPI subpanels
 ├── docs/                                                # GitHub Pages (CoSE theme)
 │   ├── index.html                                       # Interactive web portal
 │   ├── cose/                                            # CoSE header, rail, style, & sites.js
 │   └── assets/                                          # Web-optimized figures & diagrams
 ├── Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx # Compiled Word submission doc
+├── Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx # Editable 16:9 PowerPoint deck
 ├── CITATION.cff                                         # CFF v1.2.0 metadata
 ├── .zenodo.json                                         # Zenodo deposit schema
 ├── MANIFEST.tsv                                         # Byte-exact payload inventory
@@ -116,6 +121,7 @@ make all
 
 - `make figures` — Re-executes Python plotting routines and re-renders all 5 main figures plus the graphical abstract in 300 DPI raster (`.png`) and vector (`.pdf`).
 - `make docx` — Compiles `manuscript/Hypomagnetic_Lunar_Plant_Biology_LSSR_Review.md` into the publication Word document with embedded high-resolution figures.
+- `make presentation` — Decomposes figure montages into standalone subpanels and compiles the publication-grade, editable 16:9 widescreen PowerPoint presentation (`Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx`).
 - `make abai-qc` — Runs the AstroBotany AI quality control audit, checking for zero blocklisted strings, validating DOIs against the CrossRef API, and ensuring data traceability.
 - `make zenodo-prep` — Re-scans the repository and re-generates `MANIFEST.tsv` and `CHECKSUMS.sha256`.
 - `make verify` — Validates file integrity against `CHECKSUMS.sha256`.
@@ -131,6 +137,21 @@ This repository has completed and passed all 5 automated quality control checks:
 3. **Data Traceability:** Passed (All plotted values trace strictly to processed CSV tables in `data/`; zero untracked synthetic mock data).
 4. **NASA Open Science Accession Mapping:** Passed (Validated cross-references to NASA OSDR studies `OSD-782`, `OSD-8`, and `OSD-27`).
 5. **Compilation Deliverables Verification:** Passed (All 12 figure files present and non-empty; Word document compiled with embedded figures).
+
+---
+
+## Editable PowerPoint Presentation Deck (16:9 Widescreen)
+
+This repository includes a publication-grade, 16:9 widescreen presentation deck designed for lab meetings, project reviews, and conference presentations:
+👉 **[`Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx`](Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx)**
+
+### Key Features of the Deck:
+- **15 Structured Slides:** Full narrative arc from the lunar $<0.8\text{ nT}$ void to Day 0–5 seedling kinetics, quantum cryptochrome mechanisms, the $\text{CO}_2 \leftrightarrow \text{O}_2 \leftrightarrow \text{ROS}$ nexus, and Artemis LEAF risk-retirement.
+- **Deconstructed, Editable Montages:** Figure montages (Figures 1–5 and Graphical Abstract) are not flattened raster images. Each subpanel is an **independent, repositionable graphic component** accompanied by **native editable PowerPoint text boxes** for panel letters `(a)`, `(b)`, `(c)`, `(d)`, headers, and metric callouts.
+- **Deep-Dive Mechanism Slides:** Large-format views of critical subpanels paired with analytical takeaways and biological pathways.
+- **Native Styled Table:** Table 3 (Artemis LEAF Flight Decision Matrix) is built as a native PowerPoint table with colored indicator cells (Green / Amber / Red gates).
+- **Comprehensive Presenter Script:** Every slide includes detailed, structured presenter notes covering the primary narrative, quantitative numbers, and anticipated questions.
+- **Standalone Subpanel Assets:** All 22 individual subpanels are exported in high-resolution (300 DPI) under `presentation/assets/subpanels/`.
 
 ---
 

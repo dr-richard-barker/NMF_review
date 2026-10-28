@@ -4,28 +4,33 @@
 PYTHON ?= $(shell which python3)
 PANDOC ?= $(shell which pandoc)
 
-# Prefer established virtualenv with scientific stack if available
-VENV_PYTHON = /Users/drb_laptop/Documents/deepspace-seed-stress-decoder/lunar-magnetic-biology/.venv/bin/python
-ifneq ("$(wildcard $(VENV_PYTHON))","")
-    PY = $(VENV_PYTHON)
+# Prefer local virtualenv with scientific & pptx stack if available
+LOCAL_VENV = $(CURDIR)/.venv/bin/python
+EXTERNAL_VENV = /Users/drb_laptop/Documents/deepspace-seed-stress-decoder/lunar-magnetic-biology/.venv/bin/python
+
+ifneq ("$(wildcard $(LOCAL_VENV))","")
+    PY = $(LOCAL_VENV)
+else ifneq ("$(wildcard $(EXTERNAL_VENV))","")
+    PY = $(EXTERNAL_VENV)
 else
     PY = $(PYTHON)
 endif
 
-.PHONY: all figures docx site abai-qc zenodo-prep verify clean help
+.PHONY: all figures docx presentation site abai-qc zenodo-prep verify clean help
 
-all: figures docx abai-qc zenodo-prep verify
+all: figures docx presentation abai-qc zenodo-prep verify
 
 help:
 	@echo "Available make targets:"
-	@echo "  make all         - Generate all figures, docx, run ABAI QC, and prepare Zenodo manifest"
-	@echo "  make figures     - Regenerate all 5 figures and graphical abstract (PNG & PDF)"
-	@echo "  make docx        - Compile manuscript markdown to publication Word document with figures"
-	@echo "  make site        - Sync figure assets to docs/assets/ for GitHub Pages"
-	@echo "  make abai-qc     - Execute 5-check AstroBotany AI quality control audit"
-	@echo "  make zenodo-prep - Generate MANIFEST.tsv and CHECKSUMS.sha256 for Zenodo"
-	@echo "  make verify      - Verify repository integrity using CHECKSUMS.sha256"
-	@echo "  make clean       - Remove temporary files and build artifacts"
+	@echo "  make all          - Generate figures, docx, presentation, run ABAI QC, and prepare Zenodo"
+	@echo "  make figures      - Regenerate all 5 figures and graphical abstract (PNG & PDF)"
+	@echo "  make docx         - Compile manuscript markdown to publication Word document with figures"
+	@echo "  make presentation - Export subpanels and compile editable 16:9 PowerPoint presentation"
+	@echo "  make site         - Sync figure assets to docs/assets/ for GitHub Pages"
+	@echo "  make abai-qc      - Execute 5-check AstroBotany AI quality control audit"
+	@echo "  make zenodo-prep  - Generate MANIFEST.tsv and CHECKSUMS.sha256 for Zenodo"
+	@echo "  make verify       - Verify repository integrity using CHECKSUMS.sha256"
+	@echo "  make clean        - Remove temporary files and build artifacts"
 
 figures:
 	@echo "==> Generating Figure 1 (Lunar Magnetic Environment)..."
@@ -50,6 +55,13 @@ docx:
 	@echo "==> Compiling Word document manuscript..."
 	@$(PY) scripts/build_lssr_docx.py
 	@echo "Generated Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx"
+
+presentation:
+	@echo "==> Exporting standalone presentation subpanels..."
+	@$(PY) scripts/export_presentation_subpanels.py
+	@echo "==> Building editable 16:9 PowerPoint presentation deck..."
+	@$(PY) scripts/build_presentation_deck.py
+	@echo "Generated Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx"
 
 abai-qc:
 	@echo "==> Running AstroBotany AI (ABAI) Quality Control Audit..."

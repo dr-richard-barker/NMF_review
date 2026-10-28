@@ -52,6 +52,10 @@ def get_description(rel_path: str) -> str:
             return "Pandoc-compiled Word submission manuscript with 300 DPI embedded figures"
         elif "LEAF Perspective" in p:
             return "Original working draft manuscript (archive reference)"
+    elif p.endswith(".pptx"):
+        return "Editable 16:9 widescreen PowerPoint presentation deck with separable subpanels and presenter notes"
+    elif p.startswith("presentation/assets/subpanels/"):
+        return "Standalone high-resolution (300 DPI) subpanel component for editable figure montages"
     elif p.startswith("figures/"):
         if p.endswith(".png"):
             return "High-resolution (300 DPI) publication raster figure"
