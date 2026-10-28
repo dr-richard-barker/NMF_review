@@ -1,0 +1,4 @@
+decision_gate,color_code,germination_threshold,emergence_lag_t50,photochemistry_threshold,biomass_penalty,mission_action
+Green Gate,Green,< 5% drop,< 6 hours,Fv/Fm nominal (> 0.78),< 5% decline,Retire magnetic risk from critical path; proceed with baseline flight operations
+Amber Gate,Amber,5% to 20% drop,6 to 24 hours,Fv/Fm moderate decline (0.70 - 0.78),10% to 25% decline,Increase seed density 15-20%; extend growth cycle 24-48h; boost blue LED flux +15%
+Red Gate,Red,> 20% collapse,> 24 hours,Fv/Fm severe failure (< 0.70),> 30% collapse,Mandate active bias coils (40-50 uT); deploy tolerant cultivars overexpressing AOX1D/HY5
