@@ -194,9 +194,9 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 - **Ray Wheeler** <sup>3</sup>
 - **Gioia Massa** <sup>4</sup>
 - **Barbara Demmig-Adams** <sup>5</sup>
-- **Marta Peirats-Llobet** <sup>1</sup>
-- **Pamela Flores** <sup>1</sup>
-- **Anirudha Dixit** <sup>1</sup>
+- **Marta Peirats-Llobet** <sup>7</sup>
+- **Pamela Flores** <sup>6</sup>
+- **Anirudha Dixit** <sup>4</sup>
 - **Christine Chamberlain** <sup>6</sup>
 
 <sup>1</sup> Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA  
@@ -205,6 +205,7 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 <sup>4</sup> NASA John F. Kennedy Space Center, Space Crop Production, FL 32899, USA  
 <sup>5</sup> Department of Ecology and Evolutionary Biology, University of Colorado Boulder, Boulder, CO 80309, USA  
 <sup>6</sup> Space Lab Technologies, LLC, Boulder, CO 80301, USA  
+<sup>7</sup> La Trobe Institute for Sustainable Agriculture and Food, School of Agriculture, Biomedicine and Environment, La Trobe University, Bundoora, VIC 3086, Australia  
 
 * Corresponding Authors.
 

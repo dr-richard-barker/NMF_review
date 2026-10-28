@@ -169,7 +169,7 @@ def build_slide_01_title(prs):
     p_a1.font.color.rgb = TEXT_LIGHT
 
     p_a2 = tf_a.add_paragraph()
-    p_a2.text = "Purdue University • NASA John F. Kennedy Space Center • University of Colorado Boulder • Space Lab Technologies\n*Corresponding Authors: porterf@purdue.edu, dr.richard.barker@gmail.com"
+    p_a2.text = "Purdue University • NASA Kennedy Space Center • University of Colorado Boulder • Space Lab Technologies • La Trobe University\n*Corresponding Authors: porterf@purdue.edu, dr.richard.barker@gmail.com"
     p_a2.font.size = Pt(9.5)
     p_a2.font.color.rgb = TEXT_LIGHT_MUT
 
