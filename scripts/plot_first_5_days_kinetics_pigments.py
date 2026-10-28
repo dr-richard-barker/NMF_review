@@ -69,8 +69,8 @@ def main():
         p_card = patches.FancyBboxPatch((x_pos - 11.2, 62), 22.4, 35, boxstyle="round,pad=0,rounding_size=2",
                                         edgecolor=ecol, facecolor=fcol, lw=1.1)
         ax_time.add_patch(p_card)
-        ax_time.text(x_pos, 88.5, title, fontsize=6.2, weight='bold', color=ecol, ha='center', va='center')
-        ax_time.text(x_pos, 73.0, details, fontsize=5.8, color='#263238', ha='center', va='center', linespacing=1.25)
+        ax_time.text(x_pos, 88.5, title, fontsize=6.8, weight='bold', color=ecol, ha='center', va='center')
+        ax_time.text(x_pos, 73.0, details, fontsize=6.5, color='#263238', ha='center', va='center', linespacing=1.25)
         
         # Connection pin to timeline
         ax_time.plot([x_pos, x_pos], [62, 58], color=ecol, lw=1.5)
@@ -80,23 +80,23 @@ def main():
     c2_box = patches.FancyBboxPatch((3, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax_time.add_patch(c2_box)
-    ax_time.text(25.75, 41.5, "CORE CONCEPTS 2 & 3: Germination & Yield", fontsize=6.9, weight='bold', color="#b71c1c", ha='center', va='center')
+    ax_time.text(25.75, 41.5, "CORE CONCEPTS 2 & 3: Germination & Yield", fontsize=7.4, weight='bold', color="#b71c1c", ha='center', va='center')
     ax_time.text(25.75, 27.5, "• Null magnetic field dampens reserve mobilization\n• Lowers final germination capacity (# seedlings)\n• Delays emergence speed (t50) & seedling vigor",
-                 fontsize=6.2, color="#212121", ha='center', va='center', linespacing=1.35)
+                 fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
 
     c4_box = patches.FancyBboxPatch((51.5, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.0)
     ax_time.add_patch(c4_box)
-    ax_time.text(74.25, 41.5, "CORE CONCEPT 4: Pigment Biosynthesis", fontsize=6.9, weight='bold', color="#1b5e20", ha='center', va='center')
+    ax_time.text(74.25, 41.5, "CORE CONCEPT 4: Pigment Biosynthesis", fontsize=7.4, weight='bold', color="#1b5e20", ha='center', va='center')
     ax_time.text(74.25, 27.5, "• Attenuated CRY radical-pair signaling\n• Repressed HEMA1, CHLH & PORA/B/C transcripts\n• Reduced chlorophyll a/b, carotenoid & anthocyanin",
-                 fontsize=6.2, color="#212121", ha='center', va='center', linespacing=1.35)
+                 fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
 
     # Bottom transition banner
     trans_banner = patches.FancyBboxPatch((3, 3), 94, 9.5, boxstyle="round,pad=0,rounding_size=2",
                                           edgecolor="#0288d1", facecolor="#e1f5fe", lw=0.9)
     ax_time.add_patch(trans_banner)
     ax_time.text(50, 7.75, "Heterotrophic Seed Imbibition (0–72 h)  ────────►  Photomorphogenic Autotrophy (72–120 h)",
-                 fontsize=6.8, weight='bold', color="#01579b", ha='center', va='center')
+                 fontsize=7.2, weight='bold', color="#01579b", ha='center', va='center')
 
     # -------------------------------------------------------------
     # Panel (b): Germination Capacity & Speed (Kinetics Curve)
@@ -120,12 +120,12 @@ def main():
     # Delta t50 arrow
     ax_kin.annotate('', xy=(46, 37), xytext=(30, 37),
                     arrowprops=dict(arrowstyle='<->', color='#d32f2f', lw=1.2))
-    ax_kin.text(38, 40, 'Δt50 = +16 h\n(Speed / Rate Lag)', color='#d32f2f', fontsize=6.8, ha='center', weight='bold')
+    ax_kin.text(38, 40, 'Δt50 = +16 h\n(Speed / Rate Lag)', color='#d32f2f', fontsize=7.4, ha='center', weight='bold')
 
     # Delta capacity arrow
     ax_kin.annotate('', xy=(115, 74), xytext=(115, 94),
                     arrowprops=dict(arrowstyle='<->', color='#b71c1c', lw=1.2))
-    ax_kin.text(108, 84, 'ΔCap = -20%\n(# Seedlings)', color='#b71c1c', fontsize=6.8, ha='right', weight='bold')
+    ax_kin.text(108, 84, 'ΔCap = -20%\n(# Seedlings)', color='#b71c1c', fontsize=7.4, ha='right', weight='bold')
 
     ax_kin.set_xlabel('Time After Imbibition (hours)')
     ax_kin.set_ylabel('Cumulative Germination (%)')
@@ -154,19 +154,19 @@ def main():
     for i in range(len(categories)):
         red = (nnmf_vals[i] - gmf_vals[i]) / gmf_vals[i] * 100
         y_max = max(gmf_vals[i], nnmf_vals[i])
-        ax_yield.text(x[i], y_max + 3.0, f"{red:.1f}%", ha='center', fontsize=7.0, weight='bold', color='#b71c1c')
+        ax_yield.text(x[i], y_max + 3.0, f"{red:.1f}%", ha='center', fontsize=7.5, weight='bold', color='#b71c1c')
 
     ax_yield.set_ylabel('Seedling Metric Value')
     ax_yield.set_title('(c) Early Seedling Vigor & Crop Biomass Accumulation', weight='bold')
     ax_yield.set_xticks(x)
-    ax_yield.set_xticklabels(categories, fontsize=7.2)
+    ax_yield.set_xticklabels(categories, fontsize=7.5)
     ax_yield.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
     ax_yield.set_ylim(0, 130)
     ax_yield.grid(axis='y', linestyle=':', alpha=0.6)
 
     # Yield implications callout
     ax_yield.text(0.04, 0.92, "Impact on Lunar Agriculture:\n• Uneven canopy closure\n• Reduced photosynthetic interception\n• 25–30% decline in early harvestable yields",
-                  transform=ax_yield.transAxes, fontsize=6.7, verticalalignment='top',
+                  transform=ax_yield.transAxes, fontsize=7.2, verticalalignment='top',
                   bbox=dict(boxstyle='round,pad=0.3', facecolor='#fffde7', edgecolor='#fbc02d', alpha=0.95))
 
     # -------------------------------------------------------------
@@ -187,9 +187,9 @@ def main():
     cry_box = patches.FancyBboxPatch((6, 75), 88, 19, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#1565c0", facecolor="#e3f2fd", lw=1.0)
     ax_pig.add_patch(cry_box)
-    ax_pig.text(50, 89.5, "Upstream Blue-Light Signal Transduction (CRY1 / CRY2)", fontsize=7.4, weight='bold', color='#0d47a1', ha='center', va='center')
+    ax_pig.text(50, 89.5, "Upstream Blue-Light Signal Transduction (CRY1 / CRY2)", fontsize=7.8, weight='bold', color='#0d47a1', ha='center', va='center')
     ax_pig.text(50, 81.5, "[FAD•- ... TrpH•+] radical pair spin mixing altered in NNMF\n──► Decreased COP1/SPA1 dissociation ──► Reduced HY5 stabilization",
-                fontsize=6.4, color='#1a237e', ha='center', va='center', linespacing=1.25)
+                fontsize=6.9, color='#1a237e', ha='center', va='center', linespacing=1.25)
 
     # Arrow down
     ax_pig.annotate('', xy=(50, 71.5), xytext=(50, 75),
@@ -200,32 +200,32 @@ def main():
     chl_box = patches.FancyBboxPatch((6, 17), 42.5, 52.5, boxstyle="round,pad=0,rounding_size=2",
                                      edgecolor="#2e7d32", facecolor="#e8f5e9", lw=1.0)
     ax_pig.add_patch(chl_box)
-    ax_pig.text(27.25, 65.5, "Chlorophyll Biosynthesis", fontsize=7.1, weight='bold', color='#1b5e20', ha='center', va='center')
-    ax_pig.text(27.25, 59.0, "Glutamyl-tRNA", fontsize=6.3, ha='center', color='#333333')
-    ax_pig.text(27.25, 52.5, "↓ HEMA1 (GTR) [-1.8x]", fontsize=6.3, weight='bold', color='#b71c1c', ha='center')
-    ax_pig.text(27.25, 46.0, "Protoporphyrin IX", fontsize=6.3, ha='center', color='#333333')
-    ax_pig.text(27.25, 39.5, "↓ CHLH (Mg-chelatase) [-2.1x]", fontsize=6.3, weight='bold', color='#b71c1c', ha='center')
-    ax_pig.text(27.25, 33.0, "Protochlorophyllide", fontsize=6.3, ha='center', color='#333333')
-    ax_pig.text(27.25, 26.5, "↓ PORA/B/C [-2.5x]", fontsize=6.3, weight='bold', color='#b71c1c', ha='center')
-    ax_pig.text(27.25, 20.0, "Chlorophyll a & b Accumulation", fontsize=6.6, weight='bold', color='#2e7d32', ha='center')
+    ax_pig.text(27.25, 65.5, "Chlorophyll Biosynthesis", fontsize=7.5, weight='bold', color='#1b5e20', ha='center', va='center')
+    ax_pig.text(27.25, 59.0, "Glutamyl-tRNA", fontsize=6.9, ha='center', color='#333333')
+    ax_pig.text(27.25, 52.5, "↓ HEMA1 (GTR) [-1.8x]", fontsize=6.9, weight='bold', color='#b71c1c', ha='center')
+    ax_pig.text(27.25, 46.0, "Protoporphyrin IX", fontsize=6.9, ha='center', color='#333333')
+    ax_pig.text(27.25, 39.5, "↓ CHLH (Mg-chelatase) [-2.1x]", fontsize=6.9, weight='bold', color='#b71c1c', ha='center')
+    ax_pig.text(27.25, 33.0, "Protochlorophyllide", fontsize=6.9, ha='center', color='#333333')
+    ax_pig.text(27.25, 26.5, "↓ PORA/B/C [-2.5x]", fontsize=6.9, weight='bold', color='#b71c1c', ha='center')
+    ax_pig.text(27.25, 20.0, "Chlorophyll a & b Accumulation", fontsize=7.2, weight='bold', color='#2e7d32', ha='center')
 
     # Anthocyanin & Iron Box
     ant_box = patches.FancyBboxPatch((51.5, 17), 42.5, 52.5, boxstyle="round,pad=0,rounding_size=2",
                                      edgecolor="#8e24aa", facecolor="#f3e5f5", lw=1.0)
     ax_pig.add_patch(ant_box)
-    ax_pig.text(72.75, 65.5, "Photoprotection & Iron Co-factors", fontsize=7.1, weight='bold', color='#4a148c', ha='center', va='center')
+    ax_pig.text(72.75, 65.5, "Photoprotection & Iron Co-factors", fontsize=7.5, weight='bold', color='#4a148c', ha='center', va='center')
     ax_pig.text(72.75, 52.5, "Flavonoid / Anthocyanin Branch:\n• CHS (Chalcone synthase) [-2.2x]\n• CHI / F3H repression\n──► Decreased photoprotection",
-                fontsize=6.1, color='#311b92', ha='center', va='center', linespacing=1.25)
+                fontsize=6.7, color='#311b92', ha='center', va='center', linespacing=1.25)
     ax_pig.text(72.75, 34.0, "Secondary Iron Deficiency Chlorosis:\n• FIT / IRT1 downregulation\n• Ferritin (AtFer1-4) depletion\n──► Fe-S & heme cofactor starvation",
-                fontsize=6.1, color='#b71c1c', ha='center', va='center', linespacing=1.25)
-    ax_pig.text(72.75, 20.0, "Etioplast-to-Chloroplast Arrest", fontsize=6.6, weight='bold', color='#880e4f', ha='center', va='center')
+                fontsize=6.7, color='#b71c1c', ha='center', va='center', linespacing=1.25)
+    ax_pig.text(72.75, 20.0, "Etioplast-to-Chloroplast Arrest", fontsize=7.2, weight='bold', color='#880e4f', ha='center', va='center')
 
     # Bottom summary footnote banner
     fn_box = patches.FancyBboxPatch((4, 4.5), 92, 9.0, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#81c784", facecolor="#ffffff", lw=0.9)
     ax_pig.add_patch(fn_box)
     ax_pig.text(50, 9.0, "Phenotypic Outcome: Delayed greening, decreased Fv/Fm, and chlorosis under lunar HMF",
-                fontsize=5.8, weight='bold', ha='center', va='center', color='#2e7d32')
+                fontsize=6.6, weight='bold', ha='center', va='center', color='#2e7d32')
 
     fig.subplots_adjust(top=0.95, bottom=0.07, left=0.07, right=0.96, hspace=0.30, wspace=0.22)
     out_pdf = OUT_DIR / 'Fig2_first_5_days_germination_pigments.pdf'

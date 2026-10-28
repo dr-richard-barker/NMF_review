@@ -90,31 +90,29 @@ def export_fig1_subpanels():
                          edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
     
     site_offsets = {
-        'Haworth': (-8, -4, 'right'),
-        'Malapert Mountain': (6, 6, 'left'),
-        'Connecting Ridge': (6, -6, 'left'),
-        'Connecting Ridge Extension': (6, 12, 'left'),
-        'Peak Near Shackleton': (6, -10, 'left'),
-        'Shackleton-de Gerlache Ridge': (6, 4, 'left'),
-        'de Gerlache Rim 1': (6, -6, 'left'),
-        'de Gerlache Rim 2': (6, 8, 'left'),
-        'de Gerlache-Kocher Massif': (6, -8, 'left'),
-        'Slater Plain': (6, 0, 'left'),
-        'Amundsen Rim': (6, 0, 'left'),
-        'Nobile Rim 1': (6, 4, 'left'),
-        'Nobile Rim 2': (6, -4, 'left'),
-        'Faustini Rim A': (6, 0, 'left'),
-        'Leibnitz Beta Plateau': (6, 0, 'left'),
+        'Haworth': (0, 11, 'center', 'bottom'),
+        'Connecting Ridge': (8, 6, 'left', 'bottom'),
+        'Connecting Ridge Extension': (8, -10, 'left', 'top'),
+        'de Gerlache Rim 1': (8, 6, 'left', 'bottom'),
+        'de Gerlache Rim 2': (8, -10, 'left', 'top'),
+        'de Gerlache-Kocher Massif': (8, 0, 'left', 'center'),
+        'Peak Near Shackleton': (8, 0, 'left', 'center'),
+        'Faustini Rim A': (8, 6, 'left', 'bottom'),
+        'Nobile Rim 1': (-10, 6, 'right', 'bottom'),
+        'Nobile Rim 2': (14, -18, 'left', 'top'),
+        'Leibnitz Beta Plateau': (-10, -8, 'right', 'top'),
+        'Amundsen Rim': (8, 10, 'left', 'bottom'),
+        'Malapert Massif': (-8, 0, 'right', 'center'),
     }
 
     for _, row in artemis_sites.iterrows():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
-        ox, oy, ha = site_offsets.get(row['name'], (5, 0, 'left'))
+        ox, oy, ha, va = site_offsets.get(row['name'], (5, 0, 'left', 'center'))
         ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=6.8, ha=ha, va='center', xytext=(ox, oy), textcoords='offset points',
-                    bbox=dict(boxstyle='round,pad=0.15', facecolor='white', alpha=0.8, edgecolor='#999999', lw=0.4))
-    ax.set_xlim(-20, 380)
-    ax.set_ylim(-90.5, -83.5)
+                    fontsize=7.0, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
+                    bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.88, edgecolor='#999999', lw=0.4))
+    ax.set_xlim(-35, 395)
+    ax.set_ylim(-90.8, -83.2)
     ax.set_xlabel('Longitude (°E)')
     ax.set_ylabel('Latitude (°N)')
     ax.grid(True, linestyle=':', alpha=0.6)
@@ -169,14 +167,14 @@ def export_fig1_subpanels():
     ]
     y_start = 6.0
     for symbol, mag, desc, col in contributions:
-        ax.text(0.9, y_start, symbol, fontsize=8.2, weight='bold', color=col, va='center')
-        ax.text(2.0, y_start, f"[{mag}]", fontsize=7.0, weight='bold', color='#333333', va='center')
-        ax.text(3.7, y_start, desc, fontsize=6.8, color='#455a64', va='center')
+        ax.text(0.55, y_start, symbol, fontsize=8.6, weight='bold', color=col, va='center')
+        ax.text(1.95, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
+        ax.text(3.75, y_start, desc, fontsize=7.0, color='#455a64', va='center')
         y_start -= 0.88
-    warn_rect = patches.FancyBboxPatch((0.7, 0.6), 8.6, 1.15, boxstyle="round,pad=0.15", edgecolor="#d32f2f", facecolor="#ffebee", lw=0.8)
+    warn_rect = patches.FancyBboxPatch((0.5, 0.5), 9.0, 1.25, boxstyle="round,pad=0.15", edgecolor="#d32f2f", facecolor="#ffebee", lw=0.9)
     ax.add_patch(warn_rect)
-    ax.text(5.0, 1.18, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-            fontsize=6.5, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.0, 1.15, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
+            fontsize=6.9, weight='bold', ha='center', va='center', color='#b71c1c')
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig1d_superposition_box.png', dpi=300, bbox_inches='tight')
     plt.close(fig)

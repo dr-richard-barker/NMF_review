@@ -16,6 +16,8 @@ venv/
 
 # Office / Pandoc temporary files
 ~$*.docx
+~$*.pptx
+*_midway.pptx
 _temp_for_docx.md
 *.tmp
 

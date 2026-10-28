@@ -113,17 +113,17 @@ def main():
     
     # Custom non-overlapping offsets for each Artemis South Pole site: (dx, dy, ha, va)
     site_offsets = {
-        'Haworth': (-8, -4, 'right', 'top'),
-        'Connecting Ridge': (8, 7, 'left', 'bottom'),
-        'Connecting Ridge Extension': (8, -9, 'left', 'top'),
+        'Haworth': (0, 11, 'center', 'bottom'),
+        'Connecting Ridge': (8, 6, 'left', 'bottom'),
+        'Connecting Ridge Extension': (8, -10, 'left', 'top'),
         'de Gerlache Rim 1': (8, 6, 'left', 'bottom'),
-        'de Gerlache Rim 2': (8, -8, 'left', 'top'),
+        'de Gerlache Rim 2': (8, -10, 'left', 'top'),
         'de Gerlache-Kocher Massif': (8, 0, 'left', 'center'),
         'Peak Near Shackleton': (8, 0, 'left', 'center'),
-        'Faustini Rim A': (8, 8, 'left', 'bottom'),
-        'Nobile Rim 1': (-8, 8, 'right', 'bottom'),
-        'Nobile Rim 2': (8, -8, 'left', 'top'),
-        'Leibnitz Beta Plateau': (-8, -6, 'right', 'top'),
+        'Faustini Rim A': (8, 6, 'left', 'bottom'),
+        'Nobile Rim 1': (-10, 6, 'right', 'bottom'),
+        'Nobile Rim 2': (14, -18, 'left', 'top'),
+        'Leibnitz Beta Plateau': (-10, -8, 'right', 'top'),
         'Amundsen Rim': (8, 10, 'left', 'bottom'),
         'Malapert Massif': (-8, 0, 'right', 'center'),
     }
@@ -132,8 +132,8 @@ def main():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
         dx, dy, ha_align, va_align = site_offsets.get(row['name'], (6, 0, 'left', 'center'))
         ax_polar.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                          fontsize=6.2, ha=ha_align, va=va_align, xytext=(dx, dy), textcoords='offset points',
-                          bbox=dict(boxstyle='round,pad=0.18', facecolor='white', alpha=0.85, edgecolor='#888888', lw=0.4))
+                          fontsize=6.9, ha=ha_align, va=va_align, xytext=(dx, dy), textcoords='offset points',
+                          bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.88, edgecolor='#888888', lw=0.4))
         
     ax_polar.set_xlim(-35, 395)
     ax_polar.set_ylim(-90.8, -83.2)
@@ -162,7 +162,7 @@ def main():
     ax_bar.axhline(5.0, color='#d32f2f', linestyle=':', linewidth=1.0, label='Moderate Crustal Swirl (5 nT)')
     
     ax_bar.set_xticks(x_pos)
-    ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=6.8)
+    ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=7.2)
     ax_bar.set_ylabel('Crustal Field $|\\mathbf{B}|$ at 30 km (nT)')
     ax_bar.set_title('(c) Magnetic Field Magnitude at Exploration & Historical Sites', weight='bold')
     ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
@@ -171,7 +171,7 @@ def main():
     
     # Text annotation comparing to Earth GMF
     ax_bar.text(0.03, 0.72, 'Earth Geomagnetic Field (GMF): 25,000–65,000 nT\nLunar Artemis Sites: 0.40–0.82 nT (>30,000× lower)',
-                transform=ax_bar.transAxes, fontsize=7.2, verticalalignment='top',
+                transform=ax_bar.transAxes, fontsize=7.5, verticalalignment='top',
                 bbox=dict(boxstyle='round,pad=0.3', facecolor='#e3f2fd', edgecolor='#1976d2', alpha=0.95))
 
     # -------------------------------------------------------------
@@ -192,14 +192,14 @@ def main():
     ax_sch.text(5.0, 8.9, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
                 fontsize=9.2, weight='bold', ha='center', va='center', color='#01579b')
     ax_sch.text(5.0, 8.1, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
-                fontsize=7.5, ha='center', va='center', color='#0277bd', style='italic')
+                fontsize=7.6, ha='center', va='center', color='#0277bd', style='italic')
 
     # Chamber box
     cham_rect = patches.FancyBboxPatch((0.4, 0.4), 9.2, 7.0, boxstyle="round,pad=0.25",
                                        edgecolor="#37474f", facecolor="#eceff1", lw=1.5)
     ax_sch.add_patch(cham_rect)
     ax_sch.text(5.0, 6.9, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", 
-                weight='bold', fontsize=8.2, ha='center', color='#263238')
+                weight='bold', fontsize=8.4, ha='center', color='#263238')
 
     # Vector contributions table / callouts
     contributions = [
@@ -212,9 +212,9 @@ def main():
     
     y_start = 5.9
     for symbol, mag, desc, col in contributions:
-        ax_sch.text(0.8, y_start, symbol, fontsize=8.6, weight='bold', color=col, va='center')
-        ax_sch.text(2.0, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
-        ax_sch.text(3.7, y_start, desc, fontsize=6.6, color='#455a64', va='center')
+        ax_sch.text(0.55, y_start, symbol, fontsize=8.8, weight='bold', color=col, va='center')
+        ax_sch.text(1.95, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
+        ax_sch.text(3.75, y_start, desc, fontsize=7.0, color='#455a64', va='center')
         y_start -= 0.95
 
     # Bottom notice - strictly padded inside warning box and chamber box
@@ -222,7 +222,7 @@ def main():
                                        edgecolor="#d32f2f", facecolor="#ffebee", lw=0.9)
     ax_sch.add_patch(warn_rect)
     ax_sch.text(5.0, 1.18, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-                fontsize=6.6, weight='bold', ha='center', va='center', color='#b71c1c')
+                fontsize=7.0, weight='bold', ha='center', va='center', color='#b71c1c')
 
     plt.tight_layout()
     out_pdf = OUT_DIR / 'Fig1_lunar_magnetic_environment_montage.pdf'
