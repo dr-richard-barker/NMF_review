@@ -95,7 +95,7 @@ def add_header(slide, category_text, title_text, subtitle_text, dark=False):
     p_sub.font.italic = True
     p_sub.font.color.rgb = TEXT_LIGHT_MUT if dark else TEXT_MUTED
 
-def add_footer(slide, slide_num, total_slides=15, dark=False):
+def add_footer(slide, slide_num, total_slides=16, dark=False):
     foot_box = slide.shapes.add_textbox(Inches(0.8), Inches(7.05), Inches(11.733), Inches(0.3))
     tf = foot_box.text_frame
     p = tf.paragraphs[0]
@@ -182,7 +182,7 @@ def build_slide_01_title(prs):
     p_b.font.bold = True
     p_b.font.color.rgb = RGBColor(148, 163, 184)
 
-    add_footer(slide, 1, 15, dark=True)
+    add_footer(slide, 1, 16, dark=True)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 1 - TITLE):\n"
@@ -244,7 +244,7 @@ def build_slide_02_narrative_overview(prs):
     p_bot2.font.size = Pt(8.8)
     p_bot2.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 2, 15)
+    add_footer(slide, 2, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 2 - NARRATIVE OVERVIEW):\n"
@@ -309,7 +309,7 @@ def build_slide_03_figure1_montage(prs):
     tb_d.text_frame.paragraphs[0].font.bold = True
     tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    add_footer(slide, 3, 15)
+    add_footer(slide, 3, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 3 - FIGURE 1 MONTAGE):\n"
@@ -375,7 +375,7 @@ def build_slide_04_figure1_deepdive(prs):
     p4.font.size = Pt(9.2)
     p4.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 4, 15)
+    add_footer(slide, 4, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 4 - FIGURE 1 DEEP DIVE):\n"
@@ -388,10 +388,54 @@ def build_slide_04_figure1_deepdive(prs):
         "• That would completely mask the lunar near-null field. That's why our paper makes the strong operational recommendation: you MUST put a 3-axis fluxgate sensor directly inside the specimen volume."
     )
 
-def build_slide_05_figure2_montage(prs):
+
+def build_slide_05_methods_framework(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 2 Montage | Editable Layout",
+    add_header(slide, "Figure 2 Montage | Review Methodology",
+               "Integrative Review Architecture: From Planetary Voids to Quantum Biology",
+               "SANRA-guided multi-scale synthesis bridging 80 audited peer-reviewed publications and 6 public spaceflight/planetary datasets")
+
+    x_left  = Inches(0.8)
+    x_right = Inches(6.833)
+    y_top   = Inches(1.75)
+    w_p     = Inches(5.7)
+    h_p     = Inches(5.15)
+
+    # Subpanel a
+    add_card(slide, x_left, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig2a_methods_conceptual_framework.png'), x_left + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
+    tb_a = slide.shapes.add_textbox(x_left + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
+    tb_a.text_frame.paragraphs[0].text = "(a) Conceptual Framework of the Integrative Review (SANRA Guidelines)"
+    tb_a.text_frame.paragraphs[0].font.size = Pt(9.0)
+    tb_a.text_frame.paragraphs[0].font.bold = True
+    tb_a.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
+
+    # Subpanel b
+    add_card(slide, x_right, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig2b_methods_prisma_flow.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
+    tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
+    tb_b.text_frame.paragraphs[0].text = "(b) Evidence Identification & Selection Flow (PRISMA/SANRA Flow)"
+    tb_b.text_frame.paragraphs[0].font.size = Pt(9.0)
+    tb_b.text_frame.paragraphs[0].font.bold = True
+    tb_b.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
+
+    add_footer(slide, 5, 16)
+
+    add_notes(slide,
+        "TALKING POINTS (SLIDE 5 - INTEGRATIVE REVIEW METHODOLOGY):\n"
+        "• Before diving into the plant developmental phenotypes, this slide establishes our formal review methodology.\n"
+        "• Following the Scale for the Assessment of Narrative Review Articles (SANRA) guidelines, we structured this work as an Integrative Review.\n"
+        "• On the left panel (a), notice our conceptual framework: we formulate 4 research questions spanning from planetary geophysics to quantum radical pairs.\n"
+        "• On the right panel (b), our PRISMA/SANRA-compliant flow diagram documents the rigorous screening process: we surveyed 1,428 database records across PubMed, Web of Science, Scopus, Europe PMC, and NASA OSDR, plus 6 primary repositories.\n"
+        "• After deduplication and screening against explicit inclusion/exclusion criteria, 80 audited peer-reviewed publications and 6 public datasets were synthesized.\n"
+        "• All non-linear Weibull and logistic germination kinetics, vector superposition equations, and multi-omics gene overlap matrices were executed using our open-source Python package on GitHub and Zenodo."
+    )
+
+def build_slide_06_figure3_montage(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    set_slide_background(slide, WHITE_CANVAS)
+    add_header(slide, "Figure 3 Montage | Editable Layout",
                "The First 5 Days: Early Seedling Kinetics & Pigment Formation",
                "0–120 h developmental trajectory, emergence velocity lag (t50), biomass yield penalties, and pigment repression")
 
@@ -438,7 +482,7 @@ def build_slide_05_figure2_montage(prs):
     tb_d.text_frame.paragraphs[0].font.bold = True
     tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    add_footer(slide, 5, 15)
+    add_footer(slide, 6, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 5 - FIGURE 2 MONTAGE):\n"
@@ -449,10 +493,10 @@ def build_slide_05_figure2_montage(prs):
         "• Panel (d) maps the molecular pathway: cryptochromes perceive blue light and form radical pairs. Under near-null fields, HY5 transcription factor stabilization is impaired, downregulating rate-limiting chlorophyll genes (HEMA1, POR) and anthocyanin genes (CHS, CHI), creating severe seedling chlorosis."
     )
 
-def build_slide_06_figure2_deepdive(prs):
+def build_slide_07_figure3_deepdive(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 2 Deep Dive", "The Day 0–5 Bottleneck: Emergence Kinetics & Biomass Deficits",
+    add_header(slide, "Figure 3 Deep Dive", "The Day 0–5 Bottleneck: Emergence Kinetics & Biomass Deficits",
                "Why early germination delay compounds into substantial yield losses in closed-loop life support systems")
 
     # Left: Large Subpanel B + C stacked
@@ -493,7 +537,7 @@ def build_slide_06_figure2_deepdive(prs):
     p2.font.size = Pt(9.2)
     p2.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 6, 15)
+    add_footer(slide, 7, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 6 - FIGURE 2 DEEP DIVE):\n"
@@ -504,10 +548,10 @@ def build_slide_06_figure2_deepdive(prs):
         "• The resulting 28% drop in biomass is not an academic curiosity—it is a direct hit to the caloric and nutrient yield of space crops."
     )
 
-def build_slide_07_figure3_montage(prs):
+def build_slide_08_figure4_montage(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 3 Montage | Editable Layout",
+    add_header(slide, "Figure 4 Montage | Editable Layout",
                "Quantum Molecular Biology of the 0–5 Day Window",
                "Peroxisomal reserve mobilization (QBM-06), evidentiary tiers (T1–T4), and organellar electron transport hubs")
 
@@ -549,7 +593,7 @@ def build_slide_07_figure3_montage(prs):
     tb_c.text_frame.paragraphs[0].font.bold = True
     tb_c.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    add_footer(slide, 7, 15)
+    add_footer(slide, 8, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 7 - FIGURE 3 MONTAGE):\n"
@@ -561,10 +605,10 @@ def build_slide_07_figure3_montage(prs):
         "• Panel (c) shows how chloroplasts and mitochondria act as the dual bioenergetic hubs that absorb these quantum perturbations."
     )
 
-def build_slide_08_figure3_deepdive(prs):
+def build_slide_09_figure4_deepdive(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 3 Deep Dive", "Cryptochrome Spin Dynamics & Evidentiary Rigor",
+    add_header(slide, "Figure 4 Deep Dive", "Cryptochrome Spin Dynamics & Evidentiary Rigor",
                "Separating rigorously demonstrated radical pair quantum biology (T1/T2) from speculative claims (T3/T4)")
 
     # Left: Large Subpanel B + C stacked
@@ -607,7 +651,7 @@ def build_slide_08_figure3_deepdive(prs):
     p2.font.size = Pt(9.0)
     p2.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 8, 15)
+    add_footer(slide, 9, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 8 - FIGURE 3 DEEP DIVE):\n"
@@ -619,10 +663,10 @@ def build_slide_08_figure3_deepdive(prs):
         "• This directly explains why cryptochrome-regulated genes like HY5, HEMA1, and CHS are downregulated in hypomagnetic chambers!"
     )
 
-def build_slide_09_figure4_montage(prs):
+def build_slide_10_figure5_montage(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 4 Montage | Editable Layout",
+    add_header(slide, "Figure 5 Montage | Editable Layout",
                "Multi-Stressor Convergence: The CO2 <-> O2 <-> ROS Nexus",
                "Exploration atmospheres, hypomagnetic fields, and ionizing radiation converge on mitochondrial Alternative Oxidase (AOX1D)")
 
@@ -669,7 +713,7 @@ def build_slide_09_figure4_montage(prs):
     tb_d.text_frame.paragraphs[0].font.bold = True
     tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    add_footer(slide, 9, 15)
+    add_footer(slide, 10, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 9 - FIGURE 4 MONTAGE):\n"
@@ -682,10 +726,10 @@ def build_slide_09_figure4_montage(prs):
         "• Panel (d) reveals the profound cross-kingdom parallel: human astronauts in the NASA Twins Study and Cell 2020 multi-omics exhibit the exact same mitochondrial stress phenotype!"
     )
 
-def build_slide_10_figure4_deepdive(prs):
+def build_slide_11_figure5_deepdive(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 4 Deep Dive", "Mitochondrial Bioenergetics & Human Astronaut Parallels",
+    add_header(slide, "Figure 5 Deep Dive", "Mitochondrial Bioenergetics & Human Astronaut Parallels",
                "Mitochondrial dysfunction is the universal biological signature linking space crops and astronaut crews")
 
     # Left: Large Subpanel C + D stacked
@@ -724,7 +768,7 @@ def build_slide_10_figure4_deepdive(prs):
     p2.font.size = Pt(9.0)
     p2.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 10, 15)
+    add_footer(slide, 11, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 10 - FIGURE 4 DEEP DIVE):\n"
@@ -736,10 +780,10 @@ def build_slide_10_figure4_deepdive(prs):
         "• This elevates plant space biology from an isolated agricultural study to a fundamental pillar of comparative space bioenergetics."
     )
 
-def build_slide_11_figure5_montage(prs):
+def build_slide_12_figure6_montage(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Figure 5 Montage | Editable Layout",
+    add_header(slide, "Figure 6 Montage | Editable Layout",
                "Ground Simulation Standards & Post-Flight Disambiguation",
                "3-chamber ground controls, in situ causal rescue proof-of-concept, and post-flight phenotypic disambiguation framework")
 
@@ -780,7 +824,7 @@ def build_slide_11_figure5_montage(prs):
     tb_c.text_frame.paragraphs[0].font.bold = True
     tb_c.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    add_footer(slide, 11, 15)
+    add_footer(slide, 12, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 11 - FIGURE 5 MONTAGE):\n"
@@ -790,7 +834,7 @@ def build_slide_11_figure5_montage(prs):
         "• Panel (c) provides our post-flight phenotypic disambiguation framework: A full comparative matrix distinguishing hypomagnetic lesions from lunar partial gravity (0.166 g) and deep-space cosmic radiation (GCR) using specific cellular targets and diagnostic rescue strategies."
     )
 
-def build_slide_12_figure5_deepdive_table(prs):
+def build_slide_13_figure6_deepdive_table(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Table 3 Deep Dive", "Phenotypic Risk Disambiguation Matrix for Lunar Plant Biology",
@@ -887,7 +931,7 @@ def build_slide_12_figure5_deepdive_table(prs):
         p3.font.color.rgb = TEXT_DARK
         c3.vertical_anchor = MSO_ANCHOR.MIDDLE
 
-    add_footer(slide, 12, 15)
+    add_footer(slide, 13, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 12 - PHENOTYPIC DISAMBIGUATION MATRIX):\n"
@@ -900,7 +944,7 @@ def build_slide_12_figure5_deepdive_table(prs):
         "• This framework replaces arbitrary mission abort criteria with a rigorous post-flight diagnostic methodology."
     )
 
-def build_slide_13_graphical_abstract(prs):
+def build_slide_14_graphical_abstract(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Graphical Abstract | LSSR Submission Summary",
@@ -929,7 +973,7 @@ def build_slide_13_graphical_abstract(prs):
         p.font.color.rgb = edge
         p.alignment = PP_ALIGN.CENTER
 
-    add_footer(slide, 13, 15)
+    add_footer(slide, 14, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 13 - GRAPHICAL ABSTRACT):\n"
@@ -939,7 +983,7 @@ def build_slide_13_graphical_abstract(prs):
         "• Panel 3 (The Solution): We establish a standard flight risk-retirement protocol: in-situ 3-axis magnetometry, 3-chamber ground controls, active causal rescue coils, and predeclared Green/Amber/Red operational decision gates."
     )
 
-def build_slide_14_discussion_roadmap(prs):
+def build_slide_15_discussion_roadmap(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Research Roadmap & Discussion",
@@ -981,7 +1025,7 @@ def build_slide_14_discussion_roadmap(prs):
         p_b.font.size = Pt(9.5)
         p_b.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 14, 15)
+    add_footer(slide, 15, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 14 - DISCUSSION & ROADMAP):\n"
@@ -992,7 +1036,7 @@ def build_slide_14_discussion_roadmap(prs):
         "• Let's hear your thoughts."
     )
 
-def build_slide_15_appendix_links(prs):
+def build_slide_16_appendix_links(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Appendix & Open Science",
@@ -1046,7 +1090,7 @@ def build_slide_15_appendix_links(prs):
         p_b.font.size = Pt(8.8)
         p_b.font.color.rgb = TEXT_DARK
 
-    add_footer(slide, 15, 15)
+    add_footer(slide, 16, 16)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 15 - APPENDIX & OPEN SCIENCE):\n"
@@ -1068,17 +1112,18 @@ def main():
     build_slide_02_narrative_overview(prs)
     build_slide_03_figure1_montage(prs)
     build_slide_04_figure1_deepdive(prs)
-    build_slide_05_figure2_montage(prs)
-    build_slide_06_figure2_deepdive(prs)
-    build_slide_07_figure3_montage(prs)
-    build_slide_08_figure3_deepdive(prs)
-    build_slide_09_figure4_montage(prs)
-    build_slide_10_figure4_deepdive(prs)
-    build_slide_11_figure5_montage(prs)
-    build_slide_12_figure5_deepdive_table(prs)
-    build_slide_13_graphical_abstract(prs)
-    build_slide_14_discussion_roadmap(prs)
-    build_slide_15_appendix_links(prs)
+    build_slide_05_methods_framework(prs)
+    build_slide_06_figure3_montage(prs)
+    build_slide_07_figure3_deepdive(prs)
+    build_slide_08_figure4_montage(prs)
+    build_slide_09_figure4_deepdive(prs)
+    build_slide_10_figure5_montage(prs)
+    build_slide_11_figure5_deepdive(prs)
+    build_slide_12_figure6_montage(prs)
+    build_slide_13_figure6_deepdive_table(prs)
+    build_slide_14_graphical_abstract(prs)
+    build_slide_15_discussion_roadmap(prs)
+    build_slide_16_appendix_links(prs)
 
     prs.save(OUT_PPTX)
     size_mb = OUT_PPTX.stat().st_size / (1024 * 1024)

@@ -179,14 +179,16 @@ def check_5_build_products():
     expected_figures = [
         'Fig1_lunar_magnetic_environment_montage.png',
         'Fig1_lunar_magnetic_environment_montage.pdf',
-        'Fig2_first_5_days_germination_pigments.png',
-        'Fig2_first_5_days_germination_pigments.pdf',
-        'Fig3_quantum_biology_0to5day_pathways.png',
-        'Fig3_quantum_biology_0to5day_pathways.pdf',
-        'Fig4_multistressor_co2_o2_ros_nexus.png',
-        'Fig4_multistressor_co2_o2_ros_nexus.pdf',
-        'Fig5_flight_validation_risk_pipeline.png',
-        'Fig5_flight_validation_risk_pipeline.pdf',
+        'Fig2_integrative_methods_framework.png',
+        'Fig2_integrative_methods_framework.pdf',
+        'Fig3_first_5_days_germination_pigments.png',
+        'Fig3_first_5_days_germination_pigments.pdf',
+        'Fig4_quantum_biology_0to5day_pathways.png',
+        'Fig4_quantum_biology_0to5day_pathways.pdf',
+        'Fig5_multistressor_co2_o2_ros_nexus.png',
+        'Fig5_multistressor_co2_o2_ros_nexus.pdf',
+        'Fig6_flight_validation_risk_pipeline.png',
+        'Fig6_flight_validation_risk_pipeline.pdf',
         'Graphical_Abstract_LSSR.png',
         'Graphical_Abstract_LSSR.pdf'
     ]
@@ -203,7 +205,7 @@ def check_5_build_products():
     if missing:
         print(f"FAILED: Missing or zero-length build products: {missing}")
         return False
-    print(f"PASS: All 12 figure files and compiled Word document verified ({docx_file.stat().st_size / (1024*1024):.2f} MB).")
+    print(f"PASS: All {len(expected_figures)} figure files and compiled Word document verified ({docx_file.stat().st_size / (1024*1024):.2f} MB).")
     return True
 
 def main():

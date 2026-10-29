@@ -1,0 +1,12 @@
+organism,condition,biological_effect,molecular_mechanism,evidence_tier,key_reference
+Arabidopsis thaliana,Near-null (<1 uT),Delayed flowering time,Cryptochrome (CRY1/CRY2) flavin radical-pair altered spin mixing; COP1/HY5 cascade,T1 Demonstrated,Agliassa et al. (2018) Bioelectromagnetics
+Arabidopsis thaliana,Near-null (<1 uT),Disrupted root growth and morphology,PIN2 polar auxin transport redistribution and meristem mitotic suppression,T2 Inferred,Narayana et al. (2018) Bioelectromagnetics
+Arabidopsis thaliana,Hypomagnetic (<5 uT),Impaired iron uptake and chlorosis,Downregulation of FIT and IRT1 transcription; depletion of ferritin (AtFer1-4),T2 Inferred,Islam et al. (2020) Front. Plant Sci.
+Arabidopsis thaliana,Near-null (~30 nT),Reactive oxygen species (ROS) induction,Upregulation of Alternative Oxidase 1D (AOX1D) and Catalase 3 (CAT3),T2 Inferred,Parmagnani et al. (2022) Biomolecules
+Triticum aestivum (Wheat),Simulated lunar (<5 nT),Reduced biomass; germination lag; chlorosis,Downregulation of HEMA1; CHLH; POR chlorophyll synthesis; reduced Fv/Fm,T2 Inferred,Tang et al. (2024) Plant Physiol. Biochem.
+Phaseolus lunatus (Lima Bean),Near-null (<1 uT),Reduced photosynthetic efficiency & ROS modulation,Thylakoid ultrastructure disruption and quinone reduction kinetics,T2 Inferred,Parmagnani et al. (2023) Int. J. Mol. Sci.
+Zea mays (Maize),Hypomagnetic (<5 uT),Inhibition of coleoptile elongation,Downregulation of PM H+-ATPase activity and 14-3-3 regulatory proteins,T2 Inferred,Fiorillo et al. (2023) Plants
+Mentha x piperita (Peppermint),Near-null (<1 uT),Redirected secondary metabolism,Modulated electron flow; altered flavonoid and menthol biosynthesis,T2 Inferred,Maffei et al. (2021) J. Plant Res.
+Human Neuroblastoma Cells,Hypomagnetic (<1 uT),Cell cycle arrest and mitochondrial stress,Transcriptomic rewiring of cell cycle genes and mitochondrial ROS,T2 Inferred,Mo et al. (2012) PLoS ONE
+Mammalian (Rat Bone),Near-null (<1 uT),Accelerated bone demineralization,Osteoclast activation and osteoblast suppression via mitochondrial pathways,T2 Inferred,Xu et al. (2012) Bioelectromagnetics
+Astronauts (Spaceflight),BLEO & LEO,Conserved mitochondrial dysregulation,Complex I/IV suppression; systemic cf-mtDNA release; oxidative damage,T2 Inferred,Afshinnekoo et al. (2020) Cell
