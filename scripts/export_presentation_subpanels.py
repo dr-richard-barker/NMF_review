@@ -89,31 +89,32 @@ def export_fig1_subpanels():
     scatter = ax.scatter(artemis_sites['lon'], artemis_sites['lat'], c=artemis_sites['Bmag'], cmap='plasma', s=120,
                          edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
     
+    # Custom non-overlapping offsets and directional arrows for each Artemis South Pole site: (dx, dy, ha, va)
     site_offsets = {
-        'Haworth': (0, 11, 'center', 'bottom'),
-        'Connecting Ridge': (8, 6, 'left', 'bottom'),
-        'Connecting Ridge Extension': (8, -10, 'left', 'top'),
-        'de Gerlache Rim 1': (8, 6, 'left', 'bottom'),
-        'de Gerlache Rim 2': (8, -10, 'left', 'top'),
-        'de Gerlache-Kocher Massif': (8, 0, 'left', 'center'),
-        'Peak Near Shackleton': (8, 0, 'left', 'center'),
-        'Faustini Rim A': (8, 6, 'left', 'bottom'),
-        'Nobile Rim 1': (-10, 6, 'right', 'bottom'),
-        'Nobile Rim 2': (14, -18, 'left', 'top'),
-        'Leibnitz Beta Plateau': (-10, -8, 'right', 'top'),
-        'Amundsen Rim': (8, 10, 'left', 'bottom'),
-        'Malapert Massif': (10, 0, 'left', 'center'),
-        'Amundsen Rim': (10, -12, 'left', 'top'),
+        'Malapert Massif': (25, -10, 'left', 'top'),
+        'Leibnitz Beta Plateau': (-20, 16, 'right', 'bottom'),
+        'Nobile Rim 1': (20, -22, 'left', 'top'),
+        'Nobile Rim 2': (20, 18, 'left', 'bottom'),
+        'Faustini Rim A': (-20, -20, 'right', 'top'),
+        'Amundsen Rim': (22, 14, 'left', 'bottom'),
+        'Connecting Ridge': (-22, 16, 'right', 'bottom'),
+        'Connecting Ridge Extension': (-22, -20, 'right', 'top'),
+        'Peak Near Shackleton': (22, 14, 'left', 'bottom'),
+        'de Gerlache-Kocher Massif': (-22, 16, 'right', 'bottom'),
+        'de Gerlache Rim 1': (22, -18, 'left', 'top'),
+        'de Gerlache Rim 2': (22, 16, 'left', 'bottom'),
+        'Haworth': (-22, 16, 'right', 'bottom'),
     }
 
     for _, row in artemis_sites.iterrows():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
-        ox, oy, ha, va = site_offsets.get(row['name'], (8, 0, 'left', 'center'))
+        ox, oy, ha, va = site_offsets.get(row['name'], (20, 12, 'left', 'bottom'))
         ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=6.8, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
-                    bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.90, edgecolor='#757575', lw=0.4))
-    ax.set_xlim(-15, 385)
-    ax.set_ylim(-91.0, -82.6)
+                    fontsize=6.6, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
+                    arrowprops=dict(arrowstyle="->", color="#37474f", lw=0.75, shrinkA=2, shrinkB=4),
+                    bbox=dict(boxstyle='round,pad=0.25', facecolor='white', alpha=0.92, edgecolor='#757575', lw=0.45))
+    ax.set_xlim(-25, 385)
+    ax.set_ylim(-91.2, -82.4)
     ax.set_xlabel('Longitude (°E)')
     ax.set_ylabel('Latitude (°N)')
     ax.grid(True, linestyle=':', alpha=0.6)
@@ -146,23 +147,23 @@ def export_fig1_subpanels():
     plt.close(fig)
 
     # Fig 1d: Field Superposition Schematic
-    fig, ax = plt.subplots(figsize=(5.4, 4.2), dpi=300)
+    fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
-    ax.set_ylim(0, 10)
-    eq_rect = patches.FancyBboxPatch((0.5, 7.95), 9.0, 1.65, boxstyle="round,pad=0.1,rounding_size=0.25",
+    ax.set_ylim(0, 11.2)
+    eq_rect = patches.FancyBboxPatch((0.4, 9.0), 9.2, 1.95, boxstyle="round,pad=0.1,rounding_size=0.25",
                                      edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
     ax.add_patch(eq_rect)
-    ax.text(5.0, 8.95, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
+    ax.text(5.0, 10.15, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
             fontsize=8.5, weight='bold', ha='center', va='center', color='#01579b')
-    ax.text(5.0, 8.35, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
+    ax.text(5.0, 9.45, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
             fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
     
-    cham_rect = patches.FancyBboxPatch((0.5, 0.40), 9.0, 7.25, boxstyle="round,pad=0.1,rounding_size=0.25",
+    cham_rect = patches.FancyBboxPatch((0.4, 0.35), 9.2, 8.35, boxstyle="round,pad=0.1,rounding_size=0.25",
                                        edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
     ax.add_patch(cham_rect)
-    ax.text(5.0, 7.25, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', va='center', color='#263238')
-    ax.plot([1.0, 9.0], [6.95, 6.95], color='#b0bec5', lw=0.8, linestyle='--')
+    ax.text(5.0, 8.35, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', va='center', color='#263238')
+    ax.plot([0.9, 9.1], [8.0, 8.0], color='#b0bec5', lw=0.8, linestyle='--')
     
     contributions = [
         (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetic void", "#1565c0"),
@@ -171,19 +172,19 @@ def export_fig1_subpanels():
         (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Payload fans, fluidic pumps, heaters, LEDs [Ripple]", "#e65100"),
         (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis compensation / causal rescue coils", "#6a1b9a"),
     ]
-    y_pos = [6.45, 5.65, 4.85, 4.05, 3.25]
+    y_pos = [7.45, 6.70, 5.95, 5.20, 4.45]
     for (symbol, mag, desc, col), y_val in zip(contributions, y_pos):
         ax.text(0.9, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
         ax.text(2.3, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
         ax.text(4.0, y_val, desc, fontsize=6.8, color='#455a64', va='center')
 
-    warn_rect = patches.FancyBboxPatch((0.85, 0.65), 8.3, 1.85, boxstyle="round,pad=0.1,rounding_size=0.2",
+    warn_rect = patches.FancyBboxPatch((0.70, 0.60), 8.6, 3.40, boxstyle="round,pad=0.15,rounding_size=0.2",
                                        edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax.add_patch(warn_rect)
-    ax.text(5.0, 2.15, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
-            fontsize=7.2, weight='bold', ha='center', va='center', color='#b71c1c')
-    ax.text(5.0, 1.45, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
-            fontsize=6.5, ha='center', va='center', color='#b71c1c', linespacing=1.25)
+    ax.text(5.0, 3.50, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
+            fontsize=7.4, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.0, 2.15, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
+            fontsize=6.7, ha='center', va='center', color='#b71c1c', linespacing=1.35)
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig1d_superposition_box.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
@@ -196,37 +197,37 @@ def export_fig2_subpanels():
     df_kin = pd.read_csv(DATA_DIR / 'seedling_kinetics_summary.csv')
 
     # Fig 2a: Developmental Timeline
-    fig, ax = plt.subplots(figsize=(6.2, 4.2), dpi=300)
+    fig, ax = plt.subplots(figsize=(6.4, 4.4), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 100)
-    ax.set_ylim(0, 100)
-    bar_bg = patches.Rectangle((5, 52), 90, 8, facecolor='#e0e0e0', edgecolor='#9e9e9e', lw=1.0)
+    ax.set_ylim(0, 104)
+    bar_bg = patches.Rectangle((3, 49), 94, 7, facecolor='#e0e0e0', edgecolor='#9e9e9e', lw=1.0)
     ax.add_patch(bar_bg)
     phases = [
-        ("Phase I\nImbibition", 5, 22, "#bbdefb", "#1976d2", "0–12 h", "Rapid water uptake;\nmembrane reorganization"),
-        ("Phase II\nPeroxisomal Catabolism", 22, 45, "#ffe082", "#f57c00", "12–48 h", "Lipid mobilization (β-ox);\nglyoxylate bypass; ROS burst"),
-        ("Phase III\nRadicle Emergence", 45, 68, "#c8e6c9", "#388e3c", "48–72 h", "Testa rupture; cell elongation;\nRAM division initiation"),
-        ("Phase IV\nDe-Etiolation & Autotrophy", 68, 95, "#d1c4e9", "#512da8", "72–120 h", "Light perceived; CRY1/HY5;\nchlorophyll & thylakoid biogenesis")
+        ("Phase I\nImbibition", 3, 23.5, "#bbdefb", "#1976d2", "0–12 h", "Rapid water uptake;\nmembrane reorganization"),
+        ("Phase II\nPeroxisomal Catabolism", 25.5, 47.5, "#ffe082", "#f57c00", "12–48 h", "Lipid mobilization (β-ox);\nglyoxylate bypass; ROS burst"),
+        ("Phase III\nRadicle Emergence", 49.5, 72.0, "#c8e6c9", "#388e3c", "48–72 h", "Testa rupture; cell elongation;\nRAM division initiation"),
+        ("Phase IV\nDe-Etiolation & Autotrophy", 74.0, 97.0, "#d1c4e9", "#512da8", "72–120 h", "Light perceived; CRY1/HY5;\nchlorophyll & thylakoid biogenesis")
     ]
     for name, x_start, x_end, bg_col, edge_col, time_str, desc in phases:
         w = x_end - x_start
-        p_rect = patches.FancyBboxPatch((x_start, 62), w, 28, boxstyle="round,pad=0.2", facecolor=bg_col, edgecolor=edge_col, lw=1.2)
+        p_rect = patches.FancyBboxPatch((x_start, 60), w, 38, boxstyle="round,pad=0.2", facecolor=bg_col, edgecolor=edge_col, lw=1.2)
         ax.add_patch(p_rect)
-        ax.text(x_start + w/2, 83, name, ha='center', va='center', weight='bold', fontsize=7.5, color='#212121')
-        ax.text(x_start + w/2, 73, time_str, ha='center', va='center', weight='bold', fontsize=7.0, color=edge_col)
-        ax.text(x_start + w/2, 65, desc, ha='center', va='center', fontsize=6.2, color='#424242')
+        ax.text(x_start + w/2, 89, name, ha='center', va='center', weight='bold', fontsize=7.4, color='#212121')
+        ax.text(x_start + w/2, 78, time_str, ha='center', va='center', weight='bold', fontsize=7.0, color=edge_col)
+        ax.text(x_start + w/2, 69, desc, ha='center', va='center', fontsize=6.3, color='#424242')
     vulnerabilities = [
-        ("Water imbibition\nlag observed", 13.5, "#d32f2f"),
-        ("Impaired glyoxysome\nrespiration; ROS delay", 33.5, "#d32f2f"),
-        ("Testa rupture delayed\n(t50 lag 12–36 h)", 56.5, "#d32f2f"),
-        ("Downregulated HEMA1/POR;\nsevere seedling chlorosis", 81.5, "#d32f2f")
+        ("Water imbibition\nlag observed", 13.25, "#d32f2f"),
+        ("Impaired glyoxysome\nrespiration; ROS delay", 36.5, "#d32f2f"),
+        ("Testa rupture delayed\n(t50 lag 12–36 h)", 60.75, "#d32f2f"),
+        ("Downregulated HEMA1/POR;\nsevere seedling chlorosis", 85.5, "#d32f2f")
     ]
     for v_text, x_mid, col in vulnerabilities:
-        v_box = patches.FancyBboxPatch((x_mid - 9, 14), 18, 26, boxstyle="round,pad=0.2", facecolor="#ffebee", edgecolor=col, lw=1.0)
+        v_box = patches.FancyBboxPatch((x_mid - 10.5, 10), 21, 33, boxstyle="round,pad=0.2", facecolor="#ffebee", edgecolor=col, lw=1.0)
         ax.add_patch(v_box)
-        ax.text(x_mid, 34, "NNMF IMPACT", ha='center', va='center', weight='bold', fontsize=6.5, color=col)
-        ax.text(x_mid, 23, v_text, ha='center', va='center', fontsize=6.2, color='#b71c1c')
-        ax.annotate('', xy=(x_mid, 52), xytext=(x_mid, 40),
+        ax.text(x_mid, 36, "NNMF IMPACT", ha='center', va='center', weight='bold', fontsize=6.8, color=col)
+        ax.text(x_mid, 22, v_text, ha='center', va='center', fontsize=6.4, color='#b71c1c')
+        ax.annotate('', xy=(x_mid, 49), xytext=(x_mid, 43),
                     arrowprops=dict(facecolor=col, edgecolor=col, width=1.0, headwidth=4, headlength=4))
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig2a_5day_timeline.png', dpi=300, bbox_inches='tight')
@@ -539,28 +540,53 @@ def export_fig5_subpanels():
     fig.savefig(OUT_DIR / 'Fig5a_ground_chambers.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # Fig 5b: Causal Rescue Protocol (Proof of Concept)
-    fig, ax = plt.subplots(figsize=(6.0, 4.2), dpi=300)
+    # Fig 5b: Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)
+    fig, ax = plt.subplots(figsize=(6.2, 4.4), dpi=300)
     ax.axis('off')
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 10)
-    rescue_box = patches.FancyBboxPatch((0.5, 0.6), 9.0, 8.8, boxstyle="round,pad=0.2", edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.3)
-    ax.add_patch(rescue_box)
-    ax.text(5.0, 8.6, "In Situ Causal Reversal Protocol (Proof of Concept)", weight='bold', fontsize=8.2, ha='center', color="#1b5e20")
-    steps = [
-        ("Step 1: Hypomagnetic Exposure", "<10 nT inside shield elicits emergence lag & chlorosis"),
-        ("Step 2: Vector Re-application", "Triaxial Helmholtz coils restore calibrated 45 µT in situ"),
-        ("Step 3: Phenotype Rescue Proof", "Complete recovery to baseline formally proves magnetic causality")
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 100)
+    r_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
+                                   edgecolor="#0277bd", facecolor="#e1f5fe", lw=1.2)
+    ax.add_patch(r_box)
+    ax.text(50, 92.5, "Subsystem Power-State Magnetic Characterization", 
+            fontsize=7.8, weight='bold', color='#01579b', ha='center', va='center')
+
+    subsystems = [
+        ("Subsystem 1: LED PAR Lighting Array (0–400 µmol/m²/s)",
+         "Power: 0 to 25 W (DC driver current 0.1–1.8 A)",
+         "Induced Field: ΔB_LED ≈ 2–15 µT; proportional to photon flux; balanced routing minimizes loop area",
+         "#1565c0"),
+        ("Subsystem 2: Fluidic & Nutrient Delivery Pumps / Valves",
+         "Power: 0 to 8 W (peristaltic/piezo motor pulses, 0.5–1.5 A peak)",
+         "Induced Field: ΔB_pump ≈ 8–35 µT; transient DC spikes during scheduled root module irrigation cycles",
+         "#00838f"),
+        ("Subsystem 3: Thermal Control (Heaters & Thermoelectric Coolers)",
+         "Power: 0 to 30 W (resistive strips / TEC elements, 1.0–2.5 A continuous)",
+         "Induced Field: ΔB_thermal ≈ 12–48 µT; dominant DC contributor during cold lunar nights; bifilar loops required",
+         "#d84315"),
+        ("Subsystem 4: Avionics, Telemetry & Sensor Power Bus",
+         "Power: 3 to 12 W (quiescent flight computer + RF comm transmission)",
+         "Induced Field: ΔB_bus ≈ 0.5–4 µT; static baseline shift + RF ripple; mapped via quiescent baseline calibration",
+         "#6a1b9a")
     ]
-    y_s = 7.1
-    for title, desc in steps:
-        ax.text(1.2, y_s, title, weight='bold', fontsize=7.2, color="#2e7d32")
-        ax.text(1.2, y_s - 0.55, desc, fontsize=6.5, color="#333333")
-        y_s -= 1.8
-    ax.text(5.0, 1.3, "Definitively rules out microclimatic, ethylene, or enclosure artifacts",
-            ha='center', fontsize=6.5, weight='bold', color="#1b5e20")
+
+    y_s = 88.0
+    for s_title, s_pow, s_field, col in subsystems:
+        sb = patches.FancyBboxPatch((5, y_s - 17.5), 90, 17.0, boxstyle="round,pad=0,rounding_size=2",
+                                    edgecolor=col, facecolor='#ffffff', lw=1.0)
+        ax.add_patch(sb)
+        ax.text(8, y_s - 4.5, s_title, fontsize=7.1, weight='bold', color=col, va='center')
+        ax.text(8, y_s - 9.5, s_pow, fontsize=6.6, weight='bold', color='#212121', va='center')
+        ax.text(8, y_s - 14.0, s_field, fontsize=6.3, color='#424242', va='center')
+        y_s -= 19.5
+
+    tf_banner = patches.FancyBboxPatch((5, 3.0), 90, 7.5, boxstyle="round,pad=0,rounding_size=2",
+                                       edgecolor="#0288d1", facecolor="#ffffff", lw=1.0)
+    ax.add_patch(tf_banner)
+    ax.text(50, 6.75, r"$\mathbf{B}_{\mathrm{ambient}}(t) = \mathbf{B}_{\mathrm{sensor}}(t) - \sum_k \Delta\mathbf{B}_k(P_k(t))$ : Computational Self-Field Subtraction",
+            fontsize=6.8, weight='bold', color='#01579b', ha='center', va='center')
     plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig5b_causal_rescue.png', dpi=300, bbox_inches='tight')
+    fig.savefig(OUT_DIR / 'Fig5b_hardware_assessment.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
     # Fig 5c: Post-Flight Phenotypic Disambiguation Framework

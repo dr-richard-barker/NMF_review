@@ -61,37 +61,55 @@ def generate_figure_5():
         ax_cham.text(7, y_top - 19.0, f"Experimental Purpose: {desc}", fontsize=6.8, color='#424242', va='center')
 
     # -------------------------------------------------------------
-    # Panel (b): In Situ Causal Reversal Protocol (Proof of Concept)
+    # Panel (b): Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)
     # -------------------------------------------------------------
     ax_rescue = fig.add_subplot(gs[0, 1])
     ax_rescue.axis('off')
     ax_rescue.set_xlim(0, 100)
     ax_rescue.set_ylim(0, 100)
-    ax_rescue.set_title('(b) In Situ Causal Reversal Protocol (Proof of Concept)', weight='bold', pad=10)
+    ax_rescue.set_title('(b) Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)', weight='bold', pad=10)
 
     r_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
-                                   edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.2)
+                                   edgecolor="#0277bd", facecolor="#e1f5fe", lw=1.2)
     ax_rescue.add_patch(r_box)
-    ax_rescue.text(50, 91.5, "Three-Step Causal Proof Inside Magnetic Shielding", fontsize=7.8, weight='bold', color='#1b5e20', ha='center', va='center')
+    ax_rescue.text(50, 92.5, "Subsystem Power-State Magnetic Characterization & Deconvolution", 
+                   fontsize=7.8, weight='bold', color='#01579b', ha='center', va='center')
 
-    steps = [
-        ("Step 1: Hypomagnetic Exposure", "<10 nT inside µ-metal shield", "Elicits emergence lag (Δt50 = 12–36 h), chlorosis & ROS leakage", "#c62828"),
-        ("Step 2: Vector Re-application", "45 µT active vector restored in situ", "Re-applied via internal triaxial Helmholtz coils without disturbing microclimate", "#1565c0"),
-        ("Step 3: Biological Phenotype Rescue", "Phenotype restored to GMF baseline", "Wild-type emergence & greening speed recovered; proves magnetic causality", "#2e7d32")
+    subsystems = [
+        ("Subsystem 1: LED PAR Lighting Array (0–400 µmol/m²/s)",
+         "Power: 0 to 25 W (DC driver current 0.1–1.8 A)",
+         "Induced Field: ΔB_LED ≈ 2–15 µT; proportional to photon flux; balanced routing minimizes loop area",
+         "#1565c0"),
+        ("Subsystem 2: Fluidic & Nutrient Delivery Pumps / Valves",
+         "Power: 0 to 8 W (peristaltic/piezo motor pulses, 0.5–1.5 A peak)",
+         "Induced Field: ΔB_pump ≈ 8–35 µT; transient DC spikes during scheduled root module irrigation cycles",
+         "#00838f"),
+        ("Subsystem 3: Thermal Control (Heaters & Thermoelectric Coolers)",
+         "Power: 0 to 30 W (resistive strips / TEC elements, 1.0–2.5 A continuous)",
+         "Induced Field: ΔB_thermal ≈ 12–48 µT; dominant DC contributor during cold lunar nights; bifilar loops required",
+         "#d84315"),
+        ("Subsystem 4: Avionics, Telemetry & Sensor Power Bus",
+         "Power: 3 to 12 W (quiescent flight computer + RF comm transmission)",
+         "Induced Field: ΔB_bus ≈ 0.5–4 µT; static baseline shift + RF ripple; mapped via quiescent baseline calibration",
+         "#6a1b9a")
     ]
 
-    y_s = 76
-    for s_title, s_cond, s_res, col in steps:
-        sb = patches.FancyBboxPatch((6, y_s - 18), 88, 18, boxstyle="round,pad=0,rounding_size=2",
+    y_s = 88.0
+    for s_title, s_pow, s_field, col in subsystems:
+        sb = patches.FancyBboxPatch((5, y_s - 17.5), 90, 17.0, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor=col, facecolor='#ffffff', lw=1.0)
         ax_rescue.add_patch(sb)
-        ax_rescue.text(10, y_s - 5.0, s_title, fontsize=7.4, weight='bold', color=col, va='center')
-        ax_rescue.text(10, y_s - 10.5, s_cond, fontsize=6.8, weight='bold', color='#212121', va='center')
-        ax_rescue.text(10, y_s - 15.0, s_res, fontsize=6.6, color='#555555', va='center')
-        y_s -= 23
+        ax_rescue.text(8, y_s - 4.5, s_title, fontsize=7.1, weight='bold', color=col, va='center')
+        ax_rescue.text(8, y_s - 9.5, s_pow, fontsize=6.6, weight='bold', color='#212121', va='center')
+        ax_rescue.text(8, y_s - 14.0, s_field, fontsize=6.3, color='#424242', va='center')
+        y_s -= 19.5
 
-    ax_rescue.text(50, 7.5, "Definitively rules out microclimatic, ethylene, or enclosure artifacts",
-                   fontsize=6.8, weight='bold', color='#1b5e20', ha='center', va='center')
+    # Bottom transfer function banner
+    tf_banner = patches.FancyBboxPatch((5, 3.0), 90, 7.5, boxstyle="round,pad=0,rounding_size=2",
+                                       edgecolor="#0288d1", facecolor="#ffffff", lw=1.0)
+    ax_rescue.add_patch(tf_banner)
+    ax_rescue.text(50, 6.75, r"$\mathbf{B}_{\mathrm{ambient}}(t) = \mathbf{B}_{\mathrm{sensor}}(t) - \sum_k \Delta\mathbf{B}_k(P_k(t))$ : Computational Self-Field Subtraction",
+                   fontsize=6.8, weight='bold', color='#01579b', ha='center', va='center')
 
     # -------------------------------------------------------------
     # Panel (c): Post-Flight Phenotypic Disambiguation Framework (Full Width)

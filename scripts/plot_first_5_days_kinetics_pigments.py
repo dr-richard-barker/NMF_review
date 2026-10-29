@@ -44,11 +44,11 @@ def main():
     ax_time = fig.add_subplot(gs[0, 0])
     ax_time.axis('off')
     ax_time.set_xlim(0, 100)
-    ax_time.set_ylim(0, 100)
-    ax_time.set_title('(a) 5-Day Seedling Establishment Window: Heterotrophy to Autotrophy', weight='bold')
+    ax_time.set_ylim(0, 104)
+    ax_time.set_title('(a) 5-Day Seedling Establishment Window: Heterotrophy to Autotrophy', weight='bold', pad=12)
 
     # Main horizontal timeline bar
-    timeline_box = patches.FancyBboxPatch((3, 49), 94, 9, boxstyle="round,pad=0,rounding_size=2",
+    timeline_box = patches.FancyBboxPatch((2, 48.5), 96, 7.0, boxstyle="round,pad=0,rounding_size=2",
                                           edgecolor="#37474f", facecolor="#eceff1", lw=1.2)
     ax_time.add_patch(timeline_box)
     
@@ -65,38 +65,38 @@ def main():
     ]
     
     for title, x_pos, fcol, ecol, details in phases:
-        # Phase header card
-        p_card = patches.FancyBboxPatch((x_pos - 11.2, 62), 22.4, 35, boxstyle="round,pad=0,rounding_size=2",
-                                        edgecolor=ecol, facecolor=fcol, lw=1.1)
+        # Phase header card - enlarged width and height with ample internal padding
+        p_card = patches.FancyBboxPatch((x_pos - 11.6, 59.5), 23.2, 39.0, boxstyle="round,pad=0,rounding_size=2.5",
+                                        edgecolor=ecol, facecolor=fcol, lw=1.15)
         ax_time.add_patch(p_card)
-        ax_time.text(x_pos, 88.5, title, fontsize=6.8, weight='bold', color=ecol, ha='center', va='center')
-        ax_time.text(x_pos, 73.0, details, fontsize=6.5, color='#263238', ha='center', va='center', linespacing=1.25)
+        ax_time.text(x_pos, 91.0, title, fontsize=7.1, weight='bold', color=ecol, ha='center', va='center')
+        ax_time.text(x_pos, 74.0, details, fontsize=6.8, color='#263238', ha='center', va='center', linespacing=1.35)
         
         # Connection pin to timeline
-        ax_time.plot([x_pos, x_pos], [62, 58], color=ecol, lw=1.5)
-        ax_time.scatter(x_pos, 53.5, color=ecol, s=35, zorder=5)
+        ax_time.plot([x_pos, x_pos], [59.5, 55.5], color=ecol, lw=1.5)
+        ax_time.scatter(x_pos, 52.0, color=ecol, s=35, zorder=5)
 
-    # Concept callout boxes below timeline (Developmental Penalties)
-    c2_box = patches.FancyBboxPatch((3, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
-                                    edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
+    # Concept callout boxes below timeline (Developmental Penalties) - enlarged with deep margins
+    c2_box = patches.FancyBboxPatch((2.0, 11.5), 46.5, 33.5, boxstyle="round,pad=0,rounding_size=2.5",
+                                    edgecolor="#d32f2f", facecolor="#ffebee", lw=1.1)
     ax_time.add_patch(c2_box)
-    ax_time.text(25.75, 41.5, "Germination Capacity & Early Growth Penalties", fontsize=7.4, weight='bold', color="#b71c1c", ha='center', va='center')
-    ax_time.text(25.75, 27.5, "• Null magnetic field dampens reserve mobilization\n• Lowers final germination capacity (total # seedlings)\n• Delays median emergence time (t50) & seedling vigor",
-                 fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
+    ax_time.text(25.25, 40.5, "Germination Capacity & Early Growth Penalties", fontsize=7.6, weight='bold', color="#b71c1c", ha='center', va='center')
+    ax_time.text(25.25, 26.0, "• Null magnetic field dampens reserve mobilization\n• Lowers final germination capacity (total # seedlings)\n• Delays median emergence time (t50) & seedling vigor",
+                 fontsize=7.0, color="#212121", ha='center', va='center', linespacing=1.4)
 
-    c4_box = patches.FancyBboxPatch((51.5, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
-                                    edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.0)
+    c4_box = patches.FancyBboxPatch((51.5, 11.5), 46.5, 33.5, boxstyle="round,pad=0,rounding_size=2.5",
+                                    edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.1)
     ax_time.add_patch(c4_box)
-    ax_time.text(74.25, 41.5, "Cryptochrome & Pigment Biosynthesis Repression", fontsize=7.4, weight='bold', color="#1b5e20", ha='center', va='center')
-    ax_time.text(74.25, 27.5, "• Attenuated CRY radical-pair spin dynamics\n• Repressed HEMA1, CHLH & PORA/B/C transcripts\n• Reduced chlorophyll a/b, carotenoid & anthocyanin",
-                 fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
+    ax_time.text(74.75, 40.5, "Cryptochrome & Pigment Biosynthesis Repression", fontsize=7.6, weight='bold', color="#1b5e20", ha='center', va='center')
+    ax_time.text(74.75, 26.0, "• Attenuated CRY radical-pair spin dynamics\n• Repressed HEMA1, CHLH & PORA/B/C transcripts\n• Reduced chlorophyll a/b, carotenoid & anthocyanin",
+                 fontsize=7.0, color="#212121", ha='center', va='center', linespacing=1.4)
 
-    # Bottom transition banner
-    trans_banner = patches.FancyBboxPatch((3, 3), 94, 9.5, boxstyle="round,pad=0,rounding_size=2",
-                                          edgecolor="#0288d1", facecolor="#e1f5fe", lw=0.9)
+    # Bottom transition banner - enlarged
+    trans_banner = patches.FancyBboxPatch((2.0, 1.8), 96.0, 7.8, boxstyle="round,pad=0,rounding_size=2",
+                                          edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.0)
     ax_time.add_patch(trans_banner)
-    ax_time.text(50, 7.75, "Heterotrophic Seed Imbibition (0–72 h)  ────────►  Photomorphogenic Autotrophy (72–120 h)",
-                 fontsize=7.2, weight='bold', color="#01579b", ha='center', va='center')
+    ax_time.text(50, 5.7, "Heterotrophic Seed Imbibition (0–72 h)  ────────►  Photomorphogenic Autotrophy (72–120 h)",
+                 fontsize=7.4, weight='bold', color="#01579b", ha='center', va='center')
 
     # -------------------------------------------------------------
     # Panel (b): Germination Capacity & Speed (Kinetics Curve)

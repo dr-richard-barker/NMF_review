@@ -762,11 +762,11 @@ def build_slide_11_figure5_montage(prs):
     tb_a.text_frame.paragraphs[0].font.bold = True
     tb_a.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel b (Causal Rescue Proof)
+    # Subpanel b (Hardware Self-Magnetic Assessment)
     add_card(slide, x_right, y_top, w_half, h_top, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5b_causal_rescue.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_half - Inches(0.2), h_top - Inches(0.42))
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5b_hardware_assessment.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_half - Inches(0.2), h_top - Inches(0.42))
     tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_half, Inches(0.3))
-    tb_b.text_frame.paragraphs[0].text = "(b) In Situ Causal Reversal Protocol (Proof of Concept)"
+    tb_b.text_frame.paragraphs[0].text = "(b) Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)"
     tb_b.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_b.text_frame.paragraphs[0].font.bold = True
     tb_b.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
@@ -786,7 +786,7 @@ def build_slide_11_figure5_montage(prs):
         "TALKING POINTS (SLIDE 11 - FIGURE 5 MONTAGE):\n"
         "• Figure 5 establishes our translational roadmap, focusing on rigorous ground simulation methods and post-flight disambiguation.\n"
         "• Panel (a) sets the 3-chamber ground standard: Chamber 1 (GMF terrestrial control), Chamber 2 (Shielded/Cancelled NNMF lunar simulation), and Chamber 3 (Bifilar sham control matching current, heat, and vibration without magnetic fields).\n"
-        "• Panel (b) demonstrates the gold-standard in situ causal reversal protocol: Restoring a calibrated 45 µT vector inside magnetic shielding rescues emergence speed and pigment accumulation, definitively ruling out microclimatic, ethylene, or enclosure artifacts.\n"
+        "• Panel (b) introduces our hardware self-magnetic assessment protocol: Characterizing induced magnetic fields across subsystem operating states (LED PAR lighting, fluidic pumps, thermal heaters, and avionics bus) to establish empirical transfer functions that subtract hardware self-fields without requiring active coils in flight.\n"
         "• Panel (c) provides our post-flight phenotypic disambiguation framework: A full comparative matrix distinguishing hypomagnetic lesions from lunar partial gravity (0.166 g) and deep-space cosmic radiation (GCR) using specific cellular targets and diagnostic rescue strategies."
     )
 
