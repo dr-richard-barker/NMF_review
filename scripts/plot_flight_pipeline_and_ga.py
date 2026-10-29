@@ -43,7 +43,8 @@ def generate_figure_5():
     ax_cham.axis('off')
     ax_cham.set_xlim(0, 100)
     ax_cham.set_ylim(0, 100)
-    ax_cham.set_title('(a) Methodological Ground Simulation Standards (3-Chamber Parity)', weight='bold', pad=10)
+    ax_cham.set_title('Methodological Ground Simulation Standards (3-Chamber Parity)', weight='bold', pad=10, fontsize=8.8)
+    ax_cham.text(0.00, 1.03, 'a', transform=ax_cham.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     chambers = [
         ("Chamber 1: Geomagnetic Baseline (GMF)", "45–50 µT Ambient Terrestrial Field", "#e3f2fd", "#1565c0", "Terrestrial environmental control (calibrated local vector)"),
@@ -67,7 +68,8 @@ def generate_figure_5():
     ax_rescue.axis('off')
     ax_rescue.set_xlim(0, 100)
     ax_rescue.set_ylim(0, 100)
-    ax_rescue.set_title('(b) Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)', weight='bold', pad=10)
+    ax_rescue.set_title('Hardware Self-Magnetic Assessment Protocol (Power-State Mapping)', weight='bold', pad=10, fontsize=8.8)
+    ax_rescue.text(0.00, 1.03, 'b', transform=ax_rescue.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     r_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
                                    edgecolor="#0277bd", facecolor="#e1f5fe", lw=1.2)
@@ -118,7 +120,8 @@ def generate_figure_5():
     ax_matrix.axis('off')
     ax_matrix.set_xlim(0, 100)
     ax_matrix.set_ylim(0, 100)
-    ax_matrix.set_title('(c) Post-Flight Phenotypic Risk Disambiguation Framework', weight='bold', pad=10)
+    ax_matrix.set_title('Post-Flight Phenotypic Risk Disambiguation Framework', weight='bold', pad=10, fontsize=8.8)
+    ax_matrix.text(0.00, 1.03, 'c', transform=ax_matrix.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     m_outer = patches.FancyBboxPatch((1, 2), 98, 96, boxstyle="round,pad=0,rounding_size=3",
                                      edgecolor="#5e35b1", facecolor="#f3e5f5", lw=1.2)
@@ -192,12 +195,13 @@ def generate_figure_5():
         ax_matrix.text(x_pos + width/2, 8.7, tag, fontsize=6.0, weight='bold', color=edge_col, ha='center', va='center')
 
     fig.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.96, hspace=0.28, wspace=0.22)
-    out_pdf = OUT_DIR / 'Fig5_flight_validation_risk_pipeline.pdf'
-    out_png = OUT_DIR / 'Fig5_flight_validation_risk_pipeline.png'
-    fig.savefig(out_pdf, bbox_inches='tight')
-    fig.savefig(out_png, dpi=300, bbox_inches='tight')
+    for prefix in ['Fig5', 'Fig6']:
+        out_pdf = OUT_DIR / f'{prefix}_flight_validation_risk_pipeline.pdf'
+        out_png = OUT_DIR / f'{prefix}_flight_validation_risk_pipeline.png'
+        fig.savefig(out_pdf, bbox_inches='tight')
+        fig.savefig(out_png, dpi=300, bbox_inches='tight')
     plt.close(fig)
-    print(f"Figure 5 successfully created at:\n  {out_png}\n  {out_pdf}")
+    print(f"Figure 6 successfully created in {OUT_DIR}")
 
 def generate_graphical_abstract():
     fig = plt.figure(figsize=(11.5, 5.0), dpi=300)

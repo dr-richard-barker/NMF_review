@@ -1,0 +1,641 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\burl{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem{ref1}
+\bibinfo{author}{NASA}.
+\newblock \bibinfo{title}{{NASA selects first science instruments for
+  astronauts to deploy on Moon}}.
+\newblock \emph{\bibinfo{journal}{NASA Press Release 24-046}}
+  (\bibinfo{year}{2024}).
+\newblock
+  \urlprefix\url{https://www.nasa.gov/news-release/nasa-selects-first-science-instruments-for-astronauts-to-deploy-on-moon/}.
+
+\bibitem{ref2}
+\bibinfo{author}{Maffei, M.~E.}, \bibinfo{author}{Balestrini, R.},
+  \bibinfo{author}{Costantino, P.} \& \bibinfo{author}{Lanfranco, L.}
+\newblock \bibinfo{title}{{The physiology of plants in the context of space
+  exploration}}.
+\newblock \emph{\bibinfo{journal}{Commun. Biol.}} \textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{1311} (\bibinfo{year}{2024}).
+
+\bibitem{ref3}
+\bibinfo{author}{Fountain, L.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{{Expanding frontiers: harnessing plant biology for
+  space exploration and planetary sustainability}}.
+\newblock \emph{\bibinfo{journal}{New Phytol.}} \textbf{\bibinfo{volume}{249}},
+  \bibinfo{pages}{656--669} (\bibinfo{year}{2026}).
+
+\bibitem{ref4}
+\bibinfo{author}{Wheeler, R.~M.}
+\newblock \bibinfo{title}{{Agriculture for space: People and places paving the
+  way}}.
+\newblock \emph{\bibinfo{journal}{Open Agric.}} \textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{14--32} (\bibinfo{year}{2017}).
+
+\bibitem{ref5}
+\bibinfo{author}{Massa, G.~D.} \emph{et~al.}
+\newblock \bibinfo{title}{{Selection of leafy green vegetable crops for a space
+  mission}}.
+\newblock \emph{\bibinfo{journal}{Gravit. Space Res.}}
+  \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{32--40} (\bibinfo{year}{2015}).
+
+\bibitem{ref6}
+\bibinfo{author}{Tech, S.~L.}
+\newblock \bibinfo{title}{{Lunar Effects on Agricultural Flora}}
+  (\bibinfo{year}{2024}).
+
+\bibitem{ref7}
+\bibinfo{author}{Paul, A.-L.}, \bibinfo{author}{Wheeler, R.~M.},
+  \bibinfo{author}{Levine, H.~G.} \& \bibinfo{author}{Ferl, R.~J.}
+\newblock \bibinfo{title}{{Fundamental plant biology in spaceflight}}.
+\newblock \emph{\bibinfo{journal}{Adv. Space Res.}}
+  \textbf{\bibinfo{volume}{51}}, \bibinfo{pages}{501--510}
+  (\bibinfo{year}{2013}).
+
+\bibitem{ref8}
+\bibinfo{author}{Norcross, C.~J.} \emph{et~al.}
+\newblock \bibinfo{title}{{Exploration Atmosphere: NASA's plan for reduced
+  pressure and elevated oxygen for future human space missions}}.
+\newblock \emph{\bibinfo{journal}{48th International Conference on
+  Environmental Systems}}  (\bibinfo{year}{2018}).
+
+\bibitem{ref9}
+\bibinfo{author}{Ferl, R.~J.} \& \bibinfo{author}{Paul, A.-L.}
+\newblock \bibinfo{title}{{The genome of Arabidopsis thaliana in spaceflight}}.
+\newblock \emph{\bibinfo{journal}{Genome Biol.}} \textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{155} (\bibinfo{year}{2016}).
+
+\bibitem{ref10}
+\bibinfo{author}{Sarimov, R.~M.}, \bibinfo{author}{Serov, D.~A.} \&
+  \bibinfo{author}{Gudkov, S.~V.}
+\newblock \bibinfo{title}{{Hypomagnetic conditions and their biological
+  action}}.
+\newblock \emph{\bibinfo{journal}{Biology}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{1513} (\bibinfo{year}{2023}).
+
+\bibitem{ref11}
+\bibinfo{author}{Porterfield, D.~M.} \& \bibinfo{author}{Barker, R.~J.}
+\newblock \bibinfo{title}{{Plant responses to near-null magnetic fields:
+  Geomagnetism, bioenergetics, and primary metabolism in Arabidopsis and
+  Brassica}}.
+\newblock \emph{\bibinfo{journal}{Perspectives in Space Biology}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{ref12}
+\bibinfo{author}{Maffei, M.~E.}
+\newblock \bibinfo{title}{{Magnetic field effects on plant growth, development,
+  and evolution}}.
+\newblock \emph{\bibinfo{journal}{Front. Plant Sci.}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{445} (\bibinfo{year}{2014}).
+
+\bibitem{ref13}
+\bibinfo{author}{Finlay, C.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{{International Geomagnetic Reference Field: the
+  thirteenth generation}}.
+\newblock \emph{\bibinfo{journal}{Earth Planets Space}}
+  \textbf{\bibinfo{volume}{72}}, \bibinfo{pages}{156} (\bibinfo{year}{2020}).
+
+\bibitem{ref14}
+\bibinfo{author}{Halekas, J.~S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Solar wind interaction with lunar crustal magnetic
+  anomalies}}.
+\newblock \emph{\bibinfo{journal}{Planet. Space Sci.}}
+  \textbf{\bibinfo{volume}{56}}, \bibinfo{pages}{941--946}
+  (\bibinfo{year}{2008}).
+
+\bibitem{ref15}
+\bibinfo{author}{Borlina, C.~S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Re-evaluating the lunar dynamo: Constraints from
+  Apollo sample paleomagnetism and orbital magnetic mapping}}.
+\newblock \emph{\bibinfo{journal}{Earth Planet. Sci. Lett.}}
+  \textbf{\bibinfo{volume}{584}}, \bibinfo{pages}{117446}
+  (\bibinfo{year}{2022}).
+
+\bibitem{ref16}
+\bibinfo{author}{Mitchell, D.~L.}, \bibinfo{author}{Halekas, J.~S.} \&
+  \bibinfo{author}{Lin, R.~P.}
+\newblock \bibinfo{title}{{Global mapping of lunar crustal magnetic fields by
+  Lunar Prospector}}.
+\newblock \emph{\bibinfo{journal}{Icarus}} \textbf{\bibinfo{volume}{194}},
+  \bibinfo{pages}{401--409} (\bibinfo{year}{2008}).
+
+\bibitem{ref17}
+\bibinfo{author}{Tsunakawa, H.} \emph{et~al.}
+\newblock \bibinfo{title}{{Surface vector mapping of magnetic anomalies over
+  the Moon using Kaguya and Lunar Prospector observations}}.
+\newblock \emph{\bibinfo{journal}{J. Geophys. Res. Planets}}
+  \textbf{\bibinfo{volume}{120}}, \bibinfo{pages}{1160--1185}
+  (\bibinfo{year}{2015}).
+
+\bibitem{ref18}
+\bibinfo{author}{Hood, L.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{{Magnetic anomalies at the lunar South Pole:
+  Implications for Artemis landing sites}}.
+\newblock \emph{\bibinfo{journal}{J. Geophys. Res. Planets}}
+  \textbf{\bibinfo{volume}{127}}, \bibinfo{pages}{e2022JE007280}
+  (\bibinfo{year}{2022}).
+
+\bibitem{ref19}
+\bibinfo{author}{Hoffmann, A.~P.} \emph{et~al.}
+\newblock \bibinfo{title}{{Enhancing magnetic field analysis on the KMAG
+  instrument: applying WAIC-UP for spacecraft interference removal and
+  interpolating data gaps}}.
+\newblock \emph{\bibinfo{journal}{Earth Space Sci.}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{e2025EA004427}
+  (\bibinfo{year}{2025}).
+
+\bibitem{ref20}
+\bibinfo{author}{Binhi, V.~N.} \& \bibinfo{author}{Prato, F.~S.}
+\newblock \bibinfo{title}{{Biological effects of the hypomagnetic field: an
+  analytical review of experiments and theories}}.
+\newblock \emph{\bibinfo{journal}{PLoS ONE}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{e0179340} (\bibinfo{year}{2017}).
+
+\bibitem{ref81}
+\bibinfo{author}{Whittemore, R.} \& \bibinfo{author}{Knafl, K.}
+\newblock \bibinfo{title}{{The integrative review: updated methodology}}.
+\newblock \emph{\bibinfo{journal}{J. Adv. Nurs.}}
+  \textbf{\bibinfo{volume}{52}}, \bibinfo{pages}{546--553}
+  (\bibinfo{year}{2005}).
+
+\bibitem{ref82}
+\bibinfo{author}{Baethge, C.}, \bibinfo{author}{Goldbeck-Wood, S.} \&
+  \bibinfo{author}{Mertens, S.}
+\newblock \bibinfo{title}{{SANRA---a scale for the quality assessment of
+  narrative review articles}}.
+\newblock \emph{\bibinfo{journal}{Res. Integr. Peer Rev.}}
+  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{5} (\bibinfo{year}{2019}).
+
+\bibitem{ref83}
+\bibinfo{author}{Blank, M.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{{From pantry to physiology: A narrative review
+  linking food insecurity to biological dysfunction}}.
+\newblock \emph{\bibinfo{journal}{Dialogues Health}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{100308} (\bibinfo{year}{2026}).
+
+\bibitem{ref21}
+\bibinfo{author}{Zhang, Z.} \emph{et~al.}
+\newblock \bibinfo{title}{{Biological effects of hypomagnetic field:
+  ground-based data for space exploration}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{42}}, \bibinfo{pages}{516--531}
+  (\bibinfo{year}{2021}).
+
+\bibitem{ref22}
+\bibinfo{author}{Kyriacou, M.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Microgreens: Novel fresh and functional food to
+  explore all the way from plate to space}}.
+\newblock \emph{\bibinfo{journal}{Trends Food Sci. Technol.}}
+  \textbf{\bibinfo{volume}{110}}, \bibinfo{pages}{377--389}
+  (\bibinfo{year}{2021}).
+
+\bibitem{ref23}
+\bibinfo{author}{Bewley, J.~D.}
+\newblock \bibinfo{title}{{Seed germination and dormancy}}.
+\newblock \emph{\bibinfo{journal}{Plant Cell}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{1055--1066} (\bibinfo{year}{1997}).
+
+\bibitem{ref24}
+\bibinfo{author}{Gommers, C.~M.} \& \bibinfo{author}{Monte, E.}
+\newblock \bibinfo{title}{{Seedling establishment: A dimmer switch-regulated
+  process between dark and light signaling}}.
+\newblock \emph{\bibinfo{journal}{Plant Physiol.}}
+  \textbf{\bibinfo{volume}{176}}, \bibinfo{pages}{1061--1074}
+  (\bibinfo{year}{2017}).
+
+\bibitem{ref25}
+\bibinfo{author}{Finkelstein, R.}, \bibinfo{author}{Reeves, W.},
+  \bibinfo{author}{Ariizumi, T.} \& \bibinfo{author}{Steber, C.}
+\newblock \bibinfo{title}{{Molecular aspects of seed dormancy}}.
+\newblock \emph{\bibinfo{journal}{Annu. Rev. Plant Biol.}}
+  \textbf{\bibinfo{volume}{59}}, \bibinfo{pages}{387--415}
+  (\bibinfo{year}{2008}).
+
+\bibitem{ref26}
+\bibinfo{author}{Belyavskaya, N.~A.}
+\newblock \bibinfo{title}{{Biological effects due to weak magnetic field on
+  plants}}.
+\newblock \emph{\bibinfo{journal}{Adv. Space Res.}}
+  \textbf{\bibinfo{volume}{34}}, \bibinfo{pages}{1566--1574}
+  (\bibinfo{year}{2004}).
+
+\bibitem{ref27}
+\bibinfo{author}{Novitskii, Y.~I.}, \bibinfo{author}{Novitskaya, G.~V.} \&
+  \bibinfo{author}{Kocheshkova, T.~K.}
+\newblock \bibinfo{title}{{Growth of radish seedlings in a hypomagnetic
+  field}}.
+\newblock \emph{\bibinfo{journal}{Russ. J. Plant Physiol.}}
+  \textbf{\bibinfo{volume}{61}}, \bibinfo{pages}{667--676}
+  (\bibinfo{year}{2014}).
+
+\bibitem{ref28}
+\bibinfo{author}{Xu, C.}, \bibinfo{author}{Wei, S.} \& \bibinfo{author}{L{\"u},
+  Y.}
+\newblock \bibinfo{title}{{Removal of the local geomagnetic field affects
+  reproductive growth in Arabidopsis}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{34}}, \bibinfo{pages}{437--442}
+  (\bibinfo{year}{2013}).
+
+\bibitem{ref29}
+\bibinfo{author}{Negishi, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{{Growth and development of Arabidopsis thaliana under
+  hypomagnetic conditions}}.
+\newblock \emph{\bibinfo{journal}{Space Util. Res.}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{14--17}
+  (\bibinfo{year}{1999}).
+
+\bibitem{ref30}
+\bibinfo{author}{Kordyum, E.~L.} \& \bibinfo{author}{Guikema, J.~A.}
+\newblock \bibinfo{title}{{Plants in space: Changes in the cellular and
+  organellar architecture}}.
+\newblock \emph{\bibinfo{journal}{Int. J. Astrobiol.}}
+  \textbf{\bibinfo{volume}{19}}, \bibinfo{pages}{391--406}
+  (\bibinfo{year}{2020}).
+
+\bibitem{ref31}
+\bibinfo{author}{Tang, J.}, \bibinfo{author}{Wu, Z.}, \bibinfo{author}{Sun,
+  Z.}, \bibinfo{author}{Liu, H.} \& \bibinfo{author}{Liu, H.}
+\newblock \bibinfo{title}{{Lunar magnetism impairs wheat seedling
+  photosynthesis: a simulated environment study}}.
+\newblock \emph{\bibinfo{journal}{Plant Physiol. Biochem.}}
+  \textbf{\bibinfo{volume}{216}}, \bibinfo{pages}{109156}
+  (\bibinfo{year}{2024}).
+
+\bibitem{ref32}
+\bibinfo{author}{Podle{\'s}ny, J.}, \bibinfo{author}{Pietruszewski, S.} \&
+  \bibinfo{author}{Podle{\'s}na, A.}
+\newblock \bibinfo{title}{{Efficiency of magnetic treatment of broad bean seeds
+  cultivated under drought conditions}}.
+\newblock \emph{\bibinfo{journal}{Int. Agrophys.}}
+  \textbf{\bibinfo{volume}{19}}, \bibinfo{pages}{65--71}
+  (\bibinfo{year}{2005}).
+
+\bibitem{ref80}
+\bibinfo{author}{Williams, P. H. R.-c. B. s. i. l.~r.} \&
+  \bibinfo{author}{education}.
+\newblock \bibinfo{title}{{In:}}.
+\newblock \emph{\bibinfo{journal}{Tested Studies for Laboratory Teaching}}
+  (\bibinfo{year}{1989}).
+\newblock
+  \urlprefix\url{https://www.ableweb.org/biologylabs/wp-content/uploads/volumes/vol-10/1-williams.pdf}.
+
+\bibitem{ref33}
+\bibinfo{author}{Nonogaki, H.}, \bibinfo{author}{Bassel, G.~W.} \&
+  \bibinfo{author}{Bewley, J.~D.}
+\newblock \bibinfo{title}{{Germination---still a mystery}}.
+\newblock \emph{\bibinfo{journal}{Plant Sci.}} \textbf{\bibinfo{volume}{179}},
+  \bibinfo{pages}{574--581} (\bibinfo{year}{2010}).
+
+\bibitem{ref34}
+\bibinfo{author}{Shine, M.~B.} \& \bibinfo{author}{Guruprasad, K.~N.}
+\newblock \bibinfo{title}{{Impact of pre-sowing magnetic field treatment on
+  seed germination, seedling growth, and enzymatic antioxidant defense system
+  in soybean}}.
+\newblock \emph{\bibinfo{journal}{Physiol. Mol. Biol. Plants}}
+  \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{325--334}
+  (\bibinfo{year}{2012}).
+
+\bibitem{ref35}
+\bibinfo{author}{Xu, C.}, \bibinfo{author}{Yu, Y.}, \bibinfo{author}{Zhang,
+  Y.}, \bibinfo{author}{Li, Y.} \& \bibinfo{author}{Wei, S.}
+\newblock \bibinfo{title}{{Gibberellins are involved in effect of near-null
+  magnetic field on Arabidopsis flowering}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{38}}, \bibinfo{pages}{1--10} (\bibinfo{year}{2017}).
+
+\bibitem{ref36}
+\bibinfo{author}{Xu, C.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Yu,
+  Y.}, \bibinfo{author}{Li, Y.} \& \bibinfo{author}{Wei, S.}
+\newblock \bibinfo{title}{{Suppression of Arabidopsis flowering by near-null
+  magnetic field is mediated by auxin}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{39}}, \bibinfo{pages}{15--24}
+  (\bibinfo{year}{2018}).
+
+\bibitem{ref37}
+\bibinfo{author}{Narayana, R.} \emph{et~al.}
+\newblock \bibinfo{title}{{Near-null magnetic field alters root growth and PIN2
+  polar auxin transporter distribution in Arabidopsis thaliana}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{39}}, \bibinfo{pages}{361--374}
+  (\bibinfo{year}{2018}).
+
+\bibitem{ref38}
+\bibinfo{author}{Belyavskaya, N.~A.}
+\newblock \bibinfo{title}{{Ultrastructure of meristematic cells of pea roots
+  grown in a hypomagnetic field}}.
+\newblock \emph{\bibinfo{journal}{Biophysics}} \textbf{\bibinfo{volume}{46}},
+  \bibinfo{pages}{953--958} (\bibinfo{year}{2001}).
+
+\bibitem{ref39}
+\bibinfo{author}{Fiorillo, A.} \emph{et~al.}
+\newblock \bibinfo{title}{{14-3-3 proteins and the plasma membrane
+  $\text{H}^+$-ATPase are involved in maize magnetic induction}}.
+\newblock \emph{\bibinfo{journal}{Plants}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{2887} (\bibinfo{year}{2023}).
+
+\bibitem{ref40}
+\bibinfo{author}{Wheeler, R.~M.}
+\newblock \bibinfo{title}{{Carbon dioxide effects on plants: Implications for
+  space exploration}}.
+\newblock \emph{\bibinfo{journal}{Front. Astron. Space Sci.}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{780074} (\bibinfo{year}{2021}).
+
+\bibitem{ref41}
+\bibinfo{author}{Douglas, G.~L.} \emph{et~al.}
+\newblock \bibinfo{title}{{Nutrition and food systems for exploration
+  missions}}.
+\newblock \emph{\bibinfo{journal}{NASA Human Research Program Technical
+  Report}}  (\bibinfo{year}{2020}).
+
+\bibitem{ref42}
+\bibinfo{author}{Solymosi, K.} \& \bibinfo{author}{Schoefs, B.}
+\newblock \bibinfo{title}{{Etioplast and etio-chloroplast formation under
+  natural and laboratory conditions}}.
+\newblock \emph{\bibinfo{journal}{Front. Plant Sci.}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{1709} (\bibinfo{year}{2018}).
+
+\bibitem{ref43}
+\bibinfo{author}{Tanaka, R.} \& \bibinfo{author}{Tanaka, A.}
+\newblock \bibinfo{title}{{Tetrapyrrole biosynthesis in higher plants}}.
+\newblock \emph{\bibinfo{journal}{Annu. Rev. Plant Biol.}}
+  \textbf{\bibinfo{volume}{58}}, \bibinfo{pages}{321--346}
+  (\bibinfo{year}{2007}).
+
+\bibitem{ref44}
+\bibinfo{author}{Parmagnani, A.~S.} \emph{et~al.}
+\newblock \bibinfo{title}{{The geomagnetic field is required for Lima bean
+  photosynthesis and reactive oxygen species production}}.
+\newblock \emph{\bibinfo{journal}{Int. J. Mol. Sci.}}
+  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{2896} (\bibinfo{year}{2023}).
+
+\bibitem{ref45}
+\bibinfo{author}{Agliassa, C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Reduction of the geomagnetic field delays
+  Arabidopsis thaliana flowering time through downregulation of
+  flowering-related genes}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{39}}, \bibinfo{pages}{361--374}
+  (\bibinfo{year}{2018}).
+
+\bibitem{ref46}
+\bibinfo{author}{Maffei, M.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{{Peppermint}} (\bibinfo{year}{2021}).
+
+\bibitem{ref47}
+\bibinfo{author}{Gangappa, S.~N.} \& \bibinfo{author}{Botto, J.~F.}
+\newblock \bibinfo{title}{{The multifaceted roles of HY5 in plant growth and
+  development}}.
+\newblock \emph{\bibinfo{journal}{Mol. Plant}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{1353--1365} (\bibinfo{year}{2016}).
+
+\bibitem{ref48}
+\bibinfo{author}{Toledo-Ortiz, G.} \emph{et~al.}
+\newblock \bibinfo{title}{{The HY5 transcription factor integrates blue-light
+  and hormonal cues to drive plastid development}}.
+\newblock \emph{\bibinfo{journal}{Plant Cell}} \textbf{\bibinfo{volume}{26}},
+  \bibinfo{pages}{1392--1407} (\bibinfo{year}{2014}).
+
+\bibitem{ref49}
+\bibinfo{author}{Hore, P.~J.} \& \bibinfo{author}{Mouritsen, H.}
+\newblock \bibinfo{title}{{The radical-pair mechanism of magnetoreception}}.
+\newblock \emph{\bibinfo{journal}{Annu. Rev. Biophys.}}
+  \textbf{\bibinfo{volume}{45}}, \bibinfo{pages}{299--344}
+  (\bibinfo{year}{2016}).
+
+\bibitem{ref50}
+\bibinfo{author}{Solov'yov, I.~A.}, \bibinfo{author}{Chandler, D.~E.} \&
+  \bibinfo{author}{Schulten, K.}
+\newblock \bibinfo{title}{{Magnetic field effects in Arabidopsis thaliana
+  cryptochrome-1}}.
+\newblock \emph{\bibinfo{journal}{Biophys. J.}} \textbf{\bibinfo{volume}{92}},
+  \bibinfo{pages}{2711--2726} (\bibinfo{year}{2007}).
+
+\bibitem{ref51}
+\bibinfo{author}{Ahmad, M.}, \bibinfo{author}{Galland, P.},
+  \bibinfo{author}{Ritz, T.}, \bibinfo{author}{Wiltschko, R.} \&
+  \bibinfo{author}{Wiltschko, W.}
+\newblock \bibinfo{title}{{Magnetic intensity affects cryptochrome-dependent
+  responses in Arabidopsis thaliana}}.
+\newblock \emph{\bibinfo{journal}{Planta}} \textbf{\bibinfo{volume}{225}},
+  \bibinfo{pages}{615--624} (\bibinfo{year}{2007}).
+
+\bibitem{ref52}
+\bibinfo{author}{Briat, J.-F.}, \bibinfo{author}{Duc, C.},
+  \bibinfo{author}{Ravet, K.} \& \bibinfo{author}{Gaymard, F.}
+\newblock \bibinfo{title}{{Ferritins and iron storage in plants}}.
+\newblock \emph{\bibinfo{journal}{Biochim. Biophys. Acta}}
+  \textbf{\bibinfo{volume}{1800}}, \bibinfo{pages}{806--814}
+  (\bibinfo{year}{2010}).
+
+\bibitem{ref53}
+\bibinfo{author}{Islam, M.}, \bibinfo{author}{Maffei, M.~E.} \&
+  \bibinfo{author}{Vigani, G.}
+\newblock \bibinfo{title}{{The geomagnetic field is a contributing factor for
+  an efficient iron uptake in Arabidopsis thaliana}}.
+\newblock \emph{\bibinfo{journal}{Front. Plant Sci.}}
+  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{325} (\bibinfo{year}{2020}).
+
+\bibitem{ref54}
+\bibinfo{author}{Islam, M.}, \bibinfo{author}{Vigani, G.} \&
+  \bibinfo{author}{Maffei, M.~E.}
+\newblock \bibinfo{title}{{The geomagnetic field modulates nutrient status and
+  lipid metabolism during Arabidopsis thaliana plant development}}.
+\newblock \emph{\bibinfo{journal}{Plants}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{1729} (\bibinfo{year}{2020}).
+
+\bibitem{ref55}
+\bibinfo{author}{Barker, R.~J.} \& \bibinfo{author}{Porterfield, D.~M.}
+\newblock \bibinfo{title}{{Quantum Biology Atlas: A cross-species ontology,
+  pathway compiler, and multi-omics projection toolkit for quantum biological
+  mechanisms}}.
+\newblock \emph{\bibinfo{journal}{Zenodo / GitHub}}  (\bibinfo{year}{2026}).
+\newblock
+  \urlprefix\url{https://github.com/dr-richard-barker/quantum-biology-atlas}.
+
+\bibitem{ref56}
+\bibinfo{author}{Meyer, E.~H.}, \bibinfo{author}{Welchen, E.} \&
+  \bibinfo{author}{Carrie, C.}
+\newblock \bibinfo{title}{{Assembly of the complexes of the oxidative
+  phosphorylation system in plant mitochondria}}.
+\newblock \emph{\bibinfo{journal}{Physiol. Plant.}}
+  \textbf{\bibinfo{volume}{157}}, \bibinfo{pages}{294--309}
+  (\bibinfo{year}{2016}).
+
+\bibitem{ref57}
+\bibinfo{author}{Maeda, K.} \emph{et~al.}
+\newblock \bibinfo{title}{{Chemical compass model of avian magnetoreception}}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{453}},
+  \bibinfo{pages}{387--390} (\bibinfo{year}{2008}).
+
+\bibitem{ref58}
+\bibinfo{author}{Pooam, M.} \emph{et~al.}
+\newblock \bibinfo{title}{{Magnetic sensitivity mediated by the Arabidopsis
+  blue-light receptor cryptochrome occurs during flavin reoxidation in the
+  dark}}.
+\newblock \emph{\bibinfo{journal}{Planta}} \textbf{\bibinfo{volume}{249}},
+  \bibinfo{pages}{319--332} (\bibinfo{year}{2019}).
+
+\bibitem{ref59}
+\bibinfo{author}{Demmig-Adams, B.} \& \bibinfo{author}{Adams, W.~W.}
+\newblock \bibinfo{title}{{Photoprotection in an ecological context: the
+  remarkable diversity of extreme-energy dissipation mechanisms}}.
+\newblock \emph{\bibinfo{journal}{Funct. Plant Biol.}}
+  \textbf{\bibinfo{volume}{45}}, \bibinfo{pages}{697--711}
+  (\bibinfo{year}{2018}).
+
+\bibitem{ref60}
+\bibinfo{author}{Vanlerberghe, G.~C.}
+\newblock \bibinfo{title}{{Alternative Oxidase: A mitochondrial respiratory
+  pathway to maintain metabolic and signaling homeostasis during abiotic and
+  biotic stress in plants}}.
+\newblock \emph{\bibinfo{journal}{Int. J. Mol. Sci.}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{6805--6847}
+  (\bibinfo{year}{2013}).
+
+\bibitem{ref61}
+\bibinfo{author}{Zadeh-Haghighi, H.} \& \bibinfo{author}{Simon, C.}
+\newblock \bibinfo{title}{{Magnetic field effects in biology from the
+  perspective of the radical pair mechanism}}.
+\newblock \emph{\bibinfo{journal}{J. R. Soc. Interface}}
+  \textbf{\bibinfo{volume}{19}}, \bibinfo{pages}{20220325}
+  (\bibinfo{year}{2022}).
+
+\bibitem{ref62}
+\bibinfo{author}{Miloslavina, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{{Charge separation kinetics in intact photosystem II
+  core particles is trap-limited: a picosecond fluorescence study}}.
+\newblock \emph{\bibinfo{journal}{Biochemistry}} \textbf{\bibinfo{volume}{45}},
+  \bibinfo{pages}{2436--2442} (\bibinfo{year}{2006}).
+
+\bibitem{ref63}
+\bibinfo{author}{Vass, I.}
+\newblock \bibinfo{title}{{Role of charge recombination processes in
+  photodamage and photoprotection of the photosystem II complex}}.
+\newblock \emph{\bibinfo{journal}{Physiol. Plant.}}
+  \textbf{\bibinfo{volume}{142}}, \bibinfo{pages}{6--16}
+  (\bibinfo{year}{2011}).
+
+\bibitem{ref64}
+\bibinfo{author}{Sarewicz, M.} \emph{et~al.}
+\newblock \bibinfo{title}{{Triplet state of the semiquinone-Rieske cluster as
+  an intermediate of electronic bifurcation catalyzed by cytochrome $bc_1$}}.
+\newblock \emph{\bibinfo{journal}{Biochemistry}} \textbf{\bibinfo{volume}{52}},
+  \bibinfo{pages}{6388--6395} (\bibinfo{year}{2013}).
+
+\bibitem{ref65}
+\bibinfo{author}{Bujnowicz, {\L}.} \emph{et~al.}
+\newblock \bibinfo{title}{{Suppression of superoxide production by a spin-spin
+  coupling between semiquinone and the Rieske cluster in cytochrome $bc_1$}}.
+\newblock \emph{\bibinfo{journal}{FEBS Lett.}} \textbf{\bibinfo{volume}{593}},
+  \bibinfo{pages}{3--12} (\bibinfo{year}{2019}).
+
+\bibitem{ref66}
+\bibinfo{author}{Richards, J.~T.} \emph{et~al.}
+\newblock \bibinfo{title}{{Hypobaric plant growth in spaceflight: Design, gas
+  diffusion, and physiological adaptation}}.
+\newblock \emph{\bibinfo{journal}{Gravit. Space Biol. Bull.}}
+  \textbf{\bibinfo{volume}{19}}, \bibinfo{pages}{101--114}
+  (\bibinfo{year}{2006}).
+
+\bibitem{ref68}
+\bibinfo{author}{Bauwe, H.}, \bibinfo{author}{Hagemann, M.} \&
+  \bibinfo{author}{Fernie, A.~R.}
+\newblock \bibinfo{title}{{Photorespiration: players, partners and origin}}.
+\newblock \emph{\bibinfo{journal}{Trends Plant Sci.}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{330--336}
+  (\bibinfo{year}{2010}).
+
+\bibitem{ref69}
+\bibinfo{author}{Moore, A.~L.} \& \bibinfo{author}{Siedow, J.~N.}
+\newblock \bibinfo{title}{{The regulation and nature of the cyanide-resistant
+  alternative oxidase of plant mitochondria}}.
+\newblock \emph{\bibinfo{journal}{Biochim. Biophys. Acta}}
+  \textbf{\bibinfo{volume}{1059}}, \bibinfo{pages}{121--140}
+  (\bibinfo{year}{1991}).
+
+\bibitem{ref70}
+\bibinfo{author}{Maxwell, D.~P.}, \bibinfo{author}{Wang, Y.} \&
+  \bibinfo{author}{McIntosh, L.}
+\newblock \bibinfo{title}{{The alternative oxidase lowers mitochondrial
+  reactive oxygen production in plant cells}}.
+\newblock \emph{\bibinfo{journal}{Proc. Natl. Acad. Sci. USA}}
+  \textbf{\bibinfo{volume}{96}}, \bibinfo{pages}{8271--8276}
+  (\bibinfo{year}{1999}).
+
+\bibitem{ref71}
+\bibinfo{author}{Arena, C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Plants in space: Responses to ionizing radiation and
+  interaction with microgravity}}.
+\newblock \emph{\bibinfo{journal}{Front. Plant Sci.}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{550} (\bibinfo{year}{2014}).
+
+\bibitem{ref72}
+\bibinfo{author}{Cucinotta, F.~A.} \& \bibinfo{author}{Durante, M.}
+\newblock \bibinfo{title}{{Cancer risk from exposure to galactic cosmic rays:
+  implications for early exploration missions}}.
+\newblock \emph{\bibinfo{journal}{Lancet Oncol.}} \textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{431--435} (\bibinfo{year}{2006}).
+
+\bibitem{ref73}
+\bibinfo{author}{Parmagnani, A.~S.}, \bibinfo{author}{Mannino, G.} \&
+  \bibinfo{author}{Maffei, M.~E.}
+\newblock \bibinfo{title}{{Transcriptomics and metabolomics of reactive oxygen
+  species modulation in near-null magnetic field-induced Arabidopsis
+  thaliana}}.
+\newblock \emph{\bibinfo{journal}{Biomolecules}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{1824} (\bibinfo{year}{2022}).
+
+\bibitem{ref67}
+\bibinfo{author}{da~Silveira, W.~A.} \emph{et~al.}
+\newblock \bibinfo{title}{{Comprehensive multi-omics analysis reveals
+  mitochondrial stress as a central biological hub for spaceflight impact}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{183}},
+  \bibinfo{pages}{1185--1201} (\bibinfo{year}{2020}).
+
+\bibitem{ref74}
+\bibinfo{author}{Garrett-Bakelman, F.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{{The NASA Twins Study: A multidimensional analysis of
+  a year-long human spaceflight}}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{364}},
+  \bibinfo{pages}{eaau8650} (\bibinfo{year}{2019}).
+
+\bibitem{ref75}
+\bibinfo{author}{Da~Silveira, W.~A.} \emph{et~al.}
+\newblock \bibinfo{title}{{Comprehensive multi-omics analysis reveals
+  mitochondrial dysfunction as a central mechanism of spaceflight-induced
+  systemic stress}}.
+\newblock \emph{\bibinfo{journal}{Cell}} \textbf{\bibinfo{volume}{183}},
+  \bibinfo{pages}{1185--1201} (\bibinfo{year}{2020}).
+
+\bibitem{ref76}
+\bibinfo{author}{Mo, W.~C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Hypomagnetic field alters human neuroblastoma cell
+  cycle kinetics and transcriptomic networks}}.
+\newblock \emph{\bibinfo{journal}{PLoS ONE}} \textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{e44650} (\bibinfo{year}{2012}).
+
+\bibitem{ref77}
+\bibinfo{author}{Xu, C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Hypomagnetic field promotes osteoclastogenesis and
+  suppresses osteoblastogenesis in rat bone marrow cell cultures}}.
+\newblock \emph{\bibinfo{journal}{Bioelectromagnetics}}
+  \textbf{\bibinfo{volume}{33}}, \bibinfo{pages}{685--694}
+  (\bibinfo{year}{2012}).
+
+\bibitem{ref78}
+\bibinfo{author}{Harris, S.-R.} \emph{et~al.}
+\newblock \bibinfo{title}{{Effect of magnetic fields on cryptochrome-dependent
+  responses in Arabidopsis thaliana}}.
+\newblock \emph{\bibinfo{journal}{J. R. Soc. Interface}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{1193--1205}
+  (\bibinfo{year}{2009}).
+
+\end{thebibliography}

@@ -24,5 +24,11 @@ _temp_for_docx.md
 # ABAI local attestation workspace (DO NOT commit internal verification caches)
 .abai/
 
-# Local logs
+# Local logs and LaTeX build intermediates
 *.log
+*.aux
+*.out
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz

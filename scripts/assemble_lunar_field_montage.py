@@ -86,7 +86,8 @@ def main():
     ax_map.set_ylabel('Latitude (°N)')
     ax_map.set_xlim(0, 360)
     ax_map.set_ylim(-90, 65)
-    ax_map.set_title('(a) Global Lunar Crustal Magnetic Field & Landing Sites (|B| at 30 km)', weight='bold')
+    ax_map.set_title('Global Lunar Crustal Magnetic Field & Landing Sites (|B| at 30 km)', weight='bold', fontsize=8.8, pad=10)
+    ax_map.text(-0.04, 1.03, 'a', transform=ax_map.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     
     cbar = plt.colorbar(img, ax=ax_map, orientation='vertical', fraction=0.03, pad=0.015)
     cbar.set_label('$|\\mathbf{B}|$ at 30 km (nT)', fontsize=7.8)
@@ -158,7 +159,8 @@ def main():
     ax_polar.set_ylim(-91.2, -82.4)
     ax_polar.set_xlabel('Longitude (°E)')
     ax_polar.set_ylabel('Latitude (°N)')
-    ax_polar.set_title('(b) Example Candidate Artemis Regions (Near-Null Field)', weight='bold', pad=12)
+    ax_polar.set_title('Candidate Artemis Regions (Near-Null Field)', weight='bold', pad=10, fontsize=8.8)
+    ax_polar.text(-0.04, 1.03, 'b', transform=ax_polar.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_polar.grid(True, linestyle=':', alpha=0.6)
     
     cbar_pol = plt.colorbar(scatter, ax=ax_polar, orientation='vertical', fraction=0.035, pad=0.02)
@@ -184,7 +186,8 @@ def main():
     ax_bar.set_xticks(x_pos)
     ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=7.0)
     ax_bar.set_ylabel('Crustal Field $|\\mathbf{B}|$ at 30 km (nT)')
-    ax_bar.set_title('(c) Magnetic Field at Candidate Regions & Historical Sites', weight='bold')
+    ax_bar.set_title('Magnetic Field at Candidate Regions & Historical Sites', weight='bold', fontsize=8.8, pad=10)
+    ax_bar.text(-0.04, 1.03, 'c', transform=ax_bar.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.0)
     ax_bar.set_ylim(0, 5.5)
     ax_bar.grid(axis='y', linestyle=':', alpha=0.6)
@@ -203,7 +206,8 @@ def main():
     # Draw conceptual schematic
     ax_sch.set_xlim(0, 10.5)
     ax_sch.set_ylim(0, 11.2)
-    ax_sch.set_title('(d) Field Superposition at the Biological Volume', weight='bold', pad=12)
+    ax_sch.set_title('Field Superposition at the Biological Volume', weight='bold', pad=10, fontsize=8.8)
+    ax_sch.text(-0.02, 1.03, 'd', transform=ax_sch.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     
     # 1. Equation banner (BLUE box) - widened with generous internal margins
     eq_rect = patches.FancyBboxPatch((0.20, 9.05), 10.10, 1.95, boxstyle="round,pad=0.1,rounding_size=0.25",

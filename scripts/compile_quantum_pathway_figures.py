@@ -50,7 +50,8 @@ def main():
     ax_qbm.axis('off')
     ax_qbm.set_xlim(0, 100)
     ax_qbm.set_ylim(0, 100)
-    ax_qbm.set_title('(a) Seed Germination Before Photosynthesis (QBM-06): The 0–72 h Heterotrophic Energy Bottleneck', weight='bold')
+    ax_qbm.set_title('Seed Germination Before Photosynthesis (QBM-06): The 0–72 h Heterotrophic Energy Bottleneck', weight='bold', fontsize=8.8, pad=10)
+    ax_qbm.text(0.00, 1.03, 'a', transform=ax_qbm.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Draw compartment lanes (Peroxisome, Mitochondrial Matrix, Cellular Energy/Redox, Organism Endpoint)
     lanes = [
@@ -158,7 +159,8 @@ def main():
     ax_tier.axis('off')
     ax_tier.set_xlim(0, 100)
     ax_tier.set_ylim(0, 100)
-    ax_tier.set_title('(b) Evidentiary Tiers & Biophysical Timescale Constraints', weight='bold')
+    ax_tier.set_title('Evidentiary Tiers & Biophysical Timescale Constraints', weight='bold', fontsize=8.8, pad=10)
+    ax_tier.text(0.00, 1.03, 'b', transform=ax_tier.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Draw 4 Tier Legend Cards (Cleanly distributed from y=48 to y=96)
     tier_defs = [
@@ -199,7 +201,8 @@ def main():
     ax_org.axis('off')
     ax_org.set_xlim(0, 100)
     ax_org.set_ylim(0, 100)
-    ax_org.set_title('(c) Organellar Bioenergetics & Respiratory Buffering', weight='bold')
+    ax_org.set_title('Organellar Bioenergetics & Respiratory Buffering', weight='bold', fontsize=8.8, pad=10)
+    ax_org.text(0.00, 1.03, 'c', transform=ax_org.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Chloroplast PETC Box (Top)
     chl_box = patches.FancyBboxPatch((2, 52), 96, 46, boxstyle="round,pad=0.3",
@@ -258,12 +261,13 @@ def main():
     ax_org.text(82.5, 16, "Heme a3 / CuB\nHigh O2 affinity\n[T4 Context]", fontsize=6.6, color='#666666', ha='center')
 
     fig.subplots_adjust(top=0.95, bottom=0.06, left=0.06, right=0.96, hspace=0.28, wspace=0.22)
-    out_pdf = OUT_DIR / 'Fig3_quantum_biology_0to5day_pathways.pdf'
-    out_png = OUT_DIR / 'Fig3_quantum_biology_0to5day_pathways.png'
-    fig.savefig(out_pdf, bbox_inches='tight')
-    fig.savefig(out_png, dpi=300, bbox_inches='tight')
+    for prefix in ['Fig3', 'Fig4']:
+        out_pdf = OUT_DIR / f'{prefix}_quantum_biology_0to5day_pathways.pdf'
+        out_png = OUT_DIR / f'{prefix}_quantum_biology_0to5day_pathways.png'
+        fig.savefig(out_pdf, bbox_inches='tight')
+        fig.savefig(out_png, dpi=300, bbox_inches='tight')
     plt.close(fig)
-    print(f"Figure 3 successfully created at:\n  {out_png}\n  {out_pdf}")
+    print(f"Figure 4 successfully created in {OUT_DIR}")
 
 if __name__ == '__main__':
     main()

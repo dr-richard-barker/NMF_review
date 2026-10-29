@@ -45,7 +45,8 @@ def main():
     ax_time.axis('off')
     ax_time.set_xlim(0, 100)
     ax_time.set_ylim(0, 104)
-    ax_time.set_title('(a) 5-Day Seedling Establishment Window: Heterotrophy to Autotrophy', weight='bold', pad=12)
+    ax_time.set_title('5-Day Seedling Establishment Window: Heterotrophy to Autotrophy', weight='bold', pad=10, fontsize=8.8)
+    ax_time.text(0.00, 1.03, 'a', transform=ax_time.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Main horizontal timeline bar
     timeline_box = patches.FancyBboxPatch((2, 48.5), 96, 7.0, boxstyle="round,pad=0,rounding_size=2",
@@ -129,7 +130,8 @@ def main():
 
     ax_kin.set_xlabel('Time After Imbibition (hours)')
     ax_kin.set_ylabel('Cumulative Germination (%)')
-    ax_kin.set_title('(b) Seed Germination Time-Course & Kinetics (t50)', weight='bold')
+    ax_kin.set_title('Seed Germination Time-Course & Kinetics ($t_{50}$)', weight='bold', fontsize=8.8, pad=10)
+    ax_kin.text(-0.04, 1.03, 'b', transform=ax_kin.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_kin.set_xlim(0, 120)
     ax_kin.set_ylim(0, 105)
     ax_kin.legend(loc='lower right', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.0)
@@ -161,7 +163,8 @@ def main():
         ax_yield.text(x[i], y_max + 3.0, f"{red:.1f}%", ha='center', fontsize=7.5, weight='bold', color='#b71c1c')
 
     ax_yield.set_ylabel('Seedling Metric Value')
-    ax_yield.set_title('(c) Early Seedling Vigor & Crop Biomass Accumulation', weight='bold')
+    ax_yield.set_title('Early Seedling Vigor & Crop Biomass Accumulation', weight='bold', fontsize=8.8, pad=10)
+    ax_yield.text(-0.04, 1.03, 'c', transform=ax_yield.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_yield.set_xticks(x)
     ax_yield.set_xticklabels(categories, fontsize=7.5)
     ax_yield.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
@@ -180,7 +183,8 @@ def main():
     ax_pig.axis('off')
     ax_pig.set_xlim(0, 100)
     ax_pig.set_ylim(0, 100)
-    ax_pig.set_title('(d) Pigment Biosynthesis & Plastid Greening Repression', weight='bold')
+    ax_pig.set_title('Pigment Biosynthesis & Plastid Greening Repression', weight='bold', fontsize=8.8, pad=10)
+    ax_pig.text(0.00, 1.03, 'd', transform=ax_pig.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Background frame
     p_frame = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
@@ -232,12 +236,13 @@ def main():
                 fontsize=6.6, weight='bold', ha='center', va='center', color='#2e7d32')
 
     fig.subplots_adjust(top=0.95, bottom=0.07, left=0.07, right=0.96, hspace=0.30, wspace=0.22)
-    out_pdf = OUT_DIR / 'Fig2_first_5_days_germination_pigments.pdf'
-    out_png = OUT_DIR / 'Fig2_first_5_days_germination_pigments.png'
-    fig.savefig(out_pdf, bbox_inches='tight')
-    fig.savefig(out_png, dpi=300, bbox_inches='tight')
+    for prefix in ['Fig2', 'Fig3']:
+        out_pdf = OUT_DIR / f'{prefix}_first_5_days_germination_pigments.pdf'
+        out_png = OUT_DIR / f'{prefix}_first_5_days_germination_pigments.png'
+        fig.savefig(out_pdf, bbox_inches='tight')
+        fig.savefig(out_png, dpi=300, bbox_inches='tight')
     plt.close(fig)
-    print(f"Figure 2 successfully created at:\n  {out_png}\n  {out_pdf}")
+    print(f"Figure 3 successfully created in {OUT_DIR}")
 
 if __name__ == '__main__':
     main()

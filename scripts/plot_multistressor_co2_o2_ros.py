@@ -47,7 +47,8 @@ def main():
     ax_env.axis('off')
     ax_env.set_xlim(0, 100)
     ax_env.set_ylim(0, 100)
-    ax_env.set_title('(a) Multi-Stressor Space: Exploration Baseline vs. Lunar Reality', weight='bold')
+    ax_env.set_title('Multi-Stressor Space: Exploration Baseline vs. Lunar Reality', weight='bold', fontsize=8.8, pad=10)
+    ax_env.text(0.00, 1.03, 'a', transform=ax_env.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Draw table/cards comparing Earth Baseline vs NASA Exploration Atmosphere vs Lunar Ambient
     envs = [
@@ -94,7 +95,8 @@ def main():
     ax_nexus.axis('off')
     ax_nexus.set_xlim(0, 100)
     ax_nexus.set_ylim(0, 100)
-    ax_nexus.set_title('(b) The Organellar CO2 <-> O2 <-> ROS Nexus', weight='bold')
+    ax_nexus.set_title('The Organellar CO2 <-> O2 <-> ROS Nexus', weight='bold', fontsize=8.8, pad=10)
+    ax_nexus.text(0.00, 1.03, 'b', transform=ax_nexus.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Big container box
     box_nex = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
@@ -158,7 +160,8 @@ def main():
     ax_de.set_yticks(y_pos)
     ax_de.set_yticklabels(loci, fontsize=7.6)
     ax_de.set_xlabel('Log2 Fold Change (Perturbation vs. Control)')
-    ax_de.set_title('(c) Multi-Omics Empirical Overlap (OSDR OSD-782 vs. NNMF)', weight='bold')
+    ax_de.set_title('Multi-Omics Empirical Overlap (OSDR OSD-782 vs. NNMF)', weight='bold', fontsize=8.8, pad=10)
+    ax_de.text(-0.04, 1.03, 'c', transform=ax_de.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_de.legend(loc='lower left', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.2)
     ax_de.set_xlim(-3.4, 4.6)
     ax_de.grid(axis='x', linestyle=':', alpha=0.6)
@@ -178,7 +181,8 @@ def main():
     ax_ck.axis('off')
     ax_ck.set_xlim(0, 100)
     ax_ck.set_ylim(0, 100)
-    ax_ck.set_title('(d) Cross-Kingdom Convergence: Plant BLSS & Human Health', weight='bold')
+    ax_ck.set_title('Cross-Kingdom Convergence: Plant BLSS & Human Health', weight='bold', fontsize=8.8, pad=10)
+    ax_ck.text(0.00, 1.03, 'd', transform=ax_ck.transAxes, fontsize=11, weight='bold', va='bottom', ha='left')
 
     # Card
     ck_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
@@ -211,12 +215,13 @@ def main():
                 fontsize=6.7, color='#1a237e', ha='center', va='center', linespacing=1.3)
 
     fig.subplots_adjust(top=0.95, bottom=0.07, left=0.08, right=0.96, hspace=0.28, wspace=0.22)
-    out_pdf = OUT_DIR / 'Fig4_multistressor_co2_o2_ros_nexus.pdf'
-    out_png = OUT_DIR / 'Fig4_multistressor_co2_o2_ros_nexus.png'
-    fig.savefig(out_pdf, bbox_inches='tight')
-    fig.savefig(out_png, dpi=300, bbox_inches='tight')
+    for prefix in ['Fig4', 'Fig5']:
+        out_pdf = OUT_DIR / f'{prefix}_multistressor_co2_o2_ros_nexus.pdf'
+        out_png = OUT_DIR / f'{prefix}_multistressor_co2_o2_ros_nexus.png'
+        fig.savefig(out_pdf, bbox_inches='tight')
+        fig.savefig(out_png, dpi=300, bbox_inches='tight')
     plt.close(fig)
-    print(f"Figure 4 successfully created at:\n  {out_png}\n  {out_pdf}")
+    print(f"Figure 5 successfully created in {OUT_DIR}")
 
 if __name__ == '__main__':
     main()

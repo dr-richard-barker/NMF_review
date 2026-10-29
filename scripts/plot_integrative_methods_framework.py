@@ -53,7 +53,8 @@ def main():
     ax_a.axis('off')
     ax_a.set_xlim(0, 100)
     ax_a.set_ylim(0, 100)
-    ax_a.set_title('(a) Conceptual Framework of the Integrative Review', weight='bold', fontsize=9.8, pad=12)
+    ax_a.set_title('Conceptual Framework of the Integrative Review', weight='bold', fontsize=9.8, pad=10)
+    ax_a.text(0.00, 1.03, 'a', transform=ax_a.transAxes, fontsize=12, weight='bold', va='bottom', ha='left')
 
     # Helper function for cards
     def draw_card(ax, x, y, w, h, bg_color, border_color, lw=1.2, radius=1.8):
@@ -153,7 +154,8 @@ def main():
     ax_b.axis('off')
     ax_b.set_xlim(0, 100)
     ax_b.set_ylim(0, 100)
-    ax_b.set_title('(b) Evidence Identification & Selection Flow (PRISMA/SANRA)', weight='bold', fontsize=9.8, pad=12)
+    ax_b.set_title('Evidence Identification & Selection Flow (PRISMA/SANRA)', weight='bold', fontsize=9.8, pad=10)
+    ax_b.text(0.00, 1.03, 'b', transform=ax_b.transAxes, fontsize=12, weight='bold', va='bottom', ha='left')
 
     # Slimmer stage indicator tags on the left (w=8.5, x=1.0 to 9.5)
     draw_card(ax_b, 1.0, 89, 8.5, 8, "#e0e0e0", "#757575", lw=0.8, radius=1.0)

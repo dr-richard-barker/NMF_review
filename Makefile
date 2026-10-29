@@ -16,17 +16,18 @@ else
     PY = $(PYTHON)
 endif
 
-.PHONY: all figures docx presentation site abai-qc zenodo-prep verify clean help
+.PHONY: all figures docx presentation npj-pdf site abai-qc zenodo-prep verify clean help
 
-all: figures docx presentation abai-qc zenodo-prep verify
+all: figures docx presentation npj-pdf abai-qc zenodo-prep verify
 
 help:
 	@echo "Available make targets:"
-	@echo "  make all          - Generate figures, docx, presentation, run ABAI QC, and prepare Zenodo"
-	@echo "  make figures      - Regenerate all 5 figures and graphical abstract (PNG & PDF)"
+	@echo "  make all          - Generate figures, docx, presentation, npj PDF, run ABAI QC, and prepare Zenodo"
+	@echo "  make figures      - Regenerate all figures and graphical abstract (PNG & PDF)"
 	@echo "  make docx         - Compile manuscript markdown to publication Word document with figures"
 	@echo "  make presentation - Export subpanels and compile editable 16:9 PowerPoint presentation"
-	@echo "  make site         - Sync figure assets to docs/assets/ for GitHub Pages"
+	@echo "  make npj-pdf      - Compile complete npj Microgravity LaTeX manuscript with BibTeX to PDF"
+	@echo "  make site         - Sync figure assets, PDF, and manuscript files to docs/assets/ for GitHub Pages"
 	@echo "  make abai-qc      - Execute 5-check AstroBotany AI quality control audit"
 	@echo "  make zenodo-prep  - Generate MANIFEST.tsv and CHECKSUMS.sha256 for Zenodo"
 	@echo "  make verify       - Verify repository integrity using CHECKSUMS.sha256"
@@ -46,7 +47,7 @@ figures:
 	@$(MAKE) site
 
 site:
-	@echo "==> Syncing web figures, manuscript docx, tables, and references to docs/assets/..."
+	@echo "==> Syncing web figures, manuscript docx, presentation, tables, and npj PDF to docs/assets/..."
 	@mkdir -p docs/assets
 	@cp figures/*.png docs/assets/
 	@cp figures/*.pdf docs/assets/
@@ -54,7 +55,20 @@ site:
 	@cp Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx docs/assets/
 	@cp tables/*.csv docs/assets/
 	@cp manuscript/references_LSSR.bib docs/assets/
+	@if [ -f Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf ]; then cp Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf docs/assets/; fi
+	@if [ -f latex/main.tex ]; then cp latex/main.tex docs/assets/main.tex; fi
+	@if [ -f latex/references.bib ]; then cp latex/references.bib docs/assets/references.bib; fi
 	@echo "Web assets synced successfully."
+
+npj-pdf:
+	@echo "==> Compiling complete npj Microgravity LaTeX manuscript with BibTeX..."
+	@$(PY) scripts/build_complete_bibtex.py
+	@$(PY) scripts/build_npj_latex.py
+	@$(MAKE) -C latex pdf
+	@cp latex/main.pdf Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf
+	@mkdir -p docs/assets
+	@cp latex/main.pdf docs/assets/Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf
+	@echo "Generated Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf and synced to docs/assets/"
 
 docx:
 	@echo "==> Compiling Word document manuscript..."
