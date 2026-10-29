@@ -89,28 +89,45 @@ def export_fig1_subpanels():
     scatter = ax.scatter(artemis_sites['lon'], artemis_sites['lat'], c=artemis_sites['Bmag'], cmap='plasma', s=120,
                          edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
     
-    # Custom non-overlapping offsets and directional arrows for each Artemis South Pole site: (dx, dy, ha, va)
+    # Clean compact display names for South Pole sites to eliminate label collisions
+    name_map = {
+        'Malapert Massif': 'Malapert',
+        'Leibnitz Beta Plateau': 'Leibnitz Beta',
+        'Nobile Rim 1': 'Nobile 1',
+        'Nobile Rim 2': 'Nobile 2',
+        'Faustini Rim A': 'Faustini A',
+        'Amundsen Rim': 'Amundsen',
+        'Connecting Ridge': 'Conn. Ridge',
+        'Connecting Ridge Extension': 'Conn. Ridge Ext.',
+        'Peak Near Shackleton': 'Shackleton',
+        'de Gerlache-Kocher Massif': 'de Gerl.-Kocher',
+        'de Gerlache Rim 1': 'de Gerlache 1',
+        'de Gerlache Rim 2': 'de Gerlache 2',
+        'Haworth': 'Haworth',
+    }
+
+    # Verified zero-collision offsets and directional arrows for each Artemis South Pole site: (dx, dy, ha, va)
     site_offsets = {
-        'Malapert Massif': (25, -10, 'left', 'top'),
-        'Leibnitz Beta Plateau': (-20, 16, 'right', 'bottom'),
-        'Nobile Rim 1': (20, -22, 'left', 'top'),
-        'Nobile Rim 2': (20, 18, 'left', 'bottom'),
-        'Faustini Rim A': (-20, -20, 'right', 'top'),
-        'Amundsen Rim': (22, 14, 'left', 'bottom'),
-        'Connecting Ridge': (-22, 16, 'right', 'bottom'),
-        'Connecting Ridge Extension': (-22, -20, 'right', 'top'),
-        'Peak Near Shackleton': (22, 14, 'left', 'bottom'),
-        'de Gerlache-Kocher Massif': (-22, 16, 'right', 'bottom'),
-        'de Gerlache Rim 1': (22, -18, 'left', 'top'),
-        'de Gerlache Rim 2': (22, 16, 'left', 'bottom'),
-        'Haworth': (-22, 16, 'right', 'bottom'),
+        'Malapert Massif': (12, 14, 'left', 'bottom'),
+        'Leibnitz Beta Plateau': (0, 32, 'center', 'bottom'),
+        'Nobile Rim 1': (0, -32, 'center', 'top'),
+        'Nobile Rim 2': (22, 0, 'left', 'center'),
+        'Faustini Rim A': (12, -32, 'left', 'top'),
+        'Amundsen Rim': (18, 28, 'left', 'bottom'),
+        'Connecting Ridge': (15, 32, 'left', 'bottom'),
+        'Connecting Ridge Extension': (0, -30, 'center', 'top'),
+        'Peak Near Shackleton': (15, 110, 'left', 'bottom'),
+        'de Gerlache-Kocher Massif': (14, 26, 'left', 'bottom'),
+        'de Gerlache Rim 1': (14, -26, 'left', 'top'),
+        'de Gerlache Rim 2': (18, 0, 'left', 'center'),
+        'Haworth': (-14, 16, 'right', 'bottom'),
     }
 
     for _, row in artemis_sites.iterrows():
-        s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
+        s_name = name_map.get(row['name'], row['name'])
         ox, oy, ha, va = site_offsets.get(row['name'], (20, 12, 'left', 'bottom'))
         ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=6.6, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
+                    fontsize=6.5, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
                     arrowprops=dict(arrowstyle="->", color="#37474f", lw=0.75, shrinkA=2, shrinkB=4),
                     bbox=dict(boxstyle='round,pad=0.25', facecolor='white', alpha=0.92, edgecolor='#757575', lw=0.45))
     ax.set_xlim(-25, 385)
@@ -149,21 +166,21 @@ def export_fig1_subpanels():
     # Fig 1d: Field Superposition Schematic
     fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=300)
     ax.axis('off')
-    ax.set_xlim(0, 10)
+    ax.set_xlim(0, 10.5)
     ax.set_ylim(0, 11.2)
-    eq_rect = patches.FancyBboxPatch((0.4, 9.0), 9.2, 1.95, boxstyle="round,pad=0.1,rounding_size=0.25",
+    eq_rect = patches.FancyBboxPatch((0.20, 9.05), 10.10, 1.95, boxstyle="round,pad=0.1,rounding_size=0.25",
                                      edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
     ax.add_patch(eq_rect)
-    ax.text(5.0, 10.15, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
-            fontsize=8.5, weight='bold', ha='center', va='center', color='#01579b')
-    ax.text(5.0, 9.45, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
+    ax.text(5.25, 10.20, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
+            fontsize=8.1, weight='bold', ha='center', va='center', color='#01579b')
+    ax.text(5.25, 9.45, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
             fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
     
-    cham_rect = patches.FancyBboxPatch((0.4, 0.35), 9.2, 8.35, boxstyle="round,pad=0.1,rounding_size=0.25",
+    cham_rect = patches.FancyBboxPatch((0.20, 0.35), 10.10, 8.40, boxstyle="round,pad=0.1,rounding_size=0.25",
                                        edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
     ax.add_patch(cham_rect)
-    ax.text(5.0, 8.35, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', va='center', color='#263238')
-    ax.plot([0.9, 9.1], [8.0, 8.0], color='#b0bec5', lw=0.8, linestyle='--')
+    ax.text(5.25, 8.40, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.2, ha='center', va='center', color='#263238')
+    ax.plot([0.60, 9.90], [8.05, 8.05], color='#b0bec5', lw=0.8, linestyle='--')
     
     contributions = [
         (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetic void", "#1565c0"),
@@ -174,17 +191,17 @@ def export_fig1_subpanels():
     ]
     y_pos = [7.45, 6.70, 5.95, 5.20, 4.45]
     for (symbol, mag, desc, col), y_val in zip(contributions, y_pos):
-        ax.text(0.9, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
-        ax.text(2.3, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
-        ax.text(4.0, y_val, desc, fontsize=6.8, color='#455a64', va='center')
+        ax.text(0.50, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
+        ax.text(1.85, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
+        ax.text(3.55, y_val, desc, fontsize=6.8, color='#455a64', va='center')
 
-    warn_rect = patches.FancyBboxPatch((0.70, 0.60), 8.6, 3.40, boxstyle="round,pad=0.15,rounding_size=0.2",
+    warn_rect = patches.FancyBboxPatch((0.45, 0.60), 9.60, 3.40, boxstyle="round,pad=0.15,rounding_size=0.2",
                                        edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax.add_patch(warn_rect)
-    ax.text(5.0, 3.50, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
-            fontsize=7.4, weight='bold', ha='center', va='center', color='#b71c1c')
-    ax.text(5.0, 2.15, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
-            fontsize=6.7, ha='center', va='center', color='#b71c1c', linespacing=1.35)
+    ax.text(5.25, 3.55, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
+            fontsize=7.6, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.25, 2.15, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
+            fontsize=6.8, ha='center', va='center', color='#b71c1c', linespacing=1.35)
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig1d_superposition_box.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
