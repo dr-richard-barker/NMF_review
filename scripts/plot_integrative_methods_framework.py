@@ -42,8 +42,9 @@ OUT_DIR = REPO_ROOT / 'figures'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def main():
-    fig = plt.figure(figsize=(11.8, 8.8), dpi=300)
-    gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.05], wspace=0.18)
+    # Slightly wider canvas (12.6 x 9.0 in) for generous internal text breathing room
+    fig = plt.figure(figsize=(12.6, 9.0), dpi=300)
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.04, 1.05], wspace=0.15)
 
     # =========================================================================
     # Panel (a): Conceptual Framework of the Integrative Review
@@ -67,46 +68,46 @@ def main():
                     arrowprops=dict(arrowstyle="-|>", color=color, lw=lw, mutation_scale=12),
                     zorder=3)
 
-    # 1. Research Questions Box (Blue)
-    draw_card(ax_a, 4, 76, 92, 21.5, "#e1f5fe", "#0288d1", lw=1.3)
+    # 1. Research Questions Box (Blue) - Widened to w=95.0 (x=2.5 to 97.5)
+    draw_card(ax_a, 2.5, 76, 95.0, 21.5, "#e1f5fe", "#0288d1", lw=1.3)
     ax_a.text(50, 94.5, "1. RESEARCH QUESTIONS (SANRA GUIDELINES)", weight='bold', fontsize=8.4,
               ha='center', va='center', color="#01579b")
     rq_items = [
-        r"$\mathbf{RQ1:}$ Planetary surface magnetic vector magnitude & lander/payload superposition",
-        r"$\mathbf{RQ2:}$ First 5 days seedling kinetics: germination capacity, emergence lag ($t_{50}$), biomass",
-        r"$\mathbf{RQ3:}$ Quantum cryptochrome radical pairs & multi-stressor ROS bioenergetic nexus",
-        r"$\mathbf{RQ4:}$ Ground simulation standards, hardware self-magnetic mapping & flight decision gates",
+        (r"$\mathbf{RQ1:}$", "Planetary surface magnetic vector magnitude & lander/payload superposition"),
+        (r"$\mathbf{RQ2:}$", r"First 5 days seedling kinetics: germination capacity, emergence lag ($t_{50}$), biomass"),
+        (r"$\mathbf{RQ3:}$", r"Quantum cryptochrome radical pairs & multi-stressor ROS bioenergetic nexus"),
+        (r"$\mathbf{RQ4:}$", "Ground simulation standards, hardware self-magnetic mapping & flight decision gates"),
     ]
     y_rq = [90.5, 86.5, 82.5, 78.5]
-    for text, y in zip(rq_items, y_rq):
-        ax_a.text(7, y, "• " + text, fontsize=6.8, ha='left', va='center', color="#0d47a1")
+    for (prefix, text), y in zip(rq_items, y_rq):
+        ax_a.text(5.5, y, f"• {prefix} {text}", fontsize=6.3, ha='left', va='center', color="#0d47a1")
 
     draw_down_arrow(ax_a, 50, 76, 71.5)
 
-    # 2. Multi-Disciplinary Data Sources (Purple)
-    draw_card(ax_a, 4, 51.5, 92, 20.0, "#f3e5f5", "#7b1fa2", lw=1.3)
+    # 2. Multi-Disciplinary Data Sources (Purple) - Widened to w=95.0 (x=2.5 to 97.5)
+    draw_card(ax_a, 2.5, 51.5, 95.0, 20.0, "#f3e5f5", "#7b1fa2", lw=1.3)
     ax_a.text(50, 68.5, "2. MULTI-DISCIPLINARY DATA SOURCES & REPOSITORIES", weight='bold', fontsize=8.4,
               ha='center', va='center', color="#4a148c")
     sources = [
-        ("Planetary Geophysics", "Lunar Prospector LP-MAG, Kaguya LMAG & Apollo vector models (NASA PDS / JAXA)"),
-        ("Plant Space Biology", "Peer-reviewed literature across PubMed, Web of Science, Scopus, and Europe PMC"),
+        ("Planetary Geophysics", "Lunar Prospector LP-MAG, Kaguya LMAG & Apollo vector grids (PDS/JAXA)"),
+        ("Plant Space Biology", "Audited literature corpus across PubMed, Web of Science, Scopus & Europe PMC"),
         ("Quantum Biology", "Quantum Biology Atlas (QBM-06) enzymatic & cryptochrome spin-chemical models"),
-        ("Spaceflight Multi-Omics", "NASA OSDR (OSD-782, OSD-8, OSD-27) & Astronaut Multi-Omics Consortium profiles"),
+        ("Spaceflight Multi-Omics", "NASA OSDR (OSD-782, OSD-8, OSD-27) & Astronaut Omics Consortium profiles"),
     ]
     y_src = [64.5, 60.5, 56.5, 52.5]
     for (category, desc), y in zip(sources, y_src):
-        ax_a.text(7, y, f"• {category}:", weight='bold', fontsize=6.8, ha='left', va='center', color="#4a148c")
-        ax_a.text(32, y, desc, fontsize=6.5, ha='left', va='center', color="#37474f")
+        ax_a.text(5.5, y, f"• {category}:", weight='bold', fontsize=6.2, ha='left', va='center', color="#4a148c")
+        ax_a.text(30.0, y, desc, fontsize=5.9, ha='left', va='center', color="#37474f")
 
     draw_down_arrow(ax_a, 50, 51.5, 47.0)
 
-    # 3. Selection & Screening Criteria (Amber/Orange)
-    draw_card(ax_a, 4, 28.5, 92, 18.5, "#fff8e1", "#f57c00", lw=1.3)
+    # 3. Selection & Screening Criteria (Amber/Orange) - Widened to w=95.0 (x=2.5 to 97.5)
+    draw_card(ax_a, 2.5, 28.5, 95.0, 18.5, "#fff8e1", "#f57c00", lw=1.3)
     ax_a.text(50, 44.0, "3. SELECTION & SCOPING CRITERIA", weight='bold', fontsize=8.4,
               ha='center', va='center', color="#e65100")
     
-    # Left sub-column: Inclusion
-    ax_a.text(8, 40.0, "[ INCLUSION CRITERIA ]", weight='bold', fontsize=6.8, color="#2e7d32")
+    # Left sub-column: Inclusion Criteria
+    ax_a.text(6.5, 40.0, "[ INCLUSION CRITERIA ]", weight='bold', fontsize=6.6, color="#2e7d32")
     inc_items = [
         r"Near-null field exposure ($|\mathbf{B}| < 5\ \mu\text{T}$)",
         "0–5 day seedling developmental stages",
@@ -114,10 +115,10 @@ def main():
         "Calibrated planetary & orbital datasets",
     ]
     for text, y in zip(inc_items, [36.5, 33.5, 30.5, 27.5]):
-        ax_a.text(8, y + 2.0, "(+) " + text, fontsize=6.3, color="#1b5e20", va='center')
+        ax_a.text(6.5, y + 2.0, "(+) " + text, fontsize=6.1, color="#1b5e20", va='center')
 
-    # Right sub-column: Exclusion
-    ax_a.text(52, 40.0, "[ EXCLUSION CRITERIA ]", weight='bold', fontsize=6.8, color="#c62828")
+    # Right sub-column: Exclusion Criteria
+    ax_a.text(52, 40.0, "[ EXCLUSION CRITERIA ]", weight='bold', fontsize=6.6, color="#c62828")
     exc_items = [
         r"High static fields ($|\mathbf{B}| > 1\text{ mT}$, e.g. MRI)",
         "Post-Day 14 whole-life without early data",
@@ -125,25 +126,25 @@ def main():
         "Unshielded controls lacking ambient logs",
     ]
     for text, y in zip(exc_items, [36.5, 33.5, 30.5, 27.5]):
-        ax_a.text(52, y + 2.0, "(-) " + text, fontsize=6.3, color="#b71c1c", va='center')
+        ax_a.text(52, y + 2.0, "(-) " + text, fontsize=6.1, color="#b71c1c", va='center')
 
     draw_down_arrow(ax_a, 50, 28.5, 24.0)
 
-    # 4. Multi-Scale Thematic Synthesis (Green)
-    draw_card(ax_a, 4, 2.0, 92, 22.0, "#e8f5e9", "#2e7d32", lw=1.4)
+    # 4. Multi-Scale Thematic Synthesis (Green) - Widened to w=95.0 (x=2.5 to 97.5)
+    draw_card(ax_a, 2.5, 2.0, 95.0, 22.0, "#e8f5e9", "#2e7d32", lw=1.4)
     ax_a.text(50, 21.0, "4. MULTI-SCALE THEMATIC SYNTHESIS (5 CORE DOMAINS)", weight='bold', fontsize=8.4,
               ha='center', va='center', color="#1b5e20")
     domains = [
-        ("D1: Planetary Environment", "Ambient lunar South Pole null void (<0.82 nT) & spacecraft superposition"),
-        ("D2: Seedling Kinetics", "First 5 days: germination lag, +16 h emergence lag, -28.5% Day 5 biomass"),
-        ("D3: Quantum Biology", "Cryptochrome radical pairs, spin-chemical shifts & mitochondrial electron leak"),
+        ("D1: Lunar Environment", "Ambient South Pole void (<0.82 nT) & lander avionics vector superposition"),
+        ("D2: Seedling Kinetics", "First 5 days: germination delay, +16 h emergence lag, -28.5% Day 5 biomass"),
+        ("D3: Quantum Biology", "Cryptochrome radical pairs, spin dynamics & mitochondrial electron leakage"),
         ("D4: Multi-Stressor Nexus", "Exploration atmosphere (elevated CO2, 34% O2) & radiation overlap (AOX1D)"),
-        ("D5: Risk Retirement", "3-chamber simulation standards, hardware power mapping & flight decision gates"),
+        ("D5: Risk Retirement", "3-chamber simulation standards, hardware power mapping & decision matrix"),
     ]
     y_dom = [17.5, 14.0, 10.5, 7.0, 3.5]
     for (d_title, d_desc), y in zip(domains, y_dom):
-        ax_a.text(7, y, d_title + ":", weight='bold', fontsize=6.7, ha='left', va='center', color="#1b5e20")
-        ax_a.text(37, y, d_desc, fontsize=6.4, ha='left', va='center', color="#263238")
+        ax_a.text(5.5, y, d_title + ":", weight='bold', fontsize=6.2, ha='left', va='center', color="#1b5e20")
+        ax_a.text(30.0, y, d_desc, fontsize=5.9, ha='left', va='center', color="#263238")
 
     # =========================================================================
     # Panel (b): PRISMA / SANRA Evidence Selection Flow Diagram
@@ -154,99 +155,99 @@ def main():
     ax_b.set_ylim(0, 100)
     ax_b.set_title('(b) Evidence Identification & Selection Flow (PRISMA/SANRA)', weight='bold', fontsize=9.8, pad=12)
 
-    # Stage 1: Identification
-    # Stage indicator tag
-    draw_card(ax_b, 1, 89, 14, 8, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
-    ax_b.text(8, 93, "IDENTIFY", weight='bold', fontsize=6.2, ha='center', va='center', color="#424242", rotation=90)
+    # Slimmer stage indicator tags on the left (w=8.5, x=1.0 to 9.5)
+    draw_card(ax_b, 1.0, 89, 8.5, 8, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
+    ax_b.text(5.25, 93, "IDENTIFY", weight='bold', fontsize=5.8, ha='center', va='center', color="#424242", rotation=90)
 
-    # Database records card (Left)
-    draw_card(ax_b, 18, 86, 38, 13.5, "#e3f2fd", "#1976d2", lw=1.1)
-    ax_b.text(37, 96.5, "DATABASE RECORDS", weight='bold', fontsize=7.4, ha='center', va='center', color="#0d47a1")
-    ax_b.text(37, 93.0, "PubMed: n = 542\nWeb of Science: n = 418\nScopus / Europe PMC: n = 286\nNASA OSDR Queries: n = 182",
-              fontsize=6.2, ha='center', va='center', color="#263238")
-    ax_b.text(37, 88.0, "Total Records: n = 1,428", weight='bold', fontsize=6.8, ha='center', va='center', color="#1565c0")
+    # Stage 1: Identification (Widened cards: w=42.5 each)
+    # Left card: Database records (x=12.5 to 55.0)
+    draw_card(ax_b, 12.5, 86, 42.5, 13.5, "#e3f2fd", "#1976d2", lw=1.1)
+    ax_b.text(33.75, 96.5, "DATABASE RECORDS", weight='bold', fontsize=7.4, ha='center', va='center', color="#0d47a1")
+    ax_b.text(33.75, 93.0, "PubMed: n = 542   |   Web of Science: n = 418\nScopus / Europe PMC: n = 286\nNASA OSDR Repository Queries: n = 182",
+              fontsize=5.9, ha='center', va='center', color="#263238")
+    ax_b.text(33.75, 88.0, "Total Records: n = 1,428", weight='bold', fontsize=6.8, ha='center', va='center', color="#1565c0")
 
-    # Public repositories card (Right)
-    draw_card(ax_b, 59, 86, 38, 13.5, "#f3e5f5", "#7b1fa2", lw=1.1)
-    ax_b.text(78, 96.5, "PUBLIC DATASETS", weight='bold', fontsize=7.4, ha='center', va='center', color="#4a148c")
-    ax_b.text(78, 93.0, "NASA OSDR: OSD-782, 8, 27 (n=3)\nNASA PDS / SELENE Grid (n=1)\nQuantum Biology Atlas QBM-06 (n=1)\nAstronaut Multi-Omics (n=1)",
-              fontsize=6.2, ha='center', va='center', color="#263238")
-    ax_b.text(78, 88.0, "Total Datasets: n = 6", weight='bold', fontsize=6.8, ha='center', va='center', color="#6a1b9a")
+    # Right card: Public datasets (x=56.5 to 99.0)
+    draw_card(ax_b, 56.5, 86, 42.5, 13.5, "#f3e5f5", "#7b1fa2", lw=1.1)
+    ax_b.text(77.75, 96.5, "PUBLIC DATASETS", weight='bold', fontsize=7.4, ha='center', va='center', color="#4a148c")
+    ax_b.text(77.75, 93.0, "NASA OSDR: OSD-782, OSD-8, OSD-27 (n=3)\nNASA PDS / SELENE Lunar Mag Grid (n=1)\nQuantum Biology Atlas QBM-06 (n=1)\nAstronaut Multi-Omics Consortium (n=1)",
+              fontsize=5.9, ha='center', va='center', color="#263238")
+    ax_b.text(77.75, 88.0, "Total Datasets: n = 6", weight='bold', fontsize=6.8, ha='center', va='center', color="#6a1b9a")
 
-    # Stage 2: Deduplication & Screening
-    draw_card(ax_b, 1, 64, 14, 17, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
-    ax_b.text(8, 72.5, "SCREEN", weight='bold', fontsize=6.2, ha='center', va='center', color="#424242", rotation=90)
+    # Stage 2: Deduplication & Screening (Stage tag: x=1.0 to 9.5)
+    draw_card(ax_b, 1.0, 64, 8.5, 17, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
+    ax_b.text(5.25, 72.5, "SCREEN", weight='bold', fontsize=5.8, ha='center', va='center', color="#424242", rotation=90)
 
-    # Convergence arrow from identification
-    ax_b.annotate('', xy=(37, 81), xytext=(37, 86), arrowprops=dict(arrowstyle="-|>", color="#37474f", lw=1.1))
-    ax_b.annotate('', xy=(37, 81), xytext=(78, 86), arrowprops=dict(arrowstyle="-|>", color="#37474f", lw=1.1, connectionstyle="angle,angleA=0,angleB=90,rad=3"))
+    # Convergence arrow
+    ax_b.annotate('', xy=(33.75, 81), xytext=(33.75, 86), arrowprops=dict(arrowstyle="-|>", color="#37474f", lw=1.1))
+    ax_b.annotate('', xy=(33.75, 81), xytext=(77.75, 86), arrowprops=dict(arrowstyle="-|>", color="#37474f", lw=1.1, connectionstyle="angle,angleA=0,angleB=90,rad=3"))
 
-    # Central screening card
-    draw_card(ax_b, 18, 65, 38, 15.5, "#fffde7", "#fbc02d", lw=1.1)
-    ax_b.text(37, 77.5, "RECORDS SCREENED", weight='bold', fontsize=7.4, ha='center', va='center', color="#f57f17")
-    ax_b.text(37, 73.0, "Duplicates Removed:\nn = 512 records\n\nTitle & Abstract Screening:\nn = 916 unique records",
-              fontsize=6.4, ha='center', va='center', color="#37474f")
+    # Central screening card (Widened: w=42.5, x=12.5 to 55.0)
+    draw_card(ax_b, 12.5, 65, 42.5, 15.5, "#fffde7", "#fbc02d", lw=1.1)
+    ax_b.text(33.75, 77.5, "RECORDS SCREENED", weight='bold', fontsize=7.4, ha='center', va='center', color="#f57f17")
+    ax_b.text(33.75, 72.8, "Duplicates Removed:\nn = 512 records\n\nTitle & Abstract Screening:\nn = 916 unique records",
+              fontsize=6.2, ha='center', va='center', color="#37474f")
 
-    # Excluded records card (Right)
-    draw_card(ax_b, 59, 65, 38, 15.5, "#ffebee", "#e53935", lw=1.1)
-    ax_b.text(78, 77.5, "RECORDS EXCLUDED (n = 701)", weight='bold', fontsize=7.1, ha='center', va='center', color="#c62828")
-    ax_b.text(78, 72.0, "• Static high-field / MRI (>1 mT): n = 314\n• Animal / clinical (no overlap): n = 228\n• Whole-life lacking 0–5 d: n = 159",
-              fontsize=6.3, ha='center', va='center', color="#b71c1c")
+    # Excluded records card (Widened: w=42.5, x=56.5 to 99.0)
+    draw_card(ax_b, 56.5, 65, 42.5, 15.5, "#ffebee", "#e53935", lw=1.1)
+    ax_b.text(77.75, 77.5, "RECORDS EXCLUDED (n = 701)", weight='bold', fontsize=7.2, ha='center', va='center', color="#c62828")
+    ax_b.text(77.75, 72.0, "• Static high-field / MRI (>1 mT): n = 314\n• Animal / clinical (no overlap): n = 228\n• Whole-life lacking 0–5 d: n = 159",
+              fontsize=6.1, ha='center', va='center', color="#b71c1c")
 
     # Horizontal exclusion arrow
-    ax_b.annotate('', xy=(59, 72.5), xytext=(56, 72.5), arrowprops=dict(arrowstyle="-|>", color="#e53935", lw=1.1))
+    ax_b.annotate('', xy=(56.5, 72.5), xytext=(55.0, 72.5), arrowprops=dict(arrowstyle="-|>", color="#e53935", lw=1.1))
 
-    # Stage 3: Eligibility Assessment
-    draw_card(ax_b, 1, 41, 14, 17, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
-    ax_b.text(8, 49.5, "ELIGIBLE", weight='bold', fontsize=6.2, ha='center', va='center', color="#424242", rotation=90)
+    # Stage 3: Eligibility Assessment (Stage tag: x=1.0 to 9.5)
+    draw_card(ax_b, 1.0, 41, 8.5, 17, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
+    ax_b.text(5.25, 49.5, "ELIGIBLE", weight='bold', fontsize=5.8, ha='center', va='center', color="#424242", rotation=90)
 
     # Downward arrow to eligibility
-    draw_down_arrow(ax_b, 37, 65, 58)
+    draw_down_arrow(ax_b, 33.75, 65, 58)
 
-    # Full text assessed card
-    draw_card(ax_b, 18, 42, 38, 15.5, "#e0f2f1", "#00897b", lw=1.1)
-    ax_b.text(37, 54.5, "FULL-TEXT ASSESSED", weight='bold', fontsize=7.4, ha='center', va='center', color="#004d40")
-    ax_b.text(37, 49.0, "Full-Text Articles Assessed:\nn = 215 articles\n\nEvaluated against magnetic\nshielding & 0–5 d phenotypes",
-              fontsize=6.4, ha='center', va='center', color="#004d40")
+    # Full text assessed card (Widened: w=42.5, x=12.5 to 55.0)
+    draw_card(ax_b, 12.5, 42, 42.5, 15.5, "#e0f2f1", "#00897b", lw=1.1)
+    ax_b.text(33.75, 54.5, "FULL-TEXT ASSESSED", weight='bold', fontsize=7.4, ha='center', va='center', color="#004d40")
+    ax_b.text(33.75, 48.8, "Full-Text Articles Assessed:\nn = 215 articles\n\nEvaluated against magnetic\nshielding & 0–5 d phenotypes",
+              fontsize=6.2, ha='center', va='center', color="#004d40")
 
-    # Full text excluded card (Right)
-    draw_card(ax_b, 59, 42, 38, 15.5, "#ffebee", "#e53935", lw=1.1)
-    ax_b.text(78, 54.5, "FULL-TEXT EXCLUDED (n = 135)", weight='bold', fontsize=7.1, ha='center', va='center', color="#c62828")
-    ax_b.text(78, 49.0, "• Missing magnetic field logs: n = 64\n• Incomplete gas/light metrics: n = 43\n• Unshielded DC confounders: n = 28",
-              fontsize=6.3, ha='center', va='center', color="#b71c1c")
+    # Full text excluded card (Widened: w=42.5, x=56.5 to 99.0)
+    draw_card(ax_b, 56.5, 42, 42.5, 15.5, "#ffebee", "#e53935", lw=1.1)
+    ax_b.text(77.75, 54.5, "FULL-TEXT EXCLUDED (n = 135)", weight='bold', fontsize=7.2, ha='center', va='center', color="#c62828")
+    ax_b.text(77.75, 48.8, "• Missing magnetic field logs: n = 64\n• Incomplete gas/light metrics: n = 43\n• Unshielded DC confounders: n = 28",
+              fontsize=6.1, ha='center', va='center', color="#b71c1c")
 
     # Horizontal exclusion arrow
-    ax_b.annotate('', xy=(59, 49.5), xytext=(56, 49.5), arrowprops=dict(arrowstyle="-|>", color="#e53935", lw=1.1))
+    ax_b.annotate('', xy=(56.5, 49.5), xytext=(55.0, 49.5), arrowprops=dict(arrowstyle="-|>", color="#e53935", lw=1.1))
 
-    # Stage 4: Included in Synthesis
-    draw_card(ax_b, 1, 3, 14, 33, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
-    ax_b.text(8, 19.5, "INCLUDED", weight='bold', fontsize=6.2, ha='center', va='center', color="#424242", rotation=90)
+    # Stage 4: Included in Synthesis (Stage tag: x=1.0 to 9.5)
+    draw_card(ax_b, 1.0, 3, 8.5, 33, "#e0e0e0", "#757575", lw=0.8, radius=1.0)
+    ax_b.text(5.25, 19.5, "INCLUDED", weight='bold', fontsize=5.8, ha='center', va='center', color="#424242", rotation=90)
 
     # Downward arrow to synthesis
-    draw_down_arrow(ax_b, 37, 42, 36)
+    draw_down_arrow(ax_b, 33.75, 42, 36)
 
-    # Final Included Synthesis Box (Green full-width banner)
-    draw_card(ax_b, 18, 3.5, 79, 32.0, "#e8f5e9", "#2e7d32", lw=1.5)
-    ax_b.text(57.5, 32.5, "SYNTHESIZED REVIEW CORPUS & COMPUTATIONAL ARTIFACTS",
-              weight='bold', fontsize=7.8, ha='center', va='center', color="#1b5e20")
-    
-    # 2 Sub-boxes inside included
+    # Final Included Synthesis Box (Widened: w=86.5, x=12.5 to 99.0)
+    draw_card(ax_b, 12.5, 3.5, 86.5, 32.0, "#e8f5e9", "#2e7d32", lw=1.5)
+    ax_b.text(55.75, 32.5, "SYNTHESIZED REVIEW CORPUS & COMPUTATIONAL ARTIFACTS",
+              weight='bold', fontsize=7.6, ha='center', va='center', color="#1b5e20")
+
+    # 2 Sub-boxes inside included (Widened: w=40.0 each, x=15.0 and x=57.0)
     # Box 1: Audited studies
-    draw_card(ax_b, 20.5, 14.5, 36, 15.5, "#ffffff", "#4caf50", lw=1.0, radius=1.2)
-    ax_b.text(38.5, 27.0, "80 AUDITED STUDIES", weight='bold', fontsize=7.2, ha='center', va='center', color="#1b5e20")
-    ax_b.text(38.5, 21.0, "Curated in Supplemental Table S1\nDetailed by author, year, field (nT),\nmodel species, and biological endpoints",
-              fontsize=6.0, ha='center', va='center', color="#263238")
+    draw_card(ax_b, 15.0, 14.5, 40.0, 15.5, "#ffffff", "#4caf50", lw=1.0, radius=1.2)
+    ax_b.text(35.0, 27.0, "80 AUDITED STUDIES", weight='bold', fontsize=7.2, ha='center', va='center', color="#1b5e20")
+    ax_b.text(35.0, 21.0, "Curated in Supplemental Table S1\nDetailed by author, year, field (nT),\nmodel species, and biological endpoints",
+              fontsize=5.9, ha='center', va='center', color="#263238")
 
     # Box 2: Public datasets
-    draw_card(ax_b, 58.5, 14.5, 36, 15.5, "#ffffff", "#4caf50", lw=1.0, radius=1.2)
-    ax_b.text(76.5, 27.0, "6 PRIMARY DATASETS", weight='bold', fontsize=7.2, ha='center', va='center', color="#1b5e20")
-    ax_b.text(76.5, 21.0, "Curated in Supplemental Table S2\nNASA OSDR-782, OSD-8, OSD-27;\nPDS/SELENE; QBM-06; Astronaut Omics",
-              fontsize=6.0, ha='center', va='center', color="#263238")
+    draw_card(ax_b, 57.0, 14.5, 40.0, 15.5, "#ffffff", "#4caf50", lw=1.0, radius=1.2)
+    ax_b.text(77.0, 27.0, "6 PRIMARY DATASETS", weight='bold', fontsize=7.2, ha='center', va='center', color="#1b5e20")
+    ax_b.text(77.0, 21.0, "Curated in Supplemental Table S2\nNASA OSDR-782, OSD-8, OSD-27;\nPDS/SELENE; QBM-06; Astronaut Omics",
+              fontsize=5.9, ha='center', va='center', color="#263238")
 
-    # Open source package footer callout
-    draw_card(ax_b, 20.5, 5.0, 74, 7.5, "#f1f8e9", "#33691e", lw=0.9, radius=1.0)
-    ax_b.text(57.5, 8.8, "Open-Source Analytical Package: dr-richard-barker/NMF_review (GitHub & Zenodo)",
-              weight='bold', fontsize=6.5, ha='center', va='center', color="#33691e")
+    # Open source package footer callout (Widened: w=82.0, x=15.0 to 97.0)
+    draw_card(ax_b, 15.0, 5.0, 82.0, 7.5, "#f1f8e9", "#33691e", lw=0.9, radius=1.0)
+    ax_b.text(56.0, 8.8, "Open-Source Analytical Package: dr-richard-barker/NMF_review (GitHub & Zenodo)",
+              weight='bold', fontsize=6.3, ha='center', va='center', color="#33691e")
 
     plt.tight_layout()
     out_png = OUT_DIR / 'Fig2_integrative_methods_framework.png'
