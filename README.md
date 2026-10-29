@@ -190,7 +190,6 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 - **Aubrey O’Rourke** <sup>2</sup>
 - **Adriana Sanchez** <sup>1</sup>
 - **Manisha Dagar** <sup>1</sup>
-- **Sofia Leiva Aldana** <sup>1</sup>
 - **Ray Wheeler** <sup>3</sup>
 - **Gioia Massa** <sup>4</sup>
 - **Barbara Demmig-Adams** <sup>5</sup>
@@ -216,7 +215,7 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 ```bibtex
 @article{Porterfield_Barker_2026_NNMF,
   author       = {Porterfield, D. Marshall and Barker, Richard J. and Borlina, Caue and O'Rourke, Aubrey and
-                  Sanchez, Adriana and Dagar, Manisha and Leiva Aldana, Sofia and
+                  Sanchez, Adriana and Dagar, Manisha and
                   Wheeler, Ray and Massa, Gioia and Demmig-Adams, Barbara and
                   Peirats-Llobet, Marta and Flores, Pamela and Dixit, Anirudha and
                   Chamberlain, Christine},

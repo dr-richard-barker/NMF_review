@@ -163,7 +163,7 @@ def build_slide_01_title(prs):
     tf_a = auth_box.text_frame
     tf_a.word_wrap = True
     p_a1 = tf_a.paragraphs[0]
-    p_a1.text = "D. Marshall Porterfield*, Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Adriana Sanchez, Manisha Dagar, Sofia Leiva Aldana,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain"
+    p_a1.text = "D. Marshall Porterfield*, Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Adriana Sanchez, Manisha Dagar,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain"
     p_a1.font.size = Pt(10.5)
     p_a1.font.bold = True
     p_a1.font.color.rgb = TEXT_LIGHT
@@ -188,7 +188,7 @@ def build_slide_01_title(prs):
         "TALKING POINTS (SLIDE 1 - TITLE):\n"
         "• Welcome everyone. Today we are presenting our comprehensive review manuscript prepared for Life Sciences in Space Research.\n"
         "• The title is 'Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture'.\n"
-        "• Co-authored with Marshall Porterfield, Caue Borlina, Aubrey O'Rourke, Adriana Sanchez, Manisha Dagar, Sofia Leiva Aldana, Ray Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, and Christine Chamberlain.\n"
+        "• Co-authored with Marshall Porterfield, Caue Borlina, Aubrey O'Rourke, Adriana Sanchez, Manisha Dagar, Ray Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, and Christine Chamberlain.\n"
         "• Central theme: While gravitational unloading and ionizing radiation dominate the space biology literature, the local magnetic field environment at the biological volume is virtually never controlled or characterized. On the lunar surface, this field drops to an extreme near-null magnetic field (<0.8 nT at Artemis candidate landing sites), posing significant developmental risks during the critical first 5 days of crop establishment."
     )
 
