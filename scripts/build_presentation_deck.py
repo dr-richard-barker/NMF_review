@@ -740,61 +740,54 @@ def build_slide_11_figure5_montage(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Figure 5 Montage | Editable Layout",
-               "Scientific Knowledge Gap Retirement & Flight Trade Space",
-               "3-chamber ground controls, in situ causal rescue, flight payload constraints, and phenotypic disambiguation")
+               "Ground Simulation Standards & Post-Flight Disambiguation",
+               "3-chamber ground controls, in situ causal rescue proof-of-concept, and post-flight phenotypic disambiguation framework")
 
     x_left  = Inches(0.8)
     x_right = Inches(6.833)
+    x_full  = Inches(0.8)
+    w_half  = Inches(5.7)
+    w_full  = Inches(11.733)
     y_top   = Inches(1.75)
-    y_bot   = Inches(4.45)
-    w_p     = Inches(5.7)
-    h_p     = Inches(2.45)
+    h_top   = Inches(2.4)
+    y_bot   = Inches(4.35)
+    h_bot   = Inches(2.55)
 
-    # Subpanel a
-    add_card(slide, x_left, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5a_ground_chambers.png'), x_left + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
-    tb_a = slide.shapes.add_textbox(x_left + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
-    tb_a.text_frame.paragraphs[0].text = "(a) Methodological Ground Simulation & 3-Chamber Parity"
+    # Subpanel a (Ground Chambers)
+    add_card(slide, x_left, y_top, w_half, h_top, CARD_BG_LIGHT, CARD_BORDER)
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5a_ground_chambers.png'), x_left + Inches(0.1), y_top + Inches(0.35), w_half - Inches(0.2), h_top - Inches(0.42))
+    tb_a = slide.shapes.add_textbox(x_left + Inches(0.15), y_top + Inches(0.05), w_half, Inches(0.3))
+    tb_a.text_frame.paragraphs[0].text = "(a) Methodological Ground Simulation Standards (3-Chamber Parity)"
     tb_a.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_a.text_frame.paragraphs[0].font.bold = True
     tb_a.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel b (Flight Trade Space)
-    add_card(slide, x_right, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5b_flight_telemetry.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
-    tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
-    tb_b.text_frame.paragraphs[0].text = "(b) Flight Payload Trade Space: Science Gaps vs. Engineering Limits"
+    # Subpanel b (Causal Rescue Proof)
+    add_card(slide, x_right, y_top, w_half, h_top, CARD_BG_LIGHT, CARD_BORDER)
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5b_causal_rescue.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_half - Inches(0.2), h_top - Inches(0.42))
+    tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_half, Inches(0.3))
+    tb_b.text_frame.paragraphs[0].text = "(b) In Situ Causal Reversal Protocol (Proof of Concept)"
     tb_b.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_b.text_frame.paragraphs[0].font.bold = True
     tb_b.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel c (Causal Rescue)
-    add_card(slide, x_left, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5c_causal_rescue.png'), x_left + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
-    tb_c = slide.shapes.add_textbox(x_left + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_c.text_frame.paragraphs[0].text = "(c) In Situ Causal Rescue: 45 µT Vector Re-Application Proof"
+    # Subpanel c (Phenotypic Disambiguation Framework)
+    add_card(slide, x_full, y_bot, w_full, h_bot, CARD_BG_LIGHT, CARD_BORDER)
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5c_decision_matrix.png'), x_full + Inches(0.1), y_bot + Inches(0.35), w_full - Inches(0.2), h_bot - Inches(0.42))
+    tb_c = slide.shapes.add_textbox(x_full + Inches(0.15), y_bot + Inches(0.05), w_full, Inches(0.3))
+    tb_c.text_frame.paragraphs[0].text = "(c) Post-Flight Phenotypic Risk Disambiguation Framework (Comparative Matrix)"
     tb_c.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_c.text_frame.paragraphs[0].font.bold = True
     tb_c.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
-
-    # Subpanel d (Phenotypic Disambiguation)
-    add_card(slide, x_right, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5d_decision_matrix.png'), x_right + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
-    tb_d = slide.shapes.add_textbox(x_right + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_d.text_frame.paragraphs[0].text = "(d) Post-Flight Phenotypic Disambiguation Framework"
-    tb_d.text_frame.paragraphs[0].font.size = Pt(9.0)
-    tb_d.text_frame.paragraphs[0].font.bold = True
-    tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
     add_footer(slide, 11, 15)
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 11 - FIGURE 5 MONTAGE):\n"
-        "• Figure 5 establishes our translational roadmap, strictly separating laboratory ground standards from flight engineering trade spaces.\n"
-        "• Panel (a) sets the 3-chamber ground standard: Chamber 1 (GMF control), Chamber 2 (Shielded/Cancelled NNMF), and Chamber 3 (Bifilar sham control matching current, heat, and vibration without magnetic fields).\n"
-        "• Panel (b) addresses a critical question from flight engineers: What can realistically be accommodated? We recommend passive 3-axis magnetometry (<1 W, grams of mass) at the plant canopy level, while leaving heavy active cancellation coils in ground facilities.\n"
-        "• Panel (c) demonstrates in situ causal rescue: Restoring 45 µT inside magnetic shielding rescues emergence speed and pigment accumulation, definitively ruling out microclimatic or enclosure artifacts.\n"
-        "• Panel (d) introduces our post-flight phenotypic disambiguation framework to distinguish hypomagnetic effects from microgravity and cosmic radiation."
+        "• Figure 5 establishes our translational roadmap, focusing on rigorous ground simulation methods and post-flight disambiguation.\n"
+        "• Panel (a) sets the 3-chamber ground standard: Chamber 1 (GMF terrestrial control), Chamber 2 (Shielded/Cancelled NNMF lunar simulation), and Chamber 3 (Bifilar sham control matching current, heat, and vibration without magnetic fields).\n"
+        "• Panel (b) demonstrates the gold-standard in situ causal reversal protocol: Restoring a calibrated 45 µT vector inside magnetic shielding rescues emergence speed and pigment accumulation, definitively ruling out microclimatic, ethylene, or enclosure artifacts.\n"
+        "• Panel (c) provides our post-flight phenotypic disambiguation framework: A full comparative matrix distinguishing hypomagnetic lesions from lunar partial gravity (0.166 g) and deep-space cosmic radiation (GCR) using specific cellular targets and diagnostic rescue strategies."
     )
 
 def build_slide_12_figure5_deepdive_table(prs):

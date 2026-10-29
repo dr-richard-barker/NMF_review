@@ -33,8 +33,8 @@ OUT_DIR = Path('/Users/drb_laptop/Documents/NMF_review/figures')
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def generate_figure_5():
-    fig = plt.figure(figsize=(11.5, 9.6), dpi=300)
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 1.25], width_ratios=[1.05, 1.0], hspace=0.30, wspace=0.22)
+    fig = plt.figure(figsize=(11.5, 9.4), dpi=300)
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 1.35], width_ratios=[1.0, 1.0], hspace=0.28, wspace=0.24)
 
     # -------------------------------------------------------------
     # Panel (a): 3-Chamber Ground Simulation Standards (Scientific Rigor)
@@ -43,12 +43,12 @@ def generate_figure_5():
     ax_cham.axis('off')
     ax_cham.set_xlim(0, 100)
     ax_cham.set_ylim(0, 100)
-    ax_cham.set_title('(a) Methodological Ground Simulation & Chamber Parity', weight='bold')
+    ax_cham.set_title('(a) Methodological Ground Simulation Standards (3-Chamber Parity)', weight='bold', pad=10)
 
     chambers = [
-        ("Chamber 1: Geomagnetic Control (GMF)", "45–50 µT Ambient Terrestrial Field", "#e3f2fd", "#1565c0", "Terrestrial environmental baseline"),
-        ("Chamber 2: Near-Null Field (NNMF)", "<10 nT (Shielded / Actively Cancelled)", "#ffebee", "#c62828", "Lunar surface magnetic simulation"),
-        ("Chamber 3: Matched Bifilar Sham Control", "Opposing windings; net B = 0", "#fff3e0", "#e65100", "Controls for ohmic heat, vibration & EMI")
+        ("Chamber 1: Geomagnetic Baseline (GMF)", "45–50 µT Ambient Terrestrial Field", "#e3f2fd", "#1565c0", "Terrestrial environmental control (calibrated local vector)"),
+        ("Chamber 2: Near-Null Field Simulation (NNMF)", "<10 nT (Shielded / Actively Cancelled)", "#ffebee", "#c62828", "Lunar surface magnetic simulation (<0.8 nT ambient void)"),
+        ("Chamber 3: Matched Bifilar Sham Control", "Opposing windings; net B = 0", "#fff3e0", "#e65100", "Controls for ohmic heat, acoustic vibration & power-supply ripple")
     ]
 
     for idx, (c_name, b_field, bg, border, desc) in enumerate(chambers):
@@ -56,18 +56,18 @@ def generate_figure_5():
         b = patches.FancyBboxPatch((3, y_top - 24), 94, 24, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor=border, facecolor=bg, lw=1.2)
         ax_cham.add_patch(b)
-        ax_cham.text(7, y_top - 6.5, c_name, fontsize=7.6, weight='bold', color=border, va='center')
+        ax_cham.text(7, y_top - 6.5, c_name, fontsize=7.8, weight='bold', color=border, va='center')
         ax_cham.text(7, y_top - 13.0, f"Magnetic Regime: {b_field}", fontsize=7.0, weight='bold', color='#212121', va='center')
         ax_cham.text(7, y_top - 19.0, f"Experimental Purpose: {desc}", fontsize=6.8, color='#424242', va='center')
 
     # -------------------------------------------------------------
-    # Panel (b): In Situ Causal Reversal Protocol (Laboratory Rescue)
+    # Panel (b): In Situ Causal Reversal Protocol (Proof of Concept)
     # -------------------------------------------------------------
     ax_rescue = fig.add_subplot(gs[0, 1])
     ax_rescue.axis('off')
     ax_rescue.set_xlim(0, 100)
     ax_rescue.set_ylim(0, 100)
-    ax_rescue.set_title('(b) In Situ Causal Reversal Protocol (Proof of Concept)', weight='bold')
+    ax_rescue.set_title('(b) In Situ Causal Reversal Protocol (Proof of Concept)', weight='bold', pad=10)
 
     r_box = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
                                    edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.2)
@@ -75,9 +75,9 @@ def generate_figure_5():
     ax_rescue.text(50, 91.5, "Three-Step Causal Proof Inside Magnetic Shielding", fontsize=7.8, weight='bold', color='#1b5e20', ha='center', va='center')
 
     steps = [
-        ("Step 1: Hypomagnetic Exposure", "<10 nT inside µ-metal shield", "Elicits emergence lag, chlorosis & ROS leakage", "#c62828"),
-        ("Step 2: Vector Re-application", "45 µT active vector restored in situ", "Re-applied via internal triaxial Helmholtz coils", "#1565c0"),
-        ("Step 3: Biological Phenotype Rescue", "Phenotype restored to GMF baseline", "Definitively proves direct magnetic causality", "#2e7d32")
+        ("Step 1: Hypomagnetic Exposure", "<10 nT inside µ-metal shield", "Elicits emergence lag (Δt50 = 12–36 h), chlorosis & ROS leakage", "#c62828"),
+        ("Step 2: Vector Re-application", "45 µT active vector restored in situ", "Re-applied via internal triaxial Helmholtz coils without disturbing microclimate", "#1565c0"),
+        ("Step 3: Biological Phenotype Rescue", "Phenotype restored to GMF baseline", "Wild-type emergence & greening speed recovered; proves magnetic causality", "#2e7d32")
     ]
 
     y_s = 76
@@ -94,87 +94,84 @@ def generate_figure_5():
                    fontsize=6.8, weight='bold', color='#1b5e20', ha='center', va='center')
 
     # -------------------------------------------------------------
-    # Panel (c): Flight Payload Trade Space: Science Gaps vs. Payload Constraints
+    # Panel (c): Post-Flight Phenotypic Disambiguation Framework (Full Width)
     # -------------------------------------------------------------
-    ax_trade = fig.add_subplot(gs[1, 0])
-    ax_trade.axis('off')
-    ax_trade.set_xlim(0, 100)
-    ax_trade.set_ylim(100)
-    ax_trade.set_title('(c) Flight Payload Trade Space: Science Gaps vs. Engineering Realities', weight='bold')
-
-    outer_trade = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
-                                         edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
-    ax_trade.add_patch(outer_trade)
-
-    # Box 1: Realistic Payload Accommodation
-    b1 = patches.FancyBboxPatch((5, 52), 90, 42, boxstyle="round,pad=0,rounding_size=2",
-                                edgecolor="#1565c0", facecolor="#ffffff", lw=1.0)
-    ax_trade.add_patch(b1)
-    ax_trade.text(8, 88.0, "Realistic Flight Payload Accommodation (Recommended):", fontsize=7.8, weight='bold', color='#0d47a1')
-    ax_trade.text(8, 70.0, 
-                  "• Passive 3-axis magnetic sensing (miniature fluxgate or AMR)\n"
-                  "• Canopy-level environmental vector logging (Bx, By, Bz, |B|)\n"
-                  "• Minimal resource budget: < 1 W electrical power, grams mass\n"
-                  "• Continuous logging captures spacecraft DC avionics & stray fields\n"
-                  "• Enables post-flight correlative science & phenotype attribution",
-                  fontsize=6.8, color='#263238', linespacing=1.35)
-
-    # Box 2: Beyond Typical Flight Envelope
-    b2 = patches.FancyBboxPatch((5, 6), 90, 42, boxstyle="round,pad=0,rounding_size=2",
-                                edgecolor="#c62828", facecolor="#ffffff", lw=1.0)
-    ax_trade.add_patch(b2)
-    ax_trade.text(8, 42.0, "Exceeds Typical Flight Payload Resource Budgets (Ground-Only):", fontsize=7.8, weight='bold', color='#b71c1c')
-    ax_trade.text(8, 24.0,
-                  "• Active triaxial Helmholtz cancellation / bias coil hardware\n"
-                  "• Heavy copper coil mass, high continuous power draw & Joule heat\n"
-                  "• Severe spacecraft electromagnetic interference (EMI) certification\n"
-                  "• Complex in-flight closed-loop vector control systems\n"
-                  "• Best reserved for terrestrial laboratory analogues & ground testing",
-                  fontsize=6.8, color='#263238', linespacing=1.35)
-
-    # -------------------------------------------------------------
-    # Panel (d): Post-Flight Phenotypic Disambiguation Matrix
-    # -------------------------------------------------------------
-    ax_matrix = fig.add_subplot(gs[1, 1])
+    ax_matrix = fig.add_subplot(gs[1, :])
     ax_matrix.axis('off')
     ax_matrix.set_xlim(0, 100)
     ax_matrix.set_ylim(0, 100)
-    ax_matrix.set_title('(d) Post-Flight Phenotypic Disambiguation Framework', weight='bold')
+    ax_matrix.set_title('(c) Post-Flight Phenotypic Risk Disambiguation Framework', weight='bold', pad=10)
 
-    m_outer = patches.FancyBboxPatch((2, 2), 96, 96, boxstyle="round,pad=0,rounding_size=3",
-                                     edgecolor="#5e35b1", facecolor="#ede7f6", lw=1.2)
+    m_outer = patches.FancyBboxPatch((1, 2), 98, 96, boxstyle="round,pad=0,rounding_size=3",
+                                     edgecolor="#5e35b1", facecolor="#f3e5f5", lw=1.2)
     ax_matrix.add_patch(m_outer)
-    ax_matrix.text(50, 92.0, "Differentiating Environmental Stressors in Lunar Agricultural Payloads", 
-                   fontsize=7.8, weight='bold', color='#4527a0', ha='center', va='center')
+    ax_matrix.text(50, 93.0, "Operational Multi-Stressor Disambiguation Matrix for Space Plant Biology", 
+                   fontsize=8.4, weight='bold', color='#4a148c', ha='center', va='center')
 
-    stressors = [
-        ("Near-Null Magnetic Field (<10 nT)", "#ffebee", "#c62828",
-         "• Emergence lag (Δt50 = +12–36 h); capacity drop 10–30%\n"
-         "• Repressed chlorophyll (HEMA1, POR) & anthocyanins (CHS)\n"
-         "• Mitochondrial ROS leak (AOX1D, CAT3); intact nuclear DNA\n"
-         "• Diagnostic: Rescued by 45 µT vector; insensitive to 1g spin"),
-        
-        ("Lunar Partial Gravity (0.166 g)", "#e8f5e9", "#2e7d32",
-         "• Normal germination capacity; minimal emergence lag\n"
-         "• Directional skewing, random root waving, cell wall remodeling\n"
-         "• Normal plastid greening; apoplastic ROS (RBOHD/F)\n"
-         "• Diagnostic: Rescued by 1g centrifuge; insensitive to B-field"),
-        
-        ("Deep-Space Ionizing Radiation (GCR)", "#fff3e0", "#e65100",
-         "• Emergence failure only at lethal doses; apical arrest\n"
-         "• Severe DNA double-strand breaks, γ-H2AX foci & ATM/ATR\n"
-         "• Widespread systemic oxidative damage & lipid peroxidation\n"
-         "• Diagnostic: Mitigated by shielding; correlated with dosimeter")
+    # 3 Large Side-by-Side Columns
+    columns = [
+        ("Near-Null Magnetic Field (<0.8 nT)", "#ffebee", "#c62828", 2.5, 30.5,
+         "Cryptochrome flavin radical pairs (FAD/TrpH•+);\nmitochondrial [4Fe-4S] cluster electron transfer.",
+         "• Emergence lag (Δt50 = +12 to 36 h); capacity -10 to -30%\n"
+         "• Repressed chlorophyll (HEMA1, POR) & anthocyanin (CHS)\n"
+         "• Mitochondrial ROS leak; induction of AOX1D & CAT3\n"
+         "• Normal nuclear DNA integrity (zero γ-H2AX foci)",
+         "• Correlate with sample-level 3-axis canopy magnetometry\n"
+         "• Fully rescued by 45 µT vector re-application\n"
+         "• Completely insensitive to 1g centrifuge spinning",
+         "[Diagnostic: Rescued by 45 µT | Insensitive to 1g]"),
+
+        ("Lunar Partial Gravity (0.166 g)", "#e8f5e9", "#2e7d32", 34.75, 30.5,
+         "Columella statolith sedimentation kinetics;\nmechanosensitive ion channels (MSL); PIN polar auxin.",
+         "• Germination capacity & greening rate are normal\n"
+         "• Directional root skewing, waving, & loss of g-angle\n"
+         "• Cell wall remodeling (pectin demethylesterification)\n"
+         "• Normal CRY signaling; localized apoplastic ROS (RBOH)",
+         "• Fully rescued to Earth phenotype by 1g centrifuge\n"
+         "• Differential 1g vs µg controls in flight centrifuge\n"
+         "• Completely unaffected by magnetic vector modulation",
+         "[Diagnostic: Rescued by 1g | Insensitive to B-field]"),
+
+        ("Deep-Space Radiation (GCR / SPE)", "#fff3e0", "#e65100", 67.0, 30.5,
+         "Nuclear & organellar DNA double-strand breaks;\nradiolytic hydroxyl free radical (OH•) overflow.",
+         "• Severe DNA double-strand breaks & γ-H2AX foci\n"
+         "• ATM/ATR activation; chromosome aberrations & G2/M arrest\n"
+         "• Widespread systemic oxidative stress & lipid peroxidation\n"
+         "• Emergence fails only at acute lethal doses (>50 Gy)",
+         "• Independent of magnetic field or gravity vector\n"
+         "• Strictly correlates with canopy radiation dosimeters\n"
+         "• Mitigated by shielding & chemical radioprotectants",
+         "[Diagnostic: Correlates with Dosimeter | DNA Breaks]")
     ]
 
-    y_m = 75
-    for s_title, s_bg, s_border, s_desc in stressors:
-        box = patches.FancyBboxPatch((5, y_m - 23), 90, 23, boxstyle="round,pad=0,rounding_size=2",
-                                     edgecolor=s_border, facecolor=s_bg, lw=1.0)
-        ax_matrix.add_patch(box)
-        ax_matrix.text(8, y_m - 4.5, s_title, fontsize=7.2, weight='bold', color=s_border, va='center')
-        ax_matrix.text(8, y_m - 14.0, s_desc, fontsize=6.3, color='#212121', va='center', linespacing=1.25)
-        y_m -= 26
+    for title, bg_col, edge_col, x_pos, width, target, pheno, strat, tag in columns:
+        col_box = patches.FancyBboxPatch((x_pos, 5), width, 84, boxstyle="round,pad=0,rounding_size=2",
+                                         edgecolor=edge_col, facecolor='#ffffff', lw=1.1)
+        ax_matrix.add_patch(col_box)
+        
+        # Header banner inside column
+        hb = patches.FancyBboxPatch((x_pos, 81), width, 8, boxstyle="round,pad=0,rounding_size=2",
+                                    edgecolor=edge_col, facecolor=bg_col, lw=1.0)
+        ax_matrix.add_patch(hb)
+        ax_matrix.text(x_pos + width/2, 85.0, title, fontsize=7.2, weight='bold', color=edge_col, ha='center', va='center')
+        
+        # Section 1: Target
+        ax_matrix.text(x_pos + 1.2, 77.0, "Primary Biophysical Target:", fontsize=6.8, weight='bold', color=edge_col)
+        ax_matrix.text(x_pos + 1.2, 70.5, target, fontsize=6.3, color='#37474f', linespacing=1.2)
+        
+        # Section 2: Diagnostic Phenotype
+        ax_matrix.text(x_pos + 1.2, 63.0, "Diagnostic Phenotypic Markers:", fontsize=6.8, weight='bold', color=edge_col)
+        ax_matrix.text(x_pos + 1.2, 45.0, pheno, fontsize=6.2, color='#212121', linespacing=1.25)
+        
+        # Section 3: Disambiguation Strategy
+        ax_matrix.text(x_pos + 1.2, 28.0, "Disambiguation & Rescue Strategy:", fontsize=6.8, weight='bold', color=edge_col)
+        ax_matrix.text(x_pos + 1.2, 17.0, strat, fontsize=6.2, color='#37474f', linespacing=1.25)
+        
+        # Bottom tag
+        tag_b = patches.FancyBboxPatch((x_pos + 1.0, 6.2), width - 2.0, 5.0, boxstyle="round,pad=0,rounding_size=1.5",
+                                       edgecolor=edge_col, facecolor=bg_col, lw=0.8)
+        ax_matrix.add_patch(tag_b)
+        ax_matrix.text(x_pos + width/2, 8.7, tag, fontsize=6.0, weight='bold', color=edge_col, ha='center', va='center')
 
     fig.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.96, hspace=0.28, wspace=0.22)
     out_pdf = OUT_DIR / 'Fig5_flight_validation_risk_pipeline.pdf'

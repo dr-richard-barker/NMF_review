@@ -54,7 +54,7 @@ def main():
     # 4-panel layout:
     # Row 1: Global map (a) [left] and South Polar detail (b) [right]
     # Row 2: Landing site bar chart (c) [left] and Field Superposition Schematic (d) [right]
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.1, 1.0], width_ratios=[1.20, 1.0], hspace=0.32, wspace=0.32)
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.1, 1.0], width_ratios=[1.20, 1.0], hspace=0.34, wspace=0.36)
     
     # -------------------------------------------------------------
     # Panel (a): Global Crustal Magnetic Map with Landing Sites
@@ -114,33 +114,33 @@ def main():
     
     # Custom non-overlapping offsets for each Artemis South Pole site: (dx, dy, ha, va)
     site_offsets = {
-        'Haworth': (0, 11, 'center', 'bottom'),
-        'Connecting Ridge': (8, 6, 'left', 'bottom'),
-        'Connecting Ridge Extension': (8, -10, 'left', 'top'),
-        'de Gerlache Rim 1': (8, 6, 'left', 'bottom'),
-        'de Gerlache Rim 2': (8, -10, 'left', 'top'),
-        'de Gerlache-Kocher Massif': (8, 0, 'left', 'center'),
-        'Peak Near Shackleton': (8, 0, 'left', 'center'),
-        'Faustini Rim A': (8, 6, 'left', 'bottom'),
-        'Nobile Rim 1': (-10, 6, 'right', 'bottom'),
-        'Nobile Rim 2': (14, -18, 'left', 'top'),
-        'Leibnitz Beta Plateau': (-10, -8, 'right', 'top'),
-        'Amundsen Rim': (8, 10, 'left', 'bottom'),
-        'Malapert Massif': (-8, 0, 'right', 'center'),
+        'Haworth': (-8, 10, 'right', 'bottom'),
+        'Connecting Ridge': (-10, 6, 'right', 'bottom'),
+        'Connecting Ridge Extension': (10, -10, 'left', 'top'),
+        'de Gerlache Rim 1': (10, 8, 'left', 'bottom'),
+        'de Gerlache Rim 2': (10, -10, 'left', 'top'),
+        'de Gerlache-Kocher Massif': (-10, 6, 'right', 'bottom'),
+        'Peak Near Shackleton': (10, 4, 'left', 'bottom'),
+        'Faustini Rim A': (-10, 8, 'right', 'bottom'),
+        'Nobile Rim 1': (10, 8, 'left', 'bottom'),
+        'Nobile Rim 2': (10, -12, 'left', 'top'),
+        'Leibnitz Beta Plateau': (-10, -12, 'right', 'top'),
+        'Amundsen Rim': (10, -12, 'left', 'top'),
+        'Malapert Massif': (10, 0, 'left', 'center'),
     }
 
     for _, row in artemis_sites.iterrows():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
-        dx, dy, ha_align, va_align = site_offsets.get(row['name'], (6, 0, 'left', 'center'))
+        dx, dy, ha_align, va_align = site_offsets.get(row['name'], (8, 0, 'left', 'center'))
         ax_polar.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                          fontsize=6.9, ha=ha_align, va=va_align, xytext=(dx, dy), textcoords='offset points',
-                          bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.88, edgecolor='#888888', lw=0.4))
+                          fontsize=6.8, ha=ha_align, va=va_align, xytext=(dx, dy), textcoords='offset points',
+                          bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.90, edgecolor='#757575', lw=0.4))
         
-    ax_polar.set_xlim(-35, 395)
-    ax_polar.set_ylim(-90.8, -83.2)
+    ax_polar.set_xlim(-15, 385)
+    ax_polar.set_ylim(-91.0, -82.6)
     ax_polar.set_xlabel('Longitude (°E)')
     ax_polar.set_ylabel('Latitude (°N)')
-    ax_polar.set_title('(b) Example Candidate Artemis Regions (Near-Null Field)', weight='bold')
+    ax_polar.set_title('(b) Example Candidate Artemis Regions (Near-Null Field)', weight='bold', pad=12)
     ax_polar.grid(True, linestyle=':', alpha=0.6)
     
     cbar_pol = plt.colorbar(scatter, ax=ax_polar, orientation='vertical', fraction=0.035, pad=0.02)
@@ -185,23 +185,24 @@ def main():
     # Draw conceptual schematic
     ax_sch.set_xlim(0, 10)
     ax_sch.set_ylim(0, 10)
-    ax_sch.set_title('(d) Field Superposition at the Biological Volume', weight='bold')
+    ax_sch.set_title('(d) Field Superposition at the Biological Volume', weight='bold', pad=12)
     
-    # Equation banner
-    eq_rect = patches.FancyBboxPatch((0.5, 7.8), 9.0, 1.8, boxstyle="round,pad=0.2",
+    # 1. Equation banner (BLUE box)
+    eq_rect = patches.FancyBboxPatch((0.5, 7.95), 9.0, 1.65, boxstyle="round,pad=0.1,rounding_size=0.25",
                                      edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
     ax_sch.add_patch(eq_rect)
-    ax_sch.text(5.0, 8.9, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
-                fontsize=9.2, weight='bold', ha='center', va='center', color='#01579b')
-    ax_sch.text(5.0, 8.1, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
-                fontsize=7.6, ha='center', va='center', color='#0277bd', style='italic')
+    ax_sch.text(5.0, 8.95, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
+                fontsize=8.8, weight='bold', ha='center', va='center', color='#01579b')
+    ax_sch.text(5.0, 8.35, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
+                fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
 
-    # Chamber box
-    cham_rect = patches.FancyBboxPatch((0.4, 0.4), 9.2, 7.0, boxstyle="round,pad=0.25",
+    # 2. Chamber box (GREY box)
+    cham_rect = patches.FancyBboxPatch((0.5, 0.40), 9.0, 7.25, boxstyle="round,pad=0.1,rounding_size=0.25",
                                        edgecolor="#37474f", facecolor="#eceff1", lw=1.5)
     ax_sch.add_patch(cham_rect)
-    ax_sch.text(5.0, 6.9, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", 
-                weight='bold', fontsize=8.4, ha='center', color='#263238')
+    ax_sch.text(5.0, 7.25, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", 
+                weight='bold', fontsize=8.2, ha='center', va='center', color='#263238')
+    ax_sch.plot([1.0, 9.0], [6.95, 6.95], color='#b0bec5', lw=0.8, linestyle='--')
 
     # Vector contributions table / callouts
     contributions = [
@@ -212,19 +213,20 @@ def main():
         (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis compensation / causal rescue coils", "#6a1b9a"),
     ]
     
-    y_start = 5.9
-    for symbol, mag, desc, col in contributions:
-        ax_sch.text(0.55, y_start, symbol, fontsize=8.8, weight='bold', color=col, va='center')
-        ax_sch.text(1.95, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
-        ax_sch.text(3.75, y_start, desc, fontsize=7.0, color='#455a64', va='center')
-        y_start -= 0.95
+    y_pos = [6.45, 5.65, 4.85, 4.05, 3.25]
+    for (symbol, mag, desc, col), y_val in zip(contributions, y_pos):
+        ax_sch.text(1.00, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
+        ax_sch.text(2.40, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
+        ax_sch.text(4.15, y_val, desc, fontsize=6.8, color='#455a64', va='center')
 
-    # Bottom notice - strictly padded inside warning box and chamber box
-    warn_rect = patches.FancyBboxPatch((0.7, 0.6), 8.6, 1.15, boxstyle="round,pad=0.15",
-                                       edgecolor="#d32f2f", facecolor="#ffebee", lw=0.9)
+    # 3. Warning notice (RED box) - neatly positioned with generous padding
+    warn_rect = patches.FancyBboxPatch((0.85, 0.65), 8.3, 1.85, boxstyle="round,pad=0.1,rounding_size=0.2",
+                                       edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax_sch.add_patch(warn_rect)
-    ax_sch.text(5.0, 1.18, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-                fontsize=7.0, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax_sch.text(5.0, 2.15, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
+                fontsize=7.2, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax_sch.text(5.0, 1.45, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
+                fontsize=6.5, ha='center', va='center', color='#b71c1c', linespacing=1.25)
 
     plt.tight_layout()
     out_pdf = OUT_DIR / 'Fig1_lunar_magnetic_environment_montage.pdf'

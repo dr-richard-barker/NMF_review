@@ -49,6 +49,7 @@ site:
 	@echo "==> Syncing web figures, manuscript docx, tables, and references to docs/assets/..."
 	@mkdir -p docs/assets
 	@cp figures/*.png docs/assets/
+	@cp figures/*.pdf docs/assets/
 	@cp Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx docs/assets/
 	@cp tables/*.csv docs/assets/
 	@cp manuscript/references_LSSR.bib docs/assets/

@@ -102,17 +102,18 @@ def export_fig1_subpanels():
         'Nobile Rim 2': (14, -18, 'left', 'top'),
         'Leibnitz Beta Plateau': (-10, -8, 'right', 'top'),
         'Amundsen Rim': (8, 10, 'left', 'bottom'),
-        'Malapert Massif': (-8, 0, 'right', 'center'),
+        'Malapert Massif': (10, 0, 'left', 'center'),
+        'Amundsen Rim': (10, -12, 'left', 'top'),
     }
 
     for _, row in artemis_sites.iterrows():
         s_name = row['name'].replace('Connecting Ridge Extension', 'Conn. Ridge Ext.').replace('de Gerlache-Kocher Massif', 'de Gerlache-Kocher')
-        ox, oy, ha, va = site_offsets.get(row['name'], (5, 0, 'left', 'center'))
+        ox, oy, ha, va = site_offsets.get(row['name'], (8, 0, 'left', 'center'))
         ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=7.0, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
-                    bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.88, edgecolor='#999999', lw=0.4))
-    ax.set_xlim(-35, 395)
-    ax.set_ylim(-90.8, -83.2)
+                    fontsize=6.8, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
+                    bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.90, edgecolor='#757575', lw=0.4))
+    ax.set_xlim(-15, 385)
+    ax.set_ylim(-91.0, -82.6)
     ax.set_xlabel('Longitude (°E)')
     ax.set_ylabel('Latitude (°N)')
     ax.grid(True, linestyle=':', alpha=0.6)
@@ -149,32 +150,40 @@ def export_fig1_subpanels():
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
-    eq_rect = patches.FancyBboxPatch((0.5, 7.8), 9.0, 1.8, boxstyle="round,pad=0.2", edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
+    eq_rect = patches.FancyBboxPatch((0.5, 7.95), 9.0, 1.65, boxstyle="round,pad=0.1,rounding_size=0.25",
+                                     edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
     ax.add_patch(eq_rect)
-    ax.text(5.0, 8.9, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
+    ax.text(5.0, 8.95, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
             fontsize=8.5, weight='bold', ha='center', va='center', color='#01579b')
-    ax.text(5.0, 8.1, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
+    ax.text(5.0, 8.35, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
             fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
-    cham_rect = patches.FancyBboxPatch((0.4, 0.4), 9.2, 7.0, boxstyle="round,pad=0.3", edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
+    
+    cham_rect = patches.FancyBboxPatch((0.5, 0.40), 9.0, 7.25, boxstyle="round,pad=0.1,rounding_size=0.25",
+                                       edgecolor="#37474f", facecolor="#eceff1", lw=1.4)
     ax.add_patch(cham_rect)
-    ax.text(5.0, 7.0, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', color='#263238')
+    ax.text(5.0, 7.25, "Lunar Plant Growth Enclosure (e.g., LEAF / BLSS)", weight='bold', fontsize=8.0, ha='center', va='center', color='#263238')
+    ax.plot([1.0, 9.0], [6.95, 6.95], color='#b0bec5', lw=0.8, linestyle='--')
+    
     contributions = [
-        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetism", "#1565c0"),
+        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetic void", "#1565c0"),
         (r"$\mathbf{B}_{\mathrm{ext}}$", "1 – 5 nT", "Solar wind IMF / magnetotail shadow", "#2e7d32"),
-        (r"$\mathbf{B}_{\mathrm{lander}}$", "50 – 500 µT", "Lander avionics & DC power buses [Confounder]", "#c62828"),
-        (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Fans, pumps, heaters, LEDs [Ripple]", "#e65100"),
-        (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis causal rescue coils", "#6a1b9a"),
+        (r"$\mathbf{B}_{\mathrm{lander}}$", "50 – 500 µT", "Lander avionics, DC power buses & batteries [Confounder]", "#c62828"),
+        (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Payload fans, fluidic pumps, heaters, LEDs [Ripple]", "#e65100"),
+        (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis compensation / causal rescue coils", "#6a1b9a"),
     ]
-    y_start = 6.0
-    for symbol, mag, desc, col in contributions:
-        ax.text(0.55, y_start, symbol, fontsize=8.6, weight='bold', color=col, va='center')
-        ax.text(1.95, y_start, f"[{mag}]", fontsize=7.4, weight='bold', color='#333333', va='center')
-        ax.text(3.75, y_start, desc, fontsize=7.0, color='#455a64', va='center')
-        y_start -= 0.88
-    warn_rect = patches.FancyBboxPatch((0.5, 0.5), 9.0, 1.25, boxstyle="round,pad=0.15", edgecolor="#d32f2f", facecolor="#ffebee", lw=0.9)
+    y_pos = [6.45, 5.65, 4.85, 4.05, 3.25]
+    for (symbol, mag, desc, col), y_val in zip(contributions, y_pos):
+        ax.text(0.9, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
+        ax.text(2.3, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
+        ax.text(4.0, y_val, desc, fontsize=6.8, color='#455a64', va='center')
+
+    warn_rect = patches.FancyBboxPatch((0.85, 0.65), 8.3, 1.85, boxstyle="round,pad=0.1,rounding_size=0.2",
+                                       edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax.add_patch(warn_rect)
-    ax.text(5.0, 1.15, "CRITICAL: Unshielded spacecraft DC currents (50–500 µT) can exceed\nEarth GMF, inadvertently masking true lunar hypomagnetic exposure!",
-            fontsize=6.9, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.0, 2.15, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
+            fontsize=7.2, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax.text(5.0, 1.45, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
+            fontsize=6.5, ha='center', va='center', color='#b71c1c', linespacing=1.25)
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig1d_superposition_box.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
@@ -511,7 +520,7 @@ def export_fig4_subpanels():
 def export_fig5_subpanels():
     print("Exporting Figure 5 subpanels...")
     # Fig 5a: Ground Chambers
-    fig, ax = plt.subplots(figsize=(5.6, 4.2), dpi=300)
+    fig, ax = plt.subplots(figsize=(6.0, 4.2), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 100)
     ax.set_ylim(0, 100)
@@ -530,52 +539,32 @@ def export_fig5_subpanels():
     fig.savefig(OUT_DIR / 'Fig5a_ground_chambers.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # Fig 5b: Flight Payload Trade Space (Science Gaps vs Engineering Constraints)
-    fig, ax = plt.subplots(figsize=(5.6, 4.5), dpi=300)
+    # Fig 5b: Causal Rescue Protocol (Proof of Concept)
+    fig, ax = plt.subplots(figsize=(6.0, 4.2), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
-    p_rect = patches.FancyBboxPatch((0.5, 5.2), 9.0, 4.3, boxstyle="round,pad=0.2", edgecolor="#1565c0", facecolor="#e3f2fd", lw=1.2)
-    ax.add_patch(p_rect)
-    ax.text(5.0, 8.9, "REALISTIC FLIGHT PAYLOAD ACCOMMODATION", weight='bold', fontsize=7.6, ha='center', color="#0d47a1")
-    ax.text(5.0, 7.0, "• Passive 3-axis magnetic sensing (miniature fluxgate or AMR)\n• Canopy-level environmental vector logging (Bx, By, Bz, |B|)\n• Minimal resource budget: < 1 W electrical power, grams mass\n• Continuous logging captures spacecraft DC avionics & stray fields\n• Enables post-flight correlative science & phenotype attribution",
-            ha='center', fontsize=6.3, color="#1565c0", linespacing=1.25)
-    
-    e_rect = patches.FancyBboxPatch((0.5, 0.5), 9.0, 4.3, boxstyle="round,pad=0.2", edgecolor="#c62828", facecolor="#ffebee", lw=1.2)
-    ax.add_patch(e_rect)
-    ax.text(5.0, 4.2, "EXCEEDS TYPICAL FLIGHT BUDGETS (GROUND-ONLY)", weight='bold', fontsize=7.6, ha='center', color="#b71c1c")
-    ax.text(5.0, 2.3, "• Active triaxial Helmholtz cancellation / bias coil hardware\n• Heavy copper coil mass, high continuous power draw & Joule heat\n• Severe spacecraft electromagnetic interference (EMI) certification\n• Complex in-flight closed-loop vector control systems\n• Best reserved for terrestrial laboratory analogues & ground testing",
-            ha='center', fontsize=6.3, color="#c62828", linespacing=1.25)
-    plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig5b_flight_telemetry.png', dpi=300, bbox_inches='tight')
-    plt.close(fig)
-
-    # Fig 5c: Causal Rescue Protocol
-    fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=300)
-    ax.axis('off')
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 10)
-    rescue_box = patches.FancyBboxPatch((0.8, 1.2), 8.4, 7.6, boxstyle="round,pad=0.3", edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.3)
+    rescue_box = patches.FancyBboxPatch((0.5, 0.6), 9.0, 8.8, boxstyle="round,pad=0.2", edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.3)
     ax.add_patch(rescue_box)
-    ax.text(5.0, 8.2, "Three-Step In Situ Causal Rescue Protocol", weight='bold', fontsize=8.2, ha='center', color="#1b5e20")
+    ax.text(5.0, 8.6, "In Situ Causal Reversal Protocol (Proof of Concept)", weight='bold', fontsize=8.2, ha='center', color="#1b5e20")
     steps = [
         ("Step 1: Hypomagnetic Exposure", "<10 nT inside shield elicits emergence lag & chlorosis"),
         ("Step 2: Vector Re-application", "Triaxial Helmholtz coils restore calibrated 45 µT in situ"),
-        ("Step 3: Phenotype Rescue", "Complete recovery to baseline formally proves magnetic causality")
+        ("Step 3: Phenotype Rescue Proof", "Complete recovery to baseline formally proves magnetic causality")
     ]
-    y_s = 6.8
+    y_s = 7.1
     for title, desc in steps:
-        ax.text(1.4, y_s, title, weight='bold', fontsize=7.2, color="#2e7d32")
-        ax.text(1.4, y_s - 0.55, desc, fontsize=6.5, color="#333333")
-        y_s -= 1.6
-    ax.text(5.0, 1.8, "Definitively rules out microclimatic, ethylene, or enclosure artifacts",
+        ax.text(1.2, y_s, title, weight='bold', fontsize=7.2, color="#2e7d32")
+        ax.text(1.2, y_s - 0.55, desc, fontsize=6.5, color="#333333")
+        y_s -= 1.8
+    ax.text(5.0, 1.3, "Definitively rules out microclimatic, ethylene, or enclosure artifacts",
             ha='center', fontsize=6.5, weight='bold', color="#1b5e20")
     plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig5c_causal_rescue.png', dpi=300, bbox_inches='tight')
+    fig.savefig(OUT_DIR / 'Fig5b_causal_rescue.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # Fig 5d: Phenotypic Disambiguation Matrix
-    fig, ax = plt.subplots(figsize=(5.8, 4.5), dpi=300)
+    # Fig 5c: Post-Flight Phenotypic Disambiguation Framework
+    fig, ax = plt.subplots(figsize=(7.2, 4.5), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
@@ -592,7 +581,7 @@ def export_fig5_subpanels():
         ax.text(0.9, y_g - 1.4, desc, fontsize=6.6, color="#333333", linespacing=1.25)
         y_g -= 2.6
     plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig5d_decision_matrix.png', dpi=300, bbox_inches='tight')
+    fig.savefig(OUT_DIR / 'Fig5c_decision_matrix.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
 # ---------------------------------------------------------------------------
