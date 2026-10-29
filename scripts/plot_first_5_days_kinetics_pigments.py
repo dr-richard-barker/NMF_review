@@ -76,19 +76,19 @@ def main():
         ax_time.plot([x_pos, x_pos], [62, 58], color=ecol, lw=1.5)
         ax_time.scatter(x_pos, 53.5, color=ecol, s=35, zorder=5)
 
-    # Core concept callout boxes below timeline
+    # Concept callout boxes below timeline (Developmental Penalties)
     c2_box = patches.FancyBboxPatch((3, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#d32f2f", facecolor="#ffebee", lw=1.0)
     ax_time.add_patch(c2_box)
-    ax_time.text(25.75, 41.5, "CORE CONCEPTS 2 & 3: Germination & Yield", fontsize=7.4, weight='bold', color="#b71c1c", ha='center', va='center')
-    ax_time.text(25.75, 27.5, "• Null magnetic field dampens reserve mobilization\n• Lowers final germination capacity (# seedlings)\n• Delays emergence speed (t50) & seedling vigor",
+    ax_time.text(25.75, 41.5, "Germination Capacity & Early Growth Penalties", fontsize=7.4, weight='bold', color="#b71c1c", ha='center', va='center')
+    ax_time.text(25.75, 27.5, "• Null magnetic field dampens reserve mobilization\n• Lowers final germination capacity (total # seedlings)\n• Delays median emergence time (t50) & seedling vigor",
                  fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
 
     c4_box = patches.FancyBboxPatch((51.5, 16), 45.5, 29, boxstyle="round,pad=0,rounding_size=2",
                                     edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.0)
     ax_time.add_patch(c4_box)
-    ax_time.text(74.25, 41.5, "CORE CONCEPT 4: Pigment Biosynthesis", fontsize=7.4, weight='bold', color="#1b5e20", ha='center', va='center')
-    ax_time.text(74.25, 27.5, "• Attenuated CRY radical-pair signaling\n• Repressed HEMA1, CHLH & PORA/B/C transcripts\n• Reduced chlorophyll a/b, carotenoid & anthocyanin",
+    ax_time.text(74.25, 41.5, "Cryptochrome & Pigment Biosynthesis Repression", fontsize=7.4, weight='bold', color="#1b5e20", ha='center', va='center')
+    ax_time.text(74.25, 27.5, "• Attenuated CRY radical-pair spin dynamics\n• Repressed HEMA1, CHLH & PORA/B/C transcripts\n• Reduced chlorophyll a/b, carotenoid & anthocyanin",
                  fontsize=6.8, color="#212121", ha='center', va='center', linespacing=1.35)
 
     # Bottom transition banner
@@ -120,19 +120,23 @@ def main():
     # Delta t50 arrow
     ax_kin.annotate('', xy=(46, 37), xytext=(30, 37),
                     arrowprops=dict(arrowstyle='<->', color='#d32f2f', lw=1.2))
-    ax_kin.text(38, 40, 'Δt50 = +16 h\n(Speed / Rate Lag)', color='#d32f2f', fontsize=7.4, ha='center', weight='bold')
+    ax_kin.text(38, 40, 'Δt50 = +16 h\n(Median Emergence Lag)', color='#d32f2f', fontsize=7.4, ha='center', weight='bold')
 
     # Delta capacity arrow
     ax_kin.annotate('', xy=(115, 74), xytext=(115, 94),
                     arrowprops=dict(arrowstyle='<->', color='#b71c1c', lw=1.2))
-    ax_kin.text(108, 84, 'ΔCap = -20%\n(# Seedlings)', color='#b71c1c', fontsize=7.4, ha='right', weight='bold')
+    ax_kin.text(108, 84, 'ΔCap = -20%\n(Final Capacity Drop)', color='#b71c1c', fontsize=7.4, ha='right', weight='bold')
 
     ax_kin.set_xlabel('Time After Imbibition (hours)')
     ax_kin.set_ylabel('Cumulative Germination (%)')
-    ax_kin.set_title('(b) Germination Capacity (#) & Velocity (t50)', weight='bold')
+    ax_kin.set_title('(b) Seed Germination Time-Course & Kinetics (t50)', weight='bold')
     ax_kin.set_xlim(0, 120)
     ax_kin.set_ylim(0, 105)
-    ax_kin.legend(loc='lower right', frameon=True, facecolor='white', framealpha=0.9)
+    ax_kin.legend(loc='lower right', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.0)
+    ax_kin.grid(True, linestyle=':', alpha=0.6)
+    ax_kin.text(0.04, 0.16, 'Meta-analysis synthesis (Xu et al. 2012, 2013;\nPooam et al. 2019; Agliassa et al. 2018; Table 2)',
+                transform=ax_kin.transAxes, fontsize=6.5, color='#455a64',
+                bbox=dict(boxstyle='round,pad=0.2', facecolor='#f5f5f5', edgecolor='#cccccc', alpha=0.85))
     ax_kin.grid(True, linestyle=':', alpha=0.6)
 
     # -------------------------------------------------------------
@@ -165,8 +169,8 @@ def main():
     ax_yield.grid(axis='y', linestyle=':', alpha=0.6)
 
     # Yield implications callout
-    ax_yield.text(0.04, 0.92, "Impact on Lunar Agriculture:\n• Uneven canopy closure\n• Reduced photosynthetic interception\n• 25–30% decline in early harvestable yields",
-                  transform=ax_yield.transAxes, fontsize=7.2, verticalalignment='top',
+    ax_yield.text(0.04, 0.92, "Empirical Literature Synthesis (Table 2):\n• Uneven canopy closure & delayed radicles\n• Reduced light interception\n• 20–30% penalty in Day 5 biomass (Refs [26–31])",
+                  transform=ax_yield.transAxes, fontsize=6.8, verticalalignment='top',
                   bbox=dict(boxstyle='round,pad=0.3', facecolor='#fffde7', edgecolor='#fbc02d', alpha=0.95))
 
     # -------------------------------------------------------------

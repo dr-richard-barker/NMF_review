@@ -1,24 +1,24 @@
-landing_site,mission,latitude,longitude,b_mag_30km_nt,br_nt,btheta_nt,bphi_nt,classification,source
-Faustini Rim A,Artemis,-85.3,77.0,0.45,-0.22,0.31,0.24,low/null-field,Hood et al. (2022) South Polar Model
-Peak Near Shackleton,Artemis,-89.7,166.0,0.82,-0.54,0.46,0.38,low/null-field,Hood et al. (2022) South Polar Model
-Connecting Ridge,Artemis,-88.0,137.0,0.60,-0.38,0.35,0.29,low/null-field,Hood et al. (2022) South Polar Model
-Connecting Ridge Extension,Artemis,-88.3,148.0,0.65,-0.42,0.38,0.32,low/null-field,Hood et al. (2022) South Polar Model
-de Gerlache Rim 1,Artemis,-88.5,290.0,0.50,-0.28,0.32,-0.26,low/null-field,Hood et al. (2022) South Polar Model
-de Gerlache Rim 2,Artemis,-88.7,294.0,0.48,-0.25,0.31,-0.27,low/null-field,Hood et al. (2022) South Polar Model
-de Gerlache-Kocher Massif,Artemis,-86.0,285.0,0.52,-0.30,0.33,-0.26,low/null-field,Hood et al. (2022) South Polar Model
-Haworth,Artemis,-87.4,358.0,0.40,-0.20,0.28,-0.19,low/null-field,Hood et al. (2022) South Polar Model
-Malapert Massif,Artemis,-86.0,0.0,0.55,-0.32,0.36,0.26,low/null-field,Hood et al. (2022) South Polar Model
-Leibnitz Beta Plateau,Artemis,-85.0,31.0,0.70,-0.45,0.42,0.34,low/null-field,Hood et al. (2022) South Polar Model
-Nobile Rim 1,Artemis,-85.4,35.0,0.62,-0.39,0.38,0.31,low/null-field,Hood et al. (2022) South Polar Model
-Nobile Rim 2,Artemis,-84.8,47.0,0.58,-0.35,0.36,0.30,low/null-field,Hood et al. (2022) South Polar Model
-Amundsen Rim,Artemis,-84.5,85.0,0.65,-0.40,0.41,0.31,low/null-field,Hood et al. (2022) South Polar Model
-Apollo 11,Apollo,0.67,23.47,0.93,-0.22,-0.63,0.59,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Apollo 12,Apollo,-3.01,336.58,1.00,-0.28,0.53,0.77,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Apollo 14,Apollo,-3.65,342.53,0.44,-0.17,-0.31,0.19,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Apollo 15,Apollo,26.13,3.63,0.23,0.14,-0.06,-0.16,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Apollo 16,Apollo,-8.97,15.50,4.94,-4.43,1.16,-1.63,moderate,PDS Equatorial Grid (Hood et al. 2020)
-Apollo 17,Apollo,20.19,30.77,1.08,-0.42,-0.50,0.80,moderate,PDS Equatorial Grid (Hood et al. 2020)
-Chang'e 3,Chang'e,44.12,340.49,0.19,-0.17,0.07,0.05,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Chang'e 4 (SPA Basin),Chang'e,-45.46,177.60,0.72,-0.69,-0.17,0.05,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Chang'e 5,Chang'e,43.06,308.08,0.10,0.04,-0.06,0.06,low/null-field,PDS Equatorial Grid (Hood et al. 2020)
-Chandrayaan-3,Chandrayaan,-69.37,32.35,0.78,-0.48,0.47,0.38,low/null-field,Hood et al. (2022) South Polar Model
+landing_site,mission,latitude,longitude,b_mag_30km_nt,br_nt,btheta_nt,bphi_nt,classification,published_source
+Faustini Rim A (Example Candidate),Artemis,-85.3,77.0,0.45,-0.22,0.31,0.24,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Peak Near Shackleton (Example Candidate),Artemis,-89.7,166.0,0.82,-0.54,0.46,0.38,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Connecting Ridge (Example Candidate),Artemis,-88.0,137.0,0.60,-0.38,0.35,0.29,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Connecting Ridge Extension (Example Candidate),Artemis,-88.3,148.0,0.65,-0.42,0.38,0.32,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+de Gerlache Rim 1 (Example Candidate),Artemis,-88.5,290.0,0.50,-0.28,0.32,-0.26,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+de Gerlache Rim 2 (Example Candidate),Artemis,-88.7,294.0,0.48,-0.25,0.31,-0.27,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+de Gerlache-Kocher Massif (Example Candidate),Artemis,-86.0,285.0,0.52,-0.30,0.33,-0.26,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Haworth (Example Candidate),Artemis,-87.4,358.0,0.40,-0.20,0.28,-0.19,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Malapert Massif (Example Candidate),Artemis,-86.0,0.0,0.55,-0.32,0.36,0.26,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Leibnitz Beta Plateau (Example Candidate),Artemis,-85.0,31.0,0.70,-0.45,0.42,0.34,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Nobile Rim 1 (Example Candidate),Artemis,-85.4,35.0,0.62,-0.39,0.38,0.31,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Nobile Rim 2 (Example Candidate),Artemis,-84.8,47.0,0.58,-0.35,0.36,0.30,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Amundsen Rim (Example Candidate),Artemis,-84.5,85.0,0.65,-0.40,0.41,0.31,low/null-field,NASA Artemis Candidate Regions (2022/2024); Hood et al. (2022)
+Apollo 11,Apollo,0.67,23.47,0.93,-0.22,-0.63,0.59,low/null-field,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Apollo 12,Apollo,-3.01,336.58,1.00,-0.28,0.53,0.77,low/null-field,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Apollo 14,Apollo,-3.65,342.53,0.44,-0.17,-0.31,0.19,low/null-field,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Apollo 15,Apollo,26.13,3.63,0.23,0.14,-0.06,-0.16,low/null-field,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Apollo 16 (Descartes Highlands),Apollo,-8.97,15.50,4.94,-4.43,1.16,-1.63,moderate,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Apollo 17,Apollo,20.19,30.77,1.08,-0.42,-0.50,0.80,moderate,NASA PDS Equatorial Grid; Tsunakawa et al. (2015)
+Chang'e 3,Chang'e,44.12,340.49,0.19,-0.17,0.07,0.05,low/null-field,CNSA / NASA PDS Grid; Purucker & Nicholas (2010)
+Chang'e 4 (South Pole-Aitken),Chang'e,-45.46,177.60,0.72,-0.69,-0.17,0.05,low/null-field,CNSA / NASA PDS Grid; Purucker & Nicholas (2010)
+Chang'e 5,Chang'e,43.06,308.08,0.10,0.04,-0.06,0.06,low/null-field,CNSA / NASA PDS Grid; Purucker & Nicholas (2010)
+Chandrayaan-3,Chandrayaan,-69.37,32.35,0.78,-0.48,0.47,0.38,low/null-field,ISRO / Hood et al. (2022) South Polar Model

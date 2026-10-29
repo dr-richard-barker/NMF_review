@@ -163,7 +163,7 @@ def build_slide_01_title(prs):
     tf_a = auth_box.text_frame
     tf_a.word_wrap = True
     p_a1 = tf_a.paragraphs[0]
-    p_a1.text = "Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Adriana Sanchez, Manisha Dagar, Sofia Leiva Aldana,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain, D. Marshall Porterfield*"
+    p_a1.text = "D. Marshall Porterfield*, Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Adriana Sanchez, Manisha Dagar, Sofia Leiva Aldana,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain"
     p_a1.font.size = Pt(10.5)
     p_a1.font.bold = True
     p_a1.font.color.rgb = TEXT_LIGHT
@@ -740,8 +740,8 @@ def build_slide_11_figure5_montage(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Figure 5 Montage | Editable Layout",
-               "Flight Validation, Causal Rescue & Artemis Risk Pipeline",
-               "3-chamber ground controls, in-situ 3-axis fluxgate telemetry, active 45 µT rescue coils, and predeclared flight gates")
+               "Scientific Knowledge Gap Retirement & Flight Trade Space",
+               "3-chamber ground controls, in situ causal rescue, flight payload constraints, and phenotypic disambiguation")
 
     x_left  = Inches(0.8)
     x_right = Inches(6.833)
@@ -759,29 +759,29 @@ def build_slide_11_figure5_montage(prs):
     tb_a.text_frame.paragraphs[0].font.bold = True
     tb_a.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel b
+    # Subpanel b (Flight Trade Space)
     add_card(slide, x_right, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
     slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5b_flight_telemetry.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
-    tb_b.text_frame.paragraphs[0].text = "(b) In-Chamber 3-Axis Fluxgate Magnetometer Telemetry"
+    tb_b.text_frame.paragraphs[0].text = "(b) Flight Payload Trade Space: Science Gaps vs. Engineering Limits"
     tb_b.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_b.text_frame.paragraphs[0].font.bold = True
     tb_b.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel c
+    # Subpanel c (Causal Rescue)
     add_card(slide, x_left, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
     slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5c_causal_rescue.png'), x_left + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_c = slide.shapes.add_textbox(x_left + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_c.text_frame.paragraphs[0].text = "(c) Active Causal Rescue: 40–50 µT Vector Re-Application"
+    tb_c.text_frame.paragraphs[0].text = "(c) In Situ Causal Rescue: 45 µT Vector Re-Application Proof"
     tb_c.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_c.text_frame.paragraphs[0].font.bold = True
     tb_c.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
-    # Subpanel d
+    # Subpanel d (Phenotypic Disambiguation)
     add_card(slide, x_right, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
     slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig5d_decision_matrix.png'), x_right + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_d = slide.shapes.add_textbox(x_right + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_d.text_frame.paragraphs[0].text = "(d) Predeclared Operational Flight Decision Gates"
+    tb_d.text_frame.paragraphs[0].text = "(d) Post-Flight Phenotypic Disambiguation Framework"
     tb_d.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_d.text_frame.paragraphs[0].font.bold = True
     tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
@@ -790,18 +790,18 @@ def build_slide_11_figure5_montage(prs):
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 11 - FIGURE 5 MONTAGE):\n"
-        "• Figure 5 is our operational blueprint for NASA and commercial spaceflight developers.\n"
-        "• Panel (a) lays out our 3-chamber ground simulation standard. Historically, studies compared an ambient room to a mu-metal box without controlling for ohmic heat or fan airflow. We mandate: Chamber 1 (GMF control), Chamber 2 (Shielded/Cancelled NNMF), and Chamber 3 (Bifilar sham control with current matched but net magnetic field zero).\n"
-        "• Panel (b) illustrates flight hardware integration. A miniature 3-axis fluxgate sensor (0.1 nT resolution) placed equidistant between seedling cassettes records real-time exposure.\n"
-        "• Panel (c) is the causal rescue protocol: Re-applying a 45 µT vector inside the chamber rescues germination speed and HY5 pigment accumulation, establishing definitive causal proof.\n"
-        "• Panel (d) defines predeclared operational flight decision gates: Green, Amber, and Red."
+        "• Figure 5 establishes our translational roadmap, strictly separating laboratory ground standards from flight engineering trade spaces.\n"
+        "• Panel (a) sets the 3-chamber ground standard: Chamber 1 (GMF control), Chamber 2 (Shielded/Cancelled NNMF), and Chamber 3 (Bifilar sham control matching current, heat, and vibration without magnetic fields).\n"
+        "• Panel (b) addresses a critical question from flight engineers: What can realistically be accommodated? We recommend passive 3-axis magnetometry (<1 W, grams of mass) at the plant canopy level, while leaving heavy active cancellation coils in ground facilities.\n"
+        "• Panel (c) demonstrates in situ causal rescue: Restoring 45 µT inside magnetic shielding rescues emergence speed and pigment accumulation, definitively ruling out microclimatic or enclosure artifacts.\n"
+        "• Panel (d) introduces our post-flight phenotypic disambiguation framework to distinguish hypomagnetic effects from microgravity and cosmic radiation."
     )
 
 def build_slide_12_figure5_deepdive_table(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     set_slide_background(slide, WHITE_CANVAS)
-    add_header(slide, "Table 3 Deep Dive", "Artemis III LEAF Predeclared Operational Decision Gates",
-               "Pre-agreed quantitative decision thresholds to ensure rigorous science and safeguard lunar crop viability")
+    add_header(slide, "Table 3 Deep Dive", "Phenotypic Risk Disambiguation Matrix for Lunar Plant Biology",
+               "Diagnostic criteria to decouple Near-Null Magnetic Fields from Lunar Partial Gravity and Deep-Space Radiation")
 
     # Native PowerPoint Table
     rows = 4
@@ -815,66 +815,96 @@ def build_slide_12_figure5_deepdive_table(prs):
     table = table_shape.table
 
     # Column widths
-    table.columns[0].width = Inches(1.8)   # Gate
-    table.columns[1].width = Inches(2.6)   # In-Situ Telemetry
-    table.columns[2].width = Inches(3.2)   # Biological Threshold
-    table.columns[3].width = Inches(4.133) # Commanded Action
+    table.columns[0].width = Inches(2.2)   # Stressor
+    table.columns[1].width = Inches(2.8)   # Target
+    table.columns[2].width = Inches(3.6)   # Phenotypic Signature
+    table.columns[3].width = Inches(3.133) # Disambiguation Strategy
 
-    headers = ["Flight Decision Gate", "Magnetic Field Telemetry", "Biological Metric Threshold", "Predeclared Operational Action"]
+    headers = ["Environmental Stressor", "Primary Cellular Target", "Phenotypic Diagnostic Signature (Days 0–5)", "Disambiguation Strategy"]
     for j, h in enumerate(headers):
         cell = table.cell(0, j)
         cell.text = h
         cell.fill.solid()
         cell.fill.fore_color.rgb = NAVY_DARK
         p = cell.text_frame.paragraphs[0]
-        p.font.size = Pt(10.0)
+        p.font.size = Pt(9.5)
         p.font.bold = True
         p.font.color.rgb = TEXT_LIGHT
         cell.vertical_anchor = MSO_ANCHOR.MIDDLE
 
     gate_data = [
-        ("GREEN GATE\n(Nominal Flight)",
-         "|B_total| < 5.0 nT\nSteady-state near-null field;\nNo lander EMI spikes (>10 nT).",
-         "Germination Capacity ≥ 85%\nNormal t50 emergence velocity;\nActive hypocotyl greening.",
-         "Continue nominal autonomous flight timeline.\n• 10 Hz magnetometer logging.\n• 30-minute multispectral camera imaging.\n• Standard environmental controls.",
+        ("Near-Null Magnetic Field\n(NNMF, < 10 nT)",
+         "Cryptochrome radical pairs\n[FAD•- ... TrpH•+];\nSDP1 triacylglycerol lipase.",
+         "• Emergence lag (Δt50 = +12–36 h)\n• 10%–30% capacity drop; chlorosis\n• Downregulated HEMA1/CHLH/POR\n• Mitochondrial AOX1D & CAT3 leak\n• Minimal nuclear DNA breaks",
+         "• Reversible by in situ 45 µT vector re-application (causal rescue).\n• Insensitive to 1g spin centrifugation.\n• Correlates with 3-axis magnetometer canopy telemetry.",
+         RED_BG_LIGHT, RED_ALERT),
+        ("Lunar Partial Gravity\n(0.166 g) / Microgravity",
+         "Amyloplast statolith sedimentation;\nMechanosensitive ion channels (MSL/MCA);\nPIN auxin carrier polarity.",
+         "• Normal germination capacity\n• Negligible emergence lag (Δt50 < 4 h)\n• Random root waving & directional skewing\n• Normal plastid greening under PAR\n• Localized apoplastic ROS (RBOHD/F)",
+         "• Fully rescued by onboard 1g centrifuge controls.\n• Completely insensitive to static magnetic field manipulation.\n• Quantified via camera morphometry.",
          GREEN_BG_LIGHT, GREEN_SUCC),
-        ("AMBER GATE\n(Investigation / Caution)",
-         "5.0 nT ≤ |B_total| ≤ 50 nT\nIntermittent lander DC ripple\nor unexpected local anomaly.",
-         "15% to 30% Emergence Delay\n(t50 lag > 18 h) or mild seedling\nchlorosis detected.",
-         "Initiate secondary optical diagnostics.\n• Command high-frequency imaging.\n• Cross-reference lander power bus telemetry.\n• Log potential electromagnetic interference.",
-         AMBER_BG_LIGHT, AMBER_WARN),
-        ("RED GATE\n(Causal Intervention)",
-         "|B_total| < 1.0 nT (Deep void)\nOR extreme uncontrolled\nEMI excursion (>100 µT).",
-         "Germination Capacity Drop > 30%\nor severe arrest of de-etiolation\nand visible chlorosis by Day 5.",
-         "EXECUTE ACTIVE CAUSAL RESCUE:\n• Energize 3-axis compensation coils to re-apply 45 µT vector.\n• Restore terrestrial geomagnetic conditions.\n• Evaluate rescue of post-emergence seedling vigor.",
-         RED_BG_LIGHT, RED_ALERT)
+        ("Deep-Space Radiation\n(GCR / SPE)",
+         "Direct nuclear DNA ionization;\nRadiolysis of H2O producing •OH;\nOxidation of Fe-S clusters.",
+         "• Emergence failure only at lethal doses\n• Mitotic apical cell cycle arrest\n• Severe chromosomal aberrations\n• High γ-H2AX phosphorylated foci\n• Marked lipid peroxidation (MDA)",
+         "• Mitigated by passive polyethylene or water-wall shielding.\n• Independent of magnetic coils or centrifuges.\n• Directly calibrated against active dosimeter telemetry (Gy).",
+         AMBER_BG_LIGHT, AMBER_WARN)
     ]
 
-    for i, (gate, tele, bio, act, bg, col) in enumerate(gate_data):
+    for i, (stress, target, pheno, strat, bg_c, bord_c) in enumerate(gate_data):
         row_idx = i + 1
-        cells = [table.cell(row_idx, 0), table.cell(row_idx, 1), table.cell(row_idx, 2), table.cell(row_idx, 3)]
-        texts = [gate, tele, bio, act]
-        for j, (cell, txt) in enumerate(zip(cells, texts)):
-            cell.text = txt
-            cell.fill.solid()
-            cell.fill.fore_color.rgb = bg if j == 0 else RGBColor(255, 255, 255)
-            p = cell.text_frame.paragraphs[0]
-            p.font.size = Pt(9.0)
-            p.font.color.rgb = col if j == 0 else TEXT_DARK
-            if j == 0:
-                p.font.bold = True
-            cell.vertical_anchor = MSO_ANCHOR.MIDDLE
+        
+        # Stressor
+        c0 = table.cell(row_idx, 0)
+        c0.text = stress
+        c0.fill.solid()
+        c0.fill.fore_color.rgb = bg_c
+        p0 = c0.text_frame.paragraphs[0]
+        p0.font.size = Pt(9.0)
+        p0.font.bold = True
+        p0.font.color.rgb = bord_c
+        c0.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+        # Target
+        c1 = table.cell(row_idx, 1)
+        c1.text = target
+        c1.fill.solid()
+        c1.fill.fore_color.rgb = WHITE_CANVAS
+        p1 = c1.text_frame.paragraphs[0]
+        p1.font.size = Pt(8.5)
+        p1.font.color.rgb = TEXT_DARK
+        c1.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+        # Phenotype
+        c2 = table.cell(row_idx, 2)
+        c2.text = pheno
+        c2.fill.solid()
+        c2.fill.fore_color.rgb = WHITE_CANVAS
+        p2 = c2.text_frame.paragraphs[0]
+        p2.font.size = Pt(8.0)
+        p2.font.color.rgb = TEXT_DARK
+        c2.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+        # Strategy
+        c3 = table.cell(row_idx, 3)
+        c3.text = strat
+        c3.fill.solid()
+        c3.fill.fore_color.rgb = WHITE_CANVAS
+        p3 = c3.text_frame.paragraphs[0]
+        p3.font.size = Pt(8.2)
+        p3.font.color.rgb = TEXT_DARK
+        c3.vertical_anchor = MSO_ANCHOR.MIDDLE
 
     add_footer(slide, 12, 15)
 
     add_notes(slide,
-        "TALKING POINTS (SLIDE 12 - TABLE 3 DEEP DIVE):\n"
-        "• This is Table 3 from the paper, built as a native PowerPoint table so you can edit the numbers or thresholds directly for specific payload proposals.\n"
-        "• Spaceflight payload teams often struggle because decision criteria are not declared in advance. If seedlings don't emerge as planned on the Moon, payload operators are caught off guard.\n"
-        "• Green Gate represents nominal science: field is below 5 nT, germination is normal (≥85%), we proceed autonomously.\n"
-        "• Amber Gate is triggered if field ripples between 5 and 50 nT, or if emergence lags by 18 hours. We increase optical imaging frequency and correlate with lander bus power telemetry.\n"
-        "• Red Gate is our contingency countermeasure: If germination drops by more than 30%, or seedlings exhibit severe chlorosis, the ground team commands the activation of active 45 µT Helmholtz coils to re-apply Earth's geomagnetic field.\n"
-        "• This rescues crop viability and provides an ironclad causal demonstration."
+        "TALKING POINTS (SLIDE 12 - PHENOTYPIC DISAMBIGUATION MATRIX):\n"
+        "• This table represents our key translational science recommendation for Artemis payloads and lunar greenhouses.\n"
+        "• When plants show stress on the lunar surface, how do we know if it was hypomagnetic stress, partial gravity (0.166 g), or radiation?\n"
+        "• This matrix provides unambiguous diagnostic markers:\n"
+        "  1. Hypomagnetic field delays emergence velocity (Δt50 = +12–36 h), represses chlorophyll/anthocyanin synthesis via cryptochromes, and triggers mitochondrial AOX1D without nuclear DNA damage. In ground controls, it is fully rescued by a 45 µT vector.\n"
+        "  2. Lunar partial gravity causes directional skewing and cell wall changes, but germination rate and greening are normal. It is rescued by a 1g centrifuge, but unaffected by magnetic fields.\n"
+        "  3. Radiation causes double-strand DNA breaks and γ-H2AX foci, which are independent of magnetic fields or gravity.\n"
+        "• This framework replaces arbitrary mission abort criteria with a rigorous post-flight diagnostic methodology."
     )
 
 def build_slide_13_graphical_abstract(prs):

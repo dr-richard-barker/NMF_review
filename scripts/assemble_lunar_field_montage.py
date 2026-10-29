@@ -54,7 +54,7 @@ def main():
     # 4-panel layout:
     # Row 1: Global map (a) [left] and South Polar detail (b) [right]
     # Row 2: Landing site bar chart (c) [left] and Field Superposition Schematic (d) [right]
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.1, 1.0], width_ratios=[1.25, 1.0], hspace=0.30, wspace=0.22)
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.1, 1.0], width_ratios=[1.20, 1.0], hspace=0.32, wspace=0.32)
     
     # -------------------------------------------------------------
     # Panel (a): Global Crustal Magnetic Map with Landing Sites
@@ -88,13 +88,14 @@ def main():
     ax_map.set_ylim(-90, 65)
     ax_map.set_title('(a) Global Lunar Crustal Magnetic Field & Landing Sites (|B| at 30 km)', weight='bold')
     
-    cbar = plt.colorbar(img, ax=ax_map, orientation='vertical', fraction=0.03, pad=0.02)
-    cbar.set_label('$|\\mathbf{B}|$ at 30 km (nT)')
+    cbar = plt.colorbar(img, ax=ax_map, orientation='vertical', fraction=0.03, pad=0.015)
+    cbar.set_label('$|\\mathbf{B}|$ at 30 km (nT)', fontsize=7.8)
+    cbar.ax.tick_params(labelsize=6.8)
     
     # Highlight South Pole Artemis region
     rect = patches.Rectangle((0, -90), 360, 10, linewidth=1.2, edgecolor='#ff1744', facecolor='none', linestyle='--', zorder=6)
     ax_map.add_patch(rect)
-    ax_map.text(180, -78, 'Artemis South Pole Region (B < 1 nT)', color='#ff1744', weight='bold', ha='center', fontsize=7.5,
+    ax_map.text(180, -78, 'Example Artemis South Pole Regions (B < 1 nT)', color='#ff1744', weight='bold', ha='center', fontsize=7.2,
                 bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.85, edgecolor='#ff1744'))
 
     # -------------------------------------------------------------
@@ -139,11 +140,12 @@ def main():
     ax_polar.set_ylim(-90.8, -83.2)
     ax_polar.set_xlabel('Longitude (°E)')
     ax_polar.set_ylabel('Latitude (°N)')
-    ax_polar.set_title('(b) Artemis South Polar Candidate Sites (Near-Null Field)', weight='bold')
+    ax_polar.set_title('(b) Example Candidate Artemis Regions (Near-Null Field)', weight='bold')
     ax_polar.grid(True, linestyle=':', alpha=0.6)
     
     cbar_pol = plt.colorbar(scatter, ax=ax_polar, orientation='vertical', fraction=0.035, pad=0.02)
-    cbar_pol.set_label('$|\\mathbf{B}_{\\mathrm{crust}}|$ (nT)')
+    cbar_pol.set_label('$|\\mathbf{B}_{\\mathrm{crust}}|$ (nT)', fontsize=7.8)
+    cbar_pol.ax.tick_params(labelsize=6.8)
 
     # -------------------------------------------------------------
     # Panel (c): Landing Site Comparison Bar Chart
@@ -162,16 +164,16 @@ def main():
     ax_bar.axhline(5.0, color='#d32f2f', linestyle=':', linewidth=1.0, label='Moderate Crustal Swirl (5 nT)')
     
     ax_bar.set_xticks(x_pos)
-    ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=7.2)
+    ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=7.0)
     ax_bar.set_ylabel('Crustal Field $|\\mathbf{B}|$ at 30 km (nT)')
-    ax_bar.set_title('(c) Magnetic Field Magnitude at Exploration & Historical Sites', weight='bold')
-    ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
+    ax_bar.set_title('(c) Magnetic Field at Candidate Regions & Historical Sites', weight='bold')
+    ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.0)
     ax_bar.set_ylim(0, 5.5)
     ax_bar.grid(axis='y', linestyle=':', alpha=0.6)
     
-    # Text annotation comparing to Earth GMF
-    ax_bar.text(0.03, 0.72, 'Earth Geomagnetic Field (GMF): 25,000–65,000 nT\nLunar Artemis Sites: 0.40–0.82 nT (>30,000× lower)',
-                transform=ax_bar.transAxes, fontsize=7.5, verticalalignment='top',
+    # Text annotation comparing to Earth GMF and Crustal Anomalies
+    ax_bar.text(0.03, 0.72, 'Earth Geomagnetic Field: 25,000–65,000 nT\nExample Artemis Sites: 0.40–0.82 nT (>30,000× lower)\nCrustal Swirls (Reiner Gamma): 1 to 100s of nT',
+                transform=ax_bar.transAxes, fontsize=7.2, verticalalignment='top',
                 bbox=dict(boxstyle='round,pad=0.3', facecolor='#e3f2fd', edgecolor='#1976d2', alpha=0.95))
 
     # -------------------------------------------------------------

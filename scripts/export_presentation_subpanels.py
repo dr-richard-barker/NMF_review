@@ -516,9 +516,9 @@ def export_fig5_subpanels():
     ax.set_xlim(0, 100)
     ax.set_ylim(0, 100)
     chambers = [
-        ("Chamber 1: GMF Control", "45–50 µT Ambient GMF", "#e3f2fd", "#1565c0", "Terrestrial baseline"),
-        ("Chamber 2: Near-Null (NNMF)", "<10 nT (Shielded/Cancelled)", "#ffebee", "#c62828", "Lunar simulation"),
-        ("Chamber 3: Sham Control", "Current matched; B = 0", "#fff3e0", "#e65100", "Controls ohmic heat & EMI")
+        ("Chamber 1: GMF Control", "45–50 µT Ambient GMF", "#e3f2fd", "#1565c0", "Terrestrial environmental baseline"),
+        ("Chamber 2: Near-Null (NNMF)", "<10 nT (Shielded/Cancelled)", "#ffebee", "#c62828", "Lunar surface magnetic simulation"),
+        ("Chamber 3: Sham Control", "Current matched; net B = 0", "#fff3e0", "#e65100", "Controls ohmic heat, vibration & EMI")
     ]
     for idx, (c_name, b_field, bg, border, desc) in enumerate(chambers):
         y_c = 75 - idx * 28
@@ -530,25 +530,22 @@ def export_fig5_subpanels():
     fig.savefig(OUT_DIR / 'Fig5a_ground_chambers.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # Fig 5b: Flight Telemetry
-    fig, ax = plt.subplots(figsize=(5.6, 4.2), dpi=300)
+    # Fig 5b: Flight Payload Trade Space (Science Gaps vs Engineering Constraints)
+    fig, ax = plt.subplots(figsize=(5.6, 4.5), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
-    p_rect = patches.FancyBboxPatch((1.0, 1.0), 8.0, 8.0, boxstyle="round,pad=0.3", edgecolor="#37474f", facecolor="#f5f5f7", lw=1.2)
+    p_rect = patches.FancyBboxPatch((0.5, 5.2), 9.0, 4.3, boxstyle="round,pad=0.2", edgecolor="#1565c0", facecolor="#e3f2fd", lw=1.2)
     ax.add_patch(p_rect)
-    ax.text(5.0, 8.2, "Artemis LEAF Payload Enclosure", weight='bold', fontsize=8.0, ha='center', color="#263238")
-    ax.text(5.0, 7.3, "[Sample Growth Volume (0.166 g Lunar Gravity)]", fontsize=6.8, ha='center', color="#546e7a")
-    mag_box = patches.Circle((5.0, 4.8), 1.6, edgecolor="#1565c0", facecolor="#e3f2fd", lw=1.2)
-    ax.add_patch(mag_box)
-    ax.text(5.0, 5.2, "3-Axis Fluxgate", ha='center', weight='bold', fontsize=7.0, color="#0d47a1")
-    ax.text(5.0, 4.4, "0.1 nT Resolution\n10 Hz Telemetry", ha='center', fontsize=6.2, color="#1565c0")
-    ax.annotate('Seedling Cassette 1', xy=(2.5, 4.8), xytext=(2.5, 2.8), ha='center', fontsize=6.5,
-                bbox=dict(boxstyle='round,pad=0.2', facecolor='white', edgecolor='#388e3c'))
-    ax.annotate('Seedling Cassette 2', xy=(7.5, 4.8), xytext=(7.5, 2.8), ha='center', fontsize=6.5,
-                bbox=dict(boxstyle='round,pad=0.2', facecolor='white', edgecolor='#388e3c'))
-    ax.text(5.0, 1.6, "In-situ continuous telemetry decouples true\nlunar hypomagnetic exposure from spacecraft EMI",
-            ha='center', fontsize=6.5, weight='bold', color="#37474f")
+    ax.text(5.0, 8.9, "REALISTIC FLIGHT PAYLOAD ACCOMMODATION", weight='bold', fontsize=7.6, ha='center', color="#0d47a1")
+    ax.text(5.0, 7.0, "• Passive 3-axis magnetic sensing (miniature fluxgate or AMR)\n• Canopy-level environmental vector logging (Bx, By, Bz, |B|)\n• Minimal resource budget: < 1 W electrical power, grams mass\n• Continuous logging captures spacecraft DC avionics & stray fields\n• Enables post-flight correlative science & phenotype attribution",
+            ha='center', fontsize=6.3, color="#1565c0", linespacing=1.25)
+    
+    e_rect = patches.FancyBboxPatch((0.5, 0.5), 9.0, 4.3, boxstyle="round,pad=0.2", edgecolor="#c62828", facecolor="#ffebee", lw=1.2)
+    ax.add_patch(e_rect)
+    ax.text(5.0, 4.2, "EXCEEDS TYPICAL FLIGHT BUDGETS (GROUND-ONLY)", weight='bold', fontsize=7.6, ha='center', color="#b71c1c")
+    ax.text(5.0, 2.3, "• Active triaxial Helmholtz cancellation / bias coil hardware\n• Heavy copper coil mass, high continuous power draw & Joule heat\n• Severe spacecraft electromagnetic interference (EMI) certification\n• Complex in-flight closed-loop vector control systems\n• Best reserved for terrestrial laboratory analogues & ground testing",
+            ha='center', fontsize=6.3, color="#c62828", linespacing=1.25)
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig5b_flight_telemetry.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
@@ -558,42 +555,41 @@ def export_fig5_subpanels():
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
-    rescue_box = patches.FancyBboxPatch((0.8, 1.2), 8.4, 7.6, boxstyle="round,pad=0.3", edgecolor="#6a1b9a", facecolor="#f3e5f5", lw=1.3)
+    rescue_box = patches.FancyBboxPatch((0.8, 1.2), 8.4, 7.6, boxstyle="round,pad=0.3", edgecolor="#2e7d32", facecolor="#f1f8e9", lw=1.3)
     ax.add_patch(rescue_box)
-    ax.text(5.0, 8.2, "Active Causal Rescue Protocol", weight='bold', fontsize=8.2, ha='center', color="#4a148c")
+    ax.text(5.0, 8.2, "Three-Step In Situ Causal Rescue Protocol", weight='bold', fontsize=8.2, ha='center', color="#1b5e20")
     steps = [
-        ("Step 1: Environmental Shielding", "Permalloy / mu-metal or natural lunar surface void (<0.8 nT)"),
-        ("Step 2: Triaxial Helmholtz Coils", "Independent X, Y, Z axes integrated into chamber wall"),
-        ("Step 3: Vector Re-application", "Drive 45 µT static field aligned with Earth GMF vector"),
-        ("Step 4: Biological Verification", "Restores t50 emergence velocity & HY5 pigment biosynthesis")
+        ("Step 1: Hypomagnetic Exposure", "<10 nT inside shield elicits emergence lag & chlorosis"),
+        ("Step 2: Vector Re-application", "Triaxial Helmholtz coils restore calibrated 45 µT in situ"),
+        ("Step 3: Phenotype Rescue", "Complete recovery to baseline formally proves magnetic causality")
     ]
-    y_s = 7.0
+    y_s = 6.8
     for title, desc in steps:
-        ax.text(1.4, y_s, title, weight='bold', fontsize=7.2, color="#6a1b9a")
+        ax.text(1.4, y_s, title, weight='bold', fontsize=7.2, color="#2e7d32")
         ax.text(1.4, y_s - 0.55, desc, fontsize=6.5, color="#333333")
-        y_s -= 1.3
-    ax.text(5.0, 1.8, "Active re-application establishes causality and provides\na deployable countermeasure for lunar agricultural payloads",
-            ha='center', fontsize=6.5, weight='bold', color="#4a148c")
+        y_s -= 1.6
+    ax.text(5.0, 1.8, "Definitively rules out microclimatic, ethylene, or enclosure artifacts",
+            ha='center', fontsize=6.5, weight='bold', color="#1b5e20")
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig5c_causal_rescue.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # Fig 5d: Decision Matrix Logic
+    # Fig 5d: Phenotypic Disambiguation Matrix
     fig, ax = plt.subplots(figsize=(5.8, 4.5), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
-    gates = [
-        ("GREEN GATE (Nominal Flight)", "Ambient B < 5 nT | Germination ≥ 85%\nAction: Continue baseline autonomous imaging & telemetry", "#e8f5e9", "#2e7d32"),
-        ("AMBER GATE (Operational Shift)", "Field 5–50 nT ripple | 15–30% emergence delay\nAction: Log telemetry; initiate secondary optical chlorophyll assay", "#fff8e1", "#f57f17"),
-        ("RED GATE (Causal Intervention)", "Germination capacity drop > 30% | Severe chlorosis\nAction: Energize active 45 µT coils to rescue crop viability", "#ffebee", "#c62828")
+    stressors = [
+        ("Near-Null Magnetic Field (<10 nT)", "Emergence lag (Δt50 = +12–36 h); capacity drop 10–30%\nRepressed chlorophyll/anthocyanin (HEMA1, CHS); AOX1D leak\nDiagnostic: Rescued by 45 µT vector; insensitive to 1g spin", "#ffebee", "#c62828"),
+        ("Lunar Partial Gravity (0.166 g)", "Normal germination capacity; negligible emergence lag\nDirectional skewing, random root waving; apoplastic ROS (RBOH)\nDiagnostic: Rescued by 1g centrifuge; insensitive to B-field", "#e8f5e9", "#2e7d32"),
+        ("Deep-Space Radiation (GCR)", "Emergence arrest only at lethal doses; apical stunting\nSevere DNA double-strand breaks, γ-H2AX foci & ATM/ATR\nDiagnostic: Mitigated by shielding; correlated with dosimeter", "#fff3e0", "#e65100")
     ]
     y_g = 7.5
-    for title, desc, bg, edge in gates:
+    for title, desc, bg, edge in stressors:
         g_rect = patches.FancyBboxPatch((0.5, y_g - 2.05), 9.0, 2.25, boxstyle="round,pad=0.2", edgecolor=edge, facecolor=bg, lw=1.2)
         ax.add_patch(g_rect)
-        ax.text(0.9, y_g - 0.45, title, weight='bold', fontsize=8.2, color=edge)
-        ax.text(0.9, y_g - 1.4, desc, fontsize=7.2, color="#333333", linespacing=1.3)
+        ax.text(0.9, y_g - 0.45, title, weight='bold', fontsize=7.8, color=edge)
+        ax.text(0.9, y_g - 1.4, desc, fontsize=6.6, color="#333333", linespacing=1.25)
         y_g -= 2.6
     plt.tight_layout()
     fig.savefig(OUT_DIR / 'Fig5d_decision_matrix.png', dpi=300, bbox_inches='tight')
@@ -645,7 +641,7 @@ def export_ga_subpanels():
     fig.savefig(OUT_DIR / 'GA_panel2_mechanism.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
-    # GA Panel 3: Solution
+    # GA Panel 3: Solution & Risk Framework
     fig, ax = plt.subplots(figsize=(4.2, 5.8), dpi=300)
     ax.axis('off')
     ax.set_xlim(0, 10)
@@ -654,10 +650,10 @@ def export_ga_subpanels():
     ax.add_patch(card)
     ax.text(5.0, 8.8, "3. FLIGHT RISK RETIREMENT", ha='center', weight='bold', fontsize=9.2, color="#1b5e20")
     sols = [
-        ("In-Situ Magnetometry", "In-chamber 3-axis fluxgate telemetry to measure true exposure"),
-        ("3-Chamber Ground Controls", "GMF, NNMF, and matched-current bifilar sham to decouple heat/EMI"),
-        ("Active Causal Rescue", "40–50 µT vector re-application inside chamber rescues vigor"),
-        ("Operational Flight Gates", "Predeclared Green / Amber / Red decision thresholds for Artemis LEAF")
+        ("In-Situ Magnetometry", "Canopy-level 3-axis passive vector logging (<1 W, grams)"),
+        ("3-Chamber Ground Standards", "GMF, NNMF, and matched-current bifilar sham to decouple heat/EMI"),
+        ("In Situ Causal Rescue", "40–50 µT vector restoration inside chamber rescues vigor"),
+        ("Phenotype Disambiguation", "Matrix distinguishes HMF, 0.166 g, & radiation lesions")
     ]
     y_s = 7.6
     for t, d in sols:

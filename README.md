@@ -184,6 +184,7 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 
 ## Authors & Affiliations
 
+- **D. Marshall Porterfield** <sup>1,*</sup> (`porterf@purdue.edu`)
 - **Richard J. Barker** <sup>1,*</sup> (`dr.richard.barker@gmail.com`, [ORCID: 0000-0001-5681-9857](https://orcid.org/0000-0001-5681-9857))
 - **Caue Borlina** <sup>2</sup>
 - **Aubrey O’Rourke** <sup>2</sup>
@@ -197,7 +198,6 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 - **Pamela Flores** <sup>6</sup>
 - **Anirudha Dixit** <sup>4</sup>
 - **Christine Chamberlain** <sup>6</sup>
-- **D. Marshall Porterfield** <sup>1,*</sup> (`porterf@purdue.edu`)
 
 <sup>1</sup> Department of Agricultural and Biological Engineering, Purdue University, West Lafayette, IN 47907, USA  
 <sup>2</sup> Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA  
@@ -214,12 +214,12 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 ## Citation
 
 ```bibtex
-@article{Barker_Porterfield_2026_NNMF,
-  author       = {Barker, Richard J. and Borlina, Caue and O'Rourke, Aubrey and
+@article{Porterfield_Barker_2026_NNMF,
+  author       = {Porterfield, D. Marshall and Barker, Richard J. and Borlina, Caue and O'Rourke, Aubrey and
                   Sanchez, Adriana and Dagar, Manisha and Leiva Aldana, Sofia and
                   Wheeler, Ray and Massa, Gioia and Demmig-Adams, Barbara and
                   Peirats-Llobet, Marta and Flores, Pamela and Dixit, Anirudha and
-                  Chamberlain, Christine and Porterfield, D. Marshall},
+                  Chamberlain, Christine},
   title        = {Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture},
   journal      = {Life Sciences in Space Research},
   year         = {2026},
