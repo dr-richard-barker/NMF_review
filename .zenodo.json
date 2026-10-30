@@ -1,6 +1,6 @@
 {
   "title": "Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture",
-  "description": "<p>Review manuscript, data synthesis, and reproducible figure generation pipeline for <em>Life Sciences in Space Research</em> (LSSR). This work evaluates the biological consequences of the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis candidate landing sites) during the critical first 5 days of plant growth (0–120 hours). It synthesizes empirical literature across five core concepts: germination capacity, emergence velocity kinetics, cryptochrome-mediated pigment biosynthesis, convergence on the mitochondrial CO2-O2-ROS nexus with spaceflight radiation and exploration atmospheres, and human-plant conserved Alternative Oxidase (AOX) / mitochondrial stress parallels. Includes an operational flight risk-retirement framework for the NASA Artemis III Lunar Effects on Agricultural Flora (LEAF) payload.</p>",
+  "description": "<p>Review manuscript, data synthesis, and reproducible figure generation pipeline for <em>Life Sciences in Space Research</em> (LSSR). This work evaluates the biological consequences of the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis candidate landing sites) during the critical first 5 days of plant growth (0–120 hours). It synthesizes empirical literature across five core concepts: germination capacity, emergence velocity kinetics, cryptochrome-mediated pigment biosynthesis, convergence on the mitochondrial CO2-O2-ROS nexus with spaceflight radiation and exploration atmospheres, and human-plant conserved Alternative Oxidase (AOX) / mitochondrial stress parallels. Includes an operational flight risk-retirement framework for the NASA Artemis missions Lunar Effects on Agricultural Flora (LEAF) payload.</p>",
   "upload_type": "publication",
   "publication_type": "article",
   "access_right": "open",
@@ -9,7 +9,7 @@
     "lunar plant biology",
     "near-null magnetic field",
     "hypomagnetic field",
-    "Artemis III LEAF",
+    "Artemis missions LEAF",
     "seed germination",
     "mitochondrial bioenergetics",
     "reactive oxygen species",

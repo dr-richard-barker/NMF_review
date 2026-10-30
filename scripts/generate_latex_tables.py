@@ -110,7 +110,7 @@ Stressor & Cellular Target & Emergence & Greening / Pigments & Diagnostic Marker
         f.write(r"""\bottomrule
 \end{tabular*}
 \begin{tablenotes}
-\item Methodological framework for resolving confounding environmental factors in lunar surface payloads such as Artemis III LEAF.
+\item Methodological framework for resolving confounding environmental factors in lunar surface payloads such as Artemis missions' LEAF.
 \end{tablenotes}
 \end{table*}
 """)

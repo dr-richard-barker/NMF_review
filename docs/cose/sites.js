@@ -175,7 +175,7 @@ window.BARKER_SITES = {
           desc:"From Dust to Bio-Infrastructure: Sintered Regolith Ceramics for Lunar Bioregenerative Life Support Systems (npj Microgravity review).",
           url:"https://dr-richard-barker.github.io/lunar-regolith-blss-review/" },
         { id:"NMF_review", emoji:"🧲", title:"Near-Null Magnetic Fields & Lunar Plant Biology",
-          desc:"LSSR review on near-null magnetic fields (NNMF) during the first 5 days of seedling growth, quantum cryptochrome biology, and the Artemis III LEAF nexus",
+          desc:"LSSR review on near-null magnetic fields (NNMF) during the first 5 days of seedling growth, quantum cryptochrome biology, and the Artemis missions LEAF nexus",
           url:"https://dr-richard-barker.github.io/NMF_review/" },
       ]
     },

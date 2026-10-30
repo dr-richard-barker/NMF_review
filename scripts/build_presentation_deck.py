@@ -99,7 +99,7 @@ def add_footer(slide, slide_num, total_slides=16, dark=False):
     foot_box = slide.shapes.add_textbox(Inches(0.8), Inches(7.05), Inches(11.733), Inches(0.3))
     tf = foot_box.text_frame
     p = tf.paragraphs[0]
-    p.text = f"Life Sciences in Space Research (2026) | Artemis III LEAF Perspective              Slide {slide_num} of {total_slides}"
+    p.text = f"Life Sciences in Space Research (2026) | Artemis Missions LEAF Perspective        Slide {slide_num} of {total_slides}"
     p.font.size = Pt(8.5)
     p.font.color.rgb = RGBColor(100, 116, 139) if not dark else RGBColor(148, 163, 184)
 
@@ -133,7 +133,7 @@ def build_slide_01_title(prs):
     # Pill badge
     pill = slide.shapes.add_textbox(Inches(1.2), Inches(1.1), Inches(8.0), Inches(0.4))
     p = pill.text_frame.paragraphs[0]
-    p.text = "COSPAR / ELSEVIER REVIEW ARTICLE — ARTEMIS III LEAF PERSPECTIVE"
+    p.text = "COSPAR / ELSEVIER REVIEW ARTICLE — ARTEMIS MISSIONS LEAF PERSPECTIVE"
     p.font.size = Pt(10.0)
     p.font.bold = True
     p.font.color.rgb = RGBColor(56, 189, 248)
@@ -177,7 +177,7 @@ def build_slide_01_title(prs):
     badge_box = slide.shapes.add_textbox(Inches(1.2), Inches(5.6), Inches(10.8), Inches(0.6))
     tf_b = badge_box.text_frame
     p_b = tf_b.paragraphs[0]
-    p_b.text = "Target Journal: Life Sciences in Space Research (LSSR)  |  Mission Context: Artemis III LEAF Payload  |  FAIR Repository & CoSE Portal Ready"
+    p_b.text = "Target Journal: Life Sciences in Space Research (LSSR)  |  Mission Context: Artemis Missions LEAF Payload  |  FAIR Repository & CoSE Portal Ready"
     p_b.font.size = Pt(9.0)
     p_b.font.bold = True
     p_b.font.color.rgb = RGBColor(148, 163, 184)
@@ -380,7 +380,7 @@ def build_slide_04_figure1_deepdive(prs):
     add_notes(slide,
         "TALKING POINTS (SLIDE 4 - FIGURE 1 DEEP DIVE):\n"
         "• Let's dive deeper into the physics of the lunar landing sites.\n"
-        "• Notice from Table 1 that every single candidate landing site for Artemis III and future Artemis missions has a crustal magnetic field below 1 nanotesla.\n"
+        "• Notice from Table 1 that every single candidate landing site for Artemis missions has a crustal magnetic field below 1 nanotesla.\n"
         "• Haworth is at 0.40 nT; Faustini Rim A is at 0.45 nT; Peak Near Shackleton is 0.82 nT.\n"
         "• Compare that to Apollo 16 Descartes highlands, where local crustal anomalies reach 4.94 nT, or Earth where the field is 50,000 nT.\n"
         "• But here is the critical engineering challenge: look at the superposition equation at the bottom left.\n"
@@ -542,7 +542,7 @@ def build_slide_07_figure3_deepdive(prs):
     add_notes(slide,
         "TALKING POINTS (SLIDE 6 - FIGURE 2 DEEP DIVE):\n"
         "• Why does a delay of 12 to 36 hours in germination matter on the Moon?\n"
-        "• In field agriculture on Earth, seeds have excess time and buffer. In a tightly scheduled spaceflight payload like LEAF on Artemis III, or a lunar greenhouse, mission timelines are strictly constrained.\n"
+        "• In field agriculture on Earth, seeds have excess time and buffer. In a tightly scheduled spaceflight payload like LEAF on Artemis missions, or a lunar greenhouse, mission timelines are strictly constrained.\n"
         "• LEAF is designed for a nominal mission duration of around 7 to 10 days. If seed germination is delayed by 36 hours, you lose 30% to 50% of your autotrophic growth window!\n"
         "• Furthermore, at the cellular level, near-null fields reduce cell division in the root apical meristem and disrupt PIN2 auxin carriers. That means roots grow slower, are more disoriented, and absorb water and nutrients less efficiently.\n"
         "• The resulting 28% drop in biomass is not an academic curiosity—it is a direct hit to the caloric and nutrient yield of space crops."
@@ -988,7 +988,7 @@ def build_slide_15_discussion_roadmap(prs):
     set_slide_background(slide, WHITE_CANVAS)
     add_header(slide, "Research Roadmap & Discussion",
                "Key Questions for the Working Group",
-               "Strategic priorities for Artemis III LEAF operations and long-duration lunar bioregenerative life support")
+               "Strategic priorities for Artemis missions LEAF operations and long-duration lunar bioregenerative life support")
 
     topics = [
         ("Question 1: Flight Payload Hardware Integration",

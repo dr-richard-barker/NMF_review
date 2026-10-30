@@ -46,11 +46,17 @@ def check_1_blocklist():
             r'barker2023deepspaceag',
             r'cozy[ -]?canopy,?[ ]*l\.?l\.?c\b'
         ]
+    # Always enforce strict ban on Roman numeral mission designation (must refer only to Artemis missions)
+    if r'\bArtemis[ -]?(III|3)\b' not in patterns:
+        patterns.append(r'\bArtemis[ -]?(III|3)\b')
                 
     hits = []
-    # Search all text/markdown/python/bib files in repo, excluding the audit script itself
+    # Search all text/markdown/python/bib files in repo, excluding the audit script itself and .git
     for p in BASE_DIR.rglob('*'):
-        if p.is_file() and p.name != 'run_abai_qc_audit.py' and not any(part.startswith('.') for part in p.parts if part != '.'):
+        if p.is_file() and p.name != 'run_abai_qc_audit.py' and '.git' not in p.parts:
+            # Skip binary artifacts or large caches
+            if p.suffix.lower() in ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.pptx', '.docx', '.zip', '.gz', '.aux', '.bbl', '.blg', '.log', '.out']:
+                continue
             try:
                 content = p.read_text(encoding='utf-8', errors='ignore')
                 for pat in patterns:

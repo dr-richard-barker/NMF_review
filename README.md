@@ -1,7 +1,7 @@
 # Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture
 
 [![Journal](https://img.shields.io/badge/Target%20Journal-Life%20Sciences%20in%20Space%20Research-blue.svg)](https://www.sciencedirect.com/journal/life-sciences-in-space-research)
-[![Mission](https://img.shields.io/badge/Artemis%20III-LEAF%20Payload-orange.svg)](https://www.nasa.gov/missions/artemis/artemis-3/)
+[![Mission](https://img.shields.io/badge/Artemis%20Missions-LEAF%20Payload-orange.svg)](https://www.nasa.gov/missions/artemis/)
 [![GitHub Pages](https://img.shields.io/badge/Live%20Showcase-CoSE%20Portal-darkgreen.svg)](https://dr-richard-barker.github.io/NMF_review/)
 [![ABAI QC](https://img.shields.io/badge/ABAI%20QC-Verified%20Clear-brightgreen.svg)](#astrobotany-ai-abai-qc-verification)
 [![Zenodo](https://img.shields.io/badge/Zenodo-FAIR%20Scaffold%20Ready-blueviolet.svg)](#zenodo-deposition--fair-sharing)

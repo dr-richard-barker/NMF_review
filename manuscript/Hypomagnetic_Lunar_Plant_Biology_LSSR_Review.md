@@ -52,7 +52,7 @@ However, **the local magnetic field vector within the biological specimen volume
 ### 1.2 Planetary Crustal Field Distribution & Example Candidate Landing Regions
 As demonstrated by high-resolution magnetometer data compiled from the Lunar Prospector and Kaguya missions [16–18], the Moon's crust carries localized remanent paleomagnetic anomalies (ranging from $1\text{ to }100\text{s of nT}$ in regions like Reiner Gamma and the Descartes highlands near Apollo 16). However, the example candidate Artemis exploration regions in the South Polar region identified by NASA and the Artemis Lunar Surface Science Team (ALSST) [1,6,16]—such as Faustini Rim A, Haworth crater, Connecting Ridge, de Gerlache Rim, Malapert Massif, and Peak Near Shackleton—reside uniformly within a profound **near-null magnetic field (NNMF) environment, where ambient crustal fields range between $0.40\text{ and }0.82\text{ nT}$** (Table 1; Figure 1b,c). 
 
-**Table 1 | Crustal magnetic field magnitude at planned Artemis candidate sites and historical lunar landing locations.** Coordinates and total magnetic field magnitude $|\mathbf{B}|$ at 30 km altitude derived from South Polar and equatorial orbital mapping models [16–18]. Candidate regions reflect published selections from NASA Artemis planning announcements (2022, 2024) and the Artemis III Science Definition Team Report (NASA SP-20205009602).
+**Table 1 | Crustal magnetic field magnitude at planned Artemis candidate sites and historical lunar landing locations.** Coordinates and total magnetic field magnitude $|\mathbf{B}|$ at 30 km altitude derived from South Polar and equatorial orbital mapping models [16–18]. Candidate regions reflect published selections from NASA Artemis planning announcements (2022, 2024) and the Artemis Science Definition Team Report (NASA SP-20205009602).
 
 | Mission | Landing Feature / Example Candidate Region | Latitude ($^\circ$) | Longitude ($^\circ$) | $|\mathbf{B}_{\text{30km}}|$ (nT) | Field Classification | Published Source |
 | :--- | :--- | :---: | :---: | :---: | :--- | :--- |
@@ -335,7 +335,7 @@ This work was supported by NASA Biological and Physical Sciences (BPS) awards an
 **D.M.P.** and **R.J.B.** conceived and designed the review framework. **R.J.B.** compiled the multi-omics overlap analyses and generated the figures. **C.B.** and **A.O.** analyzed the lunar orbital magnetometer datasets and landing site coordinates. **A.S.** and **M.D.** contributed to literature synthesis on seed germination kinetics and pigment biosynthesis. **R.W.**, **G.M.**, and **B.D.-A.** contributed expertise on space crop production, exploration atmospheres, and photosynthetic bioenergetics. **M.P.-L.**, **P.F.**, **A.D.**, and **C.C.** contributed to payload engineering requirements and causal validation pipelines. All authors contributed to writing, critical revision, and approved the final manuscript.
 
 ## Competing Interests
-D.M.P. is a Co-Investigator on the NASA Artemis III LEAF payload; C.C. is affiliated with Space Lab Technologies, LLC. These roles are disclosed with no commercial or financial conflicts of interest. The remaining authors declare no competing interests.
+D.M.P. is a Co-Investigator on the NASA Artemis missions' LEAF payload; C.C. is affiliated with Space Lab Technologies, LLC. These roles are disclosed with no commercial or financial conflicts of interest. The remaining authors declare no competing interests.
 
 ## Data Availability
 All planetary magnetic field datasets analyzed in this manuscript are openly available from the NASA Planetary Data System (PDS) and JAXA DARTS archives. Gene expression datasets are accessible via the NASA Open Science Data Repository (OSDR, studies OSD-782, OSD-8, and OSD-27). Code for figure generation and pathway maps is hosted in the project repositories (`lunar-magnetic-biology` and `quantum-biology-atlas`).
@@ -349,7 +349,7 @@ All planetary magnetic field datasets analyzed in this manuscript are openly ava
 3. Fountain, L. L. et al. Expanding frontiers: harnessing plant biology for space exploration and planetary sustainability. *New Phytol.* **249**, 656–669 (2026). https://doi.org/10.1111/nph.70662
 4. Wheeler, R. M. Agriculture for space: People and places paving the way. *Open Agric.* **2**, 14–32 (2017). https://doi.org/10.1515/opag-2017-0002
 5. Massa, G. D. et al. Selection of leafy green vegetable crops for a space mission. *Gravit. Space Res.* **3**, 32–40 (2015).
-6. Space Lab Tech. Lunar Effects on Agricultural Flora (LEAF) selected for Artemis III surface deployment. *Space Lab Technologies News* (April 2024).
+6. Space Lab Tech. Lunar Effects on Agricultural Flora (LEAF) selected for Artemis missions surface deployment. *Space Lab Technologies News* (April 2024).
 7. Paul, A.-L., Wheeler, R. M., Levine, H. G. & Ferl, R. J. Fundamental plant biology in spaceflight. *Adv. Space Res.* **51**, 501–510 (2013). https://doi.org/10.1016/j.asr.2012.09.038
 8. Norcross, C. J. et al. Exploration Atmosphere: NASA’s plan for reduced pressure and elevated oxygen for future human space missions. *48th International Conference on Environmental Systems*, ICES-2018-199 (2018).
 9. Ferl, R. J. & Paul, A.-L. The genome of *Arabidopsis thaliana* in spaceflight. *Genome Biol.* **17**, 155 (2016). https://doi.org/10.1186/s13059-016-1011-3
