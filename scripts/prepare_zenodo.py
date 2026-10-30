@@ -33,6 +33,18 @@ EXCLUDE_FILES = {
     "_temp_for_docx.md",
 }
 
+EXCLUDE_EXTENSIONS = {
+    ".aux",
+    ".log",
+    ".bbl",
+    ".blg",
+    ".out",
+    ".toc",
+    ".synctex.gz",
+    ".fls",
+    ".fdb_latexmk",
+}
+
 def get_file_sha256(filepath: Path) -> str:
     hasher = hashlib.sha256()
     with open(filepath, "rb") as f:
@@ -96,7 +108,7 @@ def main():
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
 
         for file in sorted(files):
-            if file in EXCLUDE_FILES or file.startswith("~$") or file.endswith(".tmp"):
+            if file in EXCLUDE_FILES or file.startswith("~$") or file.endswith(".tmp") or any(file.endswith(ext) for ext in EXCLUDE_EXTENSIONS):
                 continue
 
             file_path = Path(root) / file

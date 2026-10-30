@@ -159,12 +159,12 @@ def main():
     ax_polar.set_ylim(-91.2, -82.4)
     ax_polar.set_xlabel('Longitude (°E)')
     ax_polar.set_ylabel('Latitude (°N)')
-    ax_polar.set_title('Candidate Artemis Regions (Near-Null Field)', weight='bold', pad=10, fontsize=8.8)
+    ax_polar.set_title('Candidate Artemis Regions (|B| at 30 km Proxy)', weight='bold', pad=10, fontsize=8.8)
     ax_polar.text(-0.04, 1.03, 'b', transform=ax_polar.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_polar.grid(True, linestyle=':', alpha=0.6)
     
     cbar_pol = plt.colorbar(scatter, ax=ax_polar, orientation='vertical', fraction=0.035, pad=0.02)
-    cbar_pol.set_label('$|\\mathbf{B}_{\\mathrm{crust}}|$ (nT)', fontsize=7.8)
+    cbar_pol.set_label('$|\\mathbf{B}_{\\mathrm{crust}}|$ at 30 km (nT)', fontsize=7.8)
     cbar_pol.ax.tick_params(labelsize=6.8)
 
     # -------------------------------------------------------------
@@ -180,21 +180,21 @@ def main():
     ax_bar.bar(x_pos, df_sorted['Bmag'], color=bar_colors, edgecolor='black', linewidth=0.5, alpha=0.9)
     
     # Reference thresholds
-    ax_bar.axhline(1.0, color='#f57c00', linestyle='--', linewidth=1.0, label='Near-Null Boundary (1 nT)')
+    ax_bar.axhline(1.0, color='#f57c00', linestyle='--', linewidth=1.0, label='Near-Null Boundary (1 nT; E_Z << a_hf)')
     ax_bar.axhline(5.0, color='#d32f2f', linestyle=':', linewidth=1.0, label='Moderate Crustal Swirl (5 nT)')
     
     ax_bar.set_xticks(x_pos)
     ax_bar.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=7.0)
     ax_bar.set_ylabel('Crustal Field $|\\mathbf{B}|$ at 30 km (nT)')
-    ax_bar.set_title('Magnetic Field at Candidate Regions & Historical Sites', weight='bold', fontsize=8.8, pad=10)
+    ax_bar.set_title('Crustal Field at Candidate Regions & Historical Sites', weight='bold', fontsize=8.8, pad=10)
     ax_bar.text(-0.04, 1.03, 'c', transform=ax_bar.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
-    ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.0)
+    ax_bar.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9, fontsize=6.8)
     ax_bar.set_ylim(0, 5.5)
     ax_bar.grid(axis='y', linestyle=':', alpha=0.6)
     
     # Text annotation comparing to Earth GMF and Crustal Anomalies
-    ax_bar.text(0.03, 0.72, 'Earth Geomagnetic Field: 25,000–65,000 nT\nExample Artemis Sites: 0.40–0.82 nT (>30,000× lower)\nCrustal Swirls (Reiner Gamma): 1 to 100s of nT',
-                transform=ax_bar.transAxes, fontsize=7.2, verticalalignment='top',
+    ax_bar.text(0.03, 0.72, 'Earth Geomagnetic Field: 25,000–65,000 nT\nExample Artemis Sites: 0.40–0.82 nT (30 km proxy)\nSurface enhancement bounded to <3–5 nT\nCrustal Swirls (Reiner Gamma): 1 to 100s of nT',
+                transform=ax_bar.transAxes, fontsize=6.8, verticalalignment='top',
                 bbox=dict(boxstyle='round,pad=0.3', facecolor='#e3f2fd', edgecolor='#1976d2', alpha=0.95))
 
     # -------------------------------------------------------------
@@ -213,8 +213,8 @@ def main():
     eq_rect = patches.FancyBboxPatch((0.20, 9.05), 10.10, 1.95, boxstyle="round,pad=0.1,rounding_size=0.25",
                                      edgecolor="#0288d1", facecolor="#e1f5fe", lw=1.2)
     ax_sch.add_patch(eq_rect)
-    ax_sch.text(5.25, 10.20, r"$\mathbf{B}_{\mathrm{total}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
-                fontsize=8.1, weight='bold', ha='center', va='center', color='#01579b')
+    ax_sch.text(5.25, 10.20, r"$\mathbf{B}_{\mathrm{surface}}(t, \mathbf{x}) = \mathbf{B}_{\mathrm{crust}} + \mathbf{B}_{\mathrm{ext}} + \mathbf{B}_{\mathrm{lander}} + \mathbf{B}_{\mathrm{payload}} + \mathbf{B}_{\mathrm{control}}$",
+                fontsize=8.0, weight='bold', ha='center', va='center', color='#01579b')
     ax_sch.text(5.25, 9.45, "Net Vector Sum Governs Primary Spin-Chemical Biomarkers",
                 fontsize=7.2, ha='center', va='center', color='#0277bd', style='italic')
 
@@ -228,27 +228,30 @@ def main():
 
     # Vector contributions table / callouts
     contributions = [
-        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.4 – 0.8 nT", "Lunar South Pole paleomagnetic void", "#1565c0"),
-        (r"$\mathbf{B}_{\mathrm{ext}}$", "1 – 5 nT", "Solar wind IMF / magnetotail shadow", "#2e7d32"),
-        (r"$\mathbf{B}_{\mathrm{lander}}$", "50 – 500 µT", "Lander avionics, DC power buses & batteries [Confounder]", "#c62828"),
-        (r"$\mathbf{B}_{\mathrm{payload}}$", "15 – 20 nT", "Payload fans, fluidic pumps, heaters, LEDs [Ripple]", "#e65100"),
+        (r"$\mathbf{B}_{\mathrm{crust}}$", "0.40–0.82 nT", r"Lunar South Pole proxy (surface bound <3–5 nT; $|\nabla B| \ll 10^{-4}$ nT/cm)", "#1565c0"),
+        (r"$\mathbf{B}_{\mathrm{ext}}$", "1 – 10 nT", "Dynamic solar wind IMF & magnetotail plasma sheet", "#2e7d32"),
+        (r"$\mathbf{B}_{\mathrm{lander}}$", "50 – 500 µT", "Lander avionics, DC power buses & batteries at 1–3 m standoff", "#c62828"),
+        (r"$\mathbf{B}_{\mathrm{payload}}$", "Static: 2–48 µT", "Internal wiring & drivers | AC PWM ripple: 15–50 nT_RMS", "#e65100"),
         (r"$\mathbf{B}_{\mathrm{control}}$", "40 – 50 µT", "Active 3-axis compensation / causal rescue coils", "#6a1b9a"),
     ]
     
     y_pos = [7.45, 6.70, 5.95, 5.20, 4.45]
     for (symbol, mag, desc, col), y_val in zip(contributions, y_pos):
         ax_sch.text(0.50, y_val, symbol, fontsize=8.4, weight='bold', color=col, va='center')
-        ax_sch.text(1.85, y_val, f"[{mag}]", fontsize=7.4, weight='bold', color='#212121', va='center')
-        ax_sch.text(3.55, y_val, desc, fontsize=6.8, color='#455a64', va='center')
+        ax_sch.text(1.75, y_val, f"[{mag}]", fontsize=7.1, weight='bold', color='#212121', va='center')
+        ax_sch.text(4.00, y_val, desc, fontsize=6.6, color='#455a64', va='center')
 
     # 3. Warning notice (RED box) - widened with deep margins so text easily fits inside
     warn_rect = patches.FancyBboxPatch((0.45, 0.60), 9.60, 3.40, boxstyle="round,pad=0.15,rounding_size=0.2",
                                        edgecolor="#d32f2f", facecolor="#ffebee", lw=1.1)
     ax_sch.add_patch(warn_rect)
-    ax_sch.text(5.25, 3.55, "CRITICAL: LANDER AVIONICS ARTIFACT RISK",
-                fontsize=7.6, weight='bold', ha='center', va='center', color='#b71c1c')
-    ax_sch.text(5.25, 2.15, "Unshielded DC currents (50–500 µT) follow a steep 1/r³ falloff and can swamp\nthe ambient null field. Sample-level 3-axis canopy magnetometry (<1 W, 50 g)\nis essential to decouple true lunar hypomagnetic effects from avionics noise.",
-                fontsize=6.8, ha='center', va='center', color='#b71c1c', linespacing=1.35)
+    ax_sch.text(5.25, 3.55, "CRITICAL: HARNESS ARTIFACTS & WITHIN-CASSETTE GRADIENTS",
+                fontsize=7.4, weight='bold', ha='center', va='center', color='#b71c1c')
+    ax_sch.text(5.25, 2.15, r"Unshielded payload DC currents (2–48 $\mu$T) generate steep gradients" + "\n" +
+                r"($|\nabla B| \sim 1\mathrm{--}50$ nT/cm across 10 cm), swamping the regional near-null void." + "\n" +
+                r"Bifilar twisted wiring and multi-point canopy magnetometry (<1 W, 50 g)" + "\n" +
+                "are mandatory to measure and verify true biological exposures.",
+                fontsize=6.6, ha='center', va='center', color='#c62828', linespacing=1.28)
 
     plt.tight_layout()
     out_pdf = OUT_DIR / 'Fig1_lunar_magnetic_environment_montage.pdf'

@@ -63,8 +63,8 @@ def main():
             ("Exploration Pressure", "56.5 kPa (8.2 psia) / 34 kPa"),
             ("Elevated Oxygen (O2)", "34% (19.2 kPa pO2)"),
             ("Elevated CO2", "1200–3000 ppm (0.12–0.30 kPa)"),
-            ("Lunar Magnetic Field", "<0.5–1 nT (Near-Null Void)"),
-            ("Galactic Cosmic Rad.", "100–380 mGy/year (GCR/SPE)")
+            ("Lunar Magnetic Field", "0.40–0.82 nT (Deep Void)"),
+            ("Chronic GCR / SPE", "GCR: 60–100 mGy/yr | SPE: 0.5–2 Gy")
         ])
     ]
 
@@ -104,29 +104,29 @@ def main():
     ax_nexus.add_patch(box_nex)
 
     # Gas balance inputs (Top)
-    ax_nexus.text(50, 91.5, "Exploration Atmosphere Gas Balance (CO2 <-> O2)", fontsize=7.8, weight='bold', color='#006064', ha='center', va='center')
+    ax_nexus.text(50, 91.5, "Exploration Atmosphere Gas Balance (CO2 <-> O2 Nexus)", fontsize=7.8, weight='bold', color='#006064', ha='center', va='center')
     
-    # Left: High CO2 suppression of photorespiration
+    # Left: Phase II 72–120 h Autotrophic Greening
     c_box = patches.FancyBboxPatch((5, 62), 42, 24, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#2e7d32", facecolor="#ffffff", lw=1.0)
     ax_nexus.add_patch(c_box)
-    ax_nexus.text(26, 79, "Peroxisomal Shunt", fontsize=7.4, weight='bold', color='#1b5e20', ha='center')
-    ax_nexus.text(26, 70, "Elevated CO2 (1000–3000 ppm)\nsuppresses RuBisCO oxygenation\n──► Lowers glycolate H2O2", fontsize=6.6, ha='center')
+    ax_nexus.text(26, 79, "Phase II: 72–120 h (Greening)", fontsize=7.2, weight='bold', color='#1b5e20', ha='center')
+    ax_nexus.text(26, 69.5, "RuBisCO active in plastids\nElevated CO2 (1200–3000 ppm)\nsuppresses glycolate H2O2", fontsize=6.5, ha='center')
 
-    # Right: Mitochondrial O2 terminal oxidases
+    # Right: Phase I 0–72 h Heterotrophic Germination
     o_box = patches.FancyBboxPatch((53, 62), 42, 24, boxstyle="round,pad=0,rounding_size=2",
                                    edgecolor="#c2185b", facecolor="#ffffff", lw=1.0)
     ax_nexus.add_patch(o_box)
-    ax_nexus.text(74, 79, "Mitochondrial Terminal Balance", fontsize=7.4, weight='bold', color='#880e4f', ha='center')
-    ax_nexus.text(74, 70, "Altered pO2 & hypobaric diffusion:\n• COX (Complex IV): High affinity\n• AOX (Alt. Oxidase): Low affinity", fontsize=6.6, ha='center')
+    ax_nexus.text(74, 79, "Phase I: 0–72 h (Heterotrophic)", fontsize=7.2, weight='bold', color='#880e4f', ha='center')
+    ax_nexus.text(74, 69.5, "Peroxisomal lipid β-oxidation (H2O2)\nMitochondrial restart: O2•- leak\nAnaplerotic CO2 carboxylation", fontsize=6.5, ha='center')
 
     # Center: The Radical & ROS Hub
     ros_box = patches.FancyBboxPatch((15, 22), 70, 32, boxstyle="round,pad=0,rounding_size=2",
                                      edgecolor="#d32f2f", facecolor="#ffebee", lw=1.4)
     ax_nexus.add_patch(ros_box)
-    ax_nexus.text(50, 48, "CENTRAL ROS & RADICAL CONVERGENCE", fontsize=7.6, weight='bold', color='#b71c1c', ha='center')
-    ax_nexus.text(50, 39, "Complex I & III electron leak ──► Superoxide (O2•-) ──► H2O2\nCoupled to Fe-S cluster turnover & GCR radiolytic radicals (OH•)", fontsize=6.8, ha='center')
-    ax_nexus.text(50, 29, "Alternative Oxidase (AOX) vents excess redox pressure directly to O2\nCatalase (CAT3) scavenges peroxisomal & mitochondrial H2O2", fontsize=6.7, weight='bold', color='#004d40', ha='center')
+    ax_nexus.text(50, 48, "CENTRAL ROS & MITOCHONDRIAL-RETROGRADE HUB", fontsize=7.5, weight='bold', color='#b71c1c', ha='center')
+    ax_nexus.text(50, 39, "Complex I & III electron leak ──► Superoxide (O2•-) ──► H2O2\nCoupled to Fe-S cluster turnover & GCR radiolytic radicals (OH•)", fontsize=6.7, ha='center')
+    ax_nexus.text(50, 29, "Alternative Oxidase (AOX1D) vents excess redox pressure directly to O2\nCatalase (CAT3) scavenges peroxisomal & mitochondrial H2O2", fontsize=6.7, weight='bold', color='#004d40', ha='center')
 
     # Connection arrows
     ax_nexus.annotate('', xy=(35, 54), xytext=(26, 62), arrowprops=dict(arrowstyle='->', lw=1.2, color='#1b5e20'))
@@ -160,7 +160,7 @@ def main():
     ax_de.set_yticks(y_pos)
     ax_de.set_yticklabels(loci, fontsize=7.6)
     ax_de.set_xlabel('Log2 Fold Change (Perturbation vs. Control)')
-    ax_de.set_title('Multi-Omics Empirical Overlap (OSDR OSD-782 vs. NNMF)', weight='bold', fontsize=8.8, pad=10)
+    ax_de.set_title('Empirical Multi-Omics Overlap: Peak Window Across 0–120 h', weight='bold', fontsize=8.8, pad=10)
     ax_de.text(-0.04, 1.03, 'c', transform=ax_de.transAxes, fontsize=11, weight='bold', va='bottom', ha='right')
     ax_de.legend(loc='lower left', frameon=True, facecolor='white', framealpha=0.9, fontsize=7.2)
     ax_de.set_xlim(-3.4, 4.6)
@@ -203,7 +203,7 @@ def main():
                                    edgecolor="#c2185b", facecolor="#ffffff", lw=1.0)
     ax_ck.add_patch(h_box)
     ax_ck.text(74, 80, "Human Astronaut Health", fontsize=7.4, weight='bold', color='#880e4f', ha='center')
-    ax_ck.text(74, 62, "• Mitochondrial dysregulation #1 hub\n  (NASA Twins Study; Afshinnekoo 2020)\n• Complex I & III ROS runaway\n• Endothelial oxidative damage\n• Musculoskeletal & immune decay",
+    ax_ck.text(74, 62, "• Mitochondrial dysregulation #1 hub\n  (NASA Twins Study; Da Silveira 2020)\n• Complex I & III ROS runaway\n• Endothelial oxidative damage\n• Musculoskeletal & immune decay",
                 fontsize=6.7, color='#212121', ha='center')
 
     # Common Bridge Banner (Bottom)

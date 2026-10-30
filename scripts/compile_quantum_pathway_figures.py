@@ -184,8 +184,8 @@ def main():
     ax_tier.text(50, 36.5, "PHYSICAL TIMESCALE CRITERION FOR MAGNETIC RECEPTION", fontsize=7.6, weight='bold', color="#4527a0", ha='center', va='center')
     
     timescale_bullets = [
-        "• Zeeman Precession (50 µT GMF): vL ≈ 1.4 MHz (τL ≈ 714 ns) — Attenuated to <8 kHz in Lunar HMF",
-        "• Radical-Pair Spin Coherence: τcoh ~ 1 µs [MATCHES GMF / Attenuated in HMF]",
+        "• Zeeman Precession (50 µT GMF): vL ≈ 1.4 MHz (τL ≈ 714 ns) — Decoupled to vL ≈ 28 Hz (τL ≈ 35.7 ms) in Lunar NNMF (1 nT)",
+        "• Radical-Pair Spin Coherence: τcoh ~ 1 µs [MATCHES GMF / Precession decoupled by 10^4× in NNMF]",
         "• PSII Primary Charge Separation: ~200 ps [10^6× TOO FAST FOR DIRECT MF EFFECT]",
         "• Complex III Qo Semiquinone-Rieske: Exchange coupling J ~ GHz >> GMF [Refutes runaway ROS leak]"
     ]
