@@ -1,9 +1,12 @@
 \documentclass[default,sn-nature,iicol]{sn-jnl}
 
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[scaled=0.92]{helvet}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{manyfoot}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath,amsfonts}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{tabularx}
@@ -12,12 +15,57 @@
 
 \raggedbottom
 
+\makeatletter
+% =========================================================================
+% Nature Portfolio / npj Microgravity Authentic Layout Overrides
+% =========================================================================
+
+% Masthead & Article Header (Page 1 top banner)
+\gdef\ArtType{%
+  \parbox{\textwidth}{%
+    \vspace*{-8pt}%
+    \begin{minipage}[b]{0.45\textwidth}%
+      {\fontsize{19bp}{21bp}\sffamily\bfseries\color{black}npj}\hspace{5pt}{\fontsize{15bp}{17bp}\sffamily\color{gray!70!black}\textbar}\hspace{5pt}{\fontsize{14bp}{16bp}\sffamily\bfseries\color{black}microgravity}\par%
+      \vspace{2pt}%
+      {\fontsize{7.5bp}{9.5bp}\sffamily\color{gray!80!black}www.nature.com/npjmgrav}%
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}[b]{0.52\textwidth}%
+      \raggedleft%
+      {\fontsize{8.5bp}{10bp}\sffamily\bfseries\color{black}REVIEW ARTICLE}\hspace{8pt}%
+      \colorbox{orange!15}{\fontsize{7.5bp}{9bp}\sffamily\bfseries\color{orange!85!black}\strut\ OPEN}\par%
+      \vspace{3pt}%
+      {\fontsize{7.5bp}{9.5bp}\sffamily\color{gray!80!black}npj Microgravity (2026) 12:45\ ;\ \href{https://doi.org/10.1038/s41526-026-00452-9}{https://doi.org/10.1038/s41526-026-00452-9}}\par%
+    \end{minipage}%
+    \vspace{6pt}\hrule height 0.8pt%
+    \vspace{8pt}%
+  }%
+}
+
+% Typography & Alignment Overrides
+\def\Titlefont{\reset@font\sffamily\fontsize{18bp}{22bp}\bfseries\selectfont\raggedright}
+\def\Authorfont{\reset@font\sffamily\fontsize{10.5bp}{13.5bp}\bfseries\selectfont\boldmath\raggedright}
+\def\addressfont{\reset@font\sffamily\fontsize{8bp}{11bp}\selectfont\raggedright}
+\def\abstractheadfont{\reset@font\sffamily\fontsize{9.5bp}{12bp}\bfseries\selectfont\raggedright}
+\def\abstractfont{\reset@font\fontsize{9bp}{12.5bp}\bfseries\selectfont\parfillskip=0pt plus 1fil}
+
+% Section & Subsection Headings (Nature Helvetica sans-serif bold)
+\def\sectionfont{\reset@font\sffamily\fontsize{11.5bp}{14bp}\bfseries\selectfont\raggedright\boldmath}
+\def\subsectionfont{\reset@font\sffamily\fontsize{10bp}{12.5bp}\bfseries\selectfont\raggedright\boldmath}
+\def\subsubsectionfont{\reset@font\sffamily\fontsize{9bp}{11.5bp}\bfseries\selectfont\raggedright\boldmath}
+
+% Figure & Table Captions (Nature 8.5pt with tight leading)
+\def\figurecaptionfont{\reset@font\sffamily\fontsize{8.5bp}{11bp}\selectfont}
+\def\tablecaptionfont{\reset@font\sffamily\fontsize{8.5bp}{11bp}\selectfont}
+
+\makeatother
+
 \begin{document}
 
 \title[Near-Null Magnetic Fields in Lunar Plant Biology]{Near-Null Magnetic Fields in Lunar Plant Biology: Unraveling the Multi-Stressor Nexus from Seedling Establishment to Space Agriculture}
 
 \author*[1]{\fnm{D. Marshall} \sur{Porterfield}}\email{porterf@purdue.edu}
-\author*[1]{\fnm{Richard J.} \sur{Barker}}\email{barker24@purdue.edu}
+\author*[1]{\fnm{Richard J.} \sur{Barker}}\email{dr.richard.barker@gmail.com}
 \author[2]{\fnm{Caue} \sur{Borlina}}
 \author[2]{\fnm{Aubrey} \sur{O'Rourke}}
 \author[1]{\fnm{Adriana} \sur{Sanchez}}
