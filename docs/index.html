@@ -16,6 +16,7 @@
 </script>
 <link rel="stylesheet" href="cose/theme.css">
 <link rel="stylesheet" href="cose/cose-theme.css">
+<link rel="stylesheet" href="cose/supplementary-tables.css">
 <style>
   .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
   .badge { display: inline-flex; align-items: center; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; border-radius: 4px; background: rgba(0,0,0,0.06); color: inherit; text-decoration: none; border: 1px solid rgba(0,0,0,0.12); }
@@ -67,8 +68,8 @@
     <div class="btns">
       <a class="btn primary" href="#npj-viewer" style="background:#0284c7; color:#fff; border-color:#0284c7;">View npj Microgravity PDF</a>
       <a class="btn primary" href="assets/Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf" download="Near_Null_Magnetic_Fields_Lunar_Plant_Biology_npj_Microgravity.pdf">Download npj PDF (.pdf, 3.9 MB)</a>
-      <a class="btn" href="assets/Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx" download="Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx">Manuscript (.docx)</a>
-      <a class="btn" href="assets/Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx" download="Near_Null_Magnetic_Fields_Lunar_Plant_Biology_Presentation.pptx">Presentation (.pptx)</a>
+      <a class="btn" href="#tables">Data Tables (1–4)</a>
+      <a class="btn" href="#supplementary-tables">Supplementary Tables (S1–S2)</a>
       <a class="btn" href="#figures">Figures Gallery</a>
       <a class="btn" href="assets/references.bib" download="references.bib">BibTeX (.bib)</a>
       <a class="btn" href="https://github.com/dr-richard-barker/NMF_review" target="_blank">GitHub Repository</a>
@@ -444,6 +445,84 @@
       </tbody>
     </table>
     
+    <!-- Supplementary Table Explorer -->
+    <div id="supplementary-tables" class="supp-container">
+      <div class="supp-header">
+        <div class="supp-header-top">
+          <div class="supp-title-area">
+            <h3>Supplementary Table Explorer</h3>
+            <p>Interactive synthesis of the audited 80-paper literature corpus (Table S1) and public multi-omics repositories (Table S2).</p>
+          </div>
+          <div class="supp-tabs" role="tablist">
+            <button id="tab-btn-s1" class="supp-tab-btn active" role="tab" aria-selected="true">
+              Table S1: 80-Paper Literature Corpus (1965–2026)
+            </button>
+            <button id="tab-btn-s2" class="supp-tab-btn" role="tab" aria-selected="false">
+              Table S2: Public Datasets (6 Repositories)
+            </button>
+          </div>
+        </div>
+
+        <!-- S1 Controls: Real-Time Live Search, Thematic Category Filter, Rows per Page -->
+        <div id="supp-s1-controls" class="supp-controls">
+          <div class="supp-search-box">
+            <span class="supp-search-icon">🔍</span>
+            <input type="text" id="supp-search-input" class="supp-search-input" placeholder="Search by author, title, journal, topic, or DOI..." aria-label="Search Table S1">
+            <button id="supp-search-clear" class="supp-search-clear" title="Clear search">✕</button>
+          </div>
+          <div class="supp-filters">
+            <select id="supp-category-select" class="supp-select" aria-label="Filter by Thematic Category">
+              <option value="All">All Categories (80)</option>
+              <option value="Hypomagnetic Biology &amp; Quantum Biophysics">Hypomagnetic Biology &amp; Quantum Biophysics (37)</option>
+              <option value="Plant Growth &amp; Photomorphogenesis">Plant Growth &amp; Photomorphogenesis (23)</option>
+              <option value="Spaceflight Plant Physiology &amp; BLSS">Spaceflight Plant Physiology &amp; BLSS (10)</option>
+              <option value="Mitochondrial Bioenergetics &amp; Cellular Stress">Mitochondrial Bioenergetics &amp; Cellular Stress (5)</option>
+              <option value="Planetary Magnetism &amp; Exploration Environment">Planetary Magnetism &amp; Exploration Environment (3)</option>
+              <option value="Space Radiation &amp; Multi-Stressor Synergy">Space Radiation &amp; Multi-Stressor Synergy (2)</option>
+            </select>
+            <select id="supp-page-size" class="supp-select" aria-label="Rows per page">
+              <option value="10">10 per page</option>
+              <option value="25">25 per page</option>
+              <option value="50">50 per page</option>
+              <option value="All">All 80</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- S1 Table Content -->
+      <div id="supp-s1-container">
+        <div class="supp-summary-bar">
+          <span id="supp-s1-summary">Showing <strong>1–10 of 80</strong> audited publications</span>
+          <span style="font-size:0.8rem; color:var(--muted, #64748b);">Click column header to sort</span>
+        </div>
+        <div class="supp-table-scroll">
+          <table class="supp-table">
+            <thead>
+              <tr>
+                <th class="sortable col-num sort-asc" data-sort="Citation_Number">#</th>
+                <th class="sortable col-authors" data-sort="Authors">Authors</th>
+                <th class="sortable col-details" data-sort="Title">Article Title &amp; Source</th>
+                <th class="sortable col-cat" data-sort="Thematic_Category">Thematic Category</th>
+                <th class="col-actions">Source / Cite</th>
+              </tr>
+            </thead>
+            <tbody id="supp-s1-tbody">
+              <!-- Populated dynamically via supplementary-tables.js -->
+            </tbody>
+          </table>
+        </div>
+        <div id="supp-pagination" class="supp-pagination"></div>
+      </div>
+
+      <!-- S2 Cards Content -->
+      <div id="supp-s2-container" style="display:none;">
+        <div id="supp-s2-content">
+          <!-- Populated dynamically via supplementary-tables.js -->
+        </div>
+      </div>
+    </div>
+    
     <div class="fig-actions" style="margin-top:20px;">
       <a href="assets/Table1_site_magnetic_values.csv" download="Table1_site_magnetic_values.csv">Download Table 1 (Magnetic Sites) CSV</a>
       <a href="assets/Table2_database_search_strategies.csv" download="Table2_database_search_strategies.csv">Download Table 2 (Search Strategies) CSV</a>
@@ -493,6 +572,8 @@
 
 <!-- CoSE Theme Scripts -->
 <script defer src="cose/theme.js"></script>
+<!-- Supplementary Table Explorer Script -->
+<script defer src="cose/supplementary-tables.js"></script>
 <!-- Visitor Analytics -->
 <script defer src="https://visitor-analytics.astrobotany.workers.dev/a.js"></script>
 </body>

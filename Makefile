@@ -49,6 +49,7 @@ figures:
 site:
 	@echo "==> Syncing web figures, manuscript docx, presentation, tables, and npj PDF to docs/assets/..."
 	@mkdir -p docs/assets
+	@$(PY) scripts/generate_supplementary_web_data.py
 	@cp figures/*.png docs/assets/
 	@cp figures/*.pdf docs/assets/
 	@cp Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx docs/assets/
