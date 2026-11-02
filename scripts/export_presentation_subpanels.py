@@ -46,122 +46,31 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # Figure 1 Subpanels
 # ---------------------------------------------------------------------------
 def export_fig1_subpanels():
-    print("Exporting Figure 1 subpanels...")
-    df_sites = pd.read_csv(DATA_DIR / 'landing_sites_magnetic.csv')
-    df_grid = pd.read_csv(DATA_DIR / 'lunar_mag_field_grid.csv')
+    print("Exporting Figure 1 subpanels from master high-res planetary montage...")
+    from PIL import Image
 
-    # Fig 1a: Global Crustal Map
-    fig, ax = plt.subplots(figsize=(6.2, 4.4), dpi=300)
-    lons = np.sort(df_grid['lon'].unique())
-    lats = np.sort(df_grid['lat'].unique())
-    lon_mesh, lat_mesh = np.meshgrid(lons, lats)
-    z_bmag = df_grid.pivot(index='lat', columns='lon', values='Bmag').values
-    vmax = np.nanpercentile(z_bmag, 98)
-    img = ax.pcolormesh(lon_mesh, lat_mesh, z_bmag, cmap='viridis', vmin=0, vmax=vmax, alpha=0.90, shading='auto')
-    
-    markers = {'Artemis': '*', 'Apollo': 'o', "Chang'e": 's', 'Chandrayaan': '^'}
-    colors = {'Artemis': '#ff1744', 'Apollo': '#ffffff', "Chang'e": '#ffea00', 'Chandrayaan': '#00e5ff'}
-    for mission in ['Apollo', "Chang'e", 'Chandrayaan', 'Artemis']:
-        sub = df_sites[df_sites['mission'] == mission]
-        if not sub.empty:
-            ax.scatter(sub['lon'], sub['lat'], marker=markers.get(mission, 'o'),
-                       color=colors.get(mission, 'white'), edgecolor='black', linewidth=0.7,
-                       s=80 if mission == 'Artemis' else 45, label=f"{mission} ({len(sub)})", zorder=5)
-    ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.28), ncol=4, frameon=True, facecolor='white', framealpha=0.9)
-    ax.set_xlabel('Longitude (°E)')
-    ax.set_ylabel('Latitude (°N)')
-    ax.set_xlim(0, 360)
-    ax.set_ylim(-90, 65)
-    cbar = plt.colorbar(img, ax=ax, orientation='vertical', fraction=0.035, pad=0.02)
-    cbar.set_label('$|\\mathbf{B}|$ at 30 km (nT)')
-    rect = patches.Rectangle((0, -90), 360, 10, linewidth=1.2, edgecolor='#ff1744', facecolor='none', linestyle='--', zorder=6)
-    ax.add_patch(rect)
-    ax.text(180, -78, 'Artemis South Pole Region (B < 1 nT)', color='#ff1744', weight='bold', ha='center', fontsize=7.5,
-            bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.85, edgecolor='#ff1744'))
-    plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig1a_global_map.png', dpi=300, bbox_inches='tight')
-    plt.close(fig)
+    fig1_path = REPO_ROOT / 'figures' / 'Fig1_lunar_magnetic_environment_montage.png'
+    if fig1_path.exists():
+        im = Image.open(fig1_path)
+        w, h = im.size
+        # Fig 1a: Near side (Panel a)
+        p_a = im.crop((0, 0, 1300, 1300))
+        p_a.save(OUT_DIR / 'Fig1a_global_map.png', dpi=(300, 300))
+        
+        # Fig 1b: Far side (Panel b)
+        p_b = im.crop((1300, 0, w, 1300))
+        p_b.save(OUT_DIR / 'Fig1b_far_side.png', dpi=(300, 300))
 
-    # Fig 1b: South Pole Detail
-    fig, ax = plt.subplots(figsize=(5.4, 4.4), dpi=300)
-    artemis_sites = df_sites[df_sites['mission'] == 'Artemis'].sort_values('Bmag').reset_index(drop=True)
-    ax.set_facecolor('#f5f5f7')
-    scatter = ax.scatter(artemis_sites['lon'], artemis_sites['lat'], c=artemis_sites['Bmag'], cmap='plasma', s=120,
-                         edgecolor='black', linewidth=0.8, vmin=0.3, vmax=0.9, zorder=4)
-    
-    # Clean compact display names for South Pole sites to eliminate label collisions
-    name_map = {
-        'Malapert Massif': 'Malapert',
-        'Leibnitz Beta Plateau': 'Leibnitz Beta',
-        'Nobile Rim 1': 'Nobile 1',
-        'Nobile Rim 2': 'Nobile 2',
-        'Faustini Rim A': 'Faustini A',
-        'Amundsen Rim': 'Amundsen',
-        'Connecting Ridge': 'Conn. Ridge',
-        'Connecting Ridge Extension': 'Conn. Ridge Ext.',
-        'Peak Near Shackleton': 'Shackleton',
-        'de Gerlache-Kocher Massif': 'de Gerl.-Kocher',
-        'de Gerlache Rim 1': 'de Gerlache 1',
-        'de Gerlache Rim 2': 'de Gerlache 2',
-        'Haworth': 'Haworth',
-    }
+        # Fig 1c: South Pole zoom (Panel c)
+        p_c = im.crop((0, 1300, 1300, 2500))
+        p_c.save(OUT_DIR / 'Fig1b_south_pole_artemis.png', dpi=(300, 300))
 
-    # Verified zero-collision offsets and directional arrows for each Artemis South Pole site: (dx, dy, ha, va)
-    site_offsets = {
-        'Malapert Massif': (12, 14, 'left', 'bottom'),
-        'Leibnitz Beta Plateau': (0, 32, 'center', 'bottom'),
-        'Nobile Rim 1': (0, -32, 'center', 'top'),
-        'Nobile Rim 2': (22, 0, 'left', 'center'),
-        'Faustini Rim A': (12, -32, 'left', 'top'),
-        'Amundsen Rim': (18, 28, 'left', 'bottom'),
-        'Connecting Ridge': (15, 32, 'left', 'bottom'),
-        'Connecting Ridge Extension': (0, -30, 'center', 'top'),
-        'Peak Near Shackleton': (15, 110, 'left', 'bottom'),
-        'de Gerlache-Kocher Massif': (14, 26, 'left', 'bottom'),
-        'de Gerlache Rim 1': (14, -26, 'left', 'top'),
-        'de Gerlache Rim 2': (18, 0, 'left', 'center'),
-        'Haworth': (-14, 16, 'right', 'bottom'),
-    }
-
-    for _, row in artemis_sites.iterrows():
-        s_name = name_map.get(row['name'], row['name'])
-        ox, oy, ha, va = site_offsets.get(row['name'], (20, 12, 'left', 'bottom'))
-        ax.annotate(f"{s_name}\n({row['Bmag']:.2f} nT)", (row['lon'], row['lat']),
-                    fontsize=6.5, ha=ha, va=va, xytext=(ox, oy), textcoords='offset points',
-                    arrowprops=dict(arrowstyle="->", color="#37474f", lw=0.75, shrinkA=2, shrinkB=4),
-                    bbox=dict(boxstyle='round,pad=0.25', facecolor='white', alpha=0.92, edgecolor='#757575', lw=0.45))
-    ax.set_xlim(-25, 385)
-    ax.set_ylim(-91.2, -82.4)
-    ax.set_xlabel('Longitude (°E)')
-    ax.set_ylabel('Latitude (°N)')
-    ax.grid(True, linestyle=':', alpha=0.6)
-    cbar_pol = plt.colorbar(scatter, ax=ax, orientation='vertical', fraction=0.04, pad=0.02)
-    cbar_pol.set_label('$|\\mathbf{B}_{\\mathrm{crust}}|$ (nT)')
-    plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig1b_south_pole_artemis.png', dpi=300, bbox_inches='tight')
-    plt.close(fig)
-
-    # Fig 1c: Landing Sites Bar Chart
-    fig, ax = plt.subplots(figsize=(6.2, 4.2), dpi=300)
-    df_sorted = df_sites.sort_values(['mission', 'Bmag'], ascending=[True, False]).reset_index(drop=True)
-    color_map = {'high-field': '#d32f2f', 'moderate': '#f57c00', 'low/null-field': '#1976d2'}
-    bar_colors = [color_map.get(c, '#757575') for c in df_sorted['classification']]
-    x_pos = np.arange(len(df_sorted))
-    ax.bar(x_pos, df_sorted['Bmag'], color=bar_colors, edgecolor='black', linewidth=0.5, alpha=0.9)
-    ax.axhline(1.0, color='#f57c00', linestyle='--', linewidth=1.0, label='Near-Null Boundary (1 nT)')
-    ax.axhline(5.0, color='#d32f2f', linestyle=':', linewidth=1.0, label='Moderate Swirl (5 nT)')
-    ax.set_xticks(x_pos)
-    ax.set_xticklabels(df_sorted['name'], rotation=55, ha='right', fontsize=6.8)
-    ax.set_ylabel('Crustal Field $|\\mathbf{B}|$ at 30 km (nT)')
-    ax.legend(loc='upper right', frameon=True, facecolor='white', framealpha=0.9)
-    ax.set_ylim(0, 5.5)
-    ax.grid(axis='y', linestyle=':', alpha=0.6)
-    ax.text(0.03, 0.75, 'Earth GMF: 25,000–65,000 nT\nArtemis Sites: 0.40–0.82 nT (>30,000× lower)',
-            transform=ax.transAxes, fontsize=7.5, verticalalignment='top',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='#e3f2fd', edgecolor='#1976d2', alpha=0.95))
-    plt.tight_layout()
-    fig.savefig(OUT_DIR / 'Fig1c_landing_sites_bar.png', dpi=300, bbox_inches='tight')
-    plt.close(fig)
+        # Fig 1d: Landing catalog bar (Sites 1-28)
+        p_d = im.crop((0, 2480, w, h))
+        p_d.save(OUT_DIR / 'Fig1c_landing_sites_bar.png', dpi=(300, 300))
+        print("  • Successfully cropped Fig1a, Fig1b, South Pole, and landing catalog subpanels.")
+    else:
+        print(f"Warning: {fig1_path} not found for cropping.")
 
     # Fig 1d: Field Superposition Schematic
     fig, ax = plt.subplots(figsize=(5.6, 4.4), dpi=300)

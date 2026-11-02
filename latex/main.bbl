@@ -117,14 +117,6 @@
   \textbf{\bibinfo{volume}{584}}, \bibinfo{pages}{117446}
   (\bibinfo{year}{2022}).
 
-\bibitem{ref16}
-\bibinfo{author}{Mitchell, D.~L.}, \bibinfo{author}{Halekas, J.~S.} \&
-  \bibinfo{author}{Lin, R.~P.}
-\newblock \bibinfo{title}{{Global mapping of lunar crustal magnetic fields by
-  Lunar Prospector}}.
-\newblock \emph{\bibinfo{journal}{Icarus}} \textbf{\bibinfo{volume}{194}},
-  \bibinfo{pages}{401--409} (\bibinfo{year}{2008}).
-
 \bibitem{ref17}
 \bibinfo{author}{Tsunakawa, H.} \emph{et~al.}
 \newblock \bibinfo{title}{{Surface vector mapping of magnetic anomalies over
@@ -132,6 +124,20 @@
 \newblock \emph{\bibinfo{journal}{J. Geophys. Res. Planets}}
   \textbf{\bibinfo{volume}{120}}, \bibinfo{pages}{1160--1185}
   (\bibinfo{year}{2015}).
+
+\bibitem{ref84}
+\bibinfo{author}{Wieczorek, M.~A.}
+\newblock \bibinfo{title}{{Spherical harmonic models of the shape of the
+  Moon}}.
+\newblock \emph{\bibinfo{journal}{Zenodo}}  (\bibinfo{year}{2024}).
+
+\bibitem{ref16}
+\bibinfo{author}{Mitchell, D.~L.}, \bibinfo{author}{Halekas, J.~S.} \&
+  \bibinfo{author}{Lin, R.~P.}
+\newblock \bibinfo{title}{{Global mapping of lunar crustal magnetic fields by
+  Lunar Prospector}}.
+\newblock \emph{\bibinfo{journal}{Icarus}} \textbf{\bibinfo{volume}{194}},
+  \bibinfo{pages}{401--409} (\bibinfo{year}{2008}).
 
 \bibitem{ref18}
 \bibinfo{author}{Hood, L.~L.} \emph{et~al.}

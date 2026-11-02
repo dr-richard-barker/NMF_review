@@ -73,6 +73,10 @@ def get_description(rel_path: str) -> str:
             return "High-resolution (300 DPI) publication raster figure"
         elif p.endswith(".pdf"):
             return "Publication-quality vector PDF figure"
+    elif p.startswith("notebooks/"):
+        return "Reproducible Jupyter notebook or computational reproduction environment"
+    elif p.startswith("latex/"):
+        return "npj Microgravity LaTeX typesetting source or asset"
     elif p.startswith("data/"):
         return "Processed empirical CSV dataset supporting figures and analyses"
     elif p.startswith("tables/"):

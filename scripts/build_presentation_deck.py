@@ -163,7 +163,7 @@ def build_slide_01_title(prs):
     tf_a = auth_box.text_frame
     tf_a.word_wrap = True
     p_a1 = tf_a.paragraphs[0]
-    p_a1.text = "D. Marshall Porterfield*, Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Adriana Sanchez, Manisha Dagar,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain"
+    p_a1.text = "D. Marshall Porterfield*, Richard J. Barker*, Caue Borlina, Aubrey O’Rourke, Katherine E. Bristol, Adriana Sanchez, Manisha Dagar,\nRay Wheeler, Gioia Massa, Barbara Demmig-Adams, Marta Peirats-Llobet, Pamela Flores, Anirudha Dixit, Christine Chamberlain"
     p_a1.font.size = Pt(10.5)
     p_a1.font.bold = True
     p_a1.font.color.rgb = TEXT_LIGHT
@@ -277,34 +277,34 @@ def build_slide_03_figure1_montage(prs):
     add_card(slide, x_left, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
     slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1a_global_map.png'), x_left + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_a = slide.shapes.add_textbox(x_left + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
-    tb_a.text_frame.paragraphs[0].text = "(a) Global Lunar Crustal Magnetic Field Distribution (|B| at 30 km)"
+    tb_a.text_frame.paragraphs[0].text = "(a) Near Side Lunar Crustal Field & Soft Landings (|B| at 30 km)"
     tb_a.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_a.text_frame.paragraphs[0].font.bold = True
     tb_a.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
     # Subpanel b
     add_card(slide, x_right, y_top, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1b_south_pole_artemis.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1b_far_side.png'), x_right + Inches(0.1), y_top + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_b = slide.shapes.add_textbox(x_right + Inches(0.15), y_top + Inches(0.05), w_p, Inches(0.3))
-    tb_b.text_frame.paragraphs[0].text = "(b) Artemis South Polar Exploration Footprint (<0.8 nT Void)"
+    tb_b.text_frame.paragraphs[0].text = "(b) Far Side Lunar Crustal Field & Soft Landings"
     tb_b.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_b.text_frame.paragraphs[0].font.bold = True
     tb_b.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
     # Subpanel c
     add_card(slide, x_left, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1c_landing_sites_bar.png'), x_left + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1b_south_pole_artemis.png'), x_left + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_c = slide.shapes.add_textbox(x_left + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_c.text_frame.paragraphs[0].text = "(c) Field Magnitude at Historical & Candidate Sites vs. Earth GMF"
+    tb_c.text_frame.paragraphs[0].text = "(c) South Polar Exploration Footprint & Artemis Candidate Regions (<0.82 nT)"
     tb_c.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_c.text_frame.paragraphs[0].font.bold = True
     tb_c.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
 
     # Subpanel d
     add_card(slide, x_right, y_bot, w_p, h_p, CARD_BG_LIGHT, CARD_BORDER)
-    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1d_superposition_box.png'), x_right + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
+    slide.shapes.add_picture(str(SUBPANELS_DIR / 'Fig1c_landing_sites_bar.png'), x_right + Inches(0.1), y_bot + Inches(0.35), w_p - Inches(0.2), h_p - Inches(0.42))
     tb_d = slide.shapes.add_textbox(x_right + Inches(0.15), y_bot + Inches(0.05), w_p, Inches(0.3))
-    tb_d.text_frame.paragraphs[0].text = "(d) Vector Superposition & Lander DC Interference Hazard"
+    tb_d.text_frame.paragraphs[0].text = "(d) Lunar Soft Landings Catalog (Sites 1–28) & Artemis Locations"
     tb_d.text_frame.paragraphs[0].font.size = Pt(9.0)
     tb_d.text_frame.paragraphs[0].font.bold = True
     tb_d.text_frame.paragraphs[0].font.color.rgb = BLUE_PRIMARY
@@ -313,11 +313,10 @@ def build_slide_03_figure1_montage(prs):
 
     add_notes(slide,
         "TALKING POINTS (SLIDE 3 - FIGURE 1 MONTAGE):\n"
-        "• Here is Figure 1 exactly as it appears in the manuscript, but reconstructed with independent, editable subpanels.\n"
-        "• Panel (a) shows the global crustal magnetic field map from Lunar Prospector and Kaguya data at 30 km altitude. Notice that remanent crustal magnetization is concentrated in isolated swirls, while the South Polar region (dashed red box) is an extreme magnetic void.\n"
-        "• Panel (b) zooms into the candidate Artemis South Pole landing sites. All sites, including Shackleton, Faustini Rim A, Haworth, and Connecting Ridge, fall strictly below 0.82 nT.\n"
-        "• Panel (c) compares these sites across Apollo, Chang'e, and Artemis missions against Earth's field. Earth's dipolar field is 25,000–65,000 nT—over 30,000 times higher!\n"
-        "• Panel (d) highlights a crucial operational trap: the net vector superposition. Unshielded lander avionics and DC power buses can emit 50–500 µT, completely swamping the natural lunar hypomagnetic vacuum unless sample-level 3-axis fluxgate magnetometers are deployed."
+        "• Here is Figure 1 reconstructed with high-resolution planetary subpanels.\n"
+        "• Panels (a) and (b) display orthographic projections of the near and far sides showing total crustal field |B| at 30 km altitude from Tsunakawa et al. (2015) combined with LOLA topography (Wieczorek 2024), mapping soft landing sites 1 to 28.\n"
+        "• Panel (c) provides a stereographic projection of the lunar south pole (south of 60°S) highlighting candidate Artemis exploration regions against extreme near-null magnetic fields (<0.82 nT).\n"
+        "• Panel (d) indexes all 28 historical and contemporary lunar soft landings along with Artemis exploration candidate coordinates."
     )
 
 def build_slide_04_figure1_deepdive(prs):
