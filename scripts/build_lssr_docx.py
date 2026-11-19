@@ -11,7 +11,7 @@ import os
 import subprocess
 from pathlib import Path
 
-BASE_DIR = Path('/Users/drb_laptop/Documents/NMF_review')
+BASE_DIR = Path(__file__).resolve().parent.parent
 MD_FILE = BASE_DIR / 'manuscript' / 'Hypomagnetic_Lunar_Plant_Biology_LSSR_Review.md'
 OUT_DOCX = BASE_DIR / 'Near_Null_Magnetic_Fields_Lunar_Plant_Biology_LSSR_Review.docx'
 
@@ -19,9 +19,9 @@ def main():
     print(f"Reading manuscript from {MD_FILE}...")
     content = MD_FILE.read_text(encoding='utf-8')
     
-    # Replace file:// URI with absolute filesystem paths so pandoc embeds the images
+    # Replace file:// URI with local filesystem paths so pandoc embeds the images
     content_clean = content.replace('file:///Users/drb_laptop/Documents/NMF_review/figures/', 
-                                    '/Users/drb_laptop/Documents/NMF_review/figures/')
+                                    str(BASE_DIR / 'figures') + '/')
     
     tmp_md = BASE_DIR / 'manuscript' / '_temp_for_docx.md'
     tmp_md.write_text(content_clean, encoding='utf-8')

@@ -188,6 +188,7 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 - **Richard J. Barker** <sup>1,*</sup> (`dr.richard.barker@gmail.com`, [ORCID: 0000-0001-5681-9857](https://orcid.org/0000-0001-5681-9857))
 - **Caue Borlina** <sup>2</sup>
 - **Aubrey O’Rourke** <sup>2</sup>
+- **Katherine E. Bristol** <sup>2</sup>
 - **Adriana Sanchez** <sup>1</sup>
 - **Manisha Dagar** <sup>1</sup>
 - **Ray Wheeler** <sup>3</sup>
@@ -215,7 +216,7 @@ This repository is formatted for 1-click archiving on **Zenodo**:
 ```bibtex
 @article{Porterfield_Barker_2026_NNMF,
   author       = {Porterfield, D. Marshall and Barker, Richard J. and Borlina, Caue and O'Rourke, Aubrey and
-                  Sanchez, Adriana and Dagar, Manisha and
+                  Bristol, Katherine E. and Sanchez, Adriana and Dagar, Manisha and
                   Wheeler, Ray and Massa, Gioia and Demmig-Adams, Barbara and
                   Peirats-Llobet, Marta and Flores, Pamela and Dixit, Anirudha and
                   Chamberlain, Christine},

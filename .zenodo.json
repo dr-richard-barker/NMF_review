@@ -1,10 +1,10 @@
 {
   "title": "Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture",
-  "description": "<p>Review manuscript, data synthesis, and reproducible figure generation pipeline for <em>Life Sciences in Space Research</em> (LSSR). This work evaluates the biological consequences of the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis candidate landing sites) during the critical first 5 days of plant growth (0–120 hours). It synthesizes empirical literature across five core concepts: germination capacity, emergence velocity kinetics, cryptochrome-mediated pigment biosynthesis, convergence on the mitochondrial CO2-O2-ROS nexus with spaceflight radiation and exploration atmospheres, and human-plant conserved Alternative Oxidase (AOX) / mitochondrial stress parallels. Includes an operational flight risk-retirement framework for the NASA Artemis missions Lunar Effects on Agricultural Flora (LEAF) payload.</p>",
-  "upload_type": "publication",
-  "publication_type": "article",
+  "version": "1.2.0",
+  "description": "<p>Open-science repository, review manuscript, data synthesis, and reproducible figure generation pipeline (prepared for <em>npj Microgravity</em> / <em>Life Sciences in Space Research</em>). This work evaluates the biological consequences of the Moon's ambient near-null magnetic field (&lt;0.8 nT at Artemis candidate landing sites) during the critical first 5 days of plant growth (0–120 hours). It synthesizes empirical literature across five core concepts: germination capacity, emergence velocity kinetics, cryptochrome-mediated pigment biosynthesis, convergence on the mitochondrial CO2-O2-ROS nexus with spaceflight radiation and exploration atmospheres, and human-plant conserved Alternative Oxidase (AOX) / mitochondrial stress parallels. Includes an operational flight risk-retirement framework for the NASA Artemis missions Lunar Effects on Agricultural Flora (LEAF) payload.</p>",
+  "upload_type": "software",
   "access_right": "open",
-  "license": "CC-BY-4.0",
+  "license": "cc-by-4.0",
   "keywords": [
     "lunar plant biology",
     "near-null magnetic field",
@@ -35,6 +35,10 @@
     },
     {
       "name": "O'Rourke, Aubrey",
+      "affiliation": "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
+    },
+    {
+      "name": "Bristol, Katherine E.",
       "affiliation": "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
     },
     {
@@ -97,6 +101,11 @@
     },
     {
       "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-27",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/dr-richard-barker/quantum-biology-atlas",
       "relation": "references",
       "scheme": "url"
     }

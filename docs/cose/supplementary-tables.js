@@ -610,9 +610,9 @@
     "Title": "Quantum Biology Atlas: A cross-species ontology, pathway compiler, and multi-omics projection toolkit for quantum biological mechanisms",
     "Journal_Or_Source": "Zenodo / GitHub (2026)",
     "Thematic_Category": "Mitochondrial Bioenergetics & Cellular Stress",
-    "DOI_Or_URL": "https://github.com/dr-richard-barker/quantum-biology-atlas",
+    "DOI_Or_URL": "https://doi.org/10.5281/zenodo.24379002",
     "Year": "2026",
-    "Full_Citation": "Barker, R. J. & Porterfield, D. M. Quantum Biology Atlas: A cross-species ontology, pathway compiler, and multi-omics projection toolkit for quantum biological mechanisms. Zenodo / GitHub (2026). https://github.com/dr-richard-barker/quantum-biology-atlas"
+    "Full_Citation": "Barker, R. J. & Porterfield, D. M. Quantum Biology Atlas: A cross-species ontology, pathway compiler, and multi-omics projection toolkit for quantum biological mechanisms. Zenodo / GitHub (2026). https://doi.org/10.5281/zenodo.24379002"
   },
   {
     "Reference_ID": "REF-56",
@@ -939,7 +939,7 @@
     "Platform_Or_Mission": "Computational Systems Biology Model",
     "Assay_Types": "Biophysical Spin Kinetics & Kinetic Rate Models",
     "Description": "Standardized pathway architecture for heterotrophic seed germination, flavin-tryptophan radical pairs, HY5 transcriptional activation, and mitochondrial electron transport.",
-    "DOI_Or_URL": "https://github.com/dr-richard-barker/NMF_review/tree/main/data"
+    "DOI_Or_URL": "https://github.com/dr-richard-barker/quantum-biology-atlas"
   },
   {
     "Dataset_ID": "DS-06",

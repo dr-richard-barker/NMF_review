@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this review manuscript, dataset, or visualization pipeline, please cite it as below."
 title: "Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture"
-version: 1.0.0
-date-released: 2026-10-27
+version: 1.2.0
+date-released: 2026-11-19
 license: CC-BY-4.0
 repository-code: "https://github.com/dr-richard-barker/NMF_review"
 url: "https://dr-richard-barker.github.io/NMF_review/"
@@ -30,6 +30,9 @@ authors:
     affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
   - family-names: "O'Rourke"
     given-names: Aubrey
+    affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
+  - family-names: Bristol
+    given-names: "Katherine E."
     affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University, West Lafayette, IN 47907, USA"
   - family-names: Sanchez
     given-names: Adriana
@@ -62,7 +65,7 @@ preferred-citation:
   type: article
   status: preprint
   title: "Near-Null Magnetic Fields in Lunar Plant Biology: The First Five Days of Seedling Growth, Multi-Stressor Bioenergetics, and Implications for Artemis Agriculture"
-  journal: "Life Sciences in Space Research"
+  journal: "npj Microgravity"
   year: 2026
   authors:
     - family-names: Porterfield
@@ -74,6 +77,8 @@ preferred-citation:
       given-names: Caue
     - family-names: "O'Rourke"
       given-names: Aubrey
+    - family-names: Bristol
+      given-names: "Katherine E."
     - family-names: Sanchez
       given-names: Adriana
     - family-names: Dagar
